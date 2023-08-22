@@ -191,12 +191,13 @@
     <!-- Start Advance Tab  -->
     <div class="rbt-advance-tab-area rbt-section-gapTop bg-color-white">
         <div class="container">
-            <div class="row mb--60">
+            <div class="row mb--20">
                 <div class="col-lg-12">
                     <div class="section-title text-center">
                         <h2 class="title">About Us.</h2>
-                        <p class="description mt--30">Far far away, behind the word mountains, far from the
-                            countries Vokalia and Consonantia, there live the blind texts.</p>
+                        <p class="description mt--20">L’ African Business Club est une association créée en 2003 sur l’initiative de Ibrahim Magassa et d’autres étudiants de l’ESCP Europe. Aujourd’hui, 
+                            notre objectif est de promouvoir et renforcer le développement d’initiatives et d’opportunités en Afrique 🌍. Les valeurs que nous véhiculons sont : le leadership, l’unité et le réseau.
+                             L’ABC est une passerelle entre les jeunes désireux d’entreprendre en Afrique, et l’écosystème d’entreprises présentes sur le sol africain. </p>
                     </div>
                 </div>
             </div>
@@ -207,19 +208,17 @@
                             <li class="nav-item" role="presentation">
                                 <a href="#" class="nav-link tab-button active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" role="tab" aria-controls="home" aria-selected="true">
                                     <div class="tab">
-                                        <h4 class="title">Histudy Vision.</h4>
-                                        <p class="description">Use Doob template you can build a corporate
-                                            website a short time.</p>
+                                        <h4 class="title">ABC Vision.</h4>
+                                        <p class="description">Nous avons pour vision :</p>
                                     </div>
                                 </a>
                             </li>
 
                             <li class="nav-item" role="presentation">
                                 <a href="#" class="nav-link tab-button" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" role="tab" aria-controls="profile" aria-selected="false">
-                                    <div class="tab">
-                                        <h4 class="title">Histudy Mission.</h4>
-                                        <p class="description">Use Doob template you can build a corporate
-                                            website a short time.</p>
+                                    <div class="tab" >
+                                        <h4 class="title">ABC Mission.</h4>
+                                        <p class="description">Nous avons pour vision :</p>
                                     </div>
                                 </a>
                             </li>
@@ -227,9 +226,8 @@
                             <li class="nav-item" role="presentation">
                                 <a href="#" class="nav-link tab-button" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" role="tab" aria-controls="contact" aria-selected="false">
                                     <div class="tab">
-                                        <h4 class="title">Histudy Planning.</h4>
-                                        <p class="description">Use Doob template you can build a corporate
-                                            website a short time.</p>
+                                        <h4 class="title">ABC Planning.</h4>
+                                        <p class="description">Notre planning correspond :</p>
                                     </div>
                                 </a>
                             </li>
@@ -317,158 +315,6 @@
     </div>
     <!-- End Button Area  -->
 
-    <!-- Start Category Area  -->
-    <div class="rbt-category-area bg-color-white rbt-section-gapTop">
-        <div class="container">
-            <div class="row g-5">
-                <!-- Start Service Grid  -->
-                <div class="col-lg-2 col-xl-2 col-xxl-2 col-md-3 col-sm-4 col-6">
-                    <div class="service-card service-card-5 variation-2">
-                        <div class="inner">
-                            <div class="icon">
-                                <a href="#"><img src="assets/images/category/image/web-design.jpg" alt="Shape Images"></a>
-                            </div>
-                            <div class="content">
-                                <h6 class="title"><a href="#">Chemistry</a></h6>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Service Grid  -->
-
-                <!-- Start Service Grid  -->
-                <div class="col-lg-2 col-xl-2 col-xxl-2 col-md-3 col-sm-4 col-6">
-                    <div class="service-card service-card-5 variation-2">
-                        <div class="inner">
-                            <div class="icon">
-                                <a href="#"><img src="assets/images/category/image/graphic-design.jpg" alt="Shape Images"></a>
-                            </div>
-                            <div class="content">
-                                <h6 class="title"><a href="#">Graphic Design</a></h6>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Service Grid  -->
-
-                <!-- Start Service Grid  -->
-                <div class="col-lg-2 col-xl-2 col-xxl-2 col-md-3 col-sm-4 col-6">
-                    <div class="service-card service-card-5 variation-2">
-                        <div class="inner">
-                            <div class="icon">
-                                <a href="#"><img src="assets/images/category/image/software.jpg" alt="Shape Images"></a>
-                            </div>
-                            <div class="content">
-                                <h6 class="title"><a href="#">Software</a></h6>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Service Grid  -->
-
-                <!-- Start Service Grid  -->
-                <div class="col-lg-2 col-xl-2 col-xxl-2 col-md-3 col-sm-4 col-6">
-                    <div class="service-card service-card-5 variation-2">
-                        <div class="inner">
-                            <div class="icon">
-                                <a href="#"><img src="assets/images/category/image/mobile.jpg" alt="Shape Images"></a>
-                            </div>
-                            <div class="content">
-                                <h6 class="title"><a href="#">Mobile App</a></h6>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Service Grid  -->
-
-                <!-- Start Service Grid  -->
-                <div class="col-lg-2 col-xl-2 col-xxl-2 col-md-3 col-sm-4 col-6">
-                    <div class="service-card service-card-5 variation-2">
-                        <div class="inner">
-                            <div class="icon">
-                                <a href="#"><img src="assets/images/category/image/finance.jpg" alt="Shape Images"></a>
-                            </div>
-                            <div class="content">
-                                <h6 class="title"><a href="#">Finance</a></h6>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Service Grid  -->
-
-                <!-- Start Service Grid  -->
-                <div class="col-lg-2 col-xl-2 col-xxl-2 col-md-3 col-sm-4 col-6">
-                    <div class="service-card service-card-5 variation-2">
-                        <div class="inner">
-                            <div class="icon">
-                                <a href="#"><img src="assets/images/category/image/arts.jpg" alt="Shape Images"></a>
-                            </div>
-                            <div class="content">
-                                <h6 class="title"><a href="#">Art & Humanities</a></h6>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Service Grid  -->
-            </div>
-        </div>
-    </div>
-    <!-- End Category Area  -->
-
-    <!-- Start Our Banner Area  -->
-    <div class="rbt-banner-area rbt-section-gapTop">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="swiper viral-banner-activation rbt-arrow-between">
-                        <div class="swiper-wrapper">
-                            <!-- Start Single Banner  -->
-                            <div class="swiper-slide">
-                                <div class="thumbnail">
-                                    <a href="#">
-                                        <img class="rbt-radius w-100" src="assets/images/banner/hi_2.png" alt="Banner Images">
-                                    </a>
-                                </div>
-                            </div>
-                            <!-- End Single Banner  -->
-                            <!-- Start Single Banner  -->
-                            <div class="swiper-slide">
-                                <div class="thumbnail">
-                                    <a href="#">
-                                        <img class="rbt-radius w-100" src="assets/images/banner/hi_1.png" alt="Banner Images">
-                                    </a>
-                                </div>
-                            </div>
-                            <!-- End Single Banner  -->
-                            <!-- Start Single Banner  -->
-                            <div class="swiper-slide">
-                                <div class="thumbnail">
-                                    <a href="#">
-                                        <img class="rbt-radius w-100" src="assets/images/banner/hi_3.png" alt="Banner Images">
-                                    </a>
-                                </div>
-                            </div>
-                            <!-- End Single Banner  -->
-                        </div>
-                        <div class="rbt-swiper-arrow rbt-arrow-left">
-                            <div class="custom-overfolow">
-                                <i class="rbt-icon feather-arrow-left"></i>
-                                <i class="rbt-icon-top feather-arrow-left"></i>
-                            </div>
-                        </div>
-                        <div class="rbt-swiper-arrow rbt-arrow-right">
-                            <div class="custom-overfolow">
-                                <i class="rbt-icon feather-arrow-right"></i>
-                                <i class="rbt-icon-top feather-arrow-right"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- End Our Banner Area  -->
-
     <!-- Start Program Area  -->
     <div class="rbt-program-area rbt-section-gapTop bg-color-white" id="program">
         <div class="container">
@@ -544,7 +390,7 @@
             <div class="row g-5 align-items-end mb--30">
                 <div class="col-lg-6 col-md-12 col-12">
                     <div class="section-title text-start">
-                        <h2 class="title">Our Research</h2>
+                        <h2 class="title">ABC Last News</h2>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-12 col-12">

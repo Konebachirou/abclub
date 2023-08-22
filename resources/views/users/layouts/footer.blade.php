@@ -7,7 +7,7 @@
                             <div class="footer-widget">
                                 <div class="logo">
                                     <a href="index.html">
-                                        <img src="assets/images/logo/logo.png" alt="ABC">
+                                        <img src="assets/images/logo/logoabc3.png" alt="ABC">
                                     </a>
                                 </div>
 
