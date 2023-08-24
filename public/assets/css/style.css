@@ -140,7 +140,7 @@
   --color-light: #F5F7FA;
   --color-lighter: #F2F5F9;
   --primary-opacity: #06782f21;
-  --secondary-opacity: #dedbe021;
+  --secondary-opacity: #05612521;
   --coral-opacity: #E9967A21;
   --violet-opacity: #80008021;
   --pink-opacity: #DB709321;
@@ -163,7 +163,7 @@
   --color-primary-alt: #D1EBE6;
   --color-primary-light: #f1f7ff;
   --color-primary-lighter: #EEEEFF;
-  --color-secondary-alt: #fef4f4;
+  --color-secondary-alt: #b5e8a6;
   --color-extra: rgb(249, 249, 255);
   --color-extra2: #F9F9FF;
   --color-border: #e6e3f1;
@@ -1472,6 +1472,10 @@ ul.rbt-dropdown-menu li .sub-menu li a, ul.rbt-dropdown-menu li a .right-icon, u
   color: var(--color-secondary) !important;
 }
 
+.bg-secondary-opacity2 {
+  background: #05612558 !important;
+  color: #fff !important;
+}
 .bg-coral-opacity {
   background: var(--coral-opacity) !important;
   color: var(--color-coral) !important;
@@ -8652,6 +8656,10 @@ hr {
 
 .bg-card-color-5 .inner {
   background: #e4a7f675 !important;
+}
+
+.bg-card-color-6 .inner {
+  background: #daf19575 !important;
 }
 
 /*-----------------------------
@@ -17748,7 +17756,7 @@ span.transparent-button:hover i {
 }
 
 .pricing-badge {
-  background: var(--color-secondary);
+  background: rgba(2, 74, 2, 0.463);
   padding: 0 17px;
   position: absolute;
   right: 0;
@@ -18069,15 +18077,14 @@ span.transparent-button:hover i {
   font-size: 14px;
   line-height: 15px;
   font-weight: 500;
-  color: var(--color-heading);
+  color: #fff;
+  background: #31950698 !important;
   margin-bottom: 15px;
   display: inline-block;
   padding: 10px 20px;
   border-radius: 100px;
   text-transform: uppercase;
   display: inline-block;
-  background: var(--color-primary);
-  color: var(--color-primary);
 }
 
 .team-style-default,
@@ -20085,8 +20092,8 @@ ul.testimonial-thumb-wrapper {
   }
 }
 ul.testimonial-thumb-wrapper li {
-  padding-left: 15px;
-  padding-right: 15px;
+  padding-left: 10px;
+  padding-right: 10px;
   flex-basis: 33.33%;
   margin-bottom: 30px;
   outline: none;
@@ -22177,6 +22184,21 @@ body.modal-open {
   margin-right: 10px;
   display: inline-block;
 }
+
+.single-list h4 i {
+  width: 22px;
+  height: 22px;
+  background: var(--color-success);
+  margin: 0 auto;
+  line-height: 22px;
+  text-align: center;
+  border-radius: 100%;
+  color: var(--color-white);
+  font-size: 14px;
+  margin-right: 10px;
+  display: inline-block;
+}
+
 .plan-offer-list li.off {
   opacity: 0.5;
 }
@@ -24606,12 +24628,21 @@ blockquote.has-text-align-right cite,
 /*-------------------------------------------------------
     Banner Style Home One And Home Five (variation-2)
 -------------------------------------------------------------*/
-.rbt-banner-1 {
+/* .rbt-banner-1 {
   background-color: var(--color-light);
   padding: 0 150px;
   position: relative;
   overflow: hidden;
   background-image: url(../images/bg/bg-g1.webp);
+  background-position: top center;
+} */
+
+.rbt-banner-1 {
+  background-color: rgba(34, 209, 25, 0.304);
+  padding: 0 150px;
+  position: relative;
+  overflow: hidden;
+  /* background-image: url(../images/bg/bg.png, ); */
   background-position: top center;
 }
 @media only screen and (min-width: 1200px) and (max-width: 1599px) {

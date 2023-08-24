@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AppController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('users.global.home');
-});
+
+Route::get('/',[AppController::class,'Home'])->name('home_link');
+Route::get('/l\'association',[AppController::class,'About'])->name('about_link');
+Route::get('/contact',[AppController::class,'Contact'])->name('contact_link');

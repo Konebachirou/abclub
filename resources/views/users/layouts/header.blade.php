@@ -6,7 +6,7 @@
                 <div class="mainbar-row rbt-navigation-start align-items-center">
                     <div class="header-left">
                         <div class="logo">
-                            <a href="index.html">
+                            <a href="{{ route('home_link') }}">
                                 <img src="assets/images/logo/logoabc3.png" alt="Education Logo Images">
                             </a>
                         </div>
@@ -14,8 +14,8 @@
                     <div class="rbt-main-navigation d-none d-xl-block">
                         <nav class="mainmenu-nav">
                             <ul class="mainmenu">
-                                <li class="with-megamenu has-menu-child-item position-static"><a href="#">Accueil </a></li>
-                                <li class="with-megamenu has-menu-child-item position-static"><a href="#">L'association </a></li>
+                                <li class="with-megamenu has-menu-child-item position-static"><a href="{{ route('home_link') }}">Accueil </a></li>
+                                <li class="with-megamenu has-menu-child-item position-static"><a href="{{ route('about_link') }}">L'association </a></li>
                                 <li class="with-megamenu has-menu-child-item position-static"><a href="#">Nos Actions </a></li>
 
                                 <li class="has-dropdown has-menu-child-item">
@@ -25,37 +25,29 @@
                                     <ul class="submenu">
                                         <li class="has-dropdown"><a href="#">Réseau</a>
                                             <ul class="submenu">
-                                                <li><a href="instructor-dashboard.html">Dashboard</a></li>
-                                                <li><a href="instructor-profile.html">Profile</a></li>
+                                                <li><a href="#">offres d'emploi</a></li>
+                                                <li><a href="#">Entreprise</a></li>
                                             </ul>
                                         </li>
                                         <li class="has-dropdown"><a href="#">AMID</a>
                                             <ul class="submenu">
-                                                <li><a href="instructor-dashboard.html">Dashboard</a></li>
-                                                <li><a href="instructor-profile.html">Profile</a></li>
+                                                <li><a href="#">Events</a></li>
+                                                <li><a href="#">News</a></li>
+                                                <li><a href="#">ANE</a></li>
+                                                <li><a href="#">ANP</a></li>
                                             </ul>
                                         </li>
                                         <li class="has-dropdown"><a href="#">ABC CONNECT</a>
-                                            <ul class="submenu">
-                                                <li><a href="instructor-dashboard.html">Dashboard</a></li>
-                                                <li><a href="instructor-profile.html">Profile</a></li>
-                                            </ul>
                                         </li>
                                         <li class="has-dropdown"><a href="#">Meet & Share</a>
                                             <ul class="submenu">
-                                                <li><a href="instructor-dashboard.html">Dashboard</a></li>
-                                                <li><a href="instructor-profile.html">Profile</a></li>
-                                            </ul>
-                                        </li>
-                                        <li class="has-dropdown"><a href="#">Média</a>
-                                            <ul class="submenu">
-                                                <li><a href="instructor-dashboard.html">Dashboard</a></li>
-                                                <li><a href="instructor-profile.html">Profile</a></li>
+                                                <li><a href="#">Dashboard</a></li>
+                                                <li><a href="#">Profile</a></li>
                                             </ul>
                                         </li>
                                     </ul>
                                 </li>
-                                <li class="with-megamenu has-menu-child-item position-static"><a href="#">Contacts</a></li>
+                                <li class="with-megamenu has-menu-child-item position-static"><a href="{{ route('contact_link') }}">Contacts</a></li>
                             </ul>
                         </nav>
                     </div>
@@ -79,7 +71,7 @@
                                         </div>
                                         <ul class="user-list-wrapper">
                                             <li>
-                                                <a href="instructor-dashboard.html">
+                                                <a href="#">
                                                     <i class="feather-home"></i>
                                                     <span>My Dashboard</span>
                                                 </a>
@@ -379,7 +371,7 @@
                                     <ul class="submenu">
                                         <li class="has-dropdown"><a href="#">Réseau</a>
                                             <ul class="submenu">
-                                                <li><a href="instructor-dashboard.html">Dashboard</a></li>
+                                                <li><a href="#">Dashboard</a></li>
                                                 <li><a href="instructor-profile.html">Profile</a></li>
                                             </ul>
                                         </li>

@@ -11,14 +11,15 @@
                                     </a>
                                 </div>
 
-                                <p class="description mt--20">We’re always in search for talented
-                                    and motivated people. Don’t be shy introduce yourself!
+                                <p class="description mt--20">
+                                    L' ABC est la preuve vivante de l'efficacité d'une initiative volontariste et solidaire menée avec passion, intégrité et compétence.
+                                    <br>Un message porteur d'espoir pour l'avenir...
                                 </p>
 
                                 <div class="contact-btn mt--30">
                                     <a class="rbt-btn hover-icon-reverse btn-border-gradient radius-round" href="#">
                                         <div class="icon-reverse-wrapper">
-                                            <span class="btn-text">Contact With Us</span>
+                                            <span class="btn-text">Contactez-nous</span>
                                             <span class="btn-icon"><i class="feather-arrow-right"></i></span>
                                             <span class="btn-icon"><i class="feather-arrow-right"></i></span>
                                         </div>
@@ -29,7 +30,7 @@
 
                         <div class="offset-lg-1 col-lg-2 col-md-6 col-sm-6 col-12 mt--30">
                             <div class="footer-widget">
-                                <h5 class="ft-title">Useful Links</h5>
+                                <h5 class="ft-title">Liens utiles</h5>
                                 <ul class="ft-link">
                                     <li>
                                         <a href="12-marketplace.html">Marketplace</a>
@@ -52,7 +53,7 @@
 
                         <div class="col-lg-2 col-md-6 col-sm-6 col-12 mt--30">
                             <div class="footer-widget">
-                                <h5 class="ft-title">Our Company</h5>
+                                <h5 class="ft-title">L'association</h5>
                                 <ul class="ft-link">
                                     <li>
                                         <a href="contact.html">Contact Us</a>
@@ -75,26 +76,26 @@
 
                         <div class="col-lg-3 col-md-6 col-sm-6 col-12 mt--30">
                             <div class="footer-widget">
-                                <h5 class="ft-title">Get Contact</h5>
+                                <h5 class="ft-title">Contact</h5>
                                 <ul class="ft-link">
-                                    <li><span>Phone:</span> <a href="#">(406) 555-0120</a></li>
-                                    <li><span>E-mail:</span> <a href="mailto:hr@example.com">rainbow@example.com</a></li>
-                                    <li><span>Location:</span> North America, USA</li>
+                                    <li><span>Phone:</span> <a href="#">(+33) 6 44 80 33 59</a></li>
+                                    <li><span>Email:</span> <a href="mailto:contact@abclub-paris.com">contact@abclub-paris.com</a></li>
+                                    <li><span>Location:</span> Paris, France</li>
                                 </ul>
                                 <ul class="social-icon social-default icon-naked justify-content-start mt--20">
-                                    <li><a href="https://www.facebook.com/">
+                                    <li><a href="https://www.facebook.com/Africanbusinessclub">
                                             <i class="feather-facebook"></i>
                                         </a>
                                     </li>
-                                    <li><a href="https://www.twitter.com">
+                                    <li><a href="https://twitter.com/AfricanBC">
                                             <i class="feather-twitter"></i>
                                         </a>
                                     </li>
-                                    <li><a href="https://www.instagram.com/">
+                                    <li><a href="https://instagram.com/africanbusinessclub_?igshid=MzRlODBiNWFlZA==">
                                             <i class="feather-instagram"></i>
                                         </a>
                                     </li>
-                                    <li><a href="https://www.linkdin.com/">
+                                    <li><a href="https://www.linkedin.com/company/african-business-club/">
                                             <i class="feather-linkedin"></i>
                                         </a>
                                     </li>
