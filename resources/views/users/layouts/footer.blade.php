@@ -7,16 +7,16 @@
                             <div class="footer-widget">
                                 <div class="logo">
                                     <a href="index.html">
-                                        <img src="assets/images/logo/logoabc3.png" alt="ABC">
+                                        <img src="{{asset('assets/images/logo/logo1.png')}}" width="180"  alt="ABC">
                                     </a>
                                 </div>
 
-                                <p class="description mt--20">
+                                <p class="description mt--10">
                                     L' ABC est la preuve vivante de l'efficacité d'une initiative volontariste et solidaire menée avec passion, intégrité et compétence.
                                     <br>Un message porteur d'espoir pour l'avenir...
                                 </p>
 
-                                <div class="contact-btn mt--30">
+                                <!-- <div class="contact-btn mt--30">
                                     <a class="rbt-btn hover-icon-reverse btn-border-gradient radius-round" href="#">
                                         <div class="icon-reverse-wrapper">
                                             <span class="btn-text">Contactez-nous</span>
@@ -24,7 +24,7 @@
                                             <span class="btn-icon"><i class="feather-arrow-right"></i></span>
                                         </div>
                                     </a>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
 
@@ -33,19 +33,19 @@
                                 <h5 class="ft-title">Liens utiles</h5>
                                 <ul class="ft-link">
                                     <li>
-                                        <a href="12-marketplace.html">Marketplace</a>
+                                        <a href="#">Pôle AMID</a>
                                     </li>
                                     <li>
-                                        <a href="04-kindergarten.html">kindergarten</a>
+                                        <a href="#">Pôle Réseau</a>
                                     </li>
                                     <li>
-                                        <a href="13-university-classic.html">University</a>
+                                        <a href="#">Pôle ABC Connect</a>
                                     </li>
                                     <li>
-                                        <a href="09-gym-coaching.html">GYM Coaching</a>
+                                        <a href="#">Pôle Meet & Share</a>
                                     </li>
                                     <li>
-                                        <a href="faqs.html">FAQ</a>
+                                        <a href="#">FAQ</a>
                                     </li>
                                 </ul>
                             </div>
@@ -56,20 +56,22 @@
                                 <h5 class="ft-title">L'association</h5>
                                 <ul class="ft-link">
                                     <li>
-                                        <a href="contact.html">Contact Us</a>
+                                        <a href="{{ route('about_link') }}\#about">About Us</a>
                                     </li>
                                     <li>
-                                        <a href="become-a-teacher.html">Become Teacher</a>
+                                        <a href="{{ route('about_link') }}\#vision">Mission & Vision</a>
                                     </li>
                                     <li>
-                                        <a href="blog.html">Blog</a>
+                                        <a href="#">News</a>
                                     </li>
                                     <li>
-                                        <a href="instructor.html">Instructor</a>
+                                        <a href="#">Events</a>
                                     </li>
+                                    
                                     <li>
-                                        <a href="event-list.html">Events</a>
+                                        <a href="{{ route('about_link') }}\#partners">partenaires</a>
                                     </li>
+                                    
                                 </ul>
                             </div>
                         </div>
@@ -117,13 +119,12 @@
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-12 col-12">
-                        <p class="rbt-link-hover text-center text-lg-start">Copyright © 2023 <a href="https://themeforest.net/user/rbt-themes">Rainbow-Themes.</a> All Rights Reserved</p>
+                        <p class="rbt-link-hover text-center text-lg-start">Copyright © 2023 <a href="#">Bachir.</a> All Rights Reserved</p>
                     </div>
                     <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-12 col-12">
                         <ul class="copyright-link rbt-link-hover justify-content-center justify-content-lg-end mt_sm--10 mt_md--10">
                             <li><a href="#">Terms of service</a></li>
                             <li><a href="privacy-policy.html">Privacy policy</a></li>
-                            <li><a href="subscription.html">Subscription</a></li>
                             <li><a href="login.html">Login & Register</a></li>
                         </ul>
                     </div>

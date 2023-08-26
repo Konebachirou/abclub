@@ -8739,11 +8739,11 @@ hr {
 }
 
 .bg_image--16 {
-  background-image: url(../images/bg/bg-image-16.jpg);
+  background-image: url(../images/banner/Accueil2.png);
 }
 
 .bg_image--17 {
-  background-image: url(../images/bg/bg-image-17.jpg);
+  background-image: url(../images/banner/Accueil3.png);
 }
 
 .bg_image--18 {
@@ -8759,7 +8759,7 @@ hr {
 }
 
 .bg_image--21 {
-  background-image: url(../images/bg/bg-image-21.jpg);
+  background-image: url(../images/banner/Accueil5.png);
 }
 
 .bg_image--22 {
@@ -10687,7 +10687,7 @@ Primary style
   display: block;
 }
 .logo a img {
-  max-height: 50px;
+  max-height: 180px;
   object-fit: cover;
 }
 
@@ -12039,7 +12039,7 @@ ul.rbt-dropdown-menu.currency-menu li .sub-menu {
   z-index: 99;
 }
 .rbt-header .logo a img {
-  max-height: 50px;
+  max-height: 60px;
   object-fit: cover;
 }
 @media only screen and (max-width: 575px) {
@@ -14839,7 +14839,7 @@ span.transparent-button:hover i {
   box-shadow: var(--shadow-1);
   padding: 30px;
   border-radius: var(--radius);
-  background: var(--color-white);
+  background: rgb(236, 246, 244);
   position: relative;
   height: 100%;
 }

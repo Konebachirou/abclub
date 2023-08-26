@@ -22,12 +22,12 @@
                         
                     </div>
                             <!-- <div class="shape-wrapper" id="scene">
-                                <img src="assets/images/banner/banner-01.png" alt="Hero Image">
+                                <img src="{{asset('assets/images/banner/banner-01.png')}}" alt="Hero Image">
                                 <div class="hero-bg-shape-1 layer" data-depth="0.4">
-                                    <img src="assets/images/shape/shape-01.png" alt="Hero Image Background Shape">
+                                    <img src="{{asset('assets/images/shape/shape-01.png')}}" alt="Hero Image Background Shape">
                                 </div>
                                 <div class="hero-bg-shape-2 layer" data-depth="0.4">
-                                    <img src="assets/images/shape/shape-02.png" alt="Hero Image Background Shape">
+                                    <img src="{{asset('assets/images/shape/shape-02.png')}}" alt="Hero Image Background Shape">
                                 </div>
                             </div> -->
 
@@ -39,14 +39,14 @@
                                         <div class="rbt-card variation-01 rbt-hover">
                                             <!-- <div class="rbt-card-img">
                                                 <a href="course-details.html">
-                                                    <img src="assets/images/course/course-01.jpg" alt="Card image">
+                                                    <img src="{{asset('assets/images/course/course-01.jpg')}}" alt="Card image">
                                                     <div class="rbt-badge-3 bg-white">
                                                         <span>-40%</span>
                                                         <span>Off</span>
                                                     </div>
                                                 </a>
                                             </div> -->
-                                            <img src="assets/images/banner/banner-01.png" alt="Hero Image">
+                                            <img src="{{asset('assets/images/banner/banner-01.png')}}" alt="Hero Image">
                                             
                                         </div>
                                     </div>
@@ -57,14 +57,14 @@
                                         <div class="rbt-card variation-01 rbt-hover">
                                             <!-- <div class="rbt-card-img">
                                                 <a href="course-details.html">
-                                                    <img src="assets/images/course/course-01.jpg" alt="Card image">
+                                                    <img src="{{asset('assets/images/course/course-01.jpg')}}" alt="Card image">
                                                     <div class="rbt-badge-3 bg-white">
                                                         <span>-40%</span>
                                                         <span>Off</span>
                                                     </div>
                                                 </a>
                                             </div> -->
-                                            <img src="assets/images/banner/banner-01.png" alt="Hero Image">
+                                            <img src="{{asset('assets/images/banner/banner-01.png')}}" alt="Hero Image">
                                             
                                         </div>
                                     </div>
@@ -75,14 +75,14 @@
                                         <div class="rbt-card variation-01 rbt-hover">
                                             <!-- <div class="rbt-card-img">
                                                 <a href="course-details.html">
-                                                    <img src="assets/images/course/course-01.jpg" alt="Card image">
+                                                    <img src="{{asset('assets/images/course/course-01.jpg')}}" alt="Card image">
                                                     <div class="rbt-badge-3 bg-white">
                                                         <span>-40%</span>
                                                         <span>Off</span>
                                                     </div>
                                                 </a>
                                             </div> -->
-                                            <img src="assets/images/banner/banner-01.png" alt="Hero Image">
+                                            <img src="{{asset('assets/images/banner/banner-01.png')}}" alt="Hero Image">
                                             
                                         </div>
                                     </div>
@@ -100,29 +100,34 @@
         </div>
         <!-- End Banner Area -->
 
-        
-        <div class="rbt-about-area about-style-1 bg-color-white ">
-            <div class="container">
-                <div class="row g-5 align-items-center">
-                    <div class="col-lg-6">
-                        <div class="content">
-                            <img src="assets/images/about/about-06.png" alt="About Images">
-                        </div>
+<!-- Start Video Area  -->
+<div class="rbt-video-area bg-color-white " id="career">
+        <div class="container">
+            <div class="row g-5 align-items-center">
+                <div class="col-lg-6">
+                    <div class="video-popup-wrapper">
+                        <img class="w-100 rbt-radius" src="{{asset('assets/images/others/brand.jpg')}}" alt="Video Images">
+                        <a class="rbt-btn rounded-player popup-video position-to-top" href="assets/video/abc.mp4">
+                            <span><i class="feather-play"></i></span>
+                        </a>
                     </div>
-                    <div class="col-lg-6" data-sal="slide-up" data-sal-duration="700">
-                        <div class="inner pl--50 pl_sm--5">
-                            <div class="content text-start">
-                                <span class="rbt-badge-6 bg-primary-opacity">About African Business Club</span>
-                                <!-- <h3 class="title">Welcome to Histudy for your skills with best Online courses.</h3> -->
-                                <p class="description mt--30"><strong>L’ African Business Club</strong> est une association créée en 2003 sur l’initiative de Ibrahim Magassa et d’autres étudiants de l’ESCP Europe. </p>
-                                <p class="description">Aujourd’hui, 
-                                    notre objectif est de promouvoir et renforcer le développement d’initiatives et d’opportunités en Afrique 🌍. Les valeurs que nous véhiculons sont : le leadership, l’unité et le réseau.
-                                L’ABC est une passerelle entre les jeunes désireux d’entreprendre en Afrique, et l’écosystème d’entreprises présentes sur le sol africain. </p>
-                            </p>
-                            <!-- <div class="read-more-btn mt--40">
-                                <a class="rbt-btn rbt-marquee-btn radius-round btn-gradient" href="#">
-                                    <span data-text="Start Learning For Free">
-                                        Start Learning For Free
+                </div>
+                <div class="col-lg-6">
+                    <div class="inner pl--50 pl_lg--0 pl_md--0 pl_sm--0">
+                        <div class="section-title text-start">
+                            <h3 class="title">C'est quoi L'African Business Club ?</h3>
+                            <p class="description mt--30 mt_md--15 mt_sm--15 mb_md--15 mb_sm--15">L’ African Business Club est une association créée en 2003 sur l’initiative de Ibrahim Magassa 
+                                et d’autres étudiants de l’ESCP Europe.</p>
+                            <p class="mb_md--15 mb_sm--15">Aujourd’hui, 
+                        notre objectif est de promouvoir et renforcer le développement d’initiatives et d’opportunités en Afrique 🌍. Les valeurs que nous véhiculons sont : le leadership, l’unité et le réseau.
+                    L’ABC est une passerelle entre les jeunes désireux d’entreprendre en Afrique, et l’écosystème d’entreprises présentes sur le sol africain. </p>
+                </p>
+                            <!-- <div class="view-all-button">
+                                <a class="rbt-btn btn-border hover-icon-reverse" href="#">
+                                    <span class="icon-reverse-wrapper">
+                                        <span class="btn-text">View All Courses</span>
+                                    <span class="btn-icon"><i class="feather-arrow-right"></i></span>
+                                    <span class="btn-icon"><i class="feather-arrow-right"></i></span>
                                     </span>
                                 </a>
                             </div> -->
@@ -132,78 +137,79 @@
             </div>
         </div>
     </div>
-
-    <!-- Start Advance Tab  -->
-    <div class="rbt-advance-tab-area rbt-section-gapTop bg-color-white">
-        <div class="container">
-            <!-- <div class="row mb--20">
-                <div class="col-lg-12">
-                    <div class="section-title text-center">
-                        <h2 class="title">About Us.</h2>
-                        <p class="description mt--20">L’ African Business Club est une association créée en 2003 sur l’initiative de Ibrahim Magassa et d’autres étudiants de l’ESCP Europe. Aujourd’hui, 
-                            notre objectif est de promouvoir et renforcer le développement d’initiatives et d’opportunités en Afrique 🌍. Les valeurs que nous véhiculons sont : le leadership, l’unité et le réseau.
-                             L’ABC est une passerelle entre les jeunes désireux d’entreprendre en Afrique, et l’écosystème d’entreprises présentes sur le sol africain. </p>
-                    </div>
+    <!-- End Video Area  -->
+<!-- Start Advance Tab  -->
+<div class="rbt-advance-tab-area  bg-color-white" style="margin-top: 8%;">
+    <div class="container">
+        <!-- <div class="row mb--20">
+            <div class="col-lg-12">
+                <div class="section-title text-center">
+                    <h2 class="title">C'est quoi L'African Business Club ?</h2>
+                    <p class="description mt--20"> Aujourd’hui, 
+                        notre objectif est de promouvoir et renforcer le développement d’initiatives et d’opportunités en Afrique 🌍. Les valeurs que nous véhiculons sont : le leadership, l’unité et le réseau.
+                    L’ABC est une passerelle entre les jeunes désireux d’entreprendre en Afrique, et l’écosystème d’entreprises présentes sur le sol africain. </p>
                 </div>
-            </div> -->
-            <div class="row g-5">
-                <div class="col-lg-4 col-md-12 col-sm-12 col-12 mt_md--30 mt_sm--30 order-2 order-lg-1">
-                    <div class="advance-tab-button advance-tab-button-1">
-                        <ul class="nav nav-tabs tab-button-list" id="aboutmyTab" role="tablist">
-                            <li class="nav-item" role="presentation">
-                                <a href="#" class="nav-link tab-button active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" role="tab" aria-controls="home" aria-selected="true">
-                                    <div class="tab">
-                                        <h4 class="title">ABC Vision.</h4>
-                                        <p class="description">Nous avons pour vision :</p>
-                                    </div>
-                                </a>
-                            </li>
+            </div>
+        </div> -->
+        <div class="row g-5">
+            <div class="col-lg-4 col-md-12 col-sm-12 col-12 mt_md--30 mt_sm--30 order-2 order-lg-1">
+                <div class="advance-tab-button advance-tab-button-1">
+                    <ul class="nav nav-tabs tab-button-list" id="aboutmyTab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <a href="#" class="nav-link tab-button active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" role="tab" aria-controls="home" aria-selected="true">
+                                <div class="tab">
+                                    <h4 class="title">ABC Vision.</h4>
+                                    <p class="description">Nous avons pour vision :</p>
+                                </div>
+                            </a>
+                        </li>
 
-                            <li class="nav-item" role="presentation">
-                                <a href="#" class="nav-link tab-button" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" role="tab" aria-controls="profile" aria-selected="false">
-                                    <div class="tab" >
-                                        <h4 class="title">ABC Mission.</h4>
-                                        <p class="description">Nous avons pour vision :</p>
-                                    </div>
-                                </a>
-                            </li>
+                        <li class="nav-item" role="presentation">
+                            <a href="#" class="nav-link tab-button" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" role="tab" aria-controls="profile" aria-selected="false">
+                                <div class="tab" >
+                                    <h4 class="title">ABC Mission.</h4>
+                                    <p class="description">Nous avons pour vision :</p>
+                                </div>
+                            </a>
+                        </li>
 
-                            <li class="nav-item" role="presentation">
-                                <a href="#" class="nav-link tab-button" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" role="tab" aria-controls="contact" aria-selected="false">
-                                    <div class="tab">
-                                        <h4 class="title">ABC Planning.</h4>
-                                        <p class="description">Notre planning correspond :</p>
-                                    </div>
-                                </a>
-                            </li>
+                        <li class="nav-item" role="presentation">
+                            <a href="#" class="nav-link tab-button" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" role="tab" aria-controls="contact" aria-selected="false">
+                                <div class="tab">
+                                    <h4 class="title">ABC Planning.</h4>
+                                    <p class="description">Notre planning correspond :</p>
+                                </div>
+                            </a>
+                        </li>
 
-                        </ul>
-                    </div>
+                    </ul>
                 </div>
-                <div class="col-lg-8 col-md-12 col-sm-12 col-12 order-1 order-lg-2">
-                    <div class="tab-content">
-                        <div class="tab-pane fade advance-tab-content-1 active show" id="home" role="tabpanel" aria-labelledby="home-tab">
-                            <div class="thumbnail">
-                                <img src="assets/images/tab/tabs-03.jpg" alt="advance-tab-image">
-                            </div>
+            </div>
+            <div class="col-lg-8 col-md-12 col-sm-12 col-12 order-1 order-lg-2">
+                <div class="tab-content">
+                    <div class="tab-pane fade advance-tab-content-1 active show" id="home" role="tabpanel" aria-labelledby="home-tab">
+                        <div class="thumbnail">
+                            <img src="{{asset('assets/images/banner/mission.png')}}" alt="advance-tab-image">
+                        </div>
 
+                    </div>
+                    <div class="tab-pane fade advance-tab-content-1" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                        <div class="thumbnail">
+                            <img src="{{asset('assets/images/tab/tabs-02.jpg')}}" alt="advance-tab-image">
                         </div>
-                        <div class="tab-pane fade advance-tab-content-1" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                            <div class="thumbnail">
-                                <img src="assets/images/tab/tabs-02.jpg" alt="advance-tab-image">
-                            </div>
-                        </div>
-                        <div class="tab-pane fade advance-tab-content-1" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-                            <div class="thumbnail">
-                                <img src="assets/images/tab/tabs-01.jpg" alt="advance-tab-image">
-                            </div>
+                    </div>
+                    <div class="tab-pane fade advance-tab-content-1" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+                        <div class="thumbnail">
+                            <img src="{{asset('assets/images/tab/tabs-01.jpg')}}" alt="advance-tab-image">
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- End Advance Tab  -->
+</div>
+<!-- End Advance Tab  -->
+
 
 
     <div class="rbt-service-area bg-color-white rbt-section-gapTop ">
@@ -223,8 +229,8 @@
                         <div class="service-card service-card-6 bg-color bg-card-color-1">
                             <div class="inner">
                                 <div class="icon">
-                                    <img src="assets/images/shape/service-01.png" alt="Shape Images">
-                                    <img class="opacity_image" src="assets/images/shape/service-01.png" alt="Shape Images">
+                                    <img src="{{asset('assets/images/shape/service-01.png')}}" alt="Shape Images">
+                                    <img class="opacity_image" src="{{asset('assets/images/shape/service-01.png')}}" alt="Shape Images">
                                 </div>
                                 <div class="content">
                                     <h6 class="title"><a href="#">Pôle Réseau</a></h6>
@@ -240,8 +246,8 @@
                         <div class="service-card service-card-6 bg-color bg-card-color-2">
                             <div class="inner">
                                 <div class="icon">
-                                    <img src="assets/images/shape/service-04.png" alt="Shape Images">
-                                    <img class="opacity_image" src="assets/images/shape/service-04.png" alt="Shape Images">
+                                    <img src="{{asset('assets/images/shape/service-04.png')}}" alt="Shape Images">
+                                    <img class="opacity_image" src="{{asset('assets/images/shape/service-04.png')}}" alt="Shape Images">
                                 </div>
                                 <div class="content">
                                     <h6 class="title"><a href="#">Pôle AMID</a></h6>
@@ -257,8 +263,8 @@
                         <div class="service-card service-card-6 bg-color bg-card-color-3">
                             <div class="inner">
                                 <div class="icon">
-                                    <img src="assets/images/shape/service-03.png" alt="Shape Images">
-                                    <img class="opacity_image" src="assets/images/shape/service-03.png" alt="Shape Images">
+                                    <img src="{{asset('assets/images/shape/service-03.png')}}" alt="Shape Images">
+                                    <img class="opacity_image" src="{{asset('assets/images/shape/service-03.png')}}" alt="Shape Images">
                                 </div>
                                 <div class="content">
                                     <h6 class="title"><a href="#">Pôle Abc Connect</a></h6>
@@ -274,8 +280,8 @@
                         <div class="service-card service-card-6 bg-color bg-card-color-4">
                             <div class="inner">
                                 <div class="icon">
-                                    <img src="assets/images/shape/service-02.png" alt="Shape Images">
-                                    <img class="opacity_image" src="assets/images/shape/service-02.png" alt="Shape Images">
+                                    <img src="{{asset('assets/images/shape/service-02.png')}}" alt="Shape Images">
+                                    <img class="opacity_image" src="{{asset('assets/images/shape/service-02.png')}}" alt="Shape Images">
                                 </div>
                                 <div class="content">
                                     <h6 class="title"><a href="#">Pôle Meet & Share</a></h6>
@@ -291,8 +297,8 @@
                         <div class="service-card service-card-6 bg-color bg-card-color-5">
                             <div class="inner">
                                 <div class="icon">
-                                    <img src="assets/images/shape/service-05.png" alt="Shape Images">
-                                    <img class="opacity_image" src="assets/images/shape/service-05.png" alt="Shape Images">
+                                    <img src="{{asset('assets/images/shape/service-05.png')}}" alt="Shape Images">
+                                    <img class="opacity_image" src="{{asset('assets/images/shape/service-05.png')}}" alt="Shape Images">
                                 </div>
                                 <div class="content">
                                     <h6 class="title"><a href="#">Pôle Data Management & IT</a></h6>
@@ -308,8 +314,8 @@
                         <div class="service-card service-card-6 bg-color bg-card-color-6">
                             <div class="inner">
                                 <div class="icon">
-                                    <img src="assets/images/shape/service-05.png" alt="Shape Images">
-                                    <img class="opacity_image" src="assets/images/shape/service-05.png" alt="Shape Images">
+                                    <img src="{{asset('assets/images/shape/service-05.png')}}" alt="Shape Images">
+                                    <img class="opacity_image" src="{{asset('assets/images/shape/service-05.png')}}" alt="Shape Images">
                                 </div>
                                 <div class="content">
                                     <h6 class="title"><a href="#">Pôle media</a></h6>
@@ -342,7 +348,7 @@
                                 <div class="inner">
                                     <div class="rbt-team-thumbnail">
                                         <div class="thumb">
-                                            <img src="assets/images/team/team3.png" alt="Testimonial Images">
+                                            <img src="{{asset('assets/images/team/team3.png')}}" alt="Testimonial Images">
                                         </div>
                                     </div>
                                     <div class="rbt-team-details">
@@ -385,7 +391,7 @@
                     <div class="inner">
                         <div class="rbt-team-thumbnail">
                             <div class="thumb">
-                                <img src="assets/images/team/team2.png" alt="Testimonial Images">
+                                <img src="{{asset('assets/images/team/team2.png')}}" alt="Testimonial Images">
                             </div>
                         </div>
                         <div class="rbt-team-details">
@@ -428,7 +434,7 @@
         <div class="inner">
             <div class="rbt-team-thumbnail">
                 <div class="thumb">
-                    <img src="assets/images/team/team4.png" alt="Testimonial Images">
+                    <img src="{{asset('assets/images/team/team4.png')}}" alt="Testimonial Images">
                 </div>
             </div>
             <div class="rbt-team-details">
@@ -471,7 +477,7 @@
     <div class="inner">
         <div class="rbt-team-thumbnail">
             <div class="thumb">
-                <img src="assets/images/team/team1.png" alt="Testimonial Images">
+                <img src="{{asset('assets/images/team/team1.png')}}" alt="Testimonial Images">
             </div>
         </div>
         <div class="rbt-team-details">
@@ -514,7 +520,7 @@
     <div class="inner">
         <div class="rbt-team-thumbnail">
             <div class="thumb">
-                <img src="assets/images/team/team-01.jpg" alt="Testimonial Images">
+                <img src="{{asset('assets/images/team/team-01.jpg')}}" alt="Testimonial Images">
             </div>
         </div>
         <div class="rbt-team-details">
@@ -557,7 +563,7 @@
     <div class="inner">
         <div class="rbt-team-thumbnail">
             <div class="thumb">
-                <img src="assets/images/team/team3.png" alt="Testimonial Images">
+                <img src="{{asset('assets/images/team/team-01.png')}}" alt="Testimonial Images">
             </div>
         </div>
         <div class="rbt-team-details">
@@ -600,7 +606,7 @@
     <div class="inner">
         <div class="rbt-team-thumbnail">
             <div class="thumb">
-                <img src="assets/images/team/team-01.jpg" alt="Testimonial Images">
+                <img src="{{asset('assets/images/team/team-01.jpg')}}" alt="Testimonial Images">
             </div>
         </div>
         <div class="rbt-team-details">
@@ -643,7 +649,7 @@
     <div class="inner">
         <div class="rbt-team-thumbnail">
             <div class="thumb">
-                <img src="assets/images/team/team-01.jpg" alt="Testimonial Images">
+                <img src="{{asset('assets/images/team/team-01.jpg')}}" alt="Testimonial Images">
             </div>
         </div>
         <div class="rbt-team-details">
@@ -686,7 +692,7 @@
     <div class="inner">
         <div class="rbt-team-thumbnail">
             <div class="thumb">
-                <img src="assets/images/team/team-01.jpg" alt="Testimonial Images">
+                <img src="{{asset('assets/images/team/team-01.jpg')}}" alt="Testimonial Images">
             </div>
         </div>
         <div class="rbt-team-details">
@@ -737,7 +743,7 @@
             <a class="active" id="team-tab1-tab" data-bs-toggle="tab" data-bs-target="#team-tab1" role="tab" aria-controls="team-tab1" aria-selected="true">
                 <div class="testimonial-thumbnai">
                     <div class="thumb">
-                        <img src="assets/images/team/team3.png" alt="Testimonial Images">
+                        <img src="{{asset('assets/images/team/team3.png')}}" alt="Testimonial Images">
                     </div>
                 </div>
             </a>
@@ -747,7 +753,7 @@
             <a id="team-tab2-tab" data-bs-toggle="tab" data-bs-target="#team-tab2" role="tab" aria-controls="team-tab2" aria-selected="false">
                 <div class="testimonial-thumbnai">
                     <div class="thumb">
-                        <img src="assets/images/team/team2.png" alt="Testimonial Images">
+                        <img src="{{asset('assets/images/team/team2.png')}}" alt="Testimonial Images">
                     </div>
                 </div>
             </a>
@@ -757,7 +763,7 @@
             <a id="team-tab3-tab" data-bs-toggle="tab" data-bs-target="#team-tab3" role="tab" aria-controls="team-tab3" aria-selected="false">
                 <div class="testimonial-thumbnai">
                     <div class="thumb">
-                        <img src="assets/images/team/team4.png" alt="Testimonial Images">
+                        <img src="{{asset('assets/images/team/team4.png')}}" alt="Testimonial Images">
                     </div>
                 </div>
             </a>
@@ -766,7 +772,7 @@
             <a id="team-tab4-tab" data-bs-toggle="tab" data-bs-target="#team-tab4" role="tab" aria-controls="team-tab4" aria-selected="false">
                 <div class="testimonial-thumbnai">
                     <div class="thumb">
-                        <img src="assets/images/team/team1.png" alt="Testimonial Images">
+                        <img src="{{asset('assets/images/team/team1.png')}}" alt="Testimonial Images">
                     </div>
                 </div>
             </a>
@@ -776,7 +782,7 @@
             <a id="team-tab5-tab" data-bs-toggle="tab" data-bs-target="#team-tab5" role="tab" aria-controls="team-tab5" aria-selected="false">
                 <div class="testimonial-thumbnai">
                     <div class="thumb">
-                        <img src="assets/images/team/team-01.jpg" alt="Testimonial Images">
+                        <img src="{{asset('assets/images/team/team-01.jpg')}}" alt="Testimonial Images">
                     </div>
                 </div>
             </a>
@@ -786,7 +792,7 @@
             <a id="team-tab6-tab" data-bs-toggle="tab" data-bs-target="#team-tab6" role="tab" aria-controls="team-tab6" aria-selected="false">
                 <div class="testimonial-thumbnai">
                     <div class="thumb">
-                        <img src="assets/images/team/team-01.jpg" alt="Testimonial Images">
+                        <img src="{{asset('assets/images/team/team-01.jpg')}}" alt="Testimonial Images">
                     </div>
                 </div>
             </a>
@@ -796,7 +802,7 @@
             <a id="team-tab7-tab" data-bs-toggle="tab" data-bs-target="#team-tab7" role="tab" aria-controls="team-tab7" aria-selected="false">
                 <div class="testimonial-thumbnai">
                     <div class="thumb">
-                        <img src="assets/images/team/team-01.jpg" alt="Testimonial Images">
+                        <img src="{{asset('assets/images/team/team-01.jpg')}}" alt="Testimonial Images">
                     </div>
                 </div>
             </a>
@@ -806,7 +812,7 @@
             <a id="team-tab8-tab" data-bs-toggle="tab" data-bs-target="#team-tab8" role="tab" aria-controls="team-tab8" aria-selected="false">
                 <div class="testimonial-thumbnai">
                     <div class="thumb">
-                        <img src="assets/images/team/team-01.jpg" alt="Testimonial Images">
+                        <img src="{{asset('assets/images/team/team-01.jpg')}}" alt="Testimonial Images">
                     </div>
                 </div>
             </a>
@@ -821,7 +827,7 @@
 
 
 <!-- Start Brand Area  -->
-<div class="rbt-brand-area bg-color-secondary-alt rbt-section-gap">
+<div class="rbt-brand-area bg-color-secondary-alt rbt-section-gap" id="partners">
     <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-12">
@@ -829,18 +835,18 @@
                     <span class="small-title w-600">Ils nous font confiance</span>
                 </div>
                 <ul class="brand-list brand-style-3 justify-content-center justify-content-lg-between">
-                    <li><a href="#"><img src="assets/images/brand/brand-01.png" alt="Brand Image"></a></li>
-                    <li><a href="#"><img src="assets/images/brand/brand-02.png" alt="Brand Image"></a></li>
-                    <li><a href="#"><img src="assets/images/brand/brand-03.png" alt="Brand Image"></a></li>
-                    <li><a href="#"><img src="assets/images/brand/brand-05.png" alt="Brand Image"></a></li>
-                    <li><a href="#"><img src="assets/images/brand/brand-06.png" alt="Brand Image"></a></li>
+                    <li><a href="#"><img src="{{asset('assets/images/partners/part1.png')}}" alt="Brand Image"></a></li>
+                    <li><a href="#"><img src="{{asset('assets/images/partners/part2.png')}}" alt="Brand Image"></a></li>
+                    <li><a href="#"><img src="{{asset('assets/images/partners/part3.png')}}" alt="Brand Image"></a></li>
+                    <li><a href="#"><img src="{{asset('assets/images/partners/part4.png')}}" alt="Brand Image"></a></li>
+                    <li><a href="#"><img src="{{asset('assets/images/partners/part5.png')}}" alt="Brand Image"></a></li>
                 </ul>
                 <ul class="brand-list brand-style-3 justify-content-center justify-content-lg-between">
-                    <li><a href="#"><img src="assets/images/brand/brand-01.png" alt="Brand Image"></a></li>
-                    <li><a href="#"><img src="assets/images/brand/brand-02.png" alt="Brand Image"></a></li>
-                    <li><a href="#"><img src="assets/images/brand/brand-03.png" alt="Brand Image"></a></li>
-                    <li><a href="#"><img src="assets/images/brand/brand-05.png" alt="Brand Image"></a></li>
-                    <li><a href="#"><img src="assets/images/brand/brand-06.png" alt="Brand Image"></a></li>
+                    <li><a href="#"><img src="{{asset('assets/images/partners/part6.png')}}" alt="Brand Image"></a></li>
+                    <li><a href="#"><img src="{{asset('assets/images/partners/part7.png')}}" alt="Brand Image"></a></li>
+                    <li><a href="#"><img src="{{asset('assets/images/partners/part8.png')}}" alt="Brand Image"></a></li>
+                    <li><a href="#"><img src="{{asset('assets/images/partners/part9.png')}}" alt="Brand Image"></a></li>
+                    <li><a href="#"><img src="{{asset('assets/images/partners/part10.png')}}" alt="Brand Image"></a></li>
                 </ul>
             </div>
         </div>
@@ -867,21 +873,21 @@
             <!-- Start Single Team  -->
             <div class="col-lg-3 col-md-6 col-sm-6 col-12 mt--30">
                 <div class="team">
-                    @if($item['name'] === 'Ibrahim MAGASSA')
-                    <div class="thumbnail"><img src="assets/images/team/{{$item['image']}}" alt="Blog Images">
+                    @if($item->name === 'Ibrahim MAGASSA')
+                    <div class="thumbnail"><img src="{{asset('assets/images/team/'.$item->image)}}" alt="Blog Images">
                     @else
-                    <div class="thumbnail"><img src="assets/images/team/team-01.jpg" alt="Blog Images">
+                    <div class="thumbnail"><img src="{{asset('assets/images/team/team-01.jpg')}}" alt="Blog Images">
                     @endif
                     </div>
                     <div class="content">
-                        <h5 class="title">{{ $item['name'] }}</h5>
-                        <p class="designation">{{ $item['periode'] }}</p>
+                        <h5 class="title">{{ $item->name }}</h5>
+                        <p class="designation">{{ $item->periode }}</p>
                     </div>
                     <ul class="social-icon">
                         <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
                         <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
                         <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                        @if($item['name'] === 'Ibrahim MAGASSA')
+                        @if($item->name === 'Ibrahim MAGASSA')
                         <li><span class="rbt-badge-6 ">Fondateur</span></li>
                         @endif
                     </ul>

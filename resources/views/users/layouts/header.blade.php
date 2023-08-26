@@ -7,7 +7,7 @@
                     <div class="header-left">
                         <div class="logo">
                             <a href="{{ route('home_link') }}">
-                                <img src="assets/images/logo/logoabc3.png" alt="Education Logo Images">
+                                <img src="{{asset('assets/images/logo/logo1.png')}}" alt="Education Logo Images">
                             </a>
                         </div>
                     </div>
@@ -62,10 +62,10 @@
                                     <div class="inner">
                                         <div class="rbt-admin-profile">
                                             <div class="admin-thumbnail">
-                                                <img src="assets/images/team/avatar.jpg" alt="User Images">
+                                                <img src="assets/images/team/avatar.jpg')}}" alt="User Images">
                                             </div>
                                             <div class="admin-info">
-                                                <span class="name">Nipa Bali</span>
+                                                <span class="name">Bachir</span>
                                                 <a class="rbt-btn-link color-primary" href="profile.html">View Profile</a>
                                             </div>
                                         </div>
@@ -82,42 +82,7 @@
                                                     <span>Bookmark</span>
                                                 </a>
                                             </li>
-                                            <li>
-                                                <a href="instructor-enrolled-courses.html">
-                                                    <i class="feather-shopping-bag"></i>
-                                                    <span>Enrolled Courses</span>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="instructor-wishlist.html">
-                                                    <i class="feather-heart"></i>
-                                                    <span>Wishlist</span>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="instructor-reviews.html">
-                                                    <i class="feather-star"></i>
-                                                    <span>Reviews</span>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="instructor-my-quiz-attempts.html">
-                                                    <i class="feather-list"></i>
-                                                    <span>My Quiz Attempts</span>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="instructor-order-history.html">
-                                                    <i class="feather-clock"></i>
-                                                    <span>Order History</span>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="instructor-quiz-attempts.html">
-                                                    <i class="feather-message-square"></i>
-                                                    <span>Question & Answer</span>
-                                                </a>
-                                            </li>
+                                           
                                         </ul>
                                         <hr class="mt--10 mb--10">
                                         <ul class="user-list-wrapper">
@@ -176,10 +141,10 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <form action="#">
-                                <input type="text" placeholder="What are you looking for?">
-                                <div class="submit-btn">
+                                <input type="text" placeholder="Que cherchez-vous?">
+                                <!-- <div class="submit-btn">
                                     <a class="rbt-btn btn-gradient btn-md" href="#">Search</a>
-                                </div>
+                                </div> -->
                             </form>
                         </div>
                     </div>
@@ -189,18 +154,18 @@
                     </div>
 
                     <div class="row g-4 pt--30 pb--60">
-                        <div class="col-lg-12">
+                        <!-- <div class="col-lg-12">
                             <div class="section-title">
                                 <h5 class="rbt-title-style-2">Our Top Course</h5>
                             </div>
-                        </div>
+                        </div> -->
 
                         <!-- Start Single Card  -->
-                        <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+                        <!-- <div class="col-lg-3 col-md-4 col-sm-6 col-12">
                             <div class="rbt-card variation-01 rbt-hover">
                                 <div class="rbt-card-img">
                                     <a href="course-details.html">
-                                        <img src="assets/images/course/course-online-01.jpg" alt="Card image">
+                                        <img src="{{asset('assets/images/course/course-online-01.jpg')}}" alt="Card image">
                                     </a>
                                 </div>
                                 <div class="rbt-card-body">
@@ -224,15 +189,15 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                         <!-- End Single Card  -->
 
                         <!-- Start Single Card  -->
-                        <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+                        <!-- <div class="col-lg-3 col-md-4 col-sm-6 col-12">
                             <div class="rbt-card variation-01 rbt-hover">
                                 <div class="rbt-card-img">
                                     <a href="course-details.html">
-                                        <img src="assets/images/course/course-online-02.jpg" alt="Card image">
+                                        <img src="{{asset('assets/images/course/course-online-02.jpg')}}" alt="Card image">
                                     </a>
                                 </div>
                                 <div class="rbt-card-body">
@@ -256,15 +221,15 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                         <!-- End Single Card  -->
 
                         <!-- Start Single Card  -->
-                        <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+                        <!-- <div class="col-lg-3 col-md-4 col-sm-6 col-12">
                             <div class="rbt-card variation-01 rbt-hover">
                                 <div class="rbt-card-img">
                                     <a href="course-details.html">
-                                        <img src="assets/images/course/course-online-03.jpg" alt="Card image">
+                                        <img src="{{asset('assets/images/course/course-online-03.jpg')}}" alt="Card image">
                                     </a>
                                 </div>
                                 <div class="rbt-card-body">
@@ -288,15 +253,15 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                         <!-- End Single Card  -->
 
                         <!-- Start Single Card  -->
-                        <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+                        <!-- <div class="col-lg-3 col-md-4 col-sm-6 col-12">
                             <div class="rbt-card variation-01 rbt-hover">
                                 <div class="rbt-card-img">
                                     <a href="course-details.html">
-                                        <img src="assets/images/course/course-online-04.jpg" alt="Card image">
+                                        <img src="{{asset('assets/images/course/course-online-04.jpg')}}" alt="Card image">
                                     </a>
                                 </div>
                                 <div class="rbt-card-body">
@@ -320,7 +285,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                         <!-- End Single Card  -->
                     </div>
 
@@ -339,7 +304,7 @@
                 <div class="content">
                     <div class="logo">
                         <a href="index.html">
-                            <img src="assets/images/logo/logo.png" alt="Education Logo Images">
+                            <img src="{{asset('assets/images/logo/logo.png')}}" alt="Education Logo Images">
                         </a>
                     </div>
                     <div class="rbt-btn-close">
@@ -450,7 +415,7 @@
                     <li class="minicart-item">
                         <div class="thumbnail">
                             <a href="#">
-                                <img src="assets/images/product/1.jpg" alt="Product Images">
+                                <img src="{{asset('assets/images/product/1.jpg')}}" alt="Product Images">
                             </a>
                         </div>
                         <div class="product-content">
@@ -466,7 +431,7 @@
                     <li class="minicart-item">
                         <div class="thumbnail">
                             <a href="#">
-                                <img src="assets/images/product/7.jpg" alt="Product Images">
+                                <img src="{{asset('assets/images/product/7.jpg')}}" alt="Product Images">
                             </a>
                         </div>
                         <div class="product-content">
@@ -482,7 +447,7 @@
                     <li class="minicart-item">
                         <div class="thumbnail">
                             <a href="#">
-                                <img src="assets/images/product/3.jpg" alt="Product Images">
+                                <img src="{{asset('assets/images/product/3.jpg')}}" alt="Product Images">
                             </a>
                         </div>
                         <div class="product-content">
@@ -498,7 +463,7 @@
                     <li class="minicart-item">
                         <div class="thumbnail">
                             <a href="#">
-                                <img src="assets/images/product/4.jpg" alt="Product Images">
+                                <img src="{{asset('assets/images/product/4.jpg')}}" alt="Product Images">
                             </a>
                         </div>
                         <div class="product-content">

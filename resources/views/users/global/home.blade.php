@@ -13,11 +13,10 @@
                                 <div class="col-lg-12">
                                     <div class="inner text-center">
                                         <div class="section-title">
-                                            <span class="subtitle bg-white-opacity d-inline-block">BASED ON THE BEST
-                                            HISTUDY</span>
+                                            <span class="subtitle bg-white-opacity d-inline-block">Bienvenue Sur L'African Business Club</span>
                                         </div>
-                                        <h1 class="title w-700">Hey! Build Your Career <br /> <strong
-                                            class="color-white">With Follow Histudy</strong></h1>
+                                        <h1 class="title w-300">Construisez votre carrière avec<br /> <strong
+                                            class="color-white">l'African Business Club</strong></h1>
                                             <div class="button-group mt--30">
                                                 <a class="rbt-btn btn-gradient rbt-marquee-btn" href="#">
                                                     <span data-text="En savoir plus sur ABC">En savoir plus sur ABC</span>
@@ -25,19 +24,19 @@
                                             </div>
                                             <div class="social-share-wrapper mt--40">
                                                 <ul class="social-icon social-default transparent-with-border">
-                                                    <li><a href="https://www.facebook.com/">
+                                                    <li><a href="https://www.facebook.com/Africanbusinessclub">
                                                         <i class="feather-facebook"></i>
                                                     </a>
                                                 </li>
-                                                <li><a href="https://www.twitter.com">
+                                                <li><a href="https://twitter.com/AfricanBC">
                                                     <i class="feather-twitter"></i>
                                                 </a>
                                             </li>
-                                            <li><a href="https://www.instagram.com/">
+                                            <li><a href="https://instagram.com/africanbusinessclub_?igshid=MzRlODBiNWFlZA==">
                                                 <i class="feather-instagram"></i>
                                             </a>
                                         </li>
-                                        <li><a href="https://www.linkdin.com/">
+                                        <li><a href="https://www.linkedin.com/company/african-business-club/">
                                             <i class="feather-linkedin"></i>
                                         </a>
                                     </li>
@@ -61,41 +60,40 @@
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-lg-12">
-                        <div class="inner text-center">
-                            <div class="section-title">
-                                <span class="subtitle bg-white-opacity d-inline-block">THE BEST TEMPLATE FOR
-                                EDUCATION</span>
-                            </div>
-                            <h1 class="title w-700">Histudy Starter is a community <br /> <strong
-                                class="color-white">for creative people.</strong></h1>
-                                <div class="button-group mt--30">
-                                    <a class="rbt-btn btn-gradient rbt-marquee-btn radius-round" href="#">
-                                        <span data-text="More About University">More About University</span>
-                                    </a>
-                                </div>
-                                <div class="social-share-wrapper mt--40">
-                                    <ul class="social-icon social-default transparent-with-border">
-                                        <li><a href="https://www.facebook.com/">
-                                            <i class="feather-facebook"></i>
+                    <div class="inner text-center">
+                                        <div class="section-title">
+                                            <span class="subtitle bg-white-opacity d-inline-block">Bienvenue Sur L'African Business Club</span>
+                                        </div>
+                                        <h1 class="title w-300">Construisez votre carrière avec<br /> <strong
+                                            class="color-white">l'African Business Club</strong></h1>
+                                            <div class="button-group mt--30">
+                                                <a class="rbt-btn btn-gradient rbt-marquee-btn" href="#">
+                                                    <span data-text="En savoir plus sur ABC">En savoir plus sur ABC</span>
+                                                </a>
+                                            </div>
+                                            <div class="social-share-wrapper mt--40">
+                                                <ul class="social-icon social-default transparent-with-border">
+                                                    <li><a href="https://www.facebook.com/Africanbusinessclub">
+                                                        <i class="feather-facebook"></i>
+                                                    </a>
+                                                </li>
+                                                <li><a href="https://twitter.com/AfricanBC">
+                                                    <i class="feather-twitter"></i>
+                                                </a>
+                                            </li>
+                                            <li><a href="https://instagram.com/africanbusinessclub_?igshid=MzRlODBiNWFlZA==">
+                                                <i class="feather-instagram"></i>
+                                            </a>
+                                        </li>
+                                        <li><a href="https://www.linkedin.com/company/african-business-club/">
+                                            <i class="feather-linkedin"></i>
                                         </a>
                                     </li>
-                                    <li><a href="https://www.twitter.com">
-                                        <i class="feather-twitter"></i>
-                                    </a>
-                                </li>
-                                <li><a href="https://www.instagram.com/">
-                                    <i class="feather-instagram"></i>
-                                </a>
-                            </li>
-                            <li><a href="https://www.linkdin.com/">
-                                <i class="feather-linkedin"></i>
-                            </a>
-                        </li>
-                    </ul>
-                    <span class="follow-us-text">Follow By Facebook, Twitter, Instagram, and
-                    Linkedin</span>
-                </div>
-            </div>
+                                </ul>
+                                <span class="follow-us-text">Suivre par Facebook, Twitter, Instagram, et
+                                Linkedin</span>
+                            </div>
+                        </div>
         </div>
     </div>
 </div>
@@ -111,41 +109,40 @@
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-lg-12">
-                        <div class="inner text-center">
-                            <div class="section-title">
-                                <span class="subtitle bg-white-opacity d-inline-block">THE BEST TEMPLATE FOR
-                                EDUCATION</span>
-                            </div>
-                            <h1 class="title w-700">Learning keeps you <br /> <strong
-                                class="color-white">in the lead</strong></h1>
-                                <div class="button-group mt--30">
-                                    <a class="rbt-btn btn-gradient rbt-marquee-btn radius-round" href="#">
-                                        <span data-text="More About University">More About University</span>
-                                    </a>
-                                </div>
-                                <div class="social-share-wrapper mt--40">
-                                    <ul class="social-icon social-default transparent-with-border">
-                                        <li><a href="https://www.facebook.com/">
-                                            <i class="feather-facebook"></i>
+                    <div class="inner text-center">
+                                        <div class="section-title">
+                                            <span class="subtitle bg-white-opacity d-inline-block">Bienvenue Sur L'African Business Club</span>
+                                        </div>
+                                        <h1 class="title w-300">Construisez votre carrière avec<br /> <strong
+                                            class="color-white">l'African Business Club</strong></h1>
+                                            <div class="button-group mt--30">
+                                                <a class="rbt-btn btn-gradient rbt-marquee-btn" href="#">
+                                                    <span data-text="En savoir plus sur ABC">En savoir plus sur ABC</span>
+                                                </a>
+                                            </div>
+                                            <div class="social-share-wrapper mt--40">
+                                                <ul class="social-icon social-default transparent-with-border">
+                                                    <li><a href="https://www.facebook.com/Africanbusinessclub">
+                                                        <i class="feather-facebook"></i>
+                                                    </a>
+                                                </li>
+                                                <li><a href="https://twitter.com/AfricanBC">
+                                                    <i class="feather-twitter"></i>
+                                                </a>
+                                            </li>
+                                            <li><a href="https://instagram.com/africanbusinessclub_?igshid=MzRlODBiNWFlZA==">
+                                                <i class="feather-instagram"></i>
+                                            </a>
+                                        </li>
+                                        <li><a href="https://www.linkedin.com/company/african-business-club/">
+                                            <i class="feather-linkedin"></i>
                                         </a>
                                     </li>
-                                    <li><a href="https://www.twitter.com">
-                                        <i class="feather-twitter"></i>
-                                    </a>
-                                </li>
-                                <li><a href="https://www.instagram.com/">
-                                    <i class="feather-instagram"></i>
-                                </a>
-                            </li>
-                            <li><a href="https://www.linkdin.com/">
-                                <i class="feather-linkedin"></i>
-                            </a>
-                        </li>
-                    </ul>
-                    <span class="follow-us-text">Follow By Facebook, Twitter, Instagram, and
-                    Linkedin</span>
-                </div>
-            </div>
+                                </ul>
+                                <span class="follow-us-text">Suivre par Facebook, Twitter, Instagram, et
+                                Linkedin</span>
+                            </div>
+                        </div>
         </div>
     </div>
 </div>
@@ -175,13 +172,13 @@
 <div class="swiper rbt-swiper-thumb rbtmySwiperThumb">
     <div class="swiper-wrapper">
         <div class="swiper-slide">
-            <img src="assets/images/banner/banner-small-01.png" alt="Banner Images" />
+            <img src="{{asset('assets/images/banner/Accueil3.png')}}" alt="Banner Images" />
         </div>
         <div class="swiper-slide">
-            <img src="assets/images/banner/banner-small-02.png" alt="Banner Images" />
+            <img src="{{asset('assets/images/banner/Accueil5.png')}}" alt="Banner Images" />
         </div>
         <div class="swiper-slide">
-            <img src="assets/images/banner/banner-small-03.png" alt="Banner Images" />
+            <img src="{{asset('assets/images/banner/Accueil2.png')}}" alt="Banner Images" />
         </div>
     </div>
 </div>
@@ -194,30 +191,33 @@
             <div class="row g-5 align-items-center">
                 <div class="col-lg-6">
                     <div class="video-popup-wrapper">
-                        <img class="w-100 rbt-radius" src="assets/images/others/video-05.jpg" alt="Video Images">
-                        <a class="rbt-btn rounded-player popup-video position-to-top" href="https://www.youtube.com/watch?v=nA1Aqp0sPQo">
-                            <span><i class="feather-play"></i></span>
+                        <img class="w-100 rbt-radius" src="{{asset('assets/images/others/brand.jpg')}}" alt="Video Images">
+                        <a class="rbt-btn rounded-player-2 popup-video position-to-top with-animation " href="assets/video/abc.mp4">
+                            <span class="play-icon"></span>
+                            <!-- <span><i class="feather-play"></i></span> -->
                         </a>
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <div class="inner pl--50 pl_lg--0 pl_md--0 pl_sm--0">
                         <div class="section-title text-start">
-                            <h4 class="title">Build your Career Life.</h4>
-                            <p class="description mt--30 mt_md--15 mt_sm--15 mb_md--15 mb_sm--15">Far far away, behind the word mountains, far from the
-                                countries Vokalia and Consonantia, there live the blind texts.</p>
-                            <p class="mb_md--15 mb_sm--15">Convenient practice dolor sit adipisicing elit. Minima error reiciendis. far from the
-                                countries Vokalia and Consonantia, there live the blind texts far from the
-                                countries Vokalia and Consonantia.</p>
-                            <!-- <div class="view-all-button">
-                                <a class="rbt-btn btn-border hover-icon-reverse" href="#">
-                                    <span class="icon-reverse-wrapper">
-                                        <span class="btn-text">View All Courses</span>
-                                    <span class="btn-icon"><i class="feather-arrow-right"></i></span>
-                                    <span class="btn-icon"><i class="feather-arrow-right"></i></span>
-                                    </span>
-                                </a>
-                            </div> -->
+                            <h3 class="title">C'est quoi L'African Business Club ?</h3>
+                            <p class="description mt--30 mt_md--15 mt_sm--15 mb_md--15 mb_sm--15">L’ African Business Club est une association créée en 2003 sur l’initiative de Ibrahim Magassa 
+                                et d’autres étudiants de l’ESCP Europe.</p>
+                            <p class="mb_md--15 mb_sm--15">Aujourd’hui, 
+                        notre objectif est de promouvoir et renforcer le développement d’initiatives et d’opportunités en Afrique 🌍. Les valeurs que nous véhiculons sont : le leadership, l’unité et le réseau.
+                    L’ABC est une passerelle entre les jeunes désireux d’entreprendre en Afrique, et l’écosystème d’entreprises présentes sur le sol africain. </p>
+                </p>
+                <div class="contact-btn mt--30">
+                                    <a class="rbt-btn hover-icon-reverse btn-border-gradient radius-round" href="{{ route('about_link') }}">
+                                        <div class="icon-reverse-wrapper">
+                                            <span class="btn-text">Lire Plus</span>
+                                            <span class="btn-icon"><i class="feather-arrow-right"></i></span>
+                                            <span class="btn-icon"><i class="feather-arrow-right"></i></span>
+                                        </div>
+                                    </a>
+                                </div>
+                           
                         </div>
                     </div>
                 </div>
@@ -225,79 +225,9 @@
         </div>
     </div>
     <!-- End Video Area  -->
-<!-- Start Advance Tab  -->
-<div class="rbt-advance-tab-area  bg-color-white">
-    <div class="container">
-        <div class="row mb--20">
-            <div class="col-lg-12">
-                <div class="section-title text-center">
-                    <h2 class="title">C'est quoi L'African Business Club ?</h2>
-                    <p class="description mt--20">L’ African Business Club est une association créée en 2003 sur l’initiative de Ibrahim Magassa et d’autres étudiants de l’ESCP Europe. Aujourd’hui, 
-                        notre objectif est de promouvoir et renforcer le développement d’initiatives et d’opportunités en Afrique 🌍. Les valeurs que nous véhiculons sont : le leadership, l’unité et le réseau.
-                    L’ABC est une passerelle entre les jeunes désireux d’entreprendre en Afrique, et l’écosystème d’entreprises présentes sur le sol africain. </p>
-                </div>
-            </div>
-        </div>
-        <div class="row g-5">
-            <div class="col-lg-4 col-md-12 col-sm-12 col-12 mt_md--30 mt_sm--30 order-2 order-lg-1">
-                <div class="advance-tab-button advance-tab-button-1">
-                    <ul class="nav nav-tabs tab-button-list" id="aboutmyTab" role="tablist">
-                        <li class="nav-item" role="presentation">
-                            <a href="#" class="nav-link tab-button active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" role="tab" aria-controls="home" aria-selected="true">
-                                <div class="tab">
-                                    <h4 class="title">ABC Vision.</h4>
-                                    <p class="description">Nous avons pour vision :</p>
-                                </div>
-                            </a>
-                        </li>
 
-                        <li class="nav-item" role="presentation">
-                            <a href="#" class="nav-link tab-button" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" role="tab" aria-controls="profile" aria-selected="false">
-                                <div class="tab" >
-                                    <h4 class="title">ABC Mission.</h4>
-                                    <p class="description">Nous avons pour vision :</p>
-                                </div>
-                            </a>
-                        </li>
 
-                        <li class="nav-item" role="presentation">
-                            <a href="#" class="nav-link tab-button" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" role="tab" aria-controls="contact" aria-selected="false">
-                                <div class="tab">
-                                    <h4 class="title">ABC Planning.</h4>
-                                    <p class="description">Notre planning correspond :</p>
-                                </div>
-                            </a>
-                        </li>
-
-                    </ul>
-                </div>
-            </div>
-            <div class="col-lg-8 col-md-12 col-sm-12 col-12 order-1 order-lg-2">
-                <div class="tab-content">
-                    <div class="tab-pane fade advance-tab-content-1 active show" id="home" role="tabpanel" aria-labelledby="home-tab">
-                        <div class="thumbnail">
-                            <img src="assets/images/tab/tabs-03.jpg" alt="advance-tab-image">
-                        </div>
-
-                    </div>
-                    <div class="tab-pane fade advance-tab-content-1" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                        <div class="thumbnail">
-                            <img src="assets/images/tab/tabs-02.jpg" alt="advance-tab-image">
-                        </div>
-                    </div>
-                    <div class="tab-pane fade advance-tab-content-1" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-                        <div class="thumbnail">
-                            <img src="assets/images/tab/tabs-01.jpg" alt="advance-tab-image">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- End Advance Tab  -->
-
-<div class="rbt-pricing-area bg-color-white rbt-section-gap2">
+<div class="rbt-pricing-area bg-color-white">
         <div class="container">
             <div class="row g-5 mb--60">
                 <div class="col-12">
@@ -315,9 +245,10 @@
                                 <div class="col-lg-4 col-md-6 col-12">
                                     <div class="pricing-left">
                                         <h3 class="main-title">Pack Adherant</h3>
-                                        <p class="description">Devenez membre de l'African Business Club a travers Notre Tout Nouveau Pack et profitez de tous ces Avantages.</p>
+                                        <!-- <p class="description">Devenez membre de l'African Business Club a travers Notre Tout Nouveau Pack et profitez de tous ces Avantages.</p> -->
+                                        <p class="description">L'ABC vous offre une nouvelle manière de profiter de ses évènements et des services de ses partenaires. Actualités africaines, réseautage, formations et réductions, l’ABC Connect est un condensé d'offres exclusives pensé pour vous. Tout ça au bout de vos doigts grâce à la plateforme en ligne !.</p>
                                         <div class="price-wrapper">
-                                            <span class="price-amount">99 €<sup>/Yearly</sup></span>
+                                            <span class="price-amount">99 €<sup>/Annuel</sup></span>
                                         </div>
                                         <div class="pricing-btn-group">
                                             <button class="rbt-btn btn-gradient w-100">J'adhère</button>
@@ -357,7 +288,10 @@
                                         <div class="pricing-offer">
                                             <div class="single-list">
                                             <h4 class="price-title"> <i class="feather-check"></i>Afrique Carrière.</h4>
-                                            <p class="description"> Devenez membre de l'African Business Club a travers Notre Tout Nouveau pack et profitter de tous ce que nous offrons.</p>   
+                                            <p class="description"> L' ABC est la preuve vivante de l'efficacité d'une initiative volontariste et solidaire menée avec passion, intégrité et compétence.
+Un message porteur d'espoir pour l'avenir...
+
+.</p>   
                                             <!-- <ul class="plan-offer-list">
                                                     <li>
                                                         <i class="feather-check"></i> 5 PPC Campaigns
@@ -375,19 +309,26 @@
                                             </div>
                                             <div class="single-list mt--40">
                                             <h4 class="price-title"> <i class="feather-check"></i>Séance Coaching</h4>
-                                            <p class="description"> Devenez membre de l'African Business Club a travers Notre Tout Nouveau pack et profitter de tous ce que nous offrons.</p>   
+                                            <p class="description"> L' ABC est la preuve vivante de l'efficacité d'une initiative volontariste et solidaire menée avec passion, intégrité et compétence.
+Un message porteur d'espoir pour l'avenir...
+
+.</p>   
                                             </div>
 
                                         </div>
                                         <div class="pricing-badge"><span> Avantages Du Pack</span></div>
                                     </div>
+                                    
                                 </div>
                                 <div class="col-lg-4 col-md-6 col-12">
                                     <div class="pricing-right position-relative">
                                         <div class="pricing-offer">
                                             <div class="single-list">
                                             <h4 class="price-title"> <i class="feather-check"></i>Conférence.</h4>
-                                            <p class="description"> Devenez membre de l'African Business Club a travers Notre Tout Nouveau pack et profitter de tous ce que nous offrons.</p>   
+                                            <p class="description"> L' ABC est la preuve vivante de l'efficacité d'une initiative volontariste et solidaire menée avec passion, intégrité et compétence.
+Un message porteur d'espoir pour l'avenir...
+
+.</p>   
                                             <!-- <ul class="plan-offer-list">
                                                     <li>
                                                         <i class="feather-check"></i> 5 PPC Campaigns
@@ -405,12 +346,27 @@
                                             </div>
                                             <div class="single-list mt--40">
                                             <h4 class="price-title"> <i class="feather-check"></i>SAfter Work</h4>
-                                            <p class="description"> Devenez membre de l'African Business Club a travers Notre Tout Nouveau pack et profitter de tous ce que nous offrons.</p>   
+                                            <p class="description"> L' ABC est la preuve vivante de l'efficacité d'une initiative volontariste et solidaire menée avec passion, intégrité et compétence.
+Un message porteur d'espoir pour l'avenir...
+
+.</p>   
                                             </div>
 
                                         </div>
+
                                         <!-- <div class="pricing-badge"><span>Popular</span></div> -->
                                     </div>
+
+                                    <div class="row mt--50">
+                <div class="col-lg-12">
+                    <div class="rbt-button-group">
+                        <a class="rbt-moderbt-btn" href="#">
+                            <span class="moderbt-btn-text">En savoir Plus</span>
+                            <i class="feather-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
                                 </div>
                             </div>
                         </div>
@@ -421,7 +377,7 @@
     </div>
 
 <!-- Start Event Area  -->
-<div class="rbt-event-area bg-color-white ">
+<div class="rbt-event-area bg-color-white " style="margin-top: 8%;">
                             <div class="container">
                                 <div class="row g-5 align-items-end mb--60">
                                     <div class="col-lg-6 col-md-12 col-12">
@@ -431,7 +387,7 @@
                                     </div>
                                     <div class="col-lg-6 col-md-12 col-12">
                                         <div class="load-more-btn text-start text-lg-end">
-                                            <a class="rbt-btn-link" href="#">University Upcoming Events<i
+                                            <a class="rbt-btn-link" href="#"> Voir tous les Events<i
                                                 class="feather-arrow-right"></i></a>
                                             </div>
                                         </div>
@@ -442,7 +398,7 @@
                                             <div class="rbt-card card-list-2 event-list-card variation-01 rbt-hover">
                                                 <div class="rbt-card-img">
                                                     <a href="event-details.html">
-                                                        <img src="assets/images/event/grid-type-01.jpg" alt="Card image">
+                                                        <img src="{{asset('assets/images/event/grid-type-01.jpg')}}" alt="Card image">
                                                     </a>
                                                 </div>
                                                 <div class="rbt-card-body">
@@ -470,7 +426,7 @@
                                             <div class="rbt-card card-list-2 event-list-card variation-01 rbt-hover">
                                                 <div class="rbt-card-img">
                                                     <a href="event-details.html">
-                                                        <img src="assets/images/event/grid-type-02.jpg" alt="Card image">
+                                                        <img src="{{asset('assets/images/event/grid-type-02.jpg')}}" alt="Card image">
                                                     </a>
                                                 </div>
                                                 <div class="rbt-card-body">
@@ -499,7 +455,7 @@
                                             <div class="rbt-card card-list-2 event-list-card variation-01 rbt-hover">
                                                 <div class="rbt-card-img">
                                                     <a href="event-details.html">
-                                                        <img src="assets/images/event/grid-type-03.jpg" alt="Card image">
+                                                        <img src="{{asset('assets/images/event/grid-type-03.jpg')}}" alt="Card image">
                                                     </a>
                                                 </div>
                                                 <div class="rbt-card-body">
@@ -507,7 +463,7 @@
                                                         <li><i class="feather-map-pin"></i>Paris</li>
                                                         <li><i class="feather-clock"></i>8:00 am - 5:00 pm</li>
                                                     </ul>
-                                                    <h4 class="rbt-card-title"><a href="event-details.html">Histudy Education Fair 2023</a></h4>
+                                                    <h4 class="rbt-card-title"><a href="event-details.html">ABC Education Fair 2023</a></h4>
 
                                                     <div class="read-more-btn">
                                                         <a class="rbt-btn btn-border hover-icon-reverse btn-sm radius-round" href="event-details.html">
@@ -528,7 +484,7 @@
                                             <div class="rbt-card card-list-2 event-list-card variation-01 rbt-hover">
                                                 <div class="rbt-card-img">
                                                     <a href="event-details.html">
-                                                        <img src="assets/images/event/grid-type-04.jpg" alt="Card image">
+                                                        <img src="{{asset('assets/images/event/grid-type-04.jpg')}}" alt="Card image">
                                                     </a>
                                                 </div>
                                                 <div class="rbt-card-body">
@@ -557,14 +513,14 @@
      <!-- End Event Area  -->
 
  <!-- Start Blog Style -->
- <div class="rbt-rbt-blog-area rbt-section-gap bg-gradient-7 rbt-round-bottom-shape" style="margin-top: 5%;">
+ <div class="rbt-rbt-blog-area  bg-gradient-7 rbt-round-bottom-shape" style="margin-top: 5%;">
         <div class="wrapper pb--50 rbt-index-upper">
             <div class="container">
                 <div class="row g-5 align-items-end mb--60">
                     <div class="col-lg-6 col-md-12 col-12">
                         <div class="section-title text-start">
                             <h2 class="title color-white">Latest News</h2>
-                            <p class="description color-white-off mt--20">Learning communicate to global world and build a bright future and career development, increase your skill with our histudy.</p>
+                            <p class="description color-white-off mt--20">Learning communicate to global world and build a bright future and career development, increase your skill.</p>
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-12 col-12">
@@ -583,15 +539,13 @@
                         <div class="rbt-card variation-02 rbt-hover">
                             <div class="rbt-card-img">
                                 <a href="blog-details.html">
-                                    <img src="assets/images/blog/blog-grid-01.jpg" alt="Card image"> </a>
+                                    <img src="{{asset('assets/images/blog/blog-grid-01.jpg')}}" alt="Card image"> </a>
                                 </div>
                                 <div class="rbt-card-body">
-                                    <h5 class="rbt-card-title"><a href="blog-details.html">Is University The Most Trending
-                                    Thing Now?</a></h5>
+                                    <h5 class="rbt-card-title"><a href="blog-details.html">Rencontre Adhérant</a></h5>
                                     <p class="rbt-card-text">It is a long established fact that a reader.</p>
                                     <div class="rbt-card-bottom">
-                                        <a class="transparent-button" href="blog-details.html">Learn
-                                            More<i><svg width="17" height="12" xmlns="http://www.w3.org/2000/svg"><g stroke="#27374D" fill="none" fill-rule="evenodd"><path d="M10.614 0l5.629 5.629-5.63 5.629"/><path stroke-linecap="square" d="M.663 5.572h14.594"/></g></svg></i></a>
+                                        <a class="transparent-button" href="blog-details.html">Lire Plus<i><svg width="17" height="12" xmlns="http://www.w3.org/2000/svg"><g stroke="#27374D" fill="none" fill-rule="evenodd"><path d="M10.614 0l5.629 5.629-5.63 5.629"/><path stroke-linecap="square" d="M.663 5.572h14.594"/></g></svg></i></a>
                                         </div>
                                     </div>
                                 </div>
@@ -605,15 +559,13 @@
                         <div class="rbt-card variation-02 rbt-hover">
                             <div class="rbt-card-img">
                                 <a href="blog-details.html">
-                                    <img src="assets/images/blog/blog-grid-01.jpg" alt="Card image"> </a>
+                                    <img src="{{asset('assets/images/blog/blog-grid-01.jpg')}}" alt="Card image"> </a>
                                 </div>
                                 <div class="rbt-card-body">
-                                    <h5 class="rbt-card-title"><a href="blog-details.html">Is University The Most Trending
-                                    Thing Now?</a></h5>
+                                    <h5 class="rbt-card-title"><a href="blog-details.html">Meet and Share</a></h5>
                                     <p class="rbt-card-text">It is a long established fact that a reader.</p>
                                     <div class="rbt-card-bottom">
-                                        <a class="transparent-button" href="blog-details.html">Learn
-                                            More<i><svg width="17" height="12" xmlns="http://www.w3.org/2000/svg"><g stroke="#27374D" fill="none" fill-rule="evenodd"><path d="M10.614 0l5.629 5.629-5.63 5.629"/><path stroke-linecap="square" d="M.663 5.572h14.594"/></g></svg></i></a>
+                                        <a class="transparent-button" href="blog-details.html">Lire Plus<i><svg width="17" height="12" xmlns="http://www.w3.org/2000/svg"><g stroke="#27374D" fill="none" fill-rule="evenodd"><path d="M10.614 0l5.629 5.629-5.63 5.629"/><path stroke-linecap="square" d="M.663 5.572h14.594"/></g></svg></i></a>
                                         </div>
                                     </div>
                                 </div>
@@ -625,15 +577,13 @@
                         <div class="rbt-card variation-02 rbt-hover">
                             <div class="rbt-card-img">
                                 <a href="blog-details.html">
-                                    <img src="assets/images/blog/blog-grid-01.jpg" alt="Card image"> </a>
+                                    <img src="{{asset('assets/images/blog/blog-grid-01.jpg')}}" alt="Card image"> </a>
                                 </div>
                                 <div class="rbt-card-body">
-                                    <h5 class="rbt-card-title"><a href="blog-details.html">Is University The Most Trending
-                                    Thing Now?</a></h5>
+                                    <h5 class="rbt-card-title"><a href="blog-details.html">Organisation du Gala des 20 ans</a></h5>
                                     <p class="rbt-card-text">It is a long established fact that a reader.</p>
                                     <div class="rbt-card-bottom">
-                                        <a class="transparent-button" href="blog-details.html">Learn
-                                            More<i><svg width="17" height="12" xmlns="http://www.w3.org/2000/svg"><g stroke="#27374D" fill="none" fill-rule="evenodd"><path d="M10.614 0l5.629 5.629-5.63 5.629"/><path stroke-linecap="square" d="M.663 5.572h14.594"/></g></svg></i></a>
+                                        <a class="transparent-button" href="blog-details.html">Lire Plus<i><svg width="17" height="12" xmlns="http://www.w3.org/2000/svg"><g stroke="#27374D" fill="none" fill-rule="evenodd"><path d="M10.614 0l5.629 5.629-5.63 5.629"/><path stroke-linecap="square" d="M.663 5.572h14.594"/></g></svg></i></a>
                                         </div>
                                     </div>
                                 </div>
@@ -646,15 +596,15 @@
     </div>
     <!-- End Blog Style -->
 
-    <div class="rbt-newsletter-area bg-color-white rbt-section-gap2">
+    <div class="rbt-newsletter-area bg-color-white rbt-section-gap">
         <div class="container bg-gradient-5 newsletter-style-1">
             <div class="row row--15 align-items-center">
                 <div class="col-lg-12 col-xl-7">
                     <div class="inner">
                         <div class="section-title text-center text-xl-start">
-                            <!-- <span class="subtitle bg-secondary-opacity">Get Latest Histudy Update</span> -->
-                            <h2 class="title"><strong>Subscribe</strong> Our Newsletter</h2>
-                            <p class="description mt--20">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+                            <!-- <span class="subtitle bg-secondary-opacity">Get Latest ABC Update</span> -->
+                            <h2 class="title"><strong>Abonnez-vous</strong>  à notre newsletter</h2>
+                            <p class="description mt--20">Pour être informés de toutes les activités de L'African Business Club.</p>
                         </div>
                     </div>
                 </div>
@@ -663,7 +613,7 @@
                         <input type="email" placeholder="Enter Your E-Email">
                         <button type="submit" class="rbt-btn btn-md btn-gradient hover-icon-reverse">
                             <span class="icon-reverse-wrapper">
-                        <span class="btn-text">Subscribe</span>
+                        <span class="btn-text">S'abonner</span>
                             <span class="btn-icon"><i class="feather-arrow-right"></i></span>
                             <span class="btn-icon"><i class="feather-arrow-right"></i></span>
                             </span>
@@ -673,6 +623,34 @@
             </div>
         </div>
     </div>
+
+    <!-- Start Brand Area  -->
+<div class="rbt-brand-area bg-color-secondary-alt rbt-section-gap">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-12">
+                <div class="section-title text-center mb--40">
+                    <h4 class="small-title w-600">Ils nous font confiance</h4>
+                </div>
+                <ul class="brand-list brand-style-3 justify-content-center justify-content-lg-between">
+                    <li><a href="#"><img src="{{asset('assets/images/partners/part1.png')}}" alt="Brand Image"></a></li>
+                    <li><a href="#"><img src="{{asset('assets/images/partners/part2.png')}}" alt="Brand Image"></a></li>
+                    <li><a href="#"><img src="{{asset('assets/images/partners/part3.png')}}" alt="Brand Image"></a></li>
+                    <li><a href="#"><img src="{{asset('assets/images/partners/part4.png')}}" alt="Brand Image"></a></li>
+                    <li><a href="#"><img src="{{asset('assets/images/partners/part5.png')}}" alt="Brand Image"></a></li>
+                </ul>
+                <ul class="brand-list brand-style-3 justify-content-center justify-content-lg-between">
+                    <li><a href="#"><img src="{{asset('assets/images/partners/part6.png')}}" alt="Brand Image"></a></li>
+                    <li><a href="#"><img src="{{asset('assets/images/partners/part7.png')}}" alt="Brand Image"></a></li>
+                    <li><a href="#"><img src="{{asset('assets/images/partners/part8.png')}}" alt="Brand Image"></a></li>
+                    <li><a href="#"><img src="{{asset('assets/images/partners/part9.png')}}" alt="Brand Image"></a></li>
+                    <li><a href="#"><img src="{{asset('assets/images/partners/part10.png')}}" alt="Brand Image"></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Brand Area  -->
                             <div class="rbt-separator-mid">
                                 <div class="container">
                                     <hr class="rbt-separator m-0">

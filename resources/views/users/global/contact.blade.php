@@ -15,12 +15,31 @@
             <div class="col-lg-4 col-md-6 col-sm-6 col-12 sal-animate" data-sal="slide-up" data-sal-delay="150" data-sal-duration="800">
                 <div class="rbt-address">
                     <div class="icon">
-                        <i class="feather-headphones"></i>
+                        <i class="feather-cast"></i>
                     </div>
                     <div class="inner">
-                        <h4 class="title">numéro de téléphone</h4>
-                        <p><a href="tel:(+33) 6 44 80 33 59">(+33) 6 44 80 33 59</a></p>
-                        <p><a href="tel:(+33) 6 44 80 33 59">(+33) 6 44 80 33 59</a></p>
+                        <h4 class="title">Nos réseau sociaux</h4>
+                        <div class="social-share-wrapper mt--40">
+                                                <ul class="social-icon social-default transparent-with-border">
+                                                    <li><a href="https://www.facebook.com/Africanbusinessclub">
+                                                        <i class="feather-facebook"></i>
+                                                    </a>
+                                                </li>
+                                                <li><a href="https://twitter.com/AfricanBC">
+                                                    <i class="feather-twitter"></i>
+                                                </a>
+                                            </li>
+                                            <li><a href="https://instagram.com/africanbusinessclub_?igshid=MzRlODBiNWFlZA==">
+                                                <i class="feather-instagram"></i>
+                                            </a>
+                                        </li>
+                                        <li><a href="https://www.linkedin.com/company/african-business-club/">
+                                            <i class="feather-linkedin"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                                
+                            </div>
                     </div>
                 </div>
             </div>
