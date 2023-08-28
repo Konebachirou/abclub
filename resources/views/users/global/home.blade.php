@@ -582,7 +582,7 @@
                     <div class="row g-5 align-items-end mb--60">
                         <div class="col-lg-6 col-md-12 col-12">
                             <div class="section-title text-start">
-                                <h2 class="title color-white">Latest News</h2>
+                                <h3 class="title color-white">Les actualités de l'ABC </h3>
                                 <p class="description color-white-off mt--20">Learning communicate to global world and build a bright future and career development, increase your skill.</p>
                             </div>
                         </div>
