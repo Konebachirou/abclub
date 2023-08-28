@@ -113,12 +113,12 @@
                                     </div>
                                 </div>
                             </li>
-                            <li class="access-icon rbt-mini-cart">
+                            <!-- <li class="access-icon rbt-mini-cart">
                                 <a class="rbt-cart-sidenav-activation rbt-round-btn" href="#">
                                     <i class="feather-shopping-cart"></i>
                                     <span class="rbt-cart-count">4</span>
                                 </a>
-                            </li>
+                            </li> -->
                             <li class="access-icon">
                                 <a class="search-trigger-active rbt-round-btn" href="#">
                                     <i class="feather-search"></i>
@@ -317,19 +317,19 @@
                 <p> Un message porteur d'espoir pour l'avenir...</p>
                 <ul class="navbar-top-left rbt-information-list justify-content-start">
                     <li>
-                        <a href="mailto:hello@example.com"><i class="feather-mail"></i>example@gmail.com</a>
+                        <a href="mailto:contact@abclub-paris.com"><i class="feather-mail"></i>contact@abclub-paris.com</a>
                     </li>
-                    <li>
-                        <a href="#"><i class="feather-phone"></i>(302) 555-0107</a>
-                    </li>
+                   
                 </ul>
             </div>
 
             <nav class="mainmenu-nav">
             <ul class="mainmenu">
-                                <li class="with-megamenu has-menu-child-item position-static"><a href="#">Accueil </a></li>
-                                <li class="with-megamenu has-menu-child-item position-static"><a href="#">L'association </a></li>
+                                <li class="with-megamenu has-menu-child-item position-static"><a href="{{ route('home_link') }}">Accueil </a></li>
+                                <li class="with-megamenu has-menu-child-item position-static"><a href="{{ route('about_link') }}">L'association </a></li>
                                 <li class="with-megamenu has-menu-child-item position-static"><a href="#">Nos Actions </a></li>
+                                <li class="with-megamenu has-menu-child-item position-static"><a href="{{ route('news_link') }}">News </a></li>
+                                <li class="with-megamenu has-menu-child-item position-static"><a href="{{ route('event_link') }}">Events </a></li>
 
                                 <li class="has-dropdown has-menu-child-item">
                                     <a href="#">Pôles
@@ -338,44 +338,36 @@
                                     <ul class="submenu">
                                         <li class="has-dropdown"><a href="#">Réseau</a>
                                             <ul class="submenu">
-                                                <li><a href="#">Dashboard</a></li>
-                                                <li><a href="instructor-profile.html">Profile</a></li>
+                                                <li><a href="#">offres d'emploi</a></li>
+                                                <li><a href="#">Entreprise</a></li>
                                             </ul>
                                         </li>
                                         <li class="has-dropdown"><a href="#">AMID</a>
                                             <ul class="submenu">
-                                                <li><a href="instructor-dashboard.html">Dashboard</a></li>
-                                                <li><a href="instructor-profile.html">Profile</a></li>
+                                                <li><a href="#">Events</a></li>
+                                                <li><a href="#">News</a></li>
+                                                <li><a href="#">ANE</a></li>
+                                                <li><a href="#">ANP</a></li>
                                             </ul>
                                         </li>
                                         <li class="has-dropdown"><a href="#">ABC CONNECT</a>
-                                            <ul class="submenu">
-                                                <li><a href="instructor-dashboard.html">Dashboard</a></li>
-                                                <li><a href="instructor-profile.html">Profile</a></li>
-                                            </ul>
                                         </li>
                                         <li class="has-dropdown"><a href="#">Meet & Share</a>
                                             <ul class="submenu">
-                                                <li><a href="instructor-dashboard.html">Dashboard</a></li>
-                                                <li><a href="instructor-profile.html">Profile</a></li>
-                                            </ul>
-                                        </li>
-                                        <li class="has-dropdown"><a href="#">Média</a>
-                                            <ul class="submenu">
-                                                <li><a href="instructor-dashboard.html">Dashboard</a></li>
-                                                <li><a href="instructor-profile.html">Profile</a></li>
+                                                <li><a href="#">Dashboard</a></li>
+                                                <li><a href="#">Profile</a></li>
                                             </ul>
                                         </li>
                                     </ul>
                                 </li>
-                                <li class="with-megamenu has-menu-child-item position-static"><a href="#">Contacts</a></li>
+                                <li class="with-megamenu has-menu-child-item position-static"><a href="{{ route('contact_link') }}">Contacts</a></li>
                             </ul>
             </nav>
 
             <div class="mobile-menu-bottom">
 
                 <div class="social-share-wrapper">
-                    <span class="rbt-short-title d-block">Find With Us</span>
+                    <span class="rbt-short-title d-block">retrouver nous sur: </span>
                     <ul class="social-icon social-default transparent-with-border justify-content-start mt--20">
                         <li><a href="https://www.facebook.com/">
                                 <i class="feather-facebook"></i>
@@ -400,7 +392,7 @@
         </div>
     </div>
     <!-- Start Side Vav -->
-    <div class="rbt-cart-side-menu">
+    <!-- <div class="rbt-cart-side-menu">
         <div class="inner-wrapper">
             <div class="inner-top">
                 <div class="content">
@@ -504,6 +496,6 @@
             </div>
 
         </div>
-    </div>
+    </div> -->
     <!-- End Side Vav -->
     <a class="close_side_menu" href="javascript:void(0);"></a>

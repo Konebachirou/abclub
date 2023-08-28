@@ -63,7 +63,29 @@ class AppController extends Controller
     
                 ],
             ];
-        return view('users.global.home', compact('poles'));
+
+        $slides = [
+            (object) [
+                        'id' =>'6',
+                        'img' => "images/banner/Accueil3.png",
+                        'desc' => "Construisez votre carrière avec<br /> <strong
+                        class='color-white'>l'African Business Club</strong></h1>",
+                ],
+            (object) [
+                        'id' =>'6',
+                        'img' => "images/banner/Accueil5.png",
+                        'desc' => "Construisez votre carrière avec<br /> <strong
+                        class='color-white'>l'African Business Club</strong></h1>",
+                ],
+            (object) [
+                        'id' =>'6',
+                        'img' => "images/banner/Accueil2.png",
+                        'desc' => "Construisez votre carrière avec<br /> <strong
+                        class='color-white'>l'African Business Club</strong></h1>",
+                    ],
+        ];
+
+        return view('users.global.home', compact('poles', 'slides'));
     }
 
     public function About(){

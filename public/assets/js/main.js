@@ -297,8 +297,8 @@
                 loop: false,
                 autoHeight: true,
                 navigation: {
-                    nextEl: '.rbt-arrow-left',
-                    prevEl: '.rbt-arrow-right',
+                     nextEl: '.rbt-arrow-right',
+                     prevEl: '.rbt-arrow-left',
                     clickable: true,
                 },
                 thumbs: {

@@ -15284,11 +15284,11 @@ span.transparent-button:hover i {
   }
 }
 .rbt-card.card-list-2 .rbt-card-body .rbt-card-title {
-  font-size: 26px;
+  font-size: 14px;
 }
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
   .rbt-card.card-list-2 .rbt-card-body .rbt-card-title {
-    font-size: 22px;
+    font-size: 16px;
   }
 }
 @media only screen and (min-width: 768px) and (max-width: 991px) {

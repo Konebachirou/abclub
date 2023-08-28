@@ -1,189 +1,6 @@
 @extends('users.layouts.app')
 @section('content')
-<div class="rbt-slider-main-wrapper position-relative">
-    <!-- Start Banner Area  -->
-    <div class="swiper rbt-banner-activation rbt-slider-animation rbt-arrow-between">
-        <div class="swiper-wrapper">
-            <!-- Start Single Banner  -->
-            <div class="swiper-slide">
-                <div class="rbt-banner-area rbt-banner-6 variation-03 bg_image bg_image--17" data-gradient-overlay="5">
-                    <div class="wrapper w-100">
-                        <div class="container">
-                            <div class="row align-items-center">
-                                <div class="col-lg-12">
-                                    <div class="inner text-center">
-                                        <div class="section-title">
-                                            <span class="subtitle bg-white-opacity d-inline-block">Bienvenue Sur L'African Business Club</span>
-                                        </div>
-                                        <h1 class="title w-300">Construisez votre carrière avec<br /> <strong
-                                            class="color-white">l'African Business Club</strong></h1>
-                                            <div class="button-group mt--30">
-                                                <a class="rbt-btn btn-gradient rbt-marquee-btn" href="#">
-                                                    <span data-text="En savoir plus sur ABC">En savoir plus sur ABC</span>
-                                                </a>
-                                            </div>
-                                            <div class="social-share-wrapper mt--40">
-                                                <ul class="social-icon social-default transparent-with-border">
-                                                    <li><a href="https://www.facebook.com/Africanbusinessclub">
-                                                        <i class="feather-facebook"></i>
-                                                    </a>
-                                                </li>
-                                                <li><a href="https://twitter.com/AfricanBC">
-                                                    <i class="feather-twitter"></i>
-                                                </a>
-                                            </li>
-                                            <li><a href="https://instagram.com/africanbusinessclub_?igshid=MzRlODBiNWFlZA==">
-                                                <i class="feather-instagram"></i>
-                                            </a>
-                                        </li>
-                                        <li><a href="https://www.linkedin.com/company/african-business-club/">
-                                            <i class="feather-linkedin"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                                <span class="follow-us-text">Suivre par Facebook, Twitter, Instagram, et
-                                Linkedin</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- End Single Banner  -->
-
-<!-- Start Single Banner  -->
-<div class="swiper-slide">
-    <div class="rbt-banner-area rbt-banner-6 variation-03 bg_image bg_image--21" data-black-overlay="5">
-        <div class="wrapper w-100">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-lg-12">
-                        <div class="inner text-center">
-                            <div class="section-title">
-                                <span class="subtitle bg-white-opacity d-inline-block">Bienvenue Sur L'African Business Club</span>
-                            </div>
-                            <h1 class="title w-300">Construisez votre carrière avec<br /> <strong
-                                class="color-white">l'African Business Club</strong></h1>
-                                <div class="button-group mt--30">
-                                    <a class="rbt-btn btn-gradient rbt-marquee-btn" href="#">
-                                        <span data-text="En savoir plus sur ABC">En savoir plus sur ABC</span>
-                                    </a>
-                                </div>
-                                <div class="social-share-wrapper mt--40">
-                                    <ul class="social-icon social-default transparent-with-border">
-                                        <li><a href="https://www.facebook.com/Africanbusinessclub">
-                                            <i class="feather-facebook"></i>
-                                        </a>
-                                    </li>
-                                    <li><a href="https://twitter.com/AfricanBC">
-                                        <i class="feather-twitter"></i>
-                                    </a>
-                                </li>
-                                <li><a href="https://instagram.com/africanbusinessclub_?igshid=MzRlODBiNWFlZA==">
-                                    <i class="feather-instagram"></i>
-                                </a>
-                            </li>
-                            <li><a href="https://www.linkedin.com/company/african-business-club/">
-                                <i class="feather-linkedin"></i>
-                            </a>
-                        </li>
-                    </ul>
-                    <span class="follow-us-text">Suivre par Facebook, Twitter, Instagram, et
-                    Linkedin</span>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-</div>
-</div>
-</div>
-<!-- End Single Banner  -->
-
-<!-- Start Single Banner  -->
-<div class="swiper-slide">
-    <div class="rbt-banner-area rbt-banner-6 variation-03 bg_image bg_image--16" data-gradient-overlay="5">
-        <div class="wrapper w-100">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-lg-12">
-                        <div class="inner text-center">
-                            <div class="section-title">
-                                <span class="subtitle bg-white-opacity d-inline-block">Bienvenue Sur L'African Business Club</span>
-                            </div>
-                            <h1 class="title w-300">Construisez votre carrière avec<br /> <strong
-                                class="color-white">l'African Business Club</strong></h1>
-                                <div class="button-group mt--30">
-                                    <a class="rbt-btn btn-gradient rbt-marquee-btn" href="#">
-                                        <span data-text="En savoir plus sur ABC">En savoir plus sur ABC</span>
-                                    </a>
-                                </div>
-                                <div class="social-share-wrapper mt--40">
-                                    <ul class="social-icon social-default transparent-with-border">
-                                        <li><a href="https://www.facebook.com/Africanbusinessclub">
-                                            <i class="feather-facebook"></i>
-                                        </a>
-                                    </li>
-                                    <li><a href="https://twitter.com/AfricanBC">
-                                        <i class="feather-twitter"></i>
-                                    </a>
-                                </li>
-                                <li><a href="https://instagram.com/africanbusinessclub_?igshid=MzRlODBiNWFlZA==">
-                                    <i class="feather-instagram"></i>
-                                </a>
-                            </li>
-                            <li><a href="https://www.linkedin.com/company/african-business-club/">
-                                <i class="feather-linkedin"></i>
-                            </a>
-                        </li>
-                    </ul>
-                    <span class="follow-us-text">Suivre par Facebook, Twitter, Instagram, et
-                    Linkedin</span>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-</div>
-</div>
-</div>
-<!-- End Single Banner  -->
-
-</div>
-
-<div class="rbt-swiper-arrow rbt-arrow-left">
-    <div class="custom-overfolow">
-        <i class="rbt-icon feather-arrow-left"></i>
-        <i class="rbt-icon-top feather-arrow-left"></i>
-    </div>
-</div>
-
-<div class="rbt-swiper-arrow rbt-arrow-right">
-    <div class="custom-overfolow">
-        <i class="rbt-icon feather-arrow-right"></i>
-        <i class="rbt-icon-top feather-arrow-right"></i>
-    </div>
-</div>
-
-</div>
-
-<div class="swiper rbt-swiper-thumb rbtmySwiperThumb">
-    <div class="swiper-wrapper">
-        <div class="swiper-slide">
-            <img src="{{asset('assets/images/banner/Accueil3.png')}}" alt="Banner Images" />
-        </div>
-        <div class="swiper-slide">
-            <img src="{{asset('assets/images/banner/Accueil5.png')}}" alt="Banner Images" />
-        </div>
-        <div class="swiper-slide">
-            <img src="{{asset('assets/images/banner/Accueil2.png')}}" alt="Banner Images" />
-        </div>
-    </div>
-</div>
-<!-- End Banner Area  -->
-</div>
+@include('users.global.slide')
 
 <!-- Start Video Area  -->
 <div class="rbt-video-area bg-color-white rbt-section-gap" id="career">
@@ -456,34 +273,7 @@
                     </div>
                 </div>
                 <div class="row g-5">
-                    <!-- Start Single Event  -->
-                    <div class="col-lg-6 col-md-6 col-sm-6 col-12">
-                        <div class="rbt-card card-list-2 event-list-card variation-01 rbt-hover">
-                            <div class="rbt-card-img">
-                                <a href="event-details.html">
-                                    <img src="{{asset('assets/images/event/grid-type-01.jpg')}}" alt="Card image">
-                                </a>
-                            </div>
-                            <div class="rbt-card-body">
-                                <ul class="rbt-meta">
-                                    <li><i class="feather-calendar"></i>11 Jan, 2023</li>
-                                    <li><i class="feather-map-pin"></i>IAC Building</li>
-                                </ul>
-                                <h4 class="rbt-card-title"><a href="event-details.html">International Education Fair 2023</a></h4>
-                                <div class="read-more-btn">
-                                    <a class="rbt-btn btn-border hover-icon-reverse btn-sm radius-round" href="event-details.html">
-                                        <span class="icon-reverse-wrapper">
-                                            <span class="btn-text">Get Ticket</span>
-                                            <span class="btn-icon"><i class="feather-arrow-right"></i></span>
-                                            <span class="btn-icon"><i class="feather-arrow-right"></i></span>
-                                        </span>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End Single Event  -->
-
+                    @for($i = 0 ; $i < 4 ; $i++)
                     <!-- Start Single Event  -->
                     <div class="col-lg-6 col-md-6 col-sm-6 col-12">
                         <div class="rbt-card card-list-2 event-list-card variation-01 rbt-hover">
@@ -494,10 +284,10 @@
                             </div>
                             <div class="rbt-card-body">
                                 <ul class="rbt-meta">
-                                    <li><i class="feather-map-pin"></i>Vancouver</li>
-                                    <li><i class="feather-clock"></i>8:00 am - 5:00 pm</li>
+                                    <li><i class="feather-map-pin"></i>Vancouver</li><br>
+                                    <li><span ><i class="feather-calendar"></i>11 Jan, 2023</span> <span style="padding-left: 10px;"><i class="feather-clock"></i>8:00 am - 5:00 pm  </li></span>
                                 </ul>
-                                <h4 class="rbt-card-title"><a href="event-details.html">Painting Art Contest 2020</a></h4>
+                                <h5 class="rbt-card-title"><a href="event-details.html">Painting Art Contest 2020</a></h5>
 
                                 <div class="read-more-btn">
                                     <a class="rbt-btn btn-border hover-icon-reverse btn-sm radius-round" href="event-details.html">
@@ -512,64 +302,7 @@
                         </div>
                     </div>
                     <!-- End Single Event  -->
-
-                    <!-- Start Single Event  -->
-                    <div class="col-lg-6 col-md-6 col-sm-6 col-12">
-                        <div class="rbt-card card-list-2 event-list-card variation-01 rbt-hover">
-                            <div class="rbt-card-img">
-                                <a href="event-details.html">
-                                    <img src="{{asset('assets/images/event/grid-type-03.jpg')}}" alt="Card image">
-                                </a>
-                            </div>
-                            <div class="rbt-card-body">
-                                <ul class="rbt-meta">
-                                    <li><i class="feather-map-pin"></i>Paris</li>
-                                    <li><i class="feather-clock"></i>8:00 am - 5:00 pm</li>
-                                </ul>
-                                <h4 class="rbt-card-title"><a href="event-details.html">ABC Education Fair 2023</a></h4>
-
-                                <div class="read-more-btn">
-                                    <a class="rbt-btn btn-border hover-icon-reverse btn-sm radius-round" href="event-details.html">
-                                        <span class="icon-reverse-wrapper">
-                                            <span class="btn-text">Get Ticket</span>
-                                            <span class="btn-icon"><i class="feather-arrow-right"></i></span>
-                                            <span class="btn-icon"><i class="feather-arrow-right"></i></span>
-                                        </span>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End Single Event  -->
-
-                    <!-- Start Single Event  -->
-                    <div class="col-lg-6 col-md-6 col-sm-6 col-12">
-                        <div class="rbt-card card-list-2 event-list-card variation-01 rbt-hover">
-                            <div class="rbt-card-img">
-                                <a href="event-details.html">
-                                    <img src="{{asset('assets/images/event/grid-type-04.jpg')}}" alt="Card image">
-                                </a>
-                            </div>
-                            <div class="rbt-card-body">
-                                <ul class="rbt-meta">
-                                    <li><i class="feather-map-pin"></i>IAC Building</li>
-                                    <li><i class="feather-clock"></i>8:00 am - 5:00 pm</li>
-                                </ul>
-                                <h4 class="rbt-card-title"><a href="event-details.html"> Elegant Light Box Paper Cut Dioramas</a></h4>
-
-                                <div class="read-more-btn">
-                                    <a class="rbt-btn btn-border hover-icon-reverse btn-sm radius-round" href="event-details.html">
-                                        <span class="icon-reverse-wrapper">
-                                            <span class="btn-text">Get Ticket</span>
-                                            <span class="btn-icon"><i class="feather-arrow-right"></i></span>
-                                            <span class="btn-icon"><i class="feather-arrow-right"></i></span>
-                                        </span>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End Single Event  -->
+                    @endfor
                 </div>
             </div>
         </div>
