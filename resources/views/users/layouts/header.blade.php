@@ -17,6 +17,8 @@
                                 <li class="with-megamenu has-menu-child-item position-static"><a href="{{ route('home_link') }}">Accueil </a></li>
                                 <li class="with-megamenu has-menu-child-item position-static"><a href="{{ route('about_link') }}">L'association </a></li>
                                 <li class="with-megamenu has-menu-child-item position-static"><a href="#">Nos Actions </a></li>
+                                <li class="with-megamenu has-menu-child-item position-static"><a href="{{ route('news_link') }}">News </a></li>
+                                <li class="with-megamenu has-menu-child-item position-static"><a href="{{ route('event_link') }}">Events </a></li>
 
                                 <li class="has-dropdown has-menu-child-item">
                                     <a href="#">Pôles
@@ -62,7 +64,7 @@
                                     <div class="inner">
                                         <div class="rbt-admin-profile">
                                             <div class="admin-thumbnail">
-                                                <img src="assets/images/team/avatar.jpg')}}" alt="User Images">
+                                                <img src="{{asset('assets/images/team/team1.png')}}" alt="User Images">
                                             </div>
                                             <div class="admin-info">
                                                 <span class="name">Bachir</span>

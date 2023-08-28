@@ -8192,7 +8192,7 @@ textarea:-ms-input-placeholder {
 }
 
 .rbt-gradient-border {
-  background: linear-gradient(-145deg, #CFA2E8, #637FEA) !important;
+  background: linear-gradient(-145deg, #dedddf, #275c03) !important;
   z-index: 10;
 }
 .rbt-gradient-border::before {
@@ -21973,8 +21973,9 @@ body.modal-open {
 .rbt-team-modal,
 .rbt-default-modal {
   z-index: 99999999;
-  background: var(--color-white);
-  padding: 60px 15px !important;
+  background: rgba(21, 123, 12, 0.24);
+  /* background: var(--color-white); */
+  padding: 30px 15px !important;
 }
 .rbt-team-modal .modal-news,
 .rbt-default-modal .modal-news {
@@ -21982,7 +21983,7 @@ body.modal-open {
 }
 .rbt-team-modal .modal-dialog,
 .rbt-default-modal .modal-dialog {
-  width: 100%;
+  width: 60%;
   max-width: 1230px;
 }
 .rbt-team-modal .modal-dialog .modal-content,
@@ -21992,7 +21993,7 @@ body.modal-open {
   overflow: hidden;
   border: none;
   z-index: 1;
-  background: var(--color-white);
+  background: rgb(227, 233, 226);
   box-shadow: var(--shadow-1);
 }
 @media only screen and (max-width: 767px) {

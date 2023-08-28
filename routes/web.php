@@ -18,3 +18,5 @@ use Illuminate\Support\Facades\Route;
 Route::get('/',[AppController::class,'Home'])->name('home_link');
 Route::get('/l\'association',[AppController::class,'About'])->name('about_link');
 Route::get('/contact',[AppController::class,'Contact'])->name('contact_link');
+Route::get('/news',[AppController::class,'News'])->name('news_link');
+Route::get('/events',[AppController::class,'Events'])->name('event_link');

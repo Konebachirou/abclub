@@ -7,7 +7,63 @@ use stdClass;
 class AppController extends Controller
 {
     public function Home(){
-        return view('users.global.home');
+        $poles = [
+                (object)[
+                'id' => "1",
+                    'icon' => "service-01.png",
+                    'name' => 'Pôle Réseau',
+                    'color'=>'',
+                    'desc' => "",
+                    'resume' => "English Learning looking for random paragraphs, you've come to the right place. When a random word."
+    
+                ],
+               (object) [
+                'id' =>"2",
+                'icon' => "service-02.png",
+                    'name' => 'Pôle AMID',
+                    'color'=>'',
+                    'desc' => "",
+                    'resume' => "English Learning looking for random paragraphs, you've come to the right place. When a random word."
+    
+                ],
+               (object) [
+                'id' =>'3',
+                'icon' => "service-03.png",
+                    'name' => 'Pôle Abc Connect',
+                    'color'=>'',
+                    'desc' => "",
+                    'resume' => "English Learning looking for random paragraphs, you've come to the right place. When a random word."
+    
+                ],
+               (object) [
+                'id' =>'4',
+                'icon' => "service-04.png",
+                    'name' => 'Pôle Meet & Share',
+                    'color'=>'',
+                    'desc' => "",
+                    'resume' => "English Learning looking for random paragraphs, you've come to the right place. When a random word."
+    
+                ],
+               (object) [
+                'id' =>'5',
+                'icon' => "service-05.png",
+                    'name' => 'Pôle Data Management & IT',
+                    'color'=>'',
+                    'desc' => "",
+                    'resume' => "English Learning looking for random paragraphs, you've come to the right place. When a random word."
+    
+                ],
+                (object) [
+                'id' =>'6',
+                    'icon' => "service-04.png",
+                    'name' => 'Pôle media',
+                    'color'=>'',
+                    'desc' => "",
+                    'resume' => "English Learning looking for random paragraphs, you've come to the right place. When a random word."
+    
+                ],
+            ];
+        return view('users.global.home', compact('poles'));
     }
 
     public function About(){
@@ -110,5 +166,13 @@ class AppController extends Controller
 
     public function Contact(){
         return view('users.global.contact');
+    }
+
+    public function News(){
+        return view('users.news.news');
+    }
+
+    public function Events(){
+        return view('users.events.event');
     }
 }

@@ -100,28 +100,28 @@
         </div>
         <!-- End Banner Area -->
 
-<!-- Start Video Area  -->
-<div class="rbt-video-area bg-color-white " id="career">
-        <div class="container">
-            <div class="row g-5 align-items-center">
-                <div class="col-lg-6">
-                    <div class="video-popup-wrapper">
-                        <img class="w-100 rbt-radius" src="{{asset('assets/images/others/brand.jpg')}}" alt="Video Images">
-                        <a class="rbt-btn rounded-player popup-video position-to-top" href="assets/video/abc.mp4">
-                            <span><i class="feather-play"></i></span>
-                        </a>
+        <!-- Start Video Area  -->
+        <div class="rbt-video-area bg-color-white " id="career">
+            <div class="container">
+                <div class="row g-5 align-items-center">
+                    <div class="col-lg-6">
+                        <div class="video-popup-wrapper">
+                            <img class="w-100 rbt-radius" src="{{asset('assets/images/others/brand.jpg')}}" alt="Video Images">
+                            <a class="rbt-btn rounded-player popup-video position-to-top" href="assets/video/abc.mp4">
+                                <span><i class="feather-play"></i></span>
+                            </a>
+                        </div>
                     </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="inner pl--50 pl_lg--0 pl_md--0 pl_sm--0">
-                        <div class="section-title text-start">
-                            <h3 class="title">C'est quoi L'African Business Club ?</h3>
-                            <p class="description mt--30 mt_md--15 mt_sm--15 mb_md--15 mb_sm--15">L’ African Business Club est une association créée en 2003 sur l’initiative de Ibrahim Magassa 
+                    <div class="col-lg-6">
+                        <div class="inner pl--50 pl_lg--0 pl_md--0 pl_sm--0">
+                            <div class="section-title text-start">
+                                <h3 class="title">C'est quoi L'African Business Club ?</h3>
+                                <p class="description mt--30 mt_md--15 mt_sm--15 mb_md--15 mb_sm--15">L’ African Business Club est une association créée en 2003 sur l’initiative de Ibrahim Magassa 
                                 et d’autres étudiants de l’ESCP Europe.</p>
-                            <p class="mb_md--15 mb_sm--15">Aujourd’hui, 
-                        notre objectif est de promouvoir et renforcer le développement d’initiatives et d’opportunités en Afrique 🌍. Les valeurs que nous véhiculons sont : le leadership, l’unité et le réseau.
-                    L’ABC est une passerelle entre les jeunes désireux d’entreprendre en Afrique, et l’écosystème d’entreprises présentes sur le sol africain. </p>
-                </p>
+                                <p class="mb_md--15 mb_sm--15">Aujourd’hui, 
+                                    notre objectif est de promouvoir et renforcer le développement d’initiatives et d’opportunités en Afrique 🌍. Les valeurs que nous véhiculons sont : le leadership, l’unité et le réseau.
+                                L’ABC est une passerelle entre les jeunes désireux d’entreprendre en Afrique, et l’écosystème d’entreprises présentes sur le sol africain. </p>
+                            </p>
                             <!-- <div class="view-all-button">
                                 <a class="rbt-btn btn-border hover-icon-reverse" href="#">
                                     <span class="icon-reverse-wrapper">
@@ -138,9 +138,9 @@
         </div>
     </div>
     <!-- End Video Area  -->
-<!-- Start Advance Tab  -->
-<div class="rbt-advance-tab-area  bg-color-white" style="margin-top: 8%;">
-    <div class="container">
+    <!-- Start Advance Tab  -->
+    <div class="rbt-advance-tab-area  bg-color-white" style="margin-top: 8%;">
+        <div class="container">
         <!-- <div class="row mb--20">
             <div class="col-lg-12">
                 <div class="section-title text-center">
@@ -212,263 +212,263 @@
 
 
 
-    <div class="rbt-service-area bg-color-white rbt-section-gapTop ">
-        <div class="container">
-            <div class="row mb--60">
-                <div class="col-lg-12">
-                    <div class="section-title text-center">
-                        <span class="subtitle bg-primary-opacity">Pôle ABC</span>
-                        <h2 class="title">Nos Pôles d'activités</h2>
-                    </div>
-                </div>
-            </div>
-            <div class="row g-5">
-                <div class="row row--15 mt_dec--30">
-                    <!-- Start Service Grid  -->
-                    <div class="col-lg-4 col-xl-4 col-md-6 col-sm-6 col-12 mt--30">
-                        <div class="service-card service-card-6 bg-color bg-card-color-1">
-                            <div class="inner">
-                                <div class="icon">
-                                    <img src="{{asset('assets/images/shape/service-01.png')}}" alt="Shape Images">
-                                    <img class="opacity_image" src="{{asset('assets/images/shape/service-01.png')}}" alt="Shape Images">
-                                </div>
-                                <div class="content">
-                                    <h6 class="title"><a href="#">Pôle Réseau</a></h6>
-                                    <p class="description">English Learning looking for random paragraphs, you've come to the right place. When a random word.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End Service Grid  -->
-
-                    <!-- Start Service Grid  -->
-                    <div class="col-lg-4 col-xl-4 col-md-6 col-sm-6 col-12 mt--30">
-                        <div class="service-card service-card-6 bg-color bg-card-color-2">
-                            <div class="inner">
-                                <div class="icon">
-                                    <img src="{{asset('assets/images/shape/service-04.png')}}" alt="Shape Images">
-                                    <img class="opacity_image" src="{{asset('assets/images/shape/service-04.png')}}" alt="Shape Images">
-                                </div>
-                                <div class="content">
-                                    <h6 class="title"><a href="#">Pôle AMID</a></h6>
-                                    <p class="description">Javascript Learning looking for random paragraphs, you've come to the right place. When a random word.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End Service Grid  -->
-
-                    <!-- Start Service Grid  -->
-                    <div class="col-lg-4 col-xl-4 col-xxl-4 col-md-6 col-sm-6 col-12 mt--30">
-                        <div class="service-card service-card-6 bg-color bg-card-color-3">
-                            <div class="inner">
-                                <div class="icon">
-                                    <img src="{{asset('assets/images/shape/service-03.png')}}" alt="Shape Images">
-                                    <img class="opacity_image" src="{{asset('assets/images/shape/service-03.png')}}" alt="Shape Images">
-                                </div>
-                                <div class="content">
-                                    <h6 class="title"><a href="#">Pôle Abc Connect</a></h6>
-                                    <p class="description">Angular Learning looking for random paragraphs, you've come to the right place. When a random word.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End Service Grid  -->
-
-                    <!-- Start Service Grid  -->
-                    <div class="col-lg-4 col-xl-4 col-xxl-4 col-md-6 col-sm-6 col-12 mt--30">
-                        <div class="service-card service-card-6 bg-color bg-card-color-4">
-                            <div class="inner">
-                                <div class="icon">
-                                    <img src="{{asset('assets/images/shape/service-02.png')}}" alt="Shape Images">
-                                    <img class="opacity_image" src="{{asset('assets/images/shape/service-02.png')}}" alt="Shape Images">
-                                </div>
-                                <div class="content">
-                                    <h6 class="title"><a href="#">Pôle Meet & Share</a></h6>
-                                    <p class="description">Php Learning looking for random paragraphs, you've come to the right place. When a random word.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End Service Grid  -->
-
-                    <!-- Start Service Grid  -->
-                    <div class="col-lg-4 col-xl-4 col-xxl-4 col-md-6 col-sm-6 col-12 mt--30">
-                        <div class="service-card service-card-6 bg-color bg-card-color-5">
-                            <div class="inner">
-                                <div class="icon">
-                                    <img src="{{asset('assets/images/shape/service-05.png')}}" alt="Shape Images">
-                                    <img class="opacity_image" src="{{asset('assets/images/shape/service-05.png')}}" alt="Shape Images">
-                                </div>
-                                <div class="content">
-                                    <h6 class="title"><a href="#">Pôle Data Management & IT</a></h6>
-                                    <p class="description">Spoken english looking for random paragraphs, you've come to the right place. When a random word.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End Service Grid  -->
-
-                    <!-- Start Service Grid  -->
-                    <div class="col-lg-4 col-xl-4 col-xxl-4 col-md-6 col-sm-6 col-12 mt--30">
-                        <div class="service-card service-card-6 bg-color bg-card-color-6">
-                            <div class="inner">
-                                <div class="icon">
-                                    <img src="{{asset('assets/images/shape/service-05.png')}}" alt="Shape Images">
-                                    <img class="opacity_image" src="{{asset('assets/images/shape/service-05.png')}}" alt="Shape Images">
-                                </div>
-                                <div class="content">
-                                    <h6 class="title"><a href="#">Pôle media</a></h6>
-                                    <p class="description">Spoken english looking for random paragraphs, you've come to the right place. When a random word.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End Service Grid  -->
+<div class="rbt-service-area bg-color-white rbt-section-gapTop ">
+    <div class="container">
+        <div class="row mb--60">
+            <div class="col-lg-12">
+                <div class="section-title text-center">
+                    <span class="subtitle bg-primary-opacity">Pôle ABC</span>
+                    <h2 class="title">Nos Pôles d'activités</h2>
                 </div>
             </div>
         </div>
-
-        <div class="rbt-team-area bg-color-white rbt-section-gap">
-            <div class="container">
-                <div class="row mb--60">
-                    <div class="col-lg-12">
-                        <div class="section-title text-center">
-                            <span class="subtitle bg-primary-opacity">Responsable ABC</span>
-                            <h2 class="title">L’équipe ABC 2023 - 2024</h2>
+        <div class="row g-5">
+            <div class="row row--15 mt_dec--30">
+                <!-- Start Service Grid  -->
+                <div class="col-lg-4 col-xl-4 col-md-6 col-sm-6 col-12 mt--30">
+                    <div class="service-card service-card-6 bg-color bg-card-color-1">
+                        <div class="inner">
+                            <div class="icon">
+                                <img src="{{asset('assets/images/shape/service-01.png')}}" alt="Shape Images">
+                                <img class="opacity_image" src="{{asset('assets/images/shape/service-01.png')}}" alt="Shape Images">
+                            </div>
+                            <div class="content">
+                                <h6 class="title"><a href="#">Pôle Réseau</a></h6>
+                                <p class="description">English Learning looking for random paragraphs, you've come to the right place. When a random word.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="row g-5">
+                <!-- End Service Grid  -->
 
-                    <div class="col-lg-7">
-                        <!-- Start Tab Content  -->
-                        <div class="rbt-team-tab-content tab-content " id="myTabContent" >
-                            <div class="tab-pane fade active show" id="team-tab1" role="tabpanel" aria-labelledby="team-tab1-tab">
-                                <div class="inner">
-                                    <div class="rbt-team-thumbnail">
-                                        <div class="thumb">
-                                            <img src="{{asset('assets/images/team/team3.png')}}" alt="Testimonial Images">
-                                        </div>
-                                    </div>
-                                    <div class="rbt-team-details">
-                                        <div class="author-info">
-                                            <h4 class="title">Juvenal ABOUA</h4>
-                                            <span class="designation theme-gradient">Président</span>
-                                            <span class="team-form">
-                                                <i class="feather-map-pin"></i>
-                                                <span class="location">Paris, France</span>
-                                            </span>
-                                        </div>
-                                        <p>Histudy The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested.</p>
-                                        <ul class="social-icon social-default mt--20 justify-content-start">
-                                            <li><a href="https://www.facebook.com/">
-                                                <i class="feather-facebook"></i>
-                                            </a>
-                                        </li>
-                                        <li><a href="https://www.twitter.com">
-                                            <i class="feather-twitter"></i>
-                                        </a>
-                                    </li>
-                                    <li><a href="https://www.instagram.com/">
-                                        <i class="feather-instagram"></i>
-                                    </a>
-                                </li>
-                            </ul>
-                            <ul class="rbt-information-list mt--25">
-                                <li>
-                                    <a href="#"><i class="feather-phone"></i>+1-202-555-0174</a>
-                                </li>
-                                <li>
-                                    <a href="mailto:hello@example.com"><i class="feather-mail"></i>example@gmail.com</a>
-                                </li>
-                            </ul>
+                <!-- Start Service Grid  -->
+                <div class="col-lg-4 col-xl-4 col-md-6 col-sm-6 col-12 mt--30">
+                    <div class="service-card service-card-6 bg-color bg-card-color-2">
+                        <div class="inner">
+                            <div class="icon">
+                                <img src="{{asset('assets/images/shape/service-04.png')}}" alt="Shape Images">
+                                <img class="opacity_image" src="{{asset('assets/images/shape/service-04.png')}}" alt="Shape Images">
+                            </div>
+                            <div class="content">
+                                <h6 class="title"><a href="#">Pôle AMID</a></h6>
+                                <p class="description">Javascript Learning looking for random paragraphs, you've come to the right place. When a random word.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
+                <!-- End Service Grid  -->
 
-                <div class="tab-pane fade" id="team-tab2" role="tabpanel" aria-labelledby="team-tab2-tab">
-                    <div class="inner">
-                        <div class="rbt-team-thumbnail">
-                            <div class="thumb">
-                                <img src="{{asset('assets/images/team/team2.png')}}" alt="Testimonial Images">
+                <!-- Start Service Grid  -->
+                <div class="col-lg-4 col-xl-4 col-xxl-4 col-md-6 col-sm-6 col-12 mt--30">
+                    <div class="service-card service-card-6 bg-color bg-card-color-3">
+                        <div class="inner">
+                            <div class="icon">
+                                <img src="{{asset('assets/images/shape/service-03.png')}}" alt="Shape Images">
+                                <img class="opacity_image" src="{{asset('assets/images/shape/service-03.png')}}" alt="Shape Images">
+                            </div>
+                            <div class="content">
+                                <h6 class="title"><a href="#">Pôle Abc Connect</a></h6>
+                                <p class="description">Angular Learning looking for random paragraphs, you've come to the right place. When a random word.</p>
                             </div>
                         </div>
-                        <div class="rbt-team-details">
-                            <div class="author-info">
-                                <h4 class="title">Henri Moularet</h4>
-                                <span class="designation theme-gradient">Secrétaire Générale</span>
-                                <span class="team-form">
-                                    <i class="feather-map-pin"></i>
-                                    <span class="location">Paris, France</span>
-                                </span>
+                    </div>
+                </div>
+                <!-- End Service Grid  -->
+
+                <!-- Start Service Grid  -->
+                <div class="col-lg-4 col-xl-4 col-xxl-4 col-md-6 col-sm-6 col-12 mt--30">
+                    <div class="service-card service-card-6 bg-color bg-card-color-4">
+                        <div class="inner">
+                            <div class="icon">
+                                <img src="{{asset('assets/images/shape/service-02.png')}}" alt="Shape Images">
+                                <img class="opacity_image" src="{{asset('assets/images/shape/service-02.png')}}" alt="Shape Images">
                             </div>
-                            <p>Education The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested.</p>
-                            <ul class="social-icon social-default mt--20 justify-content-start">
-                                <li><a href="https://www.facebook.com/">
-                                    <i class="feather-facebook"></i>
-                                </a>
-                            </li>
-                            <li><a href="https://www.twitter.com">
-                                <i class="feather-twitter"></i>
-                            </a>
-                        </li>
-                        <li><a href="https://www.instagram.com/">
-                            <i class="feather-instagram"></i>
-                        </a>
-                    </li>
-                </ul>
-                <ul class="rbt-information-list mt--25">
-                    <li>
-                        <a href="#"><i class="feather-phone"></i>+1-202-555-0174</a>
-                    </li>
-                    <li>
-                        <a href="mailto:hello@example.com"><i class="feather-mail"></i>example@gmail.com</a>
-                    </li>
-                </ul>
+                            <div class="content">
+                                <h6 class="title"><a href="#">Pôle Meet & Share</a></h6>
+                                <p class="description">Php Learning looking for random paragraphs, you've come to the right place. When a random word.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Service Grid  -->
+
+                <!-- Start Service Grid  -->
+                <div class="col-lg-4 col-xl-4 col-xxl-4 col-md-6 col-sm-6 col-12 mt--30">
+                    <div class="service-card service-card-6 bg-color bg-card-color-5">
+                        <div class="inner">
+                            <div class="icon">
+                                <img src="{{asset('assets/images/shape/service-05.png')}}" alt="Shape Images">
+                                <img class="opacity_image" src="{{asset('assets/images/shape/service-05.png')}}" alt="Shape Images">
+                            </div>
+                            <div class="content">
+                                <h6 class="title"><a href="#">Pôle Data Management & IT</a></h6>
+                                <p class="description">Spoken english looking for random paragraphs, you've come to the right place. When a random word.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Service Grid  -->
+
+                <!-- Start Service Grid  -->
+                <div class="col-lg-4 col-xl-4 col-xxl-4 col-md-6 col-sm-6 col-12 mt--30">
+                    <div class="service-card service-card-6 bg-color bg-card-color-6">
+                        <div class="inner">
+                            <div class="icon">
+                                <img src="{{asset('assets/images/shape/service-05.png')}}" alt="Shape Images">
+                                <img class="opacity_image" src="{{asset('assets/images/shape/service-05.png')}}" alt="Shape Images">
+                            </div>
+                            <div class="content">
+                                <h6 class="title"><a href="#">Pôle media</a></h6>
+                                <p class="description">Spoken english looking for random paragraphs, you've come to the right place. When a random word.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Service Grid  -->
             </div>
         </div>
     </div>
 
-    <div class="tab-pane fade" id="team-tab3" role="tabpanel" aria-labelledby="team-tab3-tab">
-        <div class="inner">
-            <div class="rbt-team-thumbnail">
-                <div class="thumb">
-                    <img src="{{asset('assets/images/team/team4.png')}}" alt="Testimonial Images">
+    <div class="rbt-team-area bg-color-white rbt-section-gap">
+        <div class="container">
+            <div class="row mb--60">
+                <div class="col-lg-12">
+                    <div class="section-title text-center">
+                        <span class="subtitle bg-primary-opacity">Responsable ABC</span>
+                        <h2 class="title">L’équipe ABC 2023 - 2024</h2>
+                    </div>
                 </div>
             </div>
-            <div class="rbt-team-details">
-                <div class="author-info">
-                    <h4 class="title">Yannick Mekwegne</h4>
-                    <span class="designation theme-gradient">Trésorier</span>
-                    <span class="team-form">
-                        <i class="feather-map-pin"></i>
-                        <span class="location">Paris, France</span>
-                    </span>
+            <div class="row g-5">
+
+                <div class="col-lg-7">
+                    <!-- Start Tab Content  -->
+                    <div class="rbt-team-tab-content tab-content " id="myTabContent" >
+                        <div class="tab-pane fade active show" id="team-tab1" role="tabpanel" aria-labelledby="team-tab1-tab">
+                            <div class="inner">
+                                <div class="rbt-team-thumbnail">
+                                    <div class="thumb">
+                                        <img src="{{asset('assets/images/team/team3.png')}}" alt="Testimonial Images">
+                                    </div>
+                                </div>
+                                <div class="rbt-team-details">
+                                    <div class="author-info">
+                                        <h4 class="title">Juvenal ABOUA</h4>
+                                        <span class="designation theme-gradient">Président</span>
+                                        <span class="team-form">
+                                            <i class="feather-map-pin"></i>
+                                            <span class="location">Paris, France</span>
+                                        </span>
+                                    </div>
+                                    <p>Histudy The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested.</p>
+                                    <ul class="social-icon social-default mt--20 justify-content-start">
+                                        <li><a href="https://www.facebook.com/">
+                                            <i class="feather-facebook"></i>
+                                        </a>
+                                    </li>
+                                    <li><a href="https://www.twitter.com">
+                                        <i class="feather-twitter"></i>
+                                    </a>
+                                </li>
+                                <li><a href="https://www.instagram.com/">
+                                    <i class="feather-instagram"></i>
+                                </a>
+                            </li>
+                        </ul>
+                        <ul class="rbt-information-list mt--25">
+                            <li>
+                                <a href="#"><i class="feather-phone"></i>+1-202-555-0174</a>
+                            </li>
+                            <li>
+                                <a href="mailto:hello@example.com"><i class="feather-mail"></i>example@gmail.com</a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-                <p>React The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested.</p>
-                <ul class="social-icon social-default mt--20 justify-content-start">
-                    <li><a href="https://www.facebook.com/">
-                        <i class="feather-facebook"></i>
+            </div>
+
+            <div class="tab-pane fade" id="team-tab2" role="tabpanel" aria-labelledby="team-tab2-tab">
+                <div class="inner">
+                    <div class="rbt-team-thumbnail">
+                        <div class="thumb">
+                            <img src="{{asset('assets/images/team/team2.png')}}" alt="Testimonial Images">
+                        </div>
+                    </div>
+                    <div class="rbt-team-details">
+                        <div class="author-info">
+                            <h4 class="title">Henri Moularet</h4>
+                            <span class="designation theme-gradient">Secrétaire Générale</span>
+                            <span class="team-form">
+                                <i class="feather-map-pin"></i>
+                                <span class="location">Paris, France</span>
+                            </span>
+                        </div>
+                        <p>Education The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested.</p>
+                        <ul class="social-icon social-default mt--20 justify-content-start">
+                            <li><a href="https://www.facebook.com/">
+                                <i class="feather-facebook"></i>
+                            </a>
+                        </li>
+                        <li><a href="https://www.twitter.com">
+                            <i class="feather-twitter"></i>
+                        </a>
+                    </li>
+                    <li><a href="https://www.instagram.com/">
+                        <i class="feather-instagram"></i>
                     </a>
                 </li>
-                <li><a href="https://www.twitter.com">
-                    <i class="feather-twitter"></i>
+            </ul>
+            <ul class="rbt-information-list mt--25">
+                <li>
+                    <a href="#"><i class="feather-phone"></i>+1-202-555-0174</a>
+                </li>
+                <li>
+                    <a href="mailto:hello@example.com"><i class="feather-mail"></i>example@gmail.com</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="tab-pane fade" id="team-tab3" role="tabpanel" aria-labelledby="team-tab3-tab">
+    <div class="inner">
+        <div class="rbt-team-thumbnail">
+            <div class="thumb">
+                <img src="{{asset('assets/images/team/team4.png')}}" alt="Testimonial Images">
+            </div>
+        </div>
+        <div class="rbt-team-details">
+            <div class="author-info">
+                <h4 class="title">Yannick Mekwegne</h4>
+                <span class="designation theme-gradient">Trésorier</span>
+                <span class="team-form">
+                    <i class="feather-map-pin"></i>
+                    <span class="location">Paris, France</span>
+                </span>
+            </div>
+            <p>React The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested.</p>
+            <ul class="social-icon social-default mt--20 justify-content-start">
+                <li><a href="https://www.facebook.com/">
+                    <i class="feather-facebook"></i>
                 </a>
             </li>
-            <li><a href="https://www.instagram.com/">
-                <i class="feather-instagram"></i>
+            <li><a href="https://www.twitter.com">
+                <i class="feather-twitter"></i>
             </a>
         </li>
-    </ul>
-    <ul class="rbt-information-list mt--25">
-        <li>
-            <a href="#"><i class="feather-phone"></i>+1-202-555-0174</a>
-        </li>
-        <li>
-            <a href="mailto:hello@example.com"><i class="feather-mail"></i>example@gmail.com</a>
-        </li>
-    </ul>
+        <li><a href="https://www.instagram.com/">
+            <i class="feather-instagram"></i>
+        </a>
+    </li>
+</ul>
+<ul class="rbt-information-list mt--25">
+    <li>
+        <a href="#"><i class="feather-phone"></i>+1-202-555-0174</a>
+    </li>
+    <li>
+        <a href="mailto:hello@example.com"><i class="feather-mail"></i>example@gmail.com</a>
+    </li>
+</ul>
 </div>
 </div>
 </div>
@@ -825,7 +825,6 @@
 </div>
 </div>
 
-
 <!-- Start Brand Area  -->
 <div class="rbt-brand-area bg-color-secondary-alt rbt-section-gap" id="partners">
     <div class="container">
@@ -875,28 +874,28 @@
                 <div class="team">
                     @if($item->name === 'Ibrahim MAGASSA')
                     <div class="thumbnail"><img src="{{asset('assets/images/team/'.$item->image)}}" alt="Blog Images">
-                    @else
-                    <div class="thumbnail"><img src="{{asset('assets/images/team/team-01.jpg')}}" alt="Blog Images">
-                    @endif
+                        @else
+                        <div class="thumbnail"><img src="{{asset('assets/images/team/team-01.jpg')}}" alt="Blog Images">
+                            @endif
+                        </div>
+                        <div class="content">
+                            <h5 class="title">{{ $item->name }}</h5>
+                            <p class="designation">{{ $item->periode }}</p>
+                        </div>
+                        <ul class="social-icon">
+                            <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                            <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                            @if($item->name === 'Ibrahim MAGASSA')
+                            <li><span class="rbt-badge-6 ">Fondateur</span></li>
+                            @endif
+                        </ul>
                     </div>
-                    <div class="content">
-                        <h5 class="title">{{ $item->name }}</h5>
-                        <p class="designation">{{ $item->periode }}</p>
-                    </div>
-                    <ul class="social-icon">
-                        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                        <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-                        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                        @if($item->name === 'Ibrahim MAGASSA')
-                        <li><span class="rbt-badge-6 ">Fondateur</span></li>
-                        @endif
-                    </ul>
                 </div>
+                <!-- End Single Team  -->
+                @endforeach
+                <!-- End Single Team  -->
             </div>
-            <!-- End Single Team  -->
-            @endforeach
-            <!-- End Single Team  -->
         </div>
     </div>
-</div>
-@stop
+    @stop
