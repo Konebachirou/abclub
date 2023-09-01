@@ -14,11 +14,11 @@
                     <div class="rbt-main-navigation d-none d-xl-block">
                         <nav class="mainmenu-nav">
                             <ul class="mainmenu">
-                                <li class="with-megamenu has-menu-child-item position-static"><a href="{{ route('home_link') }}">Accueil </a></li>
-                                <li class="with-megamenu has-menu-child-item position-static"><a href="{{ route('about_link') }}">L'association </a></li>
-                                <li class="with-megamenu has-menu-child-item position-static"><a href="#">Nos Actions </a></li>
-                                <li class="with-megamenu has-menu-child-item position-static"><a href="{{ route('news_link') }}">News </a></li>
-                                <li class="with-megamenu has-menu-child-item position-static"><a href="{{ route('event_link') }}">Events </a></li>
+                                <li class=" has-menu-child-item position-static"><a href="{{ route('home_link') }}">Accueil </a></li>
+                                <li class=" has-menu-child-item position-static"><a href="{{ route('about_link') }}">L'association </a></li>
+                                <li class=" has-menu-child-item position-static"><a href="{{ route('action_link') }}">Nos Actions </a></li>
+                                <li class=" has-menu-child-item position-static"><a href="{{ route('news_link') }}">News </a></li>
+                                <li class=" has-menu-child-item position-static"><a href="{{ route('event_link') }}">Events </a></li>
 
                                 <li class="has-dropdown has-menu-child-item">
                                     <a href="#">Pôles
@@ -33,19 +33,14 @@
                                         </li>
                                         <li class="has-dropdown"><a href="#">AMID</a>
                                             <ul class="submenu">
-                                                <li><a href="#">Events</a></li>
-                                                <li><a href="#">News</a></li>
                                                 <li><a href="#">ANE</a></li>
                                                 <li><a href="#">ANP</a></li>
                                             </ul>
                                         </li>
                                         <li class="has-dropdown"><a href="#">ABC CONNECT</a>
                                         </li>
-                                        <li class="has-dropdown"><a href="#">Meet & Share</a>
-                                            <ul class="submenu">
-                                                <li><a href="#">Dashboard</a></li>
-                                                <li><a href="#">Profile</a></li>
-                                            </ul>
+                                        <li class="has-menu-child-item"><a href="#">Meet & Share</a>
+                                            
                                         </li>
                                     </ul>
                                 </li>
@@ -56,6 +51,7 @@
                     <div class="header-right">
                         <!-- Navbar Icons -->
                         <ul class="quick-access">
+                            @if(Auth::check())
                             <li class="access-icon rbt-user-wrapper right-align-dropdown">
                                 <a class="rbt-round-btn" href="#">
                                     <i class="feather-user"></i>
@@ -113,6 +109,13 @@
                                     </div>
                                 </div>
                             </li>
+                            @else
+                            <li class="access-icon rbt-user-wrapper right-align-dropdown">
+                                <a class="rbt-round-btn" href="{{ route('login_link') }}">
+                                    <i class="feather-user"></i>
+                                </a>
+                            </li>
+                            @endif
                             <!-- <li class="access-icon rbt-mini-cart">
                                 <a class="rbt-cart-sidenav-activation rbt-round-btn" href="#">
                                     <i class="feather-shopping-cart"></i>
@@ -327,7 +330,7 @@
             <ul class="mainmenu">
                                 <li class="with-megamenu has-menu-child-item position-static"><a href="{{ route('home_link') }}">Accueil </a></li>
                                 <li class="with-megamenu has-menu-child-item position-static"><a href="{{ route('about_link') }}">L'association </a></li>
-                                <li class="with-megamenu has-menu-child-item position-static"><a href="#">Nos Actions </a></li>
+                                <li class="with-megamenu has-menu-child-item position-static"><a href="{{ route('action_link') }}">Nos Actions </a></li>
                                 <li class="with-megamenu has-menu-child-item position-static"><a href="{{ route('news_link') }}">News </a></li>
                                 <li class="with-megamenu has-menu-child-item position-static"><a href="{{ route('event_link') }}">Events </a></li>
 
