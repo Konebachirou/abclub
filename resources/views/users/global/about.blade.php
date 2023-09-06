@@ -84,7 +84,7 @@
                             notre objectif est de promouvoir et renforcer le développement d’initiatives et d’opportunités en Afrique 🌍. Les valeurs que nous véhiculons sont : le leadership, l’unité et le réseau.
                         L’ABC est une passerelle entre les jeunes désireux d’entreprendre en Afrique, et l’écosystème d’entreprises présentes sur le sol africain. </p>
                     </p>
-                    <div class="contact-btn mt--30">
+                    <!-- <div class="contact-btn mt--30">
                         <a class="rbt-btn hover-icon-reverse btn-border-gradient radius-round" href="{{ route('about_link') }}">
                             <div class="icon-reverse-wrapper">
                                 <span class="btn-text">Voir Plus</span>
@@ -92,7 +92,7 @@
                                 <span class="btn-icon"><i class="feather-arrow-right"></i></span>
                             </div>
                         </a>
-                    </div>
+                    </div> -->
 
                 </div>
             </div>

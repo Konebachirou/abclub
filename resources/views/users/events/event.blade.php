@@ -78,7 +78,7 @@
                                 <div class="col-lg-6 col-md-6 col-12">
                                     <div class="rbt-card card-list-2 event-list-card variation-01 rbt-hover">
                                         <div class="rbt-card-img">
-                                            <a href="course-details.html">
+                                            <a href="{{ route('event_details_link') }}">
                                                 <img src="assets/images/event/grid-type-01.jpg" alt="Card image">
                                             </a>
                                         </div>
@@ -87,7 +87,7 @@
                                                 <li><i class="feather-map-pin"></i>Vancouver</li><br>
                                                 <li><span ><i class="feather-calendar"></i>11 Jan, 2023</span> <span style="padding-left: 10px;"><i class="feather-clock"></i>8:00 am - 5:00 pm  </li></span>
                                             </ul>
-                                            <h4 class="rbt-card-title"><a href="course-details.html">International Education Fair 2023</a></h4>
+                                            <h4 class="rbt-card-title"><a href="{{ route('event_details_link') }}">International Education Fair 2023</a></h4>
                                             <div class="read-more-btn">
                                                 <a class="rbt-btn btn-border hover-icon-reverse btn-sm radius-round" href="event-details.html">
                                                     <span class="icon-reverse-wrapper">
@@ -112,7 +112,7 @@
                                     <div class="col-lg-6 col-md-6 col-12">
                                         <div class="rbt-card card-list-2 event-list-card variation-01 rbt-hover">
                                             <div class="rbt-card-img">
-                                                <a href="course-details.html">
+                                                <a href="{{ route('event_details_link') }}">
                                                     <img src="assets/images/event/grid-type-01.jpg" alt="Card image">
                                                 </a>
                                             </div>
@@ -121,7 +121,7 @@
                                                     <li><i class="feather-map-pin"></i>Vancouver</li><br>
                                                     <li><span ><i class="feather-calendar"></i>11 Jan, 2023</span> <span style="padding-left: 10px;"><i class="feather-clock"></i>8:00 am - 5:00 pm  </li></span>
                                                 </ul>
-                                                <h4 class="rbt-card-title"><a href="course-details.html">International Education Fair 2023</a></h4>
+                                                <h4 class="rbt-card-title"><a href="{{ route('event_details_link') }}">International Education Fair 2023</a></h4>
                                                 <div class="read-more-btn">
                                                     <a class="rbt-btn btn-border hover-icon-reverse btn-sm radius-round" href="event-details.html">
                                                         <span class="icon-reverse-wrapper">
@@ -145,7 +145,7 @@
                                 <div class="col-lg-6 col-md-6 col-12">
                                     <div class="rbt-card card-list-2 event-list-card variation-01 rbt-hover">
                                         <div class="rbt-card-img">
-                                            <a href="course-details.html">
+                                            <a href="{{ route('event_details_link') }}">
                                                 <img src="assets/images/event/grid-type-01.jpg" alt="Card image">
                                             </a>
                                         </div>
@@ -154,7 +154,7 @@
                                                 <li><i class="feather-map-pin"></i>Vancouver</li><br>
                                                 <li><span ><i class="feather-calendar"></i>11 Jan, 2023</span> <span style="padding-left: 10px;"><i class="feather-clock"></i>8:00 am - 5:00 pm  </li></span>
                                             </ul>
-                                            <h4 class="rbt-card-title"><a href="course-details.html">International Education Fair 2023</a></h4>
+                                            <h4 class="rbt-card-title"><a href="{{ route('event_details_link') }}">International Education Fair 2023</a></h4>
                                             <div class="read-more-btn">
                                                 <a class="rbt-btn btn-border hover-icon-reverse btn-sm radius-round" href="event-details.html">
                                                     <span class="icon-reverse-wrapper">
@@ -179,7 +179,7 @@
                                 <div class="col-lg-6 col-md-6 col-12">
                                     <div class="rbt-card card-list-2 event-list-card variation-01 rbt-hover">
                                         <div class="rbt-card-img">
-                                            <a href="course-details.html">
+                                            <a href="{{ route('event_details_link') }}">
                                                 <img src="assets/images/event/grid-type-01.jpg" alt="Card image">
                                             </a>
                                         </div>
@@ -188,7 +188,7 @@
                                                 <li><i class="feather-map-pin"></i>Vancouver</li><br>
                                                 <li><span ><i class="feather-calendar"></i>11 Jan, 2023</span> <span style="padding-left: 10px;"><i class="feather-clock"></i>8:00 am - 5:00 pm  </li></span>
                                              </ul>
-                                            <h4 class="rbt-card-title"><a href="course-details.html">International Education Fair 2023</a></h4>
+                                            <h4 class="rbt-card-title"><a href="{{ route('event_details_link') }}">International Education Fair 2023</a></h4>
                                             <div class="read-more-btn">
                                                 <a class="rbt-btn btn-border hover-icon-reverse btn-sm radius-round" href="event-details.html">
                                                     <span class="icon-reverse-wrapper">

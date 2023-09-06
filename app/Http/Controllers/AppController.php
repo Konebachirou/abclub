@@ -208,7 +208,19 @@ class AppController extends Controller
     public function Register(){
         return view('users.auth.register');
     }
+    
+    public function Profil(){
+        return view('users.auth.profil');
+    }
+
     public function ForgotPassword(){
         return view('users.auth.forgotpassword');
+    }
+
+    public function NewsDatails(){
+        return view('users.news.news_detail');
+    }
+    public function EventsDatails(){
+        return view('users.events.event_detail');
     }
 }

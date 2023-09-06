@@ -51,7 +51,7 @@
                     <div class="header-right">
                         <!-- Navbar Icons -->
                         <ul class="quick-access">
-                            @if(Auth::check())
+                            @if(Auth::check() ==false)
                             <li class="access-icon rbt-user-wrapper right-align-dropdown">
                                 <a class="rbt-round-btn" href="#">
                                     <i class="feather-user"></i>
@@ -64,12 +64,12 @@
                                             </div>
                                             <div class="admin-info">
                                                 <span class="name">Bachir</span>
-                                                <a class="rbt-btn-link color-primary" href="profile.html">View Profile</a>
+                                                <!-- <a class="rbt-btn-link color-primary" href="profile.html">View Profile</a> -->
                                             </div>
                                         </div>
                                         <ul class="user-list-wrapper">
                                             <li>
-                                                <a href="#">
+                                                <a href="{{ route('profil_link') }}">
                                                     <i class="feather-home"></i>
                                                     <span>My Dashboard</span>
                                                 </a>

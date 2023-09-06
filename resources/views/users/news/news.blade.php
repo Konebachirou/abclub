@@ -79,11 +79,11 @@
                                     <div class="col-lg-6 col-md-6 col-12">
                                         <div class="rbt-blog-grid rbt-card variation-02 rbt-hover">
                                             <div class="rbt-card-img">
-                                                <a href="blog-details.html">
+                                                <a href="{{ route('news_details_link') }}">
                                                     <img src="assets/images/blog/blog-grid-04.jpg" alt="Card image"> </a>
                                             </div>
                                             <div class="rbt-card-body">
-                                                <h5 class="rbt-card-title"><a href="blog-details.html">Why Is Education So
+                                                <h5 class="rbt-card-title"><a href="{{ route('news_details_link') }}">Why Is Education So
                                                         Famous?</a></h5>
                                                 <ul class="blog-meta">
                                                     <li><i class="feather-user"></i> admin</li>
@@ -92,7 +92,7 @@
                                                 </ul>
                                                 <p class="rbt-card-text">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised.</p>
                                                 <div class="rbt-card-bottom">
-                                                    <a class="transparent-button" href="blog-details.html">Learn
+                                                    <a class="transparent-button" href="{{ route('news_details_link') }}">Learn
                                                         More<i><svg width="17" height="12" xmlns="http://www.w3.org/2000/svg"><g stroke="#27374D" fill="none" fill-rule="evenodd"><path d="M10.614 0l5.629 5.629-5.63 5.629"/><path stroke-linecap="square" d="M.663 5.572h14.594"/></g></svg></i></a>
                                                 </div>
                                             </div>
@@ -110,11 +110,11 @@
                                      <div class="col-lg-6 col-md-6 col-12">
                                         <div class="rbt-blog-grid rbt-card variation-02 rbt-hover">
                                             <div class="rbt-card-img">
-                                                <a href="blog-details.html">
+                                                <a href="{{ route('news_details_link') }}">
                                                     <img src="assets/images/blog/blog-grid-04.jpg" alt="Card image"> </a>
                                             </div>
                                             <div class="rbt-card-body">
-                                                <h5 class="rbt-card-title"><a href="blog-details.html">Why Is Education So
+                                                <h5 class="rbt-card-title"><a href="{{ route('news_details_link') }}">Why Is Education So
                                                         Famous?</a></h5>
                                                 <ul class="blog-meta">
                                                     <li><i class="feather-user"></i> admin</li>
@@ -123,7 +123,7 @@
                                                 </ul>
                                                 <p class="rbt-card-text">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised.</p>
                                                 <div class="rbt-card-bottom">
-                                                    <a class="transparent-button" href="blog-details.html">Learn
+                                                    <a class="transparent-button" href="{{ route('news_details_link') }}">Learn
                                                         More<i><svg width="17" height="12" xmlns="http://www.w3.org/2000/svg"><g stroke="#27374D" fill="none" fill-rule="evenodd"><path d="M10.614 0l5.629 5.629-5.63 5.629"/><path stroke-linecap="square" d="M.663 5.572h14.594"/></g></svg></i></a>
                                                 </div>
                                             </div>
@@ -140,11 +140,11 @@
                                       <div class="col-lg-6 col-md-6 col-12">
                                         <div class="rbt-blog-grid rbt-card variation-02 rbt-hover">
                                             <div class="rbt-card-img">
-                                                <a href="blog-details.html">
+                                                <a href="{{ route('news_details_link') }}">
                                                     <img src="assets/images/blog/blog-grid-04.jpg" alt="Card image"> </a>
                                             </div>
                                             <div class="rbt-card-body">
-                                                <h5 class="rbt-card-title"><a href="blog-details.html">Why Is Education So
+                                                <h5 class="rbt-card-title"><a href="{{ route('news_details_link') }}">Why Is Education So
                                                         Famous?</a></h5>
                                                 <ul class="blog-meta">
                                                     <li><i class="feather-user"></i> admin</li>
@@ -153,7 +153,7 @@
                                                 </ul>
                                                 <p class="rbt-card-text">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised.</p>
                                                 <div class="rbt-card-bottom">
-                                                    <a class="transparent-button" href="blog-details.html">Learn
+                                                    <a class="transparent-button" href="{{ route('news_details_link') }}">Learn
                                                         More<i><svg width="17" height="12" xmlns="http://www.w3.org/2000/svg"><g stroke="#27374D" fill="none" fill-rule="evenodd"><path d="M10.614 0l5.629 5.629-5.63 5.629"/><path stroke-linecap="square" d="M.663 5.572h14.594"/></g></svg></i></a>
                                                 </div>
                                             </div>
@@ -171,11 +171,11 @@
                                       <div class="col-lg-6 col-md-6 col-12">
                                         <div class="rbt-blog-grid rbt-card variation-02 rbt-hover">
                                             <div class="rbt-card-img">
-                                                <a href="blog-details.html">
+                                                <a href="{{ route('news_details_link') }}">
                                                     <img src="assets/images/blog/blog-grid-04.jpg" alt="Card image"> </a>
                                             </div>
                                             <div class="rbt-card-body">
-                                                <h5 class="rbt-card-title"><a href="blog-details.html">Why Is Education So
+                                                <h5 class="rbt-card-title"><a href="{{ route('news_details_link') }}">Why Is Education So
                                                         Famous?</a></h5>
                                                 <ul class="blog-meta">
                                                     <li><i class="feather-user"></i> admin</li>
@@ -184,7 +184,7 @@
                                                 </ul>
                                                 <p class="rbt-card-text">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised.</p>
                                                 <div class="rbt-card-bottom">
-                                                    <a class="transparent-button" href="blog-details.html">Learn
+                                                    <a class="transparent-button" href="{{ route('news_details_link') }}">Learn
                                                         More<i><svg width="17" height="12" xmlns="http://www.w3.org/2000/svg"><g stroke="#27374D" fill="none" fill-rule="evenodd"><path d="M10.614 0l5.629 5.629-5.63 5.629"/><path stroke-linecap="square" d="M.663 5.572h14.594"/></g></svg></i></a>
                                                 </div>
                                             </div>

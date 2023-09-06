@@ -62,7 +62,7 @@
                     </div>
                     <div class="inner">
                         <h4 class="title">Notre emplacement</h4>
-                        <p>Le siège de l’ABC est situé au sein de ESCP Business School</p> <br><p> <a href="#">79 Av. de la République, 75011 Paris</a></p>
+                        <p> <a href="#">situé à Paris 17ème. 8 avenue de la Porte de Champerret, 75017 - Métro Ligne 3 - Louise Michel.</a></p>
                     </div>
                 </div>
             </div>
@@ -123,7 +123,6 @@
 </div>
 
 <div class="rbt-google-map bg-color-white rbt-section-gapTop">
-    <!-- <iframe class="w-100" src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d2965.0824050173574!2d-93.63905729999999!3d41.998507000000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sWebFilings%2C+University+Boulevard%2C+Ames%2C+IA!5e0!3m2!1sen!2sus!4v1390839289319" height="600" style="border:0"></iframe> -->
-    <iframe class="w-100" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d156438.2348616241!2d2.2230238691543267!3d48.828650806917125!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66df04ac5f25f%3A0x79e4f8d7de0de4bd!2sESCP%20Business%20School!5e0!3m2!1sfr!2sfr!4v1692810435372!5m2!1sfr!2sfr" height="600" style="border:0"></iframe>
+    <iframe class="w-100" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10494.015762209065!2d2.2688718280432645!3d48.88673243750144!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66f8f730590b1%3A0x3a3962d81eb2fde4!2s8%20Av.%20de%20la%20Prte%20de%20Champerret%2C%2075017%20Paris!5e0!3m2!1sfr!2sfr!4v1694026637652!5m2!1sfr!2sfr" height="600" style="border:0"></iframe>
 </div>
 @stop
