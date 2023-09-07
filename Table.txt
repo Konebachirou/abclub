@@ -1,0 +1,86 @@
+Table:
+
+- office
+ * name 
+- office_member: 
+ * fullname
+ * poste
+ * country
+ * city
+ * desc
+ * email
+ * fb
+ * twit
+ * insta
+ * img
+ * is_active
+ * office_id
+
+
+- event:
+ * illustration(img/video)
+ * is_active
+ * title
+ * desc
+ * is_free
+ * Number of place
+ * start date
+ * end date 
+ * start times
+ * end times
+ * pole_id
+ * lieu
+ * conferencier(nullable)
+
+ 
+- news:
+ * title
+ * desc
+ * date
+ * illustration(img/video)
+ * pole_id
+ * is_news
+ * is_active
+
+- partners
+ * name
+ * logo
+
+- last_president
+ * fullname
+ * img
+ * periode
+ * fb
+ * linkdl
+ * twit
+
+
+- slide
+ * img
+ * title
+
+- contact
+ * name
+ * mail
+ * subject
+ * message
+
+
+- newsletter
+ * mail
+
+- user
+ * firstname
+ * lastname
+ * img
+ * mail
+ * password
+ * is_member
+ * 
+ - pole :
+  *name
+  *desc
+  *icon
+  *subtitle(d'ecrire en deux ligne max le pole)
+  
+ 
