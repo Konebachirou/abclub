@@ -189,10 +189,10 @@ class AppController extends Controller
     //     return view('users.global.about', compact('lastpresident'));
     // }
 
-    public function Contact()
-    {
-        return view('users.global.contact');
-    }
+    // public function Contact()
+    // {
+    //     return view('users.global.contact');
+    // }
 
     public function News()
     {
