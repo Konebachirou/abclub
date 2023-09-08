@@ -1,8 +1,8 @@
 Table:
 
-- office
+- office VVVVVVVVVVVVVVVV
  * name 
-- office_member: 
+- team: VVVVVVVVVVVVVVVVVVVVVVV
  * fullname
  * poste
  * country
@@ -31,6 +31,10 @@ Table:
  * pole_id
  * lieu
  * conferencier(nullable)
+ 	fullName
+ 	photo
+ 	job
+ 	desc nullable
 
  
 - news:
@@ -42,11 +46,11 @@ Table:
  * is_news
  * is_active
 
-- partners
+- partners VVVVVVVVVVVVVVV
  * name
  * logo
 
-- last_president
+- last_president VVVVVVVVVVVVVVVVVV
  * fullname
  * img
  * periode
@@ -55,18 +59,18 @@ Table:
  * twit
 
 
-- slide
+- slide VVVVVVVVVVVVVVVVVVVVVVVVVVV
  * img
  * title
 
-- contact
+- contact VVVVVVVVVVVVVVVVVVVVVVVVVVV
  * name
  * mail
  * subject
  * message
 
 
-- newsletter
+- newsletter VVVVVVVVVVVVVVVVVVVVVVVVV
  * mail
 
 - user
