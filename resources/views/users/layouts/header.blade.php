@@ -20,7 +20,7 @@
                                 <li class=" has-menu-child-item position-static"><a href="{{ route('news_link') }}">News </a></li>
                                 <li class=" has-menu-child-item position-static"><a href="{{ route('event_link') }}">Events </a></li>
 
-                                <li class="has-dropdown has-menu-child-item">
+                                <!-- <li class="has-dropdown has-menu-child-item">
                                     <a href="#">Pôles
                                         <i class="feather-chevron-down"></i>
                                     </a>
@@ -43,7 +43,7 @@
                                             
                                         </li>
                                     </ul>
-                                </li>
+                                </li> -->
                                 <li class="with-megamenu has-menu-child-item position-static"><a href="{{ route('contact_link') }}">Contacts</a></li>
                             </ul>
                         </nav>
@@ -71,36 +71,28 @@
                                             <li>
                                                 <a href="{{ route('profil_link') }}">
                                                     <i class="feather-home"></i>
-                                                    <span>My Dashboard</span>
+                                                    <span>My Profil</span>
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="#">
+                                                <a href="{{ route('myEvent_link') }}">
                                                     <i class="feather-bookmark"></i>
-                                                    <span>Bookmark</span>
+                                                    <span>Enrolled Events</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="{{ route('setting_link') }}">
+                                                    <i class="feather-settings"></i>
+                                                    <span>Settings</span>
                                                 </a>
                                             </li>
                                            
                                         </ul>
                                         <hr class="mt--10 mb--10">
                                         <ul class="user-list-wrapper">
+                                           
                                             <li>
                                                 <a href="#">
-                                                    <i class="feather-book-open"></i>
-                                                    <span>Getting Started</span>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                        <hr class="mt--10 mb--10">
-                                        <ul class="user-list-wrapper">
-                                            <li>
-                                                <a href="instructor-settings.html">
-                                                    <i class="feather-settings"></i>
-                                                    <span>Settings</span>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="index.html">
                                                     <i class="feather-log-out"></i>
                                                     <span>Logout</span>
                                                 </a>
@@ -327,44 +319,44 @@
             </div>
 
             <nav class="mainmenu-nav">
-            <ul class="mainmenu">
-                                <li class="with-megamenu has-menu-child-item position-static"><a href="{{ route('home_link') }}">Accueil </a></li>
-                                <li class="with-megamenu has-menu-child-item position-static"><a href="{{ route('about_link') }}">L'association </a></li>
-                                <li class="with-megamenu has-menu-child-item position-static"><a href="{{ route('action_link') }}">Nos Actions </a></li>
-                                <li class="with-megamenu has-menu-child-item position-static"><a href="{{ route('news_link') }}">News </a></li>
-                                <li class="with-megamenu has-menu-child-item position-static"><a href="{{ route('event_link') }}">Events </a></li>
+                <ul class="mainmenu">
+                    <li class=" has-menu-child-item position-static"><a href="{{ route('home_link') }}">Accueil </a></li>
+                    <li class=" has-menu-child-item position-static"><a href="{{ route('about_link') }}">L'association </a></li>
+                    <li class=" has-menu-child-item position-static"><a href="{{ route('action_link') }}">Nos Actions </a></li>
+                    <li class=" has-menu-child-item position-static"><a href="{{ route('news_link') }}">News </a></li>
+                    <li class=" has-menu-child-item position-static"><a href="{{ route('event_link') }}">Events </a></li>
 
-                                <li class="has-dropdown has-menu-child-item">
-                                    <a href="#">Pôles
-                                        <i class="feather-chevron-down"></i>
-                                    </a>
-                                    <ul class="submenu">
-                                        <li class="has-dropdown"><a href="#">Réseau</a>
-                                            <ul class="submenu">
-                                                <li><a href="#">offres d'emploi</a></li>
-                                                <li><a href="#">Entreprise</a></li>
-                                            </ul>
-                                        </li>
-                                        <li class="has-dropdown"><a href="#">AMID</a>
-                                            <ul class="submenu">
-                                                <li><a href="#">Events</a></li>
-                                                <li><a href="#">News</a></li>
-                                                <li><a href="#">ANE</a></li>
-                                                <li><a href="#">ANP</a></li>
-                                            </ul>
-                                        </li>
-                                        <li class="has-dropdown"><a href="#">ABC CONNECT</a>
-                                        </li>
-                                        <li class="has-dropdown"><a href="#">Meet & Share</a>
-                                            <ul class="submenu">
-                                                <li><a href="#">Dashboard</a></li>
-                                                <li><a href="#">Profile</a></li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="with-megamenu has-menu-child-item position-static"><a href="{{ route('contact_link') }}">Contacts</a></li>
-                            </ul>
+                    <!-- <li class="has-dropdown has-menu-child-item">
+                        <a href="#">Pôles
+                            <i class="feather-chevron-down"></i>
+                        </a>
+                        <ul class="submenu">
+                            <li class="has-dropdown"><a href="#">Réseau</a>
+                                <ul class="submenu">
+                                    <li><a href="#">offres d'emploi</a></li>
+                                    <li><a href="#">Entreprise</a></li>
+                                </ul>
+                            </li>
+                            <li class="has-dropdown"><a href="#">AMID</a>
+                                <ul class="submenu">
+                                    <li><a href="#">Events</a></li>
+                                    <li><a href="#">News</a></li>
+                                    <li><a href="#">ANE</a></li>
+                                    <li><a href="#">ANP</a></li>
+                                </ul>
+                            </li>
+                            <li class="has-dropdown"><a href="#">ABC CONNECT</a>
+                            </li>
+                            <li class="has-dropdown"><a href="#">Meet & Share</a>
+                                <ul class="submenu">
+                                    <li><a href="#">Dashboard</a></li>
+                                    <li><a href="#">Profile</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li> -->
+                    <li class="with-megamenu has-menu-child-item position-static"><a href="{{ route('contact_link') }}">Contacts</a></li>
+                </ul>
             </nav>
 
             <div class="mobile-menu-bottom">

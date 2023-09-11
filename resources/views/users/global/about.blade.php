@@ -188,123 +188,7 @@
     </div>
     <!-- End Advance Tab  -->
 
-
-
-
-    <div class="rbt-team-area bg-color-white rbt-section-gap">
-        <div class="container">
-            <div class="row mb--60">
-                <div class="col-lg-12">
-                    <div class="section-title text-center">
-                        <span class="subtitle bg-primary-opacity">Responsable ABC</span>
-                        <h2 class="title">L’équipe ABC 2023 - 2024</h2>
-                    </div>
-                </div>
-            </div>
-            <div class="row g-5">
-                <div class="col-lg-7">
-                    <!-- Start Tab Content -->
-                    <div class="rbt-team-tab-content tab-content " id="myTabContent">
-                        @foreach ($office->teams as $member)
-                            <div class="tab-pane fade" id="team-tab{{ $loop->iteration }}" role="tabpanel"
-                                aria-labelledby="team-tab{{ $loop->iteration }}-tab">
-                                <div class="inner">
-                                    <div class="rbt-team-thumbnail">
-                                        <div class="thumb">
-                                            <img src="{{ asset('assets/images/team/team3.png') }}"
-                                                alt="Testimonial Images">
-                                        </div>
-                                    </div>
-                                    <div class="rbt-team-details">
-                                        <div class="author-info">
-                                            <h4 class="title">{{ $member->full_name }}</h4>
-                                            <span class="designation theme-gradient">{{ $member->level }}</span>
-                                            <span class="team-form">
-                                                <i class="feather-map-pin"></i>
-                                                <span class="location">{{ $member->country }},
-                                                    {{ $member->city }}</span>
-                                            </span>
-                                        </div>
-                                        <p>{{ $member->description }}</p>
-                                        <ul class="social-icon social-default mt--20 justify-content-start">
-                                            <li><a href="{{ $member->facebook }}">
-                                                    <i class="feather-facebook"></i>
-                                                </a>
-                                            </li>
-                                            <li><a href="{{ $member->twitter }}">
-                                                    <i class="feather-twitter"></i>
-                                                </a>
-                                            </li>
-                                            <li><a href="{{ $member->instagram }}">
-                                                    <i class="feather-instagram"></i>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                        <ul class="rbt-information-list mt--25">
-                                            <li>
-                                                <a href="phone:{{ $member->phone }}"><i
-                                                        class="feather-phone"></i>{{ $member->phone }}</a>
-                                            </li>
-                                            <li>
-                                                <a href="mailto:{{ $member->email }}"><i
-                                                        class="feather-mail"></i>{{ $member->email }}</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        @endforeach
-                        <div class="top-circle-shape"></div>
-                    </div>
-                    <!-- End Tab Content -->
-                </div>
-                <div class="col-lg-5">
-                    <!-- Start Tab Nav -->
-                    <ul class="testimonial-thumb-wrapper nav nav-tabs" id="myTab" role="tablist">
-                        @foreach ($office->teams as $member)
-                            <li>
-                                <a class="nav-link" id="team-tab{{ $loop->iteration }}-tab" data-bs-toggle="tab"
-                                    href="#team-tab{{ $loop->iteration }}" role="tab"
-                                    aria-controls="team-tab{{ $loop->iteration }}" aria-selected="true">
-                                    <div class="testimonial-thumbnai">
-                                        <div class="thumb">
-                                            <img src="{{ asset('assets/images/team/team3.png') }}"
-                                                alt="Testimonial Images">
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                        @endforeach
-                    </ul>
-                    <!-- End Tab Content -->
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        // Ajouter un gestionnaire d'événements pour les onglets
-        const tabLinks = document.querySelectorAll('.nav-tabs .nav-link');
-        const tabContents = document.querySelectorAll('.rbt-team-tab-content .tab-pane');
-
-        tabLinks.forEach((link, index) => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-
-                // Vérifier si l'index est valide
-                if (index >= 0 && index < tabContents.length) {
-                    // Masquer tous les contenus d'onglets
-                    tabContents.forEach((content) => {
-                        content.classList.remove('active', 'show');
-                    });
-
-                    // Afficher le contenu de l'onglet cliqué
-                    tabContents[index].classList.add('active', 'show');
-                }
-            });
-        });
-    </script>
-
+    @include('users.global.office')
 
 
     <!-- Start Brand Area  -->
@@ -364,7 +248,8 @@
                     <!-- Start Single Team  -->
                     <div class="col-lg-3 col-md-6 col-sm-6 col-12 mt--30">
                         <div class="team">
-                            @if ($item->first_name === 'MAGASSA')
+                            @if ($item->id === 1)
+                            
                                 <div class="thumbnail"><img src="{{ asset('assets/images/team/' . $item->image) }}"
                                         alt="Blog Images">
                                 @else
@@ -373,7 +258,7 @@
                             @endif
                         </div>
                         <div class="content">
-                            <h5 class="title">{{ $item->first_name }}</h5>
+                            <h5 class="title">{{ $item->fullName }} </h5>
                             <p class="designation">{{ $item->period }}</p>
                         </div>
                         <ul class="social-icon">
@@ -383,7 +268,7 @@
                                         class="fab fa-linkedin-in"></i></a></li>
                             <li><a href="{{ $item->twitter ? $item->twitter : '#' }}"><i class="fab fa-twitter"></i></a>
                             </li>
-                            @if ($item->fullName === 'Ibrahim MAGASSA')
+                            @if ($item->first_name === 'MAGASSA')
                                 <li><span class="rbt-badge-6 ">Fondateur</span></li>
                             @endif
                         </ul>

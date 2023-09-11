@@ -25,7 +25,6 @@ Route::get('/nos actions', [AppController::class, 'Action'])->name('action_link'
 Route::get('/login', [AppController::class, 'Login'])->name('login_link');
 Route::get('/register', [AppController::class, 'Register'])->name('register_link');
 Route::get('/forgot-Password', [AppController::class, 'ForgotPassword'])->name('forgotPassword_link');
-Route::get('/profil', [AppController::class, 'Profil'])->name('profil_link');
 
 
 Route::get('/l\'association', [AboutController::class, 'about'])->name('about_link');
@@ -35,3 +34,10 @@ Route::controller(ContactController::class)->group(function () {
     Route::post('/contact/send', 'sendContact')->name('contact-send');
     Route::post('/news-letters', 'newsLetters')->name('news-letters');
 });
+
+//Dashboard profil & setting
+Route::get('/dashboard', [AppController::class, 'Dashboard'])->name('dashboard_link');
+Route::get('/profil', [AppController::class, 'Profil'])->name('profil_link');
+Route::get('/my event', [AppController::class, 'MyEvents'])->name('myEvent_link');
+Route::get('/setting', [AppController::class, 'Setting'])->name('setting_link');
+

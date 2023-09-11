@@ -12,7 +12,9 @@ class AboutController extends Controller
     public function about()
     {
         $lastPresidents = FormerPresident::all();
-        $office = Office::latest()->first();
+        // dd($lastPresidents);
+        $office = Office::orderby('id', 'desc')->first();
+        // dd($office);
         return view('users.global.about', ['lastPresidents' => $lastPresidents, 'office' => $office]);
     }
 }
