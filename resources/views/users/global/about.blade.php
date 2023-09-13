@@ -92,14 +92,14 @@
                                 l’écosystème d’entreprises présentes sur le sol africain. </p>
                             </p>
                             <!-- <div class="contact-btn mt--30">
-                                                                                                                                                                                                                            <a class="rbt-btn hover-icon-reverse btn-border-gradient radius-round" href="{{ route('about_link') }}">
-                                                                                                                                                                                                                                <div class="icon-reverse-wrapper">
-                                                                                                                                                                                                                                    <span class="btn-text">Voir Plus</span>
-                                                                                                                                                                                                                                    <span class="btn-icon"><i class="feather-arrow-right"></i></span>
-                                                                                                                                                                                                                                    <span class="btn-icon"><i class="feather-arrow-right"></i></span>
-                                                                                                                                                                                                                                </div>
-                                                                                                                                                                                                                            </a>
-                                                                                                                                                                                                                        </div> -->
+                                                                                                                                                                                                                                    <a class="rbt-btn hover-icon-reverse btn-border-gradient radius-round" href="{{ route('about_link') }}">
+                                                                                                                                                                                                                                        <div class="icon-reverse-wrapper">
+                                                                                                                                                                                                                                            <span class="btn-text">Voir Plus</span>
+                                                                                                                                                                                                                                            <span class="btn-icon"><i class="feather-arrow-right"></i></span>
+                                                                                                                                                                                                                                            <span class="btn-icon"><i class="feather-arrow-right"></i></span>
+                                                                                                                                                                                                                                        </div>
+                                                                                                                                                                                                                                    </a>
+                                                                                                                                                                                                                                </div> -->
 
                         </div>
                     </div>
@@ -113,15 +113,15 @@
     <div class="rbt-advance-tab-area  bg-color-white" style="margin-top: 8%;">
         <div class="container">
             <!-- <div class="row mb--20">
-                                                                                                                                                                                                                <div class="col-lg-12">
-                                                                                                                                                                                                                    <div class="section-title text-center">
-                                                                                                                                                                                                                        <h2 class="title">C'est quoi L'African Business Club ?</h2>
-                                                                                                                                                                                                                        <p class="description mt--20"> Aujourd’hui,
-                                                                                                                                                                                                                            notre objectif est de promouvoir et renforcer le développement d’initiatives et d’opportunités en Afrique 🌍. Les valeurs que nous véhiculons sont : le leadership, l’unité et le réseau.
-                                                                                                                                                                                                                        L’ABC est une passerelle entre les jeunes désireux d’entreprendre en Afrique, et l’écosystème d’entreprises présentes sur le sol africain. </p>
-                                                                                                                                                                                                                    </div>
-                                                                                                                                                                                                                </div>
-                                                                                                                                                                                                            </div> -->
+                                                                                                                                                                                                                        <div class="col-lg-12">
+                                                                                                                                                                                                                            <div class="section-title text-center">
+                                                                                                                                                                                                                                <h2 class="title">C'est quoi L'African Business Club ?</h2>
+                                                                                                                                                                                                                                <p class="description mt--20"> Aujourd’hui,
+                                                                                                                                                                                                                                    notre objectif est de promouvoir et renforcer le développement d’initiatives et d’opportunités en Afrique 🌍. Les valeurs que nous véhiculons sont : le leadership, l’unité et le réseau.
+                                                                                                                                                                                                                                L’ABC est une passerelle entre les jeunes désireux d’entreprendre en Afrique, et l’écosystème d’entreprises présentes sur le sol africain. </p>
+                                                                                                                                                                                                                            </div>
+                                                                                                                                                                                                                        </div>
+                                                                                                                                                                                                                    </div> -->
             <div class="row g-5">
                 <div class="col-lg-4 col-md-12 col-sm-12 col-12 mt_md--30 mt_sm--30 order-2 order-lg-1">
                     <div class="advance-tab-button advance-tab-button-1">
@@ -364,7 +364,7 @@
                     <!-- Start Single Team  -->
                     <div class="col-lg-3 col-md-6 col-sm-6 col-12 mt--30">
                         <div class="team">
-                            @if ($item->first_name === 'MAGASSA')
+                            @if ($item->first_name == 'MAGASSA')
                                 <div class="thumbnail"><img src="{{ asset('assets/images/team/' . $item->image) }}"
                                         alt="Blog Images">
                                 @else

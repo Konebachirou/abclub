@@ -23,6 +23,7 @@ Table:
  * title
  * desc
  * is_free
+ * prix (nullable)
  * Number of place
  * start date
  * end date 
@@ -30,7 +31,8 @@ Table:
  * end times
  * pole_id
  * lieu
- * conferencier(nullable)
+ 
+ - conferencier
  	fullName
  	photo
  	job
@@ -44,6 +46,7 @@ Table:
  * illustration(img/video)
  * pole_id
  * is_news
+ * is action
  * is_active
 
 - partners VVVVVVVVVVVVVVV
