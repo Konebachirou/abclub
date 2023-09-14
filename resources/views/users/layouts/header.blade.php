@@ -76,7 +76,7 @@
                                             </li>
                                             <li>
                                                 <a href="{{ route('myEvent_link') }}">
-                                                    <i class="feather-bookmark"></i>
+                                                <i class="feather-book-open"></i>
                                                     <span>Enrolled Events</span>
                                                 </a>
                                             </li>
