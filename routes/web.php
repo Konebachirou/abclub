@@ -17,7 +17,7 @@ use App\Http\Controllers\abclub\ContactController;
 */
 
 Route::get('/', [AppController::class, 'Home'])->name('home_link');
-Route::get('/news-details', [AppController::class, 'NewsDatails'])->name('news_details_link');
+Route::get('/details', [AppController::class, 'NewsDatails'])->name('news_details_link');
 Route::get('/news', [AppController::class, 'News'])->name('news_link');
 Route::get('/events-details', [AppController::class, 'EventsDatails'])->name('event_details_link');
 Route::get('/events', [AppController::class, 'Events'])->name('event_link');

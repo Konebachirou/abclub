@@ -48,38 +48,41 @@
         </div>
     </div>
     <!-- End Video Area  -->
-
-    <div class="rbt-service-area bg-color-white  ">
-        <div class="container">
-            <div class="row mb--60">
-                <div class="col-lg-12">
+<!-- Start Service Area -->
+<div class="rbt-service-area bg-color-extra2 " style="padding-bottom: 5%;">
+        <div class="container"  >
+             <div class="row mb--60" >
+                <div class="col-lg-12" style="margin-top: 5%;">
                     <div class="section-title text-center">
                         <span class="subtitle bg-primary-opacity">Pôle ABC</span>
                         <h2 class="title">Nos Pôles d'activités</h2>
                     </div>
                 </div>
             </div>
-            <div class="row g-5">
-                <div class="row row--15 mt_dec--30">
-                    @foreach ($poles as $pole)
-                        <!-- Start Service Grid  -->
-                        <div class="col-lg-4 col-xl-4 col-md-6 col-sm-6 col-12 mt--30">
-                            <div class="service-card service-card-6 bg-color bg-card-color-1">
-                                <div class="inner">
-                                    <div class="icon">
-                                        <img src="{{ asset('assets/images/shape/' . $pole->icon) }}" alt="Shape Images">
-                                        <img class="opacity_image" src="{{ asset('assets/images/shape/' . $pole->icon) }}"
-                                            alt="Shape Images">
-                                    </div>
-                                    <div class="content">
-                                        <h6 class="title"><a href="javascript:void(0)" data-bs-toggle="modal"
+            <!-- Start Card Area -->
+            <div class="row g-5" >
+            @foreach ($poles as $pole)
+                <!-- Start Service Grid  -->
+                <div class="col-lg-4 col-xl-4 col-xxl-4 col-md-6 col-sm-6 col-12">
+                    <div class="service-card service-card-5">
+                    <a href="javascript:void(0)" data-bs-toggle="modal"
+                                                data-bs-target="#modalPole-{{ $pole->id }}">
+                        <div class="inner">
+                            <div class="icon">
+                            <img src="{{ asset('assets/images/shape/' . $pole->icon) }}"
+                                                alt="Shape Images" style="max-width: 50px;">
+                                <!-- <img src="assets/images/shape/icon-01.png" alt="Shape Images"> -->
+                            </div>
+                            <div class="content">
+                                <h6 class="title"><a href="javascript:void(0)" data-bs-toggle="modal"
                                                 data-bs-target="#modalPole-{{ $pole->id }}">{{ $pole->name }}</a></h6>
-                                        <p class="description">{{ $pole->resume }}</p>
-                                    </div>
-                                </div>
+                                <!-- <p class="description">5+ Course</p> -->
                             </div>
                         </div>
-                        <div class="rbt-team-modal modal fade rbt-modal-default" id="modalPole-{{ $pole->id }}"
+                    </a>
+                    </div>
+                </div>
+                <div class="rbt-team-modal modal fade rbt-modal-default" id="modalPole-{{ $pole->id }}"
                             tabindex="-1" aria-labelledby="modalPole-{{ $pole->id }}" aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered">
                                 <div class="modal-content">
@@ -101,12 +104,7 @@
                                                                 alt="Shape Images" style="max-width: 60px;"> <span
                                                                 class="ml-4">{{ $pole->name }}</span></h4>
                                                     </div>
-                                                    <p class="mb--15">You can run Histudy easily. Any School, University,
-                                                        College can be use this histudy education template for their
-                                                        educational purpose. A university can be success you.</p>
-
-                                                    <p>Run their online leaning management system by histudy education
-                                                        template any where and time.</p>
+                                                    <p class="mb--15">{{ $pole->desc }}</p>
                                                 </div>
                                                 <!-- </div> -->
                                             </div>
@@ -116,12 +114,13 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- End Service Grid  -->
-                    @endforeach
-                </div>
-            </div>
-        </div>
+                <!-- End Service Grid  -->
+                @endforeach
 
+            </div>
+            <!-- End Card Area -->
+        </div>
+    </div>
 
         <div class="rbt-pricing-area bg-color-white" style="margin-top: 5%;">
             <div class="container">

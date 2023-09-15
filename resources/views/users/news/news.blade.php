@@ -42,7 +42,7 @@
                         <div class="col-lg-12 mt--60">
                             <ul class="rbt-portfolio-filter filter-tab-button justify-content-start nav nav-tabs" id="rbt-myTab" role="tablist">
                                 <li class="nav-item" role="presentation">
-                                    <button class="active" id="all-tab" data-bs-toggle="tab" data-bs-target="#all" type="button" role="tab" aria-controls="all" aria-selected="true"><span class="filter-text">Tous les News</span> <span class="course-number">06</span></button>
+                                    <button class="active" id="all-tab" data-bs-toggle="tab" data-bs-target="#all" type="button" role="tab" aria-controls="all" aria-selected="true"><span class="filter-text">Toutes les News</span> <span class="course-number">06</span></button>
                                 </li>
                                 <li class="nav-item" role="presentation">
                                     <button id="featured-tab" data-bs-toggle="tab" data-bs-target="#featured" type="button" role="tab" aria-controls="featured" aria-selected="false"><span

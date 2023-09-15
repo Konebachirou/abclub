@@ -15,8 +15,8 @@ class AppController extends Controller
                 'icon' => "service-01.png",
                 'name' => 'Pôle Réseau',
                 'color' => '',
-                'desc' => "",
-                'resume' => "English Learning looking for random paragraphs, you've come to the right place. When a random word."
+                'desc' => "Ce pôle est chargé d'organiser les événements de networking et 
+                la communication entre nos alumnis, nos membres et nos adhérents."
 
             ],
             (object) [
@@ -24,8 +24,9 @@ class AppController extends Controller
                 'icon' => "service-02.png",
                 'name' => 'Pôle AMID',
                 'color' => '',
-                'desc' => "",
-                'resume' => "English Learning looking for random paragraphs, you've come to the right place. When a random word."
+                'desc' => "L'Africa Mobility and Innovation Days est un forum qu'organise l'African 
+                Business Club autour de deux thématiques principales, le recrutement
+                 des talents installés en Europe pour les marchés africains et l'entrepreneuriat."
 
             ],
             (object) [
@@ -33,8 +34,9 @@ class AppController extends Controller
                 'icon' => "service-03.png",
                 'name' => 'Pôle Abc Connect',
                 'color' => '',
-                'desc' => "",
-                'resume' => "English Learning looking for random paragraphs, you've come to the right place. When a random word."
+                'desc' => "L'ABC Connect est le réseau des adhérents de l'African Business Club.
+                 Ce pôle est également chargé de promouvoir les opportunités de partenariats 
+                 et le retour d'expérience de modèles africains."
 
             ],
             (object) [
@@ -42,8 +44,8 @@ class AppController extends Controller
                 'icon' => "service-04.png",
                 'name' => 'Pôle Meet & Share',
                 'color' => '',
-                'desc' => "",
-                'resume' => "English Learning looking for random paragraphs, you've come to the right place. When a random word."
+                'desc' => "ce pôle a en charge l'organisation de tables rondes autour
+                 d'un thème en rapport avec l'Afrique et en faisant appel à des experts du domaine."
 
             ],
             (object) [
@@ -51,8 +53,9 @@ class AppController extends Controller
                 'icon' => "service-05.png",
                 'name' => 'Pôle Data Management & IT',
                 'color' => '',
-                'desc' => "",
-                'resume' => "English Learning looking for random paragraphs, you've come to the right place. When a random word."
+                'desc' => "Ce pôle gère l'ensemble des outils digitaux de l'African 
+                Business Club et participe à l'amélioration de l'offre proposée par l'association, via l'exploitation 
+                des informations recueillies sur nos événements et canaux de communication."
 
             ],
             (object) [
@@ -60,8 +63,9 @@ class AppController extends Controller
                 'icon' => "service-04.png",
                 'name' => 'Pôle media',
                 'color' => '',
-                'desc' => "",
-                'resume' => "English Learning looking for random paragraphs, you've come to the right place. When a random word."
+                'desc' => "Ce pôle met en lumière les activités de notre association
+                 et est chargé du marketing, de la
+                 communication, de la gestion du podcast et de la relation presse."
 
             ],
         ];
