@@ -21983,7 +21983,7 @@ body.modal-open {
 }
 .rbt-team-modal .modal-dialog,
 .rbt-default-modal .modal-dialog {
-  width: 60%;
+  width: 100%;
   max-width: 1230px;
 }
 .rbt-team-modal .modal-dialog .modal-content,

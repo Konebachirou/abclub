@@ -42,7 +42,7 @@
                                     countries Vokalia and Consonantia, there live the blind texts. Separated they live in
                                     Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
                                 <div class="read-more-btn">
-                                    <a class="rbt-moderbt-btn" href="#">
+                                    <a class="rbt-moderbt-btn" href="{{ route('news_details_link') }}">
                                         <span class="moderbt-btn-text">Lire Plus</span>
                                         <i class="feather-arrow-right"></i>
                                     </a>
@@ -74,7 +74,7 @@
                                     countries Vokalia and Consonantia, there live the blind texts. Separated they live in
                                     Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
                                 <div class="read-more-btn">
-                                    <a class="rbt-moderbt-btn" href="#">
+                                    <a class="rbt-moderbt-btn" href="{{ route('news_details_link') }}">
                                         <span class="moderbt-btn-text">Lire Plus</span>
                                         <i class="feather-arrow-right"></i>
                                     </a>
