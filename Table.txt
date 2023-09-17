@@ -17,6 +17,15 @@ Table:
  * office_id
 
 
+
+
+
+
+
+
+
+
+
 - event:
  * illustration(img/video)
  * is_active

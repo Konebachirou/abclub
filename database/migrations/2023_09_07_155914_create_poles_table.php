@@ -11,10 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('slides', function (Blueprint $table) {
+        Schema::create('poles', function (Blueprint $table) {
             $table->id();
-            $table->string('image');
-            $table->text('description')->nullable();
+            $table->string('icon');
+            $table->string('name');
+            $table->text('description');
             $table->timestamps();
         });
     }
@@ -24,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('slides');
+        Schema::dropIfExists('poles');
     }
 };
