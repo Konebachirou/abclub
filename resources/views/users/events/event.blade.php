@@ -88,7 +88,7 @@
                                     <div class="col-lg-6 col-md-6 col-12">
                                         <div class="rbt-card card-list-2 event-list-card variation-01 rbt-hover">
                                             <div class="rbt-card-img">
-                                                <a href="{{ route('event_details_link') }}">
+                                                <a href="{{ route('event_details_link', $event->title) }}">
                                                     <img src="assets/images/event/grid-type-01.jpg" alt="Card image">
                                                 </a>
                                             </div>
@@ -100,8 +100,7 @@
                                                             - 5:00 pm </li></span>
                                                 </ul>
                                                 <h4 class="rbt-card-title"><a
-                                                        href="{{ route('event_details_link') }}">International Education
-                                                        Fair 2023</a></h4>
+                                                        href="{{ route('event_details_link', $event->title) }}">{{$event->title}}</a></h4>
                                                 <div class="read-more-btn">
                                                     <a class="rbt-btn btn-border hover-icon-reverse btn-sm radius-round"
                                                         href="event-details.html">
@@ -129,7 +128,7 @@
                                     <div class="col-lg-6 col-md-6 col-12">
                                         <div class="rbt-card card-list-2 event-list-card variation-01 rbt-hover">
                                             <div class="rbt-card-img">
-                                                <a href="{{ route('event_details_link') }}">
+                                                <a href="{{ route('event_details_link', $reseau->title) }}">
                                                     <img src="assets/images/event/grid-type-01.jpg" alt="Card image">
                                                 </a>
                                             </div>
@@ -141,8 +140,7 @@
                                                             am - 5:00 pm </li></span>
                                                 </ul>
                                                 <h4 class="rbt-card-title"><a
-                                                        href="{{ route('event_details_link') }}">International Education
-                                                        Fair 2023</a></h4>
+                                                        href="{{ route('event_details_link', $reseau->title) }}">{{$reseau->title}}</a></h4>
                                                 <div class="read-more-btn">
                                                     <a class="rbt-btn btn-border hover-icon-reverse btn-sm radius-round"
                                                         href="event-details.html">
@@ -169,7 +167,7 @@
                                     <div class="col-lg-6 col-md-6 col-12">
                                         <div class="rbt-card card-list-2 event-list-card variation-01 rbt-hover">
                                             <div class="rbt-card-img">
-                                                <a href="{{ route('event_details_link') }}">
+                                                <a href="{{ route('event_details_link', $amid->title) }}">
                                                     <img src="assets/images/event/grid-type-01.jpg" alt="Card image">
                                                 </a>
                                             </div>
@@ -181,8 +179,7 @@
                                                             am - 5:00 pm </li></span>
                                                 </ul>
                                                 <h4 class="rbt-card-title"><a
-                                                        href="{{ route('event_details_link') }}">International Education
-                                                        Fair 2023</a></h4>
+                                                        href="{{ route('event_details_link', $amid->title ) }}">{{$amid->title}}</a></h4>
                                                 <div class="read-more-btn">
                                                     <a class="rbt-btn btn-border hover-icon-reverse btn-sm radius-round"
                                                         href="event-details.html">
@@ -210,7 +207,7 @@
                                     <div class="col-lg-6 col-md-6 col-12">
                                         <div class="rbt-card card-list-2 event-list-card variation-01 rbt-hover">
                                             <div class="rbt-card-img">
-                                                <a href="{{ route('event_details_link') }}">
+                                                <a href="{{ route('event_details_link', $nms->title) }}">
                                                     <img src="assets/images/event/grid-type-01.jpg" alt="Card image">
                                                 </a>
                                             </div>
@@ -222,8 +219,7 @@
                                                             am - 5:00 pm </li></span>
                                                 </ul>
                                                 <h4 class="rbt-card-title"><a
-                                                        href="{{ route('event_details_link') }}">International Education
-                                                        Fair 2023</a></h4>
+                                                        href="{{ route('event_details_link', $nms->title) }}">{{$nms->title}}</a></h4>
                                                 <div class="read-more-btn">
                                                     <a class="rbt-btn btn-border hover-icon-reverse btn-sm radius-round"
                                                         href="event-details.html">

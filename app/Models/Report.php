@@ -14,6 +14,7 @@ class Report extends Model
         'title',
         'description',
         'illustration',
+        'caption',
         'status',
         'date',
         'pole_id',

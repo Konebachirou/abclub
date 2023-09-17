@@ -18,9 +18,10 @@ class ReportFactory extends Factory
     public function definition(): array
     {
         return [
-            'title' => fake()->word(),
+            'title' => fake()->sentence(),
             'description' => fake()->paragraph(),
             'illustration' => fake()->imageUrl(),
+            'caption' => fake()->sentence(),
             'status' => fake()->boolean(),
             'date' => fake()->date(),
             'pole_id' => Pole::all()->random()->id,

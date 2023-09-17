@@ -23,37 +23,73 @@
     <!-- End Breadcrumb Area -->
 
     @foreach ($actions as $action)
-        <!-- Start Button Area  -->
-        <div class="rbt-video-area bg-color-white" style="margin-bottom: 7%;">
-            <div class="container">
-                <div class="row g-5 align-items-center">
-                    <div class="col-lg-6 order-2 order-lg-1">
-                        <div class="video-popup-wrapper">
-                            <img class="w-100 rbt-radius" src="assets/images/others/video-01.jpg" alt="Video Images">
+        @if($loop->index  % 2 === 0)
+            <!-- Start Button Area  -->
+            <div class="rbt-video-area bg-color-white" style="margin-bottom: 7%;">
+                <div class="container">
+                    <div class="row g-5 align-items-center">
+                        <div class="col-lg-6 order-2 order-lg-1">
+                            <div class="video-popup-wrapper">
+                                <a  href="{{ route('news_details_link', $action->title) }}">
+                                    <img class="w-100 rbt-radius" src="assets/images/others/video-01.jpg" alt="Video Images">
+                                </a>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-lg-6 order-1 order-lg-2">
-                        <div class="inner pr--50 pr_md--0 pr_sm--0">
-                            <div class="section-title text-start">
-                                <span class="subtitle bg-primary-opacity">How We Work</span>
-                                <h2 class="title">Build your Career And Upgrade Your Life</h2>
-                                <p class="description mt--30">Far far away, behind the word mountains, far from the
-                                    countries Vokalia and Consonantia, there live the blind texts. Separated they live
-                                    in
-                                    Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-                                <div class="read-more-btn">
-                                    <a class="rbt-moderbt-btn" href="{{ route('news_details_link', $action->title) }}">
-                                        <span class="moderbt-btn-text">Lire Plus</span>
-                                        <i class="feather-arrow-right"></i>
+                        <div class="col-lg-6 order-1 order-lg-2">
+                            <div class="inner pr--50 pr_md--0 pr_sm--0">
+                                <div class="section-title text-start">
+                                    <!-- <span class="subtitle bg-primary-opacity">How We Work</span> -->
+                                    <a  href="{{ route('news_details_link', $action->title) }}">
+                                        <h3 class="title elipses2" >{{$action->title}}</h3>
                                     </a>
+                                    <p class="description elipses2 mt--30">{{$action->description}}</p>
+                                    <div class="read-more-btn">
+                                        <a class="rbt-moderbt-btn" href="{{ route('news_details_link', $action->title) }}">
+                                            <span class="moderbt-btn-text">Lire Plus</span>
+                                            <i class="feather-arrow-right"></i>
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
 
+                    </div>
                 </div>
             </div>
-        </div>
-        <!-- End Button Area  -->
+            <!-- End Button Area  -->
+        @else
+             <!-- Start Button Area  -->
+             <div class="rbt-video-area bg-color-white" style="margin-bottom: 7%;">
+                <div class="container">
+                    <div class="row g-5 align-items-center">
+                        <div class="col-lg-6 order-2 order-lg-1">
+                            <div class="inner pr--50 pr_md--0 pr_sm--0">
+                                <div class="section-title text-start">
+                                    <!-- <span class="subtitle bg-primary-opacity">How We Work</span> -->
+                                    <a  href="{{ route('news_details_link', $action->title) }}">
+                                        <h2 class="title elipses2">{{$action->title}}</h2>
+                                    </a>
+                                    <p class="description elipses4 mt--30">{{$action->description}}</p>
+                                    <div class="read-more-btn">
+                                        <a class="rbt-moderbt-btn" href="{{ route('news_details_link', $action->title) }}">
+                                            <span class="moderbt-btn-text">Lire Plus</span>
+                                            <i class="feather-arrow-right"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 order-1 order-lg-2">
+                            <div class="video-popup-wrapper">
+                                <a  href="{{ route('news_details_link', $action->title) }}">
+                                    <img class="w-100 rbt-radius" src="assets/images/others/video-01.jpg" alt="Video Images">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Button Area  -->
+        @endif
     @endforeach
 @stop

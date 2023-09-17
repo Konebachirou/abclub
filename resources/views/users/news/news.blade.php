@@ -93,9 +93,7 @@
                                             </div>
                                             <div class="rbt-card-body">
                                                 <h5 class="rbt-card-title"><a
-                                                        href="{{ route('news_details_link', $report->title) }}">Why Is
-                                                        Education So
-                                                        Famous?</a></h5>
+                                                        href="{{ route('news_details_link', $report->title) }}">{{$report->title}}</a></h5>
                                                 <ul class="blog-meta">
                                                     <li><i class="feather-user"></i> admin</li>
                                                     <li><i class="feather-clock"></i> August 3, 2023</li>
@@ -136,9 +134,7 @@
                                             </div>
                                             <div class="rbt-card-body">
                                                 <h5 class="rbt-card-title"><a
-                                                        href="{{ route('news_details_link', $reseau->title) }}">Why
-                                                        Is Education So
-                                                        Famous?</a></h5>
+                                                        href="{{ route('news_details_link', $reseau->title) }}">{{$reseau->title}}</a></h5>
                                                 <ul class="blog-meta">
                                                     <li><i class="feather-user"></i> admin</li>
                                                     <li><i class="feather-clock"></i> August 3, 2023</li>
@@ -177,10 +173,8 @@
                                                     <img src="assets/images/blog/blog-grid-04.jpg" alt="Card image"> </a>
                                             </div>
                                             <div class="rbt-card-body">
-                                                <h5 class="rbt-card-title"><a
-                                                        href="{{ route('news_details_link', $amid->title) }}">Why
-                                                        Is Education So
-                                                        Famous?</a></h5>
+                                                <h5 class="rbt-card-title elipses2"><a
+                                                        href="{{ route('news_details_link', $amid->title) }}">{{$amid->title}}</a></h5>
                                                 <ul class="blog-meta">
                                                     <li><i class="feather-user"></i> admin</li>
                                                     <li><i class="feather-clock"></i> August 3, 2023</li>
@@ -220,10 +214,8 @@
                                                     <img src="assets/images/blog/blog-grid-04.jpg" alt="Card image"> </a>
                                             </div>
                                             <div class="rbt-card-body">
-                                                <h5 class="rbt-card-title"><a
-                                                        href="{{ route('news_details_link', $nms->title) }}">Why
-                                                        Is Education So
-                                                        Famous?</a></h5>
+                                                <h5 class="rbt-card-title elipses2"><a
+                                                        href="{{ route('news_details_link', $nms->title) }}">{{$nms->title}}</a></h5>
                                                 <ul class="blog-meta">
                                                     <li><i class="feather-user"></i> admin</li>
                                                     <li><i class="feather-clock"></i> August 3, 2023</li>

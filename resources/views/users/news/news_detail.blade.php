@@ -3,25 +3,24 @@
     <div class="rbt-overlay-page-wrapper">
         <div class="breadcrumb-image-container breadcrumb-style-max-width">
             <div class="breadcrumb-image-wrapper">
-                <img src="assets/images/bg/bg-image-10.jpg" alt="Education Images">
+                <img src="{{ asset('assets/images/bg/bg2.jpg') }}" alt="Education Images">
             </div>
             <div class="breadcrumb-content-top text-center">
                 <ul class="meta-list justify-content-center mb--10">
                     <li class="list-item">
-                        <div class="author-thumbnail">
-                            <img src="assets/images/testimonial/client-06.png" alt="blog-image">
-                        </div>
+                        <!-- <div class="author-thumbnail">
+                            <img src="{{ asset('assets/images/testimonial/client-06.png') }}" alt="blog-image">
+                        </div> -->
                         <div class="author-info">
-                            <a href="#"><strong>Jone Song</strong></a> in <a
-                                href="#"><strong>Design</strong></a>
+                           <p>Publier le</p>
                         </div>
                     </li>
                     <li class="list-item">
                         <i class="feather-clock"></i>
-                        <span>20 Aug 2021</span>
+                        <span>{{date("d M Y", strtotime($new->created_at)) }}</span>
                     </li>
                 </ul>
-                <h3 class="title">Skills That You Can Learn From Education.</h3>
+                <h3 class="title">{{$new->title}}</h3>
                 <!-- <p>Ten Advices That You Must Listen Before Studying Education.</p> -->
             </div>
         </div>
@@ -35,9 +34,7 @@
                             <figcaption class="w-500">Business and core management app are for enterprise.</figcaption>
                         </figure>
                     </div>
-                    <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered strike
-                        out text alteration in some form, by injected humour, or randomised words which don't look even
-                        slightly believable. If you are going to use a passage of Lorem Ipsum.</p>
+                    <p>{{$new->description}}</p>
 
                     <!-- Social Share Block  -->
                     <div class="social-share-block">
@@ -63,44 +60,7 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="rbt-comment-area">
-                        <div class="comment-respond" id="form-comment">
-                            <h4 class="title">Post a Comment</h4>
-                            <form action="{{ route('comments-store') }}" method="POST">
-                                @csrf
-                                <p class="comment-notes"><span id="email-notes">Your email address will not be
-                                        published.</span> Required fields are marked <span class="required">*</span></p>
-                                <div class="row row--10">
-                                    <div class="col-lg-6 col-md-6 col-12">
-                                        <div class="form-group">
-                                            <label for="name">Your Name</label>
-                                            <input type="hidden" name="report_id" value="{{ $new->id }}">
-                                            <input type="hidden" name="parent_id" id="parent_id">
-                                            <input id="name" type="text" name="name">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 col-md-6 col-12">
-                                        <div class="form-group">
-                                            <label for="bl-email">Your Email</label>
-                                            <input id="bl-email" type="email" name="email">
-                                        </div>
-                                    </div>
-
-                                    <div class="col-12">
-                                        <div class="form-group">
-                                            <label for="content">Leave a Reply</label>
-                                            <textarea id="content" name="content" name="content"></textarea>
-                                        </div>
-                                    </div>
-
-                                    <button type="submit" class="rbt-btn btn-gradient icon-hover radius-round btn-md">
-                                        <span class="btn-text">Post Comment</span>
-                                        <span class="btn-icon"><i class="feather-arrow-right"></i></span>
-                                    </button>
-                                </div>
-                        </div>
-                        </form>
-                    </div>
+                   
                 </div>
                 <div class="rbt-comment-area">
                     <h4 class="title">{{ $new->comments->count() }} comments</h4>
@@ -116,14 +76,14 @@
                                         </div>
                                         <div class="comment-inner">
                                             <h6 class="commenter">
-                                                <a href="#">Cameron Williamson</a>
+                                                <a href="#">{{$comment->name}}</a>
                                             </h6>
                                             <div class="comment-meta">
-                                                <div class="time-spent">Nov 23, 2018 at 12:23 pm</div>
+                                                <div class="time-spent">{{date("d M Y", strtotime($comment->created_at)) }} à {{date("h:m ", strtotime($comment->created_at)) }} </div>
                                                 <div class="reply-edit">
                                                     <div class="reply">
                                                         <a class="comment-reply-link" href="#form-comment"
-                                                            onclick="document.getElementById('parent_id').value = {{ $comment->id }}">Reply</a>
+                                                            onclick="document.getElementById('parent_id').value = {{ $comment->id }}">Répondre</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -173,27 +133,64 @@
                             <!-- End Single Comment  -->
                         @endforeach
                     </ul>
+                    <div class="rbt-comment-area">
+                        <form action="{{ route('comments-store') }}" method="POST">
+                             @csrf
+                            <div class="comment-respond" id="form-comment">
+                                <h4 class="title">Poster un commentaire</h4>
+                                
+                                    <p class="comment-notes"><span id="email-notes">Votre adresse email ne sera pas publiée. </span> Les champs requis sont indiqués <span class="required">*</span></p>
+                                    <div class="row row--10">
+                                        <div class="col-lg-6 col-md-6 col-12">
+                                            <div class="form-group">
+                                                <label for="name">Nom *</label>
+                                                <input type="hidden" name="report_id" value="{{ $new->id }}">
+                                                <input type="hidden" name="parent_id" id="parent_id">
+                                                <input id="name" type="text" name="name">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 col-md-6 col-12">
+                                            <div class="form-group">
+                                                <label for="bl-email">Email *</label>
+                                                <input id="bl-email" type="email" name="email">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-12">
+                                            <div class="form-group">
+                                                <label for="content">message *</label>
+                                                <textarea id="content" name="content" name="content"></textarea>
+                                            </div>
+                                        </div>
+
+                                        <button type="submit" class="rbt-btn btn-gradient icon-hover radius-round btn-md">
+                                            <span class="btn-text">Envoyer</span>
+                                            <span class="btn-icon"><i class="feather-arrow-right"></i></span>
+                                        </button>
+                                    </div>
+                            </div>
+                        </form>
+                    </div>
                 </div>
 
             </div>
             <div class="related-post pt--60">
-                <div class="section-title text-start mb--40">
-                    <span class="subtitle bg-primary-opacity">Related Post</span>
-                    <h4 class="title">Similar Post</h4>
+                <div class="section-title text-center mb--40">
+                    <span class="subtitle bg-primary-opacity">Post récent</span>
+                    <h4 class="title">Post récent</h4>
                 </div>
 
                 <!-- Start Single Card  -->
-                @for ($i = 0; $i < 3; $i++)
+                @foreach ($similars as $similar)
                     <div class="rbt-card card-list variation-02 rbt-hover mt--30">
                         <div class="rbt-card-img">
-                            <a href="blog-details.html">
+                            <a href="{{ route('news_details_link', $similar->title) }}">
                                 <img src="{{ asset('assets/images/blog/blog-card-02.jpg') }}" alt="Card image"> </a>
                         </div>
                         <div class="rbt-card-body">
-                            <h5 class="rbt-card-title"><a href="blog-details.html">Why Is Education So Famous?</a>
-                            </h5>
+                            <h5 class="rbt-card-title"><a href="{{ route('news_details_link', $similar->title) }}">{{$similar->title}}</a></h5>
                             <div class="rbt-card-bottom">
-                                <a class="transparent-button" href="blog-details.html">Lire
+                                <a class="transparent-button" href="{{ route('news_details_link', $similar->title) }}">Lire
                                     Article<i><svg width="17" height="12" xmlns="http://www.w3.org/2000/svg">
                                             <g stroke="#27374D" fill="none" fill-rule="evenodd">
                                                 <path d="M10.614 0l5.629 5.629-5.63 5.629" />
@@ -204,7 +201,7 @@
                         </div>
                     </div>
                     <!-- End Single Card  -->
-                @endfor
+                @endforeach
             </div>
         </div>
     </div>
