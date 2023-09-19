@@ -31,7 +31,7 @@
                     <div class="post-thumbnail mb--30 position-relative wp-block-image alignwide">
                         <figure>
                             <img src="{{ asset('assets/images/blog/blog-single-03.png') }}" alt="Blog Images">
-                            <figcaption class="w-500">Business and core management app are for enterprise.</figcaption>
+                            <figcaption class="w-500">{{$new->caption}}</figcaption>
                         </figure>
                     </div>
                     <p>{{$new->description}}</p>

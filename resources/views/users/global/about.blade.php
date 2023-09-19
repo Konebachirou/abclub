@@ -7,9 +7,10 @@
                 <div class="col-md-12 pb--120 pt--20">
                     <div class="content">
                         <div class="inner">
-                            <div class="rbt-new-badge rbt-new-badge-one">
-                                <span class="rbt-new-badge-icon">🏆</span> The Leader in Online Learning
-                            </div>
+                            <!-- <div class="rbt-new-badge rbt-new-badge-one">
+                                <span class="rbt-new-badge-icon">🏆</span>
+                                 “Rien ne résume un homme, pas même ses idées.”
+                            </div> -->
 
                             <h1 class="title">
                                 African <br> Business Club.
@@ -92,15 +93,14 @@
                                 l’écosystème d’entreprises présentes sur le sol africain. </p>
                             </p>
                             <!-- <div class="contact-btn mt--30">
-                                                                                                                                                                                                                            <a class="rbt-btn hover-icon-reverse btn-border-gradient radius-round" href="{{ route('about_link') }}">
-                                                                                                                                                                                                                                <div class="icon-reverse-wrapper">
-                                                                                                                                                                                                                                    <span class="btn-text">Voir Plus</span>
-                                                                                                                                                                                                                                    <span class="btn-icon"><i class="feather-arrow-right"></i></span>
-                                                                                                                                                                                                                                    <span class="btn-icon"><i class="feather-arrow-right"></i></span>
-                                                                                                                                                                                                                                </div>
-                                                                                                                                                                                                                            </a>
-                                                                                                                                                                                                                        </div> -->
-
+                                    <a class="rbt-btn hover-icon-reverse btn-border-gradient radius-round" href="{{ route('about_link') }}">
+                                        <div class="icon-reverse-wrapper">
+                                            <span class="btn-text">Voir Plus</span>
+                                                <span class="btn-icon"><i class="feather-arrow-right"></i></span>
+                                                       <span class="btn-icon"><i class="feather-arrow-right"></i></span>
+                                         </div>
+                                    </a>
+                            </div> -->
                         </div>
                     </div>
                 </div>
@@ -113,15 +113,15 @@
     <div class="rbt-advance-tab-area  bg-color-white" style="margin-top: 8%;">
         <div class="container">
             <!-- <div class="row mb--20">
-                                                                                                                                                                                                                <div class="col-lg-12">
-                                                                                                                                                                                                                    <div class="section-title text-center">
-                                                                                                                                                                                                                        <h2 class="title">C'est quoi L'African Business Club ?</h2>
-                                                                                                                                                                                                                        <p class="description mt--20"> Aujourd’hui,
-                                                                                                                                                                                                                            notre objectif est de promouvoir et renforcer le développement d’initiatives et d’opportunités en Afrique 🌍. Les valeurs que nous véhiculons sont : le leadership, l’unité et le réseau.
-                                                                                                                                                                                                                        L’ABC est une passerelle entre les jeunes désireux d’entreprendre en Afrique, et l’écosystème d’entreprises présentes sur le sol africain. </p>
-                                                                                                                                                                                                                    </div>
-                                                                                                                                                                                                                </div>
-                                                                                                                                                                                                            </div> -->
+            <div class="col-lg-12">
+                <div class="section-title text-center">
+                    <h2 class="title">C'est quoi L'African Business Club ?</h2>
+                    <p class="description mt--20"> Aujourd’hui,
+                        notre objectif est de promouvoir et renforcer le développement d’initiatives et d’opportunités en Afrique 🌍. Les valeurs que nous véhiculons sont : le leadership, l’unité et le réseau.
+                    L’ABC est une passerelle entre les jeunes désireux d’entreprendre en Afrique, et l’écosystème d’entreprises présentes sur le sol africain. </p>
+                </div>
+            </div>
+        </div> -->
             <div class="row g-5">
                 <div class="col-lg-4 col-md-12 col-sm-12 col-12 mt_md--30 mt_sm--30 order-2 order-lg-1">
                     <div class="advance-tab-button advance-tab-button-1">
@@ -130,7 +130,7 @@
                                 <a href="#" class="nav-link tab-button active" id="home-tab" data-bs-toggle="tab"
                                     data-bs-target="#home" role="tab" aria-controls="home" aria-selected="true">
                                     <div class="tab">
-                                        <h4 class="title">ABC Vision.</h4>
+                                        <h4 class="title">Notre Vision.</h4>
                                         <p class="description">Nous avons pour vision :</p>
                                     </div>
                                 </a>
@@ -140,7 +140,7 @@
                                 <a href="#" class="nav-link tab-button" id="profile-tab" data-bs-toggle="tab"
                                     data-bs-target="#profile" role="tab" aria-controls="profile" aria-selected="false">
                                     <div class="tab">
-                                        <h4 class="title">ABC Mission.</h4>
+                                        <h4 class="title">Nos Mission.</h4>
                                         <p class="description">Nous avons pour vision :</p>
                                     </div>
                                 </a>
@@ -151,8 +151,8 @@
                                     data-bs-target="#contact" role="tab" aria-controls="contact"
                                     aria-selected="false">
                                     <div class="tab">
-                                        <h4 class="title">ABC Planning.</h4>
-                                        <p class="description">Notre planning correspond :</p>
+                                        <h4 class="title">Nos valeurs.</h4>
+                                        <p class="description">Nous avons pour Valeur:</p>
                                     </div>
                                 </a>
                             </li>

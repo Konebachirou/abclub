@@ -26,7 +26,7 @@ class OfficeTeamFactory extends Factory
             'city' => fake()->city,
             'email' => fake()->unique()->safeEmail,
             'is_active' => true,
-            'description' => fake()->paragraph,
+            'description' => fake()->paragraph(nbSentences:5),
             'facebook' => 'https://www.facebook.com/' . fake()->userName,
             'linkedin' => 'https://www.linkedin.com/in/' . fake()->userName,
             'twitter' => 'https://twitter.com/' . fake()->userName,
