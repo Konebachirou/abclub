@@ -83,7 +83,6 @@
                                         <ul class="blog-meta">
                                             <li><i class="feather-user"></i> admin</li>
                                             <li><i class="feather-clock"></i> {{date("d M \, Y", strtotime($report->created_at))}}</li>
-                                            <li><i class="feather-watch"></i> 1 min read</li>
                                         </ul>
                                         <p class="rbt-card-text elipses4">{{$report->description}}</p>
                                         <div class="rbt-card-bottom">
@@ -119,7 +118,6 @@
                                         <ul class="blog-meta">
                                             <li><i class="feather-user"></i> admin</li>
                                             <li><i class="feather-clock"></i> August 3, 2023</li>
-                                            <li><i class="feather-watch"></i> 1 min read</li>
                                         </ul>
                                         <p class="rbt-card-text elipses4">{{$reseau->description}}</p>
                                         <div class="rbt-card-bottom">
