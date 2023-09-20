@@ -4,7 +4,7 @@
             <div class="col-lg-12">
                 <div class="section-title text-center">
                     <span class="subtitle bg-primary-opacity">Responsable ABC</span>
-                    <h2 class="title">L’équipe ABC 2023 - 2024</h2>
+                    <h2 class="title">Conseil d Administration 2023 - 2024</h2>
                 </div>
             </div>
         </div>
@@ -257,7 +257,7 @@
                         <div class="inner">
                             <div class="rbt-team-thumbnail">
                                 <div class="thumb">
-                                    <img src="{{asset('assets/images/team/team-01.jpg')}}" alt="Testimonial Images">
+                                    <img src="{{asset('assets/images/team/team8.png')}}" alt="Testimonial Images">
                                 </div>
                             </div>
                             <div class="rbt-team-details">
@@ -444,7 +444,7 @@
                         <a id="team-tab7-tab" data-bs-toggle="tab" data-bs-target="#team-tab7" role="tab" aria-controls="team-tab7" aria-selected="false">
                             <div class="testimonial-thumbnai">
                                 <div class="thumb">
-                                    <img src="{{asset('assets/images/team/team-01.jpg')}}" alt="Testimonial Images">
+                                    <img src="{{asset('assets/images/team/team8.png')}}" alt="Testimonial Images">
                                 </div>
                             </div>
                         </a>

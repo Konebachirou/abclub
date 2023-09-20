@@ -24,7 +24,7 @@ class NewsActionsController extends Controller
 
     public function indexActions()
     {
-        $actions = Report::orderby('id', 'desc')->where('is_action', true)->where('is_report', false)->get();
+        $actions = Report::orderby('id', 'desc')->where('is_action', true)->where('is_report', false)->take(3)->get();
         return view('users.global.action', ['actions' => $actions]);
     }
 

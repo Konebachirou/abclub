@@ -12,8 +12,8 @@
                                  “Rien ne résume un homme, pas même ses idées.”
                             </div> -->
 
-                            <h1 class="title">
-                                African <br> Business Club.
+                            <h1 class="title" style="margin-top: -15%;">
+                                African  Business Club.
                             </h1>
                             <p class="description">
                                 La preuve vivante de l'efficacité d'une initiative volontariste et solidaire menée avec
@@ -190,51 +190,14 @@
 
     @include('users.global.office')
 
+    @include('users.global.partners')
 
-    <!-- Start Brand Area  -->
-    <div class="rbt-brand-area bg-color-secondary-alt rbt-section-gap" id="partners">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-12">
-                    <div class="section-title text-center mb--40">
-                        <span class="small-title w-600">Ils nous font confiance</span>
-                    </div>
-                    <ul class="brand-list brand-style-3 justify-content-center justify-content-lg-between">
-                        <li><a href="#"><img src="{{ asset('assets/images/partners/part1.png') }}"
-                                    alt="Brand Image"></a></li>
-                        <li><a href="#"><img src="{{ asset('assets/images/partners/part2.png') }}"
-                                    alt="Brand Image"></a></li>
-                        <li><a href="#"><img src="{{ asset('assets/images/partners/part3.png') }}"
-                                    alt="Brand Image"></a></li>
-                        <li><a href="#"><img src="{{ asset('assets/images/partners/part4.png') }}"
-                                    alt="Brand Image"></a></li>
-                        <li><a href="#"><img src="{{ asset('assets/images/partners/part5.png') }}"
-                                    alt="Brand Image"></a></li>
-                    </ul>
-                    <ul class="brand-list brand-style-3 justify-content-center justify-content-lg-between">
-                        <li><a href="#"><img src="{{ asset('assets/images/partners/part6.png') }}"
-                                    alt="Brand Image"></a></li>
-                        <li><a href="#"><img src="{{ asset('assets/images/partners/part7.png') }}"
-                                    alt="Brand Image"></a></li>
-                        <li><a href="#"><img src="{{ asset('assets/images/partners/part8.png') }}"
-                                    alt="Brand Image"></a></li>
-                        <li><a href="#"><img src="{{ asset('assets/images/partners/part9.png') }}"
-                                    alt="Brand Image"></a></li>
-                        <li><a href="#"><img src="{{ asset('assets/images/partners/part10.png') }}"
-                                    alt="Brand Image"></a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- End Brand Area  -->
-
-    <div class="rbt-team-area bg-color-white rbt-section-gap">
+    <div class="rbt-team-area bg-color-white "style="padding-top: 8%;">
         <div class="container">
             <div class="row mb--60">
                 <div class="col-lg-12">
                     <div class="section-title text-center">
-                        <h5 class="title">Ils ont dirigé l'ABC</h5>
+                        <h3 class="title">Ils ont dirigé l'ABC</h3>
                         <p class="description mt--10">L’ African Business ayant été créé en 2003, en 20 ans il y a eu
                             plusieurs Présidents,
                             <br>aux profils différents. Revenons sur ces derniers.
@@ -248,7 +211,7 @@
                     <!-- Start Single Team  -->
                     <div class="col-lg-3 col-md-6 col-sm-6 col-12 mt--30">
                         <div class="team">
-                            @if ($item->id === 1)
+                            @if ($item->image !== '')
                             
                                 <div class="thumbnail"><img src="{{ asset('assets/images/team/' . $item->image) }}"
                                         alt="Blog Images">
