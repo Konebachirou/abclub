@@ -121,8 +121,8 @@
                                         </ul>
                                         <p class="rbt-card-text elipses4">{{$reseau->description}}</p>
                                         <div class="rbt-card-bottom">
-                                            <a class="transparent-button" href="{{ route('news_details_link', $reseau->title) }}">Learn
-                                                More<i><svg width="17" height="12" xmlns="http://www.w3.org/2000/svg">
+                                            <a class="transparent-button" href="{{ route('news_details_link', $reseau->title) }}">Lire
+                                                Plus<i><svg width="17" height="12" xmlns="http://www.w3.org/2000/svg">
                                                         <g stroke="#27374D" fill="none" fill-rule="evenodd">
                                                             <path d="M10.614 0l5.629 5.629-5.63 5.629" />
                                                             <path stroke-linecap="square" d="M.663 5.572h14.594" />
