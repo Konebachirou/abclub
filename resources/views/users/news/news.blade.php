@@ -151,7 +151,6 @@
                                         <ul class="blog-meta">
                                             <li><i class="feather-user"></i> admin</li>
                                             <li><i class="feather-clock"></i> August 3, 2023</li>
-                                            <li><i class="feather-watch"></i> 1 min read</li>
                                         </ul>
                                         <p class="rbt-card-text elipses4" >{{$amid->description}}</p>
                                         <div class="rbt-card-bottom">
