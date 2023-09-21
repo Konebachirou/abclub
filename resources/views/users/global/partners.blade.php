@@ -30,7 +30,6 @@
                                  alt="Brand Image"></a></li>
                      <li><a href="#"><img src="{{ asset('assets/images/partners/part10.png') }}"
                                  alt="Brand Image"></a></li>
-                     <li><a href="#">TEST</a></li>
                  </ul>
              </div>
          </div>

@@ -103,7 +103,10 @@
                                                             alt="Shape Images" style="max-width: 60px;"> <span
                                                             class="ml-4">{{ $pole->name }}</span></h4>
                                                 </div>
-                                                <p class="mb--15">{{ $pole->description }}</p>
+                                                <div>
+                                                    {!! $pole->description !!}
+                                                </div>
+
                                             </div>
                                             <!-- </div> -->
                                         </div>
@@ -118,6 +121,60 @@
 
             </div>
             <!-- End Card Area -->
+        </div>
+    </div>
+
+
+    <div class="rbt-countdown-area bg_image bg_image--6 bg_image_fixed " style="padding-bottom:3% ; padding-top: 3%;" data-black-overlay="6">
+        <div class="container">
+            <div class="row  align-items-center">
+                <div class="col-lg-7">
+                    <div class="inner">
+                        <div class="section-title text-center">
+                            <h3 class="title color-white">Dîner Gala d'Anniversaire des 20 ans de African Business Club</h3>
+                            <!-- <span class="subtitle bg-white-opacity">Why Choose Us</span> -->
+                            <p class="description has-medium-font-size mt--20 mb--0 color-white ">Venez célébrer avec nous les 20 ans de l'African Business Club</p>
+                            <p class="description has-medium-font-size mt--20 mb--0 color-white ">Heure et lieu <br>27 octobre 2023, 18:30 - 23:00</p>
+                            <p class="description has-medium-font-size mt--20 mb--0 color-white ">Cercle National des Armées, 8 Pl. Saint-Augustin, 75008 Paris, France</p>
+                            <p class="description has-medium-font-size mt--20 mb--0 color-white ">Code vestimentaire  <br> Tenue de Soirée exigée</p>
+                        </div>
+                        <div class="countdown-style-1 mt--50">
+                            <div class="countdown" data-date="2023-10-27">
+                                <div class="countdown-container days">
+                                    <span class="countdown-value">--</span>
+                                    <span class="countdown-heading">Jours</span>
+                                </div>
+                                <div class="countdown-container hours">
+                                    <span class="countdown-value">--</span>
+                                    <span class="countdown-heading">Heures</span>
+                                </div>
+                                <div class="countdown-container minutes">
+                                    <span class="countdown-value">--</span>
+                                    <span class="countdown-heading">Minutes</span>
+                                </div>
+                                <div class="countdown-container seconds">
+                                    <span class="countdown-value">--</span>
+                                    <span class="countdown-heading">Secondes</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-5">
+                    <div class="thumbnail">
+                        <img class="w-100 radius-10" src="assets/images/product/gala.jpg" alt="Product Images">
+                    </div>
+                    <div style="display: flex; justify-content: center; align-items: center;">
+                        <a class="rbt-btn btn-gradient icon-hover m-lg-4" href="https://buy.stripe.com/cN29EGeHYgUu8p2145" target="_blank">
+                            <span class="btn-text">Réserver</span>
+                            <span class="btn-icon"><i class="feather-arrow-right"></i></span>
+                        </a>
+                    </div>
+                    <!-- </div> -->
+                </div>
+                   
+                </div>
+            </div>
         </div>
     </div>
 

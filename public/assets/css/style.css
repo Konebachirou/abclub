@@ -8921,7 +8921,7 @@ hr {
 }
 
 .bg_image--6 {
-  background-image: url(../images/bg/bg-image-6.jpg);
+  background-image: url(../images/bg/bgcount.jpg);
 }
 
 .bg_image--7 {
@@ -30432,8 +30432,8 @@ Course Sidebar
     Footer Style One  
 -------------------------*/
 .footer-style-1 .footer-top {
-  padding-top: 80px;
-  padding-bottom: 90px;
+  padding-top: 40px;
+  padding-bottom: 60px;
 }
 
 @media only screen and (max-width: 767px) {

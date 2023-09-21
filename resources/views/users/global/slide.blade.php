@@ -19,21 +19,19 @@
                                             <h1 class="title w-300">{!! $slide->description !!}</h1>
                                             <div class="social-share-wrapper mt--70">
                                                 <ul class="social-icon social-default transparent-with-border">
-                                                    <li><a href="https://www.facebook.com/Africanbusinessclub">
+                                                    <li><a href="https://www.facebook.com/Africanbusinessclub" target="_blank">
                                                             <i class="feather-facebook"></i>
                                                         </a>
                                                     </li>
-                                                    <li><a href="https://twitter.com/AfricanBC">
+                                                    <li><a href="https://twitter.com/AfricanBC" target="_blank">
                                                             <i class="feather-twitter"></i>
                                                         </a>
                                                     </li>
-                                                    <li><a
-                                                            href="https://instagram.com/africanbusinessclub_?igshid=MzRlODBiNWFlZA==">
+                                                    <li><a href="https://instagram.com/africanbusinessclub_?igshid=MzRlODBiNWFlZA==" target="_blank">
                                                             <i class="feather-instagram"></i>
                                                         </a>
                                                     </li>
-                                                    <li><a
-                                                            href="https://www.linkedin.com/company/african-business-club/">
+                                                    <li><a href="https://www.linkedin.com/company/african-business-club/" target="_blank">
                                                             <i class="feather-linkedin"></i>
                                                         </a>
                                                     </li>

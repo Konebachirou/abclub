@@ -22,9 +22,6 @@
 
                         <div class=" title-wrapper">
                             <h1 class="title mb--0">ABC Actualités</h1>
-                            <a href="#" class="rbt-badge-2">
-                                <div class="image">🎉</div> 99 news
-                            </a>
                         </div>
                         <p class="description">Tous savoir sur l'actualité de l'African Business Club. </p>
                     </div>

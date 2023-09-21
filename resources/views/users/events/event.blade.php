@@ -22,9 +22,6 @@
 
                             <div class=" title-wrapper">
                                 <h1 class="title mb--0">Tous les événements</h1>
-                                <a href="#" class="rbt-badge-2">
-                                    <div class="image">🎉</div> 99 événements
-                                </a>
                             </div>
                             <p class="description">Event that help beginner designers become true unicorns. </p>
                         </div>
@@ -103,7 +100,7 @@
                                                         href="{{ route('event_details_link', $event->title) }}">{{$event->title}}</a></h4>
                                                 <div class="read-more-btn">
                                                     <a class="rbt-btn btn-border hover-icon-reverse btn-sm radius-round"
-                                                        href="event-details.html">
+                                                        href="{{ route('event_details_link', $event->title) }}">
                                                         <span class="icon-reverse-wrapper">
                                                             <span class="btn-text">Get Ticket</span>
                                                             <span class="btn-icon"><i
@@ -143,7 +140,7 @@
                                                         href="{{ route('event_details_link', $reseau->title) }}">{{$reseau->title}}</a></h4>
                                                 <div class="read-more-btn">
                                                     <a class="rbt-btn btn-border hover-icon-reverse btn-sm radius-round"
-                                                        href="event-details.html">
+                                                        href="{{ route('event_details_link', $event->title) }}">
                                                         <span class="icon-reverse-wrapper">
                                                             <span class="btn-text">Get Ticket</span>
                                                             <span class="btn-icon"><i
@@ -182,7 +179,7 @@
                                                         href="{{ route('event_details_link', $amid->title ) }}">{{$amid->title}}</a></h4>
                                                 <div class="read-more-btn">
                                                     <a class="rbt-btn btn-border hover-icon-reverse btn-sm radius-round"
-                                                        href="event-details.html">
+                                                        href="{{ route('event_details_link', $event->title) }}">
                                                         <span class="icon-reverse-wrapper">
                                                             <span class="btn-text">Get Ticket</span>
                                                             <span class="btn-icon"><i
@@ -222,7 +219,7 @@
                                                         href="{{ route('event_details_link', $nms->title) }}">{{$nms->title}}</a></h4>
                                                 <div class="read-more-btn">
                                                     <a class="rbt-btn btn-border hover-icon-reverse btn-sm radius-round"
-                                                        href="event-details.html">
+                                                        href="{{ route('event_details_link', $event->title) }}">
                                                         <span class="icon-reverse-wrapper">
                                                             <span class="btn-text">Get Ticket</span>
                                                             <span class="btn-icon"><i
