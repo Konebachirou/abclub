@@ -7,13 +7,10 @@
                 <div class="col-md-12 pb--120 pt--20">
                     <div class="content">
                         <div class="inner">
-                            <!-- <div class="rbt-new-badge rbt-new-badge-one">
-                                <span class="rbt-new-badge-icon">🏆</span>
-                                 “Rien ne résume un homme, pas même ses idées.”
-                            </div> -->
-
+                            <!-- br in sabout -->
+                            <br>
                             <h1 class="title" style="margin-top: -15%;">
-                                African  Business Club.
+                                African Business Club.
                             </h1>
                             <p class="description">
                                 La preuve vivante de l'efficacité d'une initiative volontariste et solidaire menée avec
@@ -193,7 +190,6 @@
                     <div class="col-lg-3 col-md-6 col-sm-6 col-12 mt--30">
                         <div class="team">
                             @if ($item->image !== '')
-                            
                                 <div class="thumbnail"><img src="{{ asset('assets/images/team/' . $item->image) }}"
                                         alt="Blog Images">
                                 @else
