@@ -20,6 +20,6 @@ class EventController extends Controller
     public function eventsDatails(string $title)
     {
         $event = Event::where('title', $title)->first();
-        return view('users.events.event_detail', ['event$event' => $event]);
+        return view('users.events.event_detail', ['event' => $event]);
     }
 }

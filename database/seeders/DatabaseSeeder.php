@@ -26,5 +26,6 @@ class DatabaseSeeder extends Seeder
         \App\Models\Conferencier::factory(30)->create();
 
         \App\Models\Comment::factory(150)->create();
+        \App\Models\Partner::factory(30)->create();
     }
 }
