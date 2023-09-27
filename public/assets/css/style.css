@@ -22906,7 +22906,7 @@ ul.testimonial-thumb-wrapper li a.active .thumb img {
   position: absolute;
   top: 0;
   left: 0;
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(0, 0, 0, 0.196);
   transition-duration: 0.45s;
   transition-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
   opacity: 0;

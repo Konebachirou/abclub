@@ -5,6 +5,7 @@ namespace App\Http\Controllers\abclub;
 use App\Models\Event;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Conferencier;
 
 class EventController extends Controller
 {
@@ -20,6 +21,7 @@ class EventController extends Controller
     public function eventsDatails(string $title)
     {
         $event = Event::where('title', $title)->first();
-        return view('users.events.event_detail', ['event' => $event]);
+        $conferencier = Conferencier::where('event_id',$event->id)->get();
+        return view('users.events.event_detail', ['event' => $event,'conferencier' => $conferencier]);
     }
 }
