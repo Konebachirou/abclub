@@ -1,13 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Administrator;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use stdClass;
 
-class AppController extends Controller
+class DashboardController extends Controller
 {
-
     public function ForgotPassword()
     {
         return view('users.auth.forgotpassword');

@@ -1,13 +1,14 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AppController;
+
 use App\Http\Controllers\abclub\HomeController;
 use App\Http\Controllers\abclub\AboutController;
 use App\Http\Controllers\abclub\CommentController;
 use App\Http\Controllers\abclub\ContactController;
 use App\Http\Controllers\abclub\EventController;
 use App\Http\Controllers\abclub\NewsActionsController;
+use App\Http\Controllers\Administrator\AuthentificationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,6 +20,11 @@ use App\Http\Controllers\abclub\NewsActionsController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+Route::controller(AuthentificationController::class)->group(function () {
+    Route::get('/signin', 'signin')->name('login_link');
+    Route::post('/auhentification', 'authenticate')->name('authentification');
+});
 
 Route::get('/', [HomeController::class, 'Home'])->name('home_link');
 
@@ -45,15 +51,15 @@ Route::controller(ContactController::class)->group(function () {
 });
 
 
+Route::middleware(['auth'])->group(function () {
+    Route::controller(DashboardController::class)->group(function () {
 
-Route::get('/login', [AppController::class, 'Login'])->name('login_link');
-Route::get('/register', [AppController::class, 'Register'])->name('register_link');
-Route::get('/forgot-Password', [AppController::class, 'ForgotPassword'])->name('forgotPassword_link');
+        Route::get('/forgot-Password', 'ForgotPassword')->name('forgotPassword_link');
 
-
-
-//Dashboard profil & setting
-Route::get('/dashboard', [AppController::class, 'Dashboard'])->name('dashboard_link');
-Route::get('/profil', [AppController::class, 'Profil'])->name('profil_link');
-Route::get('/my event', [AppController::class, 'MyEvents'])->name('myEvent_link');
-Route::get('/setting', [AppController::class, 'Setting'])->name('setting_link');
+        //Dashboard profil & setting
+        Route::get('/dashboard', 'Dashboard')->name('dashboard_link');
+        Route::get('/profil', 'Profil')->name('profil_link');
+        Route::get('/my event', 'MyEvents')->name('myEvent_link');
+        Route::get('/setting', 'Setting')->name('setting_link');
+    });
+});
