@@ -25,7 +25,7 @@
                                 <!-- Start Single Card  -->
                                 <div class="swiper-slide">
                                     <div class="rbt-card variation-01 rbt-hover">
-                                        <img src="{{ asset('assets/images/banner/banner1.png') }}" alt="Hero Image">
+                                        <img src="{{ asset('assets/images/banner/banner3.png') }}" alt="Hero Image">
 
                                     </div>
                                 </div>
@@ -43,7 +43,7 @@
                                 <!-- Start Single Card  -->
                                 <div class="swiper-slide">
                                     <div class="rbt-card variation-01 rbt-hover">
-                                        <img src="{{ asset('assets/images/banner/banner3.png') }}" alt="Hero Image">
+                                        <img src="{{ asset('assets/images/banner/banner1.png') }}" alt="Hero Image">
 
                                     </div>
                                 </div>
@@ -202,12 +202,18 @@
                             <p class="designation">{{ $item->period }}</p>
                         </div>
                         <ul class="social-icon">
+                            @if( $item->facebook != '' )
                             <li><a href="{{ $item->facebook ? $item->facebook : '#' }}"><i
-                                        class="fab fa-facebook-f"></i></a></li>
+                                class="fab fa-facebook-f"></i></a></li>
+                             @endif
+                            @if($item->linkedin != '')
                             <li><a href="{{ $item->linkedin ? $item->linkedin : '#' }}"><i
-                                        class="fab fa-linkedin-in"></i></a></li>
+                                class="fab fa-linkedin-in"></i></a></li>
+                            @endif
+                            @if($item->twitter != '')
                             <li><a href="{{ $item->twitter ? $item->twitter : '#' }}"><i class="fab fa-twitter"></i></a>
                             </li>
+                            @endif
                             @if ($item->first_name === 'MAGASSA')
                                 <li><span class="rbt-badge-6 ">Fondateur</span></li>
                             @endif

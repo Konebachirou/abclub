@@ -13,7 +13,7 @@
                                     <div class="col-lg-12">
                                         <div class="inner text-center">
                                             <div class="section-title">
-                                                <span class="subtitle bg-white-opacity d-inline-block">Bienvenue Sur
+                                                <span class="subtitle bg-white-opacity d-inline-block">Bienvenue Sur le site de 
                                                     L'African Business Club</span>
                                             </div>
                                             <h1 class="title w-300">{!! $slide->description !!}</h1>

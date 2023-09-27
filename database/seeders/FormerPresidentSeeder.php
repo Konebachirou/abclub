@@ -15,17 +15,8 @@ class FormerPresidentSeeder extends Seeder
     {
         FormerPresident::insert([
             [
-                'first_name' => "MAGASSA",
-                'last_name' => "Ibrahim",
-                'image' => 'team5.png',
-                'start_date' => '2003',
-                'end_date' => '2006',
-                'created_at' => now(),
-                'updated_at' => now()
-            ],
-            [
-                'first_name' => "DIABATE",
-                'last_name' => "Malick",
+                'first_name' => "ERNEST ",
+                'last_name' => "Caesar D'OLIVEIRA",
                 'image' => '',
                 'start_date' => '2022',
                 'end_date' => '2023',
@@ -158,7 +149,16 @@ class FormerPresidentSeeder extends Seeder
                 'end_date' => '2007',
                 'created_at' => now(),
                 'updated_at' => now()
-            ]
+            ],
+            [
+                'first_name' => "MAGASSA",
+                'last_name' => "Ibrahim",
+                'image' => 'team5.png',
+                'start_date' => '2003',
+                'end_date' => '2006',
+                'created_at' => now(),
+                'updated_at' => now()
+            ],
         ]);
     }
 }

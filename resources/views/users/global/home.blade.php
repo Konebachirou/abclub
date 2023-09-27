@@ -378,7 +378,7 @@
                     <div class="col-lg-6 col-md-6 col-sm-6 col-12">
                         <div class="rbt-card card-list-2 event-list-card variation-01 rbt-hover">
                             <div class="rbt-card-img">
-                                <a href="event-details.html">
+                                <a href="{{ route('event_details_link', $event->title) }}">
                                     <img src="{{ asset('assets/images/event/grid-type-02.jpg') }}" alt="Card image">
                                 </a>
                             </div>
@@ -389,12 +389,12 @@
                                             style="padding-left: 10px;"><i class="feather-clock"></i>8:00 am - 5:00 pm
                                     </li></span>
                                 </ul>
-                                <h5 class="rbt-card-title"><a href="event-details.html">Painting Art Contest 2020</a>
+                                <h5 class="rbt-card-title"><a href="{{ route('event_details_link', $event->title) }}">Painting Art Contest 2020</a>
                                 </h5>
 
                                 <div class="read-more-btn">
                                     <a class="rbt-btn btn-border hover-icon-reverse btn-sm radius-round"
-                                        href="event-details.html">
+                                        href="{{ route('event_details_link', $event->title) }}">
                                         <span class="icon-reverse-wrapper">
                                             <span class="btn-text">Get Ticket</span>
                                             <span class="btn-icon"><i class="feather-arrow-right"></i></span>
