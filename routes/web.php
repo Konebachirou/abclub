@@ -9,6 +9,7 @@ use App\Http\Controllers\abclub\ContactController;
 use App\Http\Controllers\abclub\EventController;
 use App\Http\Controllers\abclub\NewsActionsController;
 use App\Http\Controllers\Administrator\AuthentificationController;
+use App\Http\Controllers\Administrator\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,6 +24,7 @@ use App\Http\Controllers\Administrator\AuthentificationController;
 
 Route::controller(AuthentificationController::class)->group(function () {
     Route::get('/signin', 'signin')->name('login_link');
+    Route::get('/logout', 'logout')->name('logout_link');
     Route::post('/auhentification', 'authenticate')->name('authentification');
 });
 
@@ -43,6 +45,7 @@ Route::controller(EventController::class)->group(function () {
 
 Route::post('/comments/store', [CommentController::class, 'store'])->name('comments-store');
 Route::get('/l\'association', [AboutController::class, 'about'])->name('about_link');
+Route::get('/forgot-Password', [DashboardController::class, 'ForgotPassword'])->name('forgotPassword_link');
 
 Route::controller(ContactController::class)->group(function () {
     Route::get('/contact', 'contact')->name('contact_link');
@@ -53,9 +56,6 @@ Route::controller(ContactController::class)->group(function () {
 
 Route::middleware(['auth'])->group(function () {
     Route::controller(DashboardController::class)->group(function () {
-
-        Route::get('/forgot-Password', 'ForgotPassword')->name('forgotPassword_link');
-
         //Dashboard profil & setting
         Route::get('/dashboard', 'Dashboard')->name('dashboard_link');
         Route::get('/profil', 'Profil')->name('profil_link');

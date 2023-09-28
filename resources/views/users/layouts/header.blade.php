@@ -51,7 +51,7 @@
                     <div class="header-right">
                         <!-- Navbar Icons -->
                         <ul class="quick-access">
-                            @if(Auth::check() ==false)
+                            @if(Auth::check() == true)
                             <li class="access-icon rbt-user-wrapper right-align-dropdown">
                                 <a class="rbt-round-btn" href="#">
                                     <i class="feather-user"></i>
@@ -60,7 +60,12 @@
                                     <div class="inner">
                                         <div class="rbt-admin-profile">
                                             <div class="admin-thumbnail">
-                                                <img src="{{asset('assets/images/team/team1.png')}}" alt="User Images">
+                                                @if (Auth::user()->image !== '')
+                                                    <img src="{{asset('assets/images/team/'.Auth::user()->image)}}" alt="User Images">
+                                                    @else
+                                                    <img src="{{asset('assets/images/team/team-01.jpg')}}" alt="User Images">
+                                                @endif
+                                                <!-- <img src="{{asset('assets/images/team/team1.png')}}" alt="User Images"> -->
                                             </div>
                                             <div class="admin-info">
                                                 <span class="name">Bachir</span>
@@ -92,7 +97,7 @@
                                         <ul class="user-list-wrapper">
                                            
                                             <li>
-                                                <a href="#">
+                                                <a href="{{ route('logout_link') }}">
                                                     <i class="feather-log-out"></i>
                                                     <span>Logout</span>
                                                 </a>

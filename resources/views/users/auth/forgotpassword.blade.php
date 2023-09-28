@@ -25,7 +25,6 @@
                                 </button>
                             </div>
                         </form>
-                        <!-- <p class="mt-5">Je n'ai pas de Compte, Je<a href="{{ route('register_link') }}" > crée mon compte</a></p> -->
                     </div>
                 </div>
             </div>

@@ -14,6 +14,7 @@ class Report extends Model
         'title',
         'description',
         'illustration',
+        'gallery',
         'caption',
         'status',
         'date',

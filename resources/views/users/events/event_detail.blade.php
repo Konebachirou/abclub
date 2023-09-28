@@ -26,7 +26,7 @@
     </div>
     <!-- End Breadcrumb Area -->
 
-    <div class="rbt-course-details-area rbt-section-gap">
+    <div class="rbt-course-details-area " style="margin-top: 5%;">
         <div class="container">
             <div class="row g-5">
                 <div class="col-lg-8">
@@ -41,7 +41,7 @@
                             <div class="row g-5">
                                 <div class="col-lg-12">
                                     <div class="section-title">
-                                        <h4 class="title mb--0">Event Content</h4>
+                                        <h4 class="title mb--0">Contenu de l'événement</h4>
                                     </div>
                                 </div>
                                 <!-- Start Feture Box  -->

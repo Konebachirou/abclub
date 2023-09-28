@@ -55,7 +55,7 @@
                                             <nav class="mainmenu-nav">
                                                 <ul class="dashboard-mainmenu rbt-default-sidebar-list">
                                                     <li><a href="{{ route('setting_link') }}"><i class="feather-settings"></i><span>Settings</span></a></li>
-                                                    <li><a href="{{ route('event_link') }}"><i class="feather-log-out"></i><span>Logout</span></a></li>
+                                                    <li><a href="{{ route('filament.admin.auth.logout') }}"><i class="feather-log-out"></i><span>Logout</span></a></li>
                                                 </ul>
                                             </nav>
                                         </div>

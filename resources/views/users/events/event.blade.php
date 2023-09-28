@@ -91,8 +91,8 @@
                                             </div>
                                             <div class="rbt-card-body">
                                                 <ul class="rbt-meta">
-                                                    <li><i class="feather-map-pin"></i>Vancouver</li><br>
-                                                    <li><span><i class="feather-calendar"></i>11 Jan, 2023</span> <span
+                                                    <li><i class="feather-map-pin"></i>{!!$event->lieu!!}</li><br>
+                                                    <li><span><i class="feather-calendar"></i>{{date("d M \, Y", strtotime($event->start_date))}}</span> <span
                                                             style="padding-left: 10px;"><i class="feather-clock"></i>8:00 am
                                                             - 5:00 pm </li></span>
                                                 </ul>
@@ -131,10 +131,9 @@
                                             </div>
                                             <div class="rbt-card-body">
                                                 <ul class="rbt-meta">
-                                                    <li><i class="feather-map-pin"></i>Vancouver</li><br>
-                                                    <li><span><i class="feather-calendar"></i>11 Jan, 2023</span> <span
-                                                            style="padding-left: 10px;"><i class="feather-clock"></i>8:00
-                                                            am - 5:00 pm </li></span>
+                                                    <li><i class="feather-map-pin"></i>{!!$reseau->lieu!!}</li><br>
+                                                    <li><span><i class="feather-calendar"></i>{{date("d M \, Y", strtotime($reseau->start_date))}}</span> <span
+                                                            style="padding-left: 10px;"><i class="feather-clock"></i>{{date("h:m ", strtotime($reseau->start_times))}} - {{date("h:m ", strtotime($reseau->end_times))}}  </li></span>
                                                 </ul>
                                                 <h4 class="rbt-card-title"><a
                                                         href="{{ route('event_details_link', $reseau->title) }}">{{$reseau->title}}</a></h4>
@@ -170,10 +169,9 @@
                                             </div>
                                             <div class="rbt-card-body">
                                                 <ul class="rbt-meta">
-                                                    <li><i class="feather-map-pin"></i>Vancouver</li><br>
-                                                    <li><span><i class="feather-calendar"></i>11 Jan, 2023</span> <span
-                                                            style="padding-left: 10px;"><i class="feather-clock"></i>8:00
-                                                            am - 5:00 pm </li></span>
+                                                    <li><i class="feather-map-pin"></i>{!!$amid->lieu!!}</li><br>
+                                                    <li><span><i class="feather-calendar"></i>{{date("d M \, Y", strtotime($amid->start_date))}}</span> <span
+                                                            style="padding-left: 10px;"><i class="feather-clock"></i>{{date("h:m ", strtotime($amid->start_times))}} - {{date("h:m ", strtotime($amid->end_times))}} </li></span>
                                                 </ul>
                                                 <h4 class="rbt-card-title"><a
                                                         href="{{ route('event_details_link', $amid->title ) }}">{{$amid->title}}</a></h4>
@@ -210,10 +208,9 @@
                                             </div>
                                             <div class="rbt-card-body">
                                                 <ul class="rbt-meta">
-                                                    <li><i class="feather-map-pin"></i>Vancouver</li><br>
-                                                    <li><span><i class="feather-calendar"></i>11 Jan, 2023</span> <span
-                                                            style="padding-left: 10px;"><i class="feather-clock"></i>8:00
-                                                            am - 5:00 pm </li></span>
+                                                    <li><i class="feather-map-pin"></i>{!!$nms->lieu!!}</li><br>
+                                                    <li><span><i class="feather-calendar"></i>{{date("d M \, Y", strtotime($nms->start_date))}}</span> <span
+                                                            style="padding-left: 10px;"><i class="feather-clock"></i>{{date("h:m ", strtotime($nms->start_times))}} - {{date("h:m ", strtotime($nms->end_times))}}  </li></span>
                                                 </ul>
                                                 <h4 class="rbt-card-title"><a
                                                         href="{{ route('event_details_link', $nms->title) }}">{{$nms->title}}</a></h4>

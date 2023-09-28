@@ -53,7 +53,7 @@
                         </div>
                     </div>
 
-                    <div class="tab-pane fade" id="team-tab2" role="tabpanel" aria-labelledby="team-tab2-tab">
+                    <!-- <div class="tab-pane fade" id="team-tab2" role="tabpanel" aria-labelledby="team-tab2-tab">
                         <div class="inner">
                             <div class="rbt-team-thumbnail">
                                 <div class="thumb">
@@ -91,7 +91,7 @@
                                 </ul>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
 
                     <div class="tab-pane fade" id="team-tab3" role="tabpanel" aria-labelledby="team-tab3-tab">
                         <div class="inner">
@@ -391,7 +391,7 @@
                         </a>
                     </li>
 
-                    <li>
+                    <!-- <li>
                         <a id="team-tab2-tab" data-bs-toggle="tab" data-bs-target="#team-tab2" role="tab" aria-controls="team-tab2" aria-selected="false">
                             <div class="testimonial-thumbnai">
                                 <div class="thumb">
@@ -399,7 +399,7 @@
                                 </div>
                             </div>
                         </a>
-                    </li>
+                    </li> -->
 
                     <li>
                         <a id="team-tab3-tab" data-bs-toggle="tab" data-bs-target="#team-tab3" role="tab" aria-controls="team-tab3" aria-selected="false">

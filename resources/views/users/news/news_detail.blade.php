@@ -35,7 +35,17 @@
                     </figure>
                 </div>
                 <p>{{$new->description}}</p>
-
+                <div class="rbt-gallery-area" style="margin-top: 5%; margin-bottom: 3%;">
+                    <div class="row g-0 parent-gallery-container" style="display: flex; justify-content: center; align-items: center;">
+                        @for($i = 0; $i < 4 ; $i++ ) 
+                        <a href="{{ asset('assets/images/gallery/gallery-thumb-01.jpg') }}" class="child-gallery-single col-lg-3 col-md-4 col-sm-6 col-6 ">
+                            <div class="rbt-gallery">
+                                <img class="w-100" src="{{ asset('assets/images/gallery/gallery-thumb-01.jpg') }}" alt="Gallery Images">
+                            </div>
+                        </a>
+                        @endfor
+                    </div>
+                </div>
                 <!-- Social Share Block  -->
                 <div class="social-share-block">
                     <div class="post-like">
@@ -201,17 +211,5 @@
         </div>
     </div>
 </div>
-</div>
-
-<div class="rbt-gallery-area" style="margin-top: 5%;">
-    <div class="row g-0 parent-gallery-container" style="display: flex; justify-content: center; align-items: center;">
-    @for($i = 0; $i < 3 ; $i++ )
-            <a href="{{ asset('assets/images/gallery/gallery-thumb-01.jpg') }}" class="child-gallery-single col-lg-2 col-md-4 col-sm-6 col-6 ">
-                <div class="rbt-gallery">
-                    <img class="w-100" src="{{ asset('assets/images/gallery/gallery-thumb-01.jpg') }}" alt="Gallery Images">
-                </div>
-            </a>
-     @endfor
-    </div>
 </div>
 @stop

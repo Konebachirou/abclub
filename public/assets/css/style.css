@@ -15578,7 +15578,7 @@ span.transparent-button:hover i {
 }
 
 .rbt-article-content-wrapper {
-  padding: 50px 100px;
+  padding: 50px 70px;
   background: #fff;
   box-shadow: var(--shadow-2);
   padding-top: 0;
@@ -19341,7 +19341,7 @@ span.transparent-button:hover i {
 .advance-pricing {
   background: var(--color-white);
   border-radius: 10px;
-  box-shadow: var(--shadow-1);
+  box-shadow: var(--shadow-3);
 }
 
 .advance-pricing .pricing-left {

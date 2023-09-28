@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\abclub;
 
 use App\Http\Controllers\Controller;
+use App\Models\Event;
 use App\Models\Pole;
+use App\Models\Report;
 use App\Models\Slide;
 use Illuminate\Http\Request;
 
@@ -13,6 +15,8 @@ class HomeController extends Controller
     {
         $poles = Pole::orderby('id', 'desc')->get();
         $slides = Slide::orderby('id', 'desc')->get();
-        return view('users.global.home', ['poles' => $poles, 'slides' => $slides]);
+        $events = Event::orderby('id', 'desc')->take(4)->get();
+        $news = Report::orderby('id', 'desc')->take(3)->get();
+        return view('users.global.home', ['poles' => $poles, 'slides' => $slides, 'events' => $events, 'news' => $news]);
     }
 }
