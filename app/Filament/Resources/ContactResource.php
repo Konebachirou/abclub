@@ -18,7 +18,7 @@ class ContactResource extends Resource
     protected static ?string $model = Contact::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
-
+    protected static ?string $navigationGroup = 'Communication et Contacts';
     public static function table(Table $table): Table
     {
         return $table

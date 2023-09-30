@@ -19,6 +19,8 @@ class NewsletterSubscriberResource extends Resource
     protected static ?string $model = NewsletterSubscriber::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationGroup = 'Communication et Contacts';
+    protected static ?string $navigationLabel = 'Newsletter';
 
     public static function table(Table $table): Table
     {

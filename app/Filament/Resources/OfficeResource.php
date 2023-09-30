@@ -18,6 +18,8 @@ class OfficeResource extends Resource
     protected static ?string $model = Office::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-building-office';
+    protected static ?string $navigationLabel = 'Bureaux';
+    protected static ?string $navigationGroup = 'Equipes';
 
     public static function form(Form $form): Form
     {

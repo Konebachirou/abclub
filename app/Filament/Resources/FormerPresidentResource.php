@@ -20,6 +20,8 @@ class FormerPresidentResource extends Resource
     protected static ?string $model = FormerPresident::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationLabel = 'Presidents';
+    protected static ?string $navigationGroup = 'Equipes';
 
     public static function form(Form $form): Form
     {

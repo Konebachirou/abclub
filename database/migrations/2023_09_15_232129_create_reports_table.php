@@ -17,6 +17,7 @@ return new class extends Migration
             $table->text('description');
             $table->string('illustration');
             $table->string('caption');
+            $table->string('album')->nullable();
             $table->boolean('status')->default(true);
             $table->date('date');
             $table->unsignedBigInteger('pole_id');
