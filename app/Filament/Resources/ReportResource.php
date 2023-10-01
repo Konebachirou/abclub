@@ -21,6 +21,8 @@ class ReportResource extends Resource
     protected static ?string $model = Report::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-arrow-up-on-square-stack';
+    protected static ?string $navigationLabel = 'Nos Actions && News';
+    protected static ?string $navigationGroup = 'Actualités et Événements';
 
     public static function form(Form $form): Form
     {
@@ -43,6 +45,9 @@ class ReportResource extends Resource
                 Forms\Components\TextInput::make('caption')
                     ->required()
                     ->maxLength(255),
+                FileUpload::make('album')
+                    ->multiple()
+                    ->required(),
                 Forms\Components\Toggle::make('status')
                     ->required(),
                 Forms\Components\DatePicker::make('date')

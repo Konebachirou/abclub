@@ -20,6 +20,8 @@ class OfficeTeamResource extends Resource
     protected static ?string $model = OfficeTeam::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-building-office-2';
+    protected static ?string $navigationLabel = 'Conseil d Administration';
+    protected static ?string $navigationGroup = 'Equipes';
 
     public static function form(Form $form): Form
     {

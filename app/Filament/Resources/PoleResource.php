@@ -17,7 +17,8 @@ class PoleResource extends Resource
 {
     protected static ?string $model = Pole::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-bookmark';
+    protected static ?string $navigationGroup = 'Pôles';
 
     public static function form(Form $form): Form
     {

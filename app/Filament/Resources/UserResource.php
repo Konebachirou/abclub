@@ -53,6 +53,12 @@ class UserResource extends Resource
                     ->required()
                     ->label('Membre')
                     ->placeholder('Voulez vous etre membre ?'),
+                Forms\Components\Select::make('roles')
+                    ->label('Rôles')
+                    ->multiple()
+                    ->required()
+                    ->relationship('roles', 'name')
+                    ->preload(),
                 FileUpload::make('image')
                     ->required()
                     ->label('Veuillez entrer votre image'),
@@ -66,6 +72,9 @@ class UserResource extends Resource
                 Tables\Columns\TextColumn::make('name'),
                 ImageColumn::make('image'),
                 Tables\Columns\TextColumn::make('email'),
+                Tables\Columns\TextColumn::make('roles.name')
+                    ->label('Rôles')
+                    ->searchable(),
             ])
             ->filters([
                 //

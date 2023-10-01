@@ -16,6 +16,7 @@ class Report extends Model
         'illustration',
         'gallery',
         'caption',
+        'album',
         'status',
         'date',
         'pole_id',
