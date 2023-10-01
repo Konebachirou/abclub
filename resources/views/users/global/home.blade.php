@@ -247,7 +247,7 @@
             </div>
             <div class="col-lg-6 col-md-12 col-12">
                 <div class="load-more-btn text-start text-lg-end">
-                    <a class="rbt-btn-link" href="#"> Voir tous les Events<i class="feather-arrow-right"></i></a>
+                    <a class="rbt-btn-link" href="{{ route('event_link') }}"> Voir tous les Events<i class="feather-arrow-right"></i></a>
                 </div>
             </div>
         </div>

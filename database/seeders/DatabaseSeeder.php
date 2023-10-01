@@ -19,13 +19,13 @@ class DatabaseSeeder extends Seeder
         $this->call(SlideSeeder::class);
 
 
-        \App\Models\Report::factory(30)->create();
+        \App\Models\Report::factory(6)->create();
         \App\Models\Office::factory(5)->create();
         \App\Models\OfficeTeam::factory(10)->create();
-        \App\Models\Event::factory(50)->create();
+        \App\Models\Event::factory(5)->create();
         \App\Models\Conferencier::factory(30)->create();
 
-        \App\Models\Comment::factory(150)->create();
+        \App\Models\Comment::factory(10)->create();
         \App\Models\Partner::factory(30)->create();
     }
 }

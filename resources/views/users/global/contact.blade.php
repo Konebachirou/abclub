@@ -53,7 +53,7 @@
                         <div class="inner">
                             <h4 class="title">Notre adresse e-mail</h4>
                             <p><a href="mailto:contact@abclub-paris.com">contact@abclub-paris.com</a></p>
-                            <p><a href="mailto:contact@abclub-paris.com">contact@abclub-paris.com</a></p>
+                            <!-- <p><a href="mailto:contact@abclub-paris.com">contact@abclub-paris.com</a></p> -->
                         </div>
                     </div>
                 </div>

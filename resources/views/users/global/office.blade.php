@@ -3,7 +3,7 @@
         <div class="row mb--60">
             <div class="col-lg-12">
                 <div class="section-title text-center">
-                    <span class="subtitle bg-primary-opacity">Responsable ABC</span>
+                    <span class="subtitle bg-primary-opacity">Responsable African Business Club</span>
                     <h2 class="title">Conseil d Administration 2023 - 2024</h2>
                 </div>
             </div>
@@ -29,7 +29,7 @@
                                         <span class="location">Paris, France</span>
                                     </span>
                                 </div>
-                                <p>Histudy The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested.</p>
+                                <p>Consultant in Strategy & Transformation | Intelligent and Sustainable Operations at Cap Gemini Invent, Master in Management EDHEC.</p>
                                 <ul class="social-icon social-default mt--20 justify-content-start">
                                     <li><a href="https://www.linkedin.com/">
                                             <i class="feather-linkedin"></i>
@@ -109,7 +109,7 @@
                                         <span class="location">Paris, France</span>
                                     </span>
                                 </div>
-                                <p>React The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested.</p>
+                                <p>Energy Professional I Operations & Project Management </p>
                                 <ul class="social-icon social-default mt--20 justify-content-start">
                                     <li><a href="https://www.linkedin.com/">
                                             <i class="feather-linkedin"></i>
@@ -149,7 +149,7 @@
                                         <span class="location">Paris, France</span>
                                     </span>
                                 </div>
-                                <p>Histudy The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested.</p>
+                                <p>Étudiante en M2, Programme Grande Ecole à Montpellier Business School</p>
                                 <ul class="social-icon social-default mt--20 justify-content-start">
                                     <li><a href="https://www.linkedin.com/">
                                             <i class="feather-linkedin"></i>
@@ -229,7 +229,7 @@
                                         <span class="location">Paris, France</span>
                                     </span>
                                 </div>
-                                <p>Histudy The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested.</p>
+                                <p>Alternant MIAGE & Développeur Web à la Cnam (Caisse nationale de l’Assurance Maladie)</p>
                                 <ul class="social-icon social-default mt--20 justify-content-start">
                                     <li><a href="https://www.linkedin.com/">
                                             <i class="feather-linkedin"></i>
@@ -269,7 +269,7 @@
                                         <span class="location">Paris, France</span>
                                     </span>
                                 </div>
-                                <p>Histudy The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested.</p>
+                                <p>Experienced senior consultant Financial services Bank</p>
                                 <ul class="social-icon social-default mt--20 justify-content-start">
                                     <li><a href="https://www.linkedin.com/">
                                             <i class="feather-linkedin"></i>
@@ -293,7 +293,7 @@
                         </div>
                     </div>
 
-                    <div class="tab-pane fade" id="team-tab8" role="tabpanel" aria-labelledby="team-tab8-tab">
+                    <!-- <div class="tab-pane fade" id="team-tab8" role="tabpanel" aria-labelledby="team-tab8-tab">
                         <div class="inner">
                             <div class="rbt-team-thumbnail">
                                 <div class="thumb">
@@ -371,7 +371,7 @@
                                 </ul>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
 
                     <div class="top-circle-shape"></div>
                 </div>
@@ -450,7 +450,7 @@
                         </a>
                     </li>
 
-                    <li>
+                    <!-- <li>
                         <a id="team-tab8-tab" data-bs-toggle="tab" data-bs-target="#team-tab8" role="tab" aria-controls="team-tab8" aria-selected="false">
                             <div class="testimonial-thumbnai">
                                 <div class="thumb">
@@ -458,7 +458,7 @@
                                 </div>
                             </div>
                         </a>
-                    </li>
+                    </li> -->
                 </ul>
 
                 <!-- End Tab Content  -->

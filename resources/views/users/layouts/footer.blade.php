@@ -109,7 +109,7 @@
                             <li><a href="#">FAQ</a></li>
                             <li><a href="#">Terms of service</a></li>
                             <li><a href="#">Privacy policy</a></li>
-                            <li><a href="{{ route('login_link') }}">Login & Register</a></li>
+                            <li><a href="{{ route('login_link') }}">Login</a></li>
                         </ul>
                     </div>
                 </div>

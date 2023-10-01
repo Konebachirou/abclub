@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('title');
             $table->text('description');
             $table->string('illustration');
-            $table->string('gallery');
+            $table->string('gallery')->nullable();
             $table->string('caption');
             $table->boolean('status')->default(true);
             $table->date('date');
