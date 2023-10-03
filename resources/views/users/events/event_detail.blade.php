@@ -33,7 +33,12 @@
                     <div class="course-details-content">
 
                         <div class="rbt-feature-box rbt-shadow-box thuumbnail">
+                            
+                        @if($event->Illustration!="")
+                            <img class="w-100" src="{{Storage::url($event->Illustration)}}" alt="Card image">
+                         @else
                             <img class="w-100" src="{{ asset('assets/images/course/course-01.jpg') }}" alt="Card image">
+                         @endif
                         </div>
 
                         <!-- Start Course Feature Box  -->
@@ -113,12 +118,14 @@
                             <!-- End Viedo Wrapper  -->
 
                             <div class="content pt--30">
+                                @if(!$event->is_free)
                                 <div class="add-to-card-button mb--15">
                                     <a class="rbt-btn btn-gradient icon-hover w-100 d-block text-center" href="#">
                                         <span class="btn-text">Get Ticket</span>
                                         <span class="btn-icon"><i class="feather-arrow-right"></i></span>
                                     </a>
                                 </div>
+                                @endif
                                 <!-- <div class="buy-now-btn">
                                     <a class="rbt-btn btn-border icon-hover w-100 d-block text-center" href="#">
                                         <span class="btn-text">Book Now</span>

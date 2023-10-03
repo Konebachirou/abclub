@@ -273,7 +273,7 @@
                         <div class="read-more-btn">
                             <a class="rbt-btn btn-border hover-icon-reverse btn-sm radius-round" href="{{ route('event_details_link', $event->title) }}">
                                 <span class="icon-reverse-wrapper">
-                                    <span class="btn-text">Participer</span>
+                                    <span class="btn-text">Voir Plus</span>
                                     <span class="btn-icon"><i class="feather-arrow-right"></i></span>
                                     <span class="btn-icon"><i class="feather-arrow-right"></i></span>
                                 </span>

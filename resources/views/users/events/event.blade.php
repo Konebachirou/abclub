@@ -86,7 +86,11 @@
                                         <div class="rbt-card card-list-2 event-list-card variation-01 rbt-hover">
                                             <div class="rbt-card-img">
                                                 <a href="{{ route('event_details_link', $event->title) }}">
+                                                @if($event->Illustration!="")
+                                                    <img src="{{Storage::url($event->Illustration)}}" alt="Card image">
+                                                @else
                                                     <img src="assets/images/event/grid-type-01.jpg" alt="Card image">
+                                                @endif
                                                 </a>
                                             </div>
                                             <div class="rbt-card-body">
@@ -102,7 +106,7 @@
                                                     <a class="rbt-btn btn-border hover-icon-reverse btn-sm radius-round"
                                                         href="{{ route('event_details_link', $event->title) }}">
                                                         <span class="icon-reverse-wrapper">
-                                                            <span class="btn-text">Get Ticket</span>
+                                                            <span class="btn-text">Voir Plus</span>
                                                             <span class="btn-icon"><i
                                                                     class="feather-arrow-right"></i></span>
                                                             <span class="btn-icon"><i
