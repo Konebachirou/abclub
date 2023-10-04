@@ -37,18 +37,26 @@
             <div class="row g-5 align-items-center">
                 <div class="col-lg-12 mt--60">
                     <ul class="rbt-portfolio-filter filter-tab-button justify-content-start nav nav-tabs" id="rbt-myTab" role="tablist">
+                        @if( $reports->count() != 0 )
                         <li class="nav-item" role="presentation">
                             <button class="active" id="all-tab" data-bs-toggle="tab" data-bs-target="#all" type="button" role="tab" aria-controls="all" aria-selected="true"><span class="filter-text">Toutes les News</span> <span class="course-number">{{ $reports->count() }}</span></button>
                         </li>
+                        @endif
+                        @if( $reseaux->count() != 0 )
                         <li class="nav-item" role="presentation">
                             <button id="featured-tab" data-bs-toggle="tab" data-bs-target="#featured" type="button" role="tab" aria-controls="featured" aria-selected="false"><span class="filter-text">News Réseau</span> <span class="course-number">{{ $reseaux->count() }}</span></button>
                         </li>
+                        @endif
+                        @if( $amids->count() != 0 )
                         <li class="nav-item" role="presentation">
                             <button id="popular-tab" data-bs-toggle="tab" data-bs-target="#popular" type="button" role="tab" aria-controls="popular" aria-selected="false"><span class="filter-text">News AMID</span> <span class="course-number">{{ $amids->count() }}</span></button>
                         </li>
+                        @endif
+                        @if( $nmss->count() != 0 )
                         <li class="nav-item" role="presentation">
                             <button id="trending-tab" data-bs-toggle="tab" data-bs-target="#trending" type="button" role="tab" aria-controls="trending" aria-selected="false"><span class="filter-text">News Meet & Share</span> <span class="course-number">{{ $nmss->count() }}</span></button>
                         </li>
+                        @endif
                     </ul>
                 </div>
 
@@ -83,8 +91,8 @@
                                         </ul>
                                         <p class="rbt-card-text elipses4">{{$report->description}}</p>
                                         <div class="rbt-card-bottom">
-                                            <a class="transparent-button" href="{{ route('news_details_link', $report->title) }}">Learn
-                                                More<i><svg width="17" height="12" xmlns="http://www.w3.org/2000/svg">
+                                            <a class="transparent-button" href="{{ route('news_details_link', $report->title) }}">Lire
+                                                Plus<i><svg width="17" height="12" xmlns="http://www.w3.org/2000/svg">
                                                         <g stroke="#27374D" fill="none" fill-rule="evenodd">
                                                             <path d="M10.614 0l5.629 5.629-5.63 5.629" />
                                                             <path stroke-linecap="square" d="M.663 5.572h14.594" />

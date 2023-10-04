@@ -22,6 +22,7 @@ class EventController extends Controller
     {
         $event = Event::where('title', $title)->first();
         $conferencier = Conferencier::where('event_id',$event->id)->get();
+        // dd($event);
         return view('users.events.event_detail', ['event' => $event,'conferencier' => $conferencier]);
     }
 }

@@ -165,7 +165,7 @@ class PoleSeeder extends Seeder
             [
 
                 'icon' => "service-04.png",
-                'name' => 'Pôle media',
+                'name' => 'Pôle Media & Podcast',
                 'description' => "<p>Ce pôle met en lumière les activités de notre association
                 et est chargé du marketing, de la
                 communication, de la gestion du podcast et de la relation presse.</p>

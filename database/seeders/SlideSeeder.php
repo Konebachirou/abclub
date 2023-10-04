@@ -14,23 +14,26 @@ class SlideSeeder extends Seeder
     public function run(): void
     {
         Slide::insert([
+           
             [
-                'image' => "images/banner/Accueil3.png",
-                'description' => "Construisez votre carrière avec<br /> <strong
+                'image' => "images/banner/Accueil1.jpg",
+                'description' => "Construisez votre carrière avec
+                <br /> <strong
                         class='color-white'>l'African Business Club</strong></h1>",
                 'created_at' => now(),
                 'updated_at' => now()
             ],
             [
-                'image' => "images/banner/Accueil5.png",
-                'description' => "Construisez votre carrière avec<br /> <strong
+                'image' => "images/banner/Accueil2.jpg",
+                'description' => "Appartenez à un puissant réseau international avec <br /> <strong
                         class='color-white'>l'African Business Club</strong></h1>",
                 'created_at' => now(),
                 'updated_at' => now()
             ],
             [
-                'image' => "images/banner/Accueil2.png",
-                'description' => "Construisez votre carrière avec<br /> <strong
+                'image' => "images/banner/Accueil3.jpg",
+                'description' => "   Trouvez votre prochain emploi sur le continent Africain avec
+                <br /> <strong
                         class='color-white'>l'African Business Club</strong></h1>",
                 'created_at' => now(),
                 'updated_at' => now()

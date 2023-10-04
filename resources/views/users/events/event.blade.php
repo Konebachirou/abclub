@@ -38,30 +38,38 @@
                     <div class="col-lg-12 mt--60">
                         <ul class="rbt-portfolio-filter filter-tab-button justify-content-start nav nav-tabs" id="rbt-myTab"
                             role="tablist">
+                            @if( $events->count() != 0 )
                             <li class="nav-item" role="presentation">
                                 <button class="active" id="all-tab" data-bs-toggle="tab" data-bs-target="#all"
                                     type="button" role="tab" aria-controls="all" aria-selected="true"><span
                                         class="filter-text">Tous les évènements</span> <span
                                         class="course-number">{{ $events->count() }}</span></button>
                             </li>
+                            @endif
+                            @if( $reseaux->count() != 0)
                             <li class="nav-item" role="presentation">
                                 <button id="featured-tab" data-bs-toggle="tab" data-bs-target="#featured" type="button"
                                     role="tab" aria-controls="featured" aria-selected="false"><span
                                         class="filter-text">Events Réseau</span> <span
                                         class="course-number">{{ $reseaux->count() }}</span></button>
                             </li>
+                            @endif
+                            @if( $amids->count() != 0)
                             <li class="nav-item" role="presentation">
                                 <button id="popular-tab" data-bs-toggle="tab" data-bs-target="#popular" type="button"
                                     role="tab" aria-controls="popular" aria-selected="false"><span
                                         class="filter-text">Events AMID</span> <span
                                         class="course-number">{{ $amids->count() }}</span></button>
                             </li>
+                            @endif
+                            @if( $nmss->count() != 0)
                             <li class="nav-item" role="presentation">
                                 <button id="trending-tab" data-bs-toggle="tab" data-bs-target="#trending" type="button"
                                     role="tab" aria-controls="trending" aria-selected="false"><span
                                         class="filter-text">Events Meet & Share</span> <span
                                         class="course-number">{{ $nmss->count() }}</span></button>
                             </li>
+                            @endif
                         </ul>
                     </div>
 
@@ -86,11 +94,12 @@
                                         <div class="rbt-card card-list-2 event-list-card variation-01 rbt-hover">
                                             <div class="rbt-card-img">
                                                 <a href="{{ route('event_details_link', $event->title) }}">
-                                                @if($event->Illustration!="")
-                                                    <img src="{{Storage::url($event->Illustration)}}" alt="Card image">
+                                                @if($event->illustration != "")
+                                                    <img  src="{{Storage::url($event->illustration)}}" alt="Card image">
                                                 @else
-                                                    <img src="assets/images/event/grid-type-01.jpg" alt="Card image">
+                                                    <img  src="{{ asset('assets/images/course/course-01.jpg') }}" alt="Card image">
                                                 @endif
+                                               
                                                 </a>
                                             </div>
                                             <div class="rbt-card-body">

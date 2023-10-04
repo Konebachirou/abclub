@@ -78,9 +78,9 @@
                 <div class="col-lg-6">
                     <div class="inner pl--50 pl_lg--0 pl_md--0 pl_sm--0">
                         <div class="section-title text-start">
-                            <h3 class="title">C'est quoi L'African Business Club ?</h3>
+                            <h3 class="title">Qu’est-ce que l’African Business Club ?</h3>
                             <p class="description mt--30 mt_md--15 mt_sm--15 mb_md--15 mb_sm--15">L’ African Business Club
-                                est une association créée en 2003 sur l’initiative de Ibrahim Magassa
+                                est une association créée en 2003 sur l’initiative de <b>Mr. Ibrahim Magassa</b>
                                 et d’autres étudiants de l’ESCP Europe.</p>
                             <p class="mb_md--15 mb_sm--15">Aujourd’hui,
                                 notre objectif est de promouvoir et renforcer le développement d’initiatives et
@@ -143,20 +143,20 @@
                         <div class="tab-pane fade advance-tab-content-1 active show" id="home" role="tabpanel"
                             aria-labelledby="home-tab">
                             <div class="thumbnail">
-                                <img src="{{ asset('assets/images/banner/mission.png') }}" alt="advance-tab-image">
+                                <img src="{{ asset('assets/images/banner/vision.png') }}" alt="advance-tab-image">
                             </div>
 
                         </div>
                         <div class="tab-pane fade advance-tab-content-1" id="profile" role="tabpanel"
                             aria-labelledby="profile-tab">
                             <div class="thumbnail">
-                                <img src="{{ asset('assets/images/tab/tabs-02.jpg') }}" alt="advance-tab-image">
+                                <img src="{{ asset('assets/images/banner/mission.png') }}" alt="advance-tab-image">
                             </div>
                         </div>
                         <div class="tab-pane fade advance-tab-content-1" id="contact" role="tabpanel"
                             aria-labelledby="contact-tab">
                             <div class="thumbnail">
-                                <img src="{{ asset('assets/images/tab/tabs-01.jpg') }}" alt="advance-tab-image">
+                                <img src="{{ asset('assets/images/banner/valeur.png') }}" alt="advance-tab-image">
                             </div>
                         </div>
                     </div>

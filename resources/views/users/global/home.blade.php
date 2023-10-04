@@ -18,9 +18,9 @@
             <div class="col-lg-6">
                 <div class="inner pl--50 pl_lg--0 pl_md--0 pl_sm--0">
                     <div class="section-title text-start">
-                        <h3 class="title">C'est quoi L'African Business Club ?</h3>
+                        <h3 class="title">Qu’est-ce que l’African Business Club ?</h3>
                         <p class="description mt--30 mt_md--15 mt_sm--15 mb_md--15 mb_sm--15">L’ African Business Club
-                            est une association créée en 2003 sur l’initiative de Ibrahim Magassa
+                            est une association créée en 2003 sur l’initiative de  <b>Mr. Ibrahim Magassa</b>
                             et d’autres étudiants de l’ESCP Europe.</p>
                         <p class="mb_md--15 mb_sm--15">Aujourd’hui,
                             notre objectif est de promouvoir et renforcer le développement d’initiatives et
@@ -185,11 +185,11 @@
                         <div class="row row--0">
                             <div class="col-lg-6 col-md-6 col-12">
                                 <div class="pricing-left bg_image bg_image--6 ">
-                                    <h3 class="main-title">Pack Adherant</h3>
-                                    <p class="description">L'ABC vous offre une nouvelle manière de profiter de ses
+                                    <h3 class="main-title">Pack Adherent</h3>
+                                    <p class="description">L'African Business Club vous offre une nouvelle manière de profiter de ses
                                         évènements et des services de ses partenaires. </p>
                                     <div class="price-wrapper">
-                                        <span class="price-amount">60€<sup>/Annuel</sup></span>
+                                        <span class="price-amount">40€<sup>/Annuel</sup></span>
                                     </div>
                                     <div class="pricing-btn-group">
                                         <a class="rbt-btn btn-gradient hover-icon-reverse" href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#packModal">
@@ -258,7 +258,11 @@
                 <div class="rbt-card card-list-2 event-list-card variation-01 rbt-hover">
                     <div class="rbt-card-img">
                         <a href="{{ route('event_details_link', $event->title) }}">
-                            <img src="{{ asset('assets/images/event/grid-type-02.jpg') }}" alt="Card image">
+                        @if($event->illustration != "")
+                            <img  src="{{Storage::url($event->illustration)}}" alt="Card image">
+                        @else
+                            <img  src="{{ asset('assets/images/course/course-01.jpg') }}" alt="Card image">
+                        @endif
                         </a>
                     </div>
                     <div class="rbt-card-body">

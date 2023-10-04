@@ -22,10 +22,10 @@ class DatabaseSeeder extends Seeder
         \App\Models\Report::factory(6)->create();
         \App\Models\Office::factory(5)->create();
         \App\Models\OfficeTeam::factory(10)->create();
-        \App\Models\Event::factory(5)->create();
-        \App\Models\Conferencier::factory(30)->create();
+        \App\Models\Event::factory(2)->create();
+        \App\Models\Conferencier::factory(4)->create();
 
         \App\Models\Comment::factory(10)->create();
-        \App\Models\Partner::factory(30)->create();
+        \App\Models\Partner::factory(20)->create();
     }
 }

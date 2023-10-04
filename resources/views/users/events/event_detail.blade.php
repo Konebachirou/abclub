@@ -17,7 +17,7 @@
                                 </li>
                                 <li class="rbt-breadcrumb-item active"></li>
                             </ul>
-                            <h2 class="title mb--0">{{$event->title}}</h2>
+                            <h2 class="title mb--2">{{$event->title}}</h2>
                         </div>
                     </div>
                 </div>
@@ -26,23 +26,21 @@
     </div>
     <!-- End Breadcrumb Area -->
 
-    <div class="rbt-course-details-area " style="margin-top: 5%;">
+    <div class="rbt-course-details-area ">
         <div class="container">
             <div class="row g-5">
                 <div class="col-lg-8">
-                    <div class="course-details-content">
-
+                    <div class="course-details-content"  style="margin-top: -12%;">
                         <div class="rbt-feature-box rbt-shadow-box thuumbnail">
-                            
-                        @if($event->Illustration!="")
-                            <img class="w-100" src="{{Storage::url($event->Illustration)}}" alt="Card image">
-                         @else
-                            <img class="w-100" src="{{ asset('assets/images/course/course-01.jpg') }}" alt="Card image">
-                         @endif
+                            @if($event->illustration != "")
+                                <img class="w-100" src="{{Storage::url($event->illustration)}}" alt="Card image">
+                            @else
+                                <img class="w-100" src="{{ asset('assets/images/course/course-01.jpg') }}" alt="Card image">
+                            @endif
                         </div>
 
                         <!-- Start Course Feature Box  -->
-                        <div class="rbt-feature-box rbt-shadow-box mt--60">
+                        <div class="rbt-feature-box rbt-shadow-box mt--40">
                             <div class="row g-5">
                                 <div class="col-lg-12">
                                     <div class="section-title">
@@ -99,7 +97,7 @@
                     
                 </div>
 
-                <div class="col-lg-4 mt_md--60 mt_sm--60">
+                <div class="col-lg-4 mt_md--60 mt_sm--60" style="margin-top: 15%;">
                     <div class="course-sidebar rbt-gradient-border sticky-top rbt-shadow-box course-sidebar-top">
                         <div class="inner">
 
@@ -117,7 +115,7 @@
                             </a> -->
                             <!-- End Viedo Wrapper  -->
 
-                            <div class="content pt--30">
+                            <div class="content pt--30" >
                                 @if(!$event->is_free)
                                 <div class="add-to-card-button mb--15">
                                     <a class="rbt-btn btn-gradient icon-hover w-100 d-block text-center" href="#">
