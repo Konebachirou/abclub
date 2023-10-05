@@ -2,16 +2,18 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\PoleResource\Pages;
-use App\Filament\Resources\PoleResource\RelationManagers;
-use App\Models\Pole;
 use Filament\Forms;
-use Filament\Forms\Form;
-use Filament\Resources\Resource;
+use App\Models\Pole;
 use Filament\Tables;
+use Filament\Forms\Form;
 use Filament\Tables\Table;
+use Filament\Resources\Resource;
+use Filament\Tables\Columns\ImageColumn;
+use Filament\Forms\Components\FileUpload;
 use Illuminate\Database\Eloquent\Builder;
+use App\Filament\Resources\PoleResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use App\Filament\Resources\PoleResource\RelationManagers;
 
 class PoleResource extends Resource
 {
@@ -24,9 +26,10 @@ class PoleResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('icon')
+
+                FileUpload::make('icon')
                     ->required()
-                    ->maxLength(255),
+                    ->image()->directory('pole')->label("Icon du pole"),
                 Forms\Components\TextInput::make('name')
                     ->required()
                     ->maxLength(255),
@@ -41,10 +44,10 @@ class PoleResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('icon')
-                    ->searchable(),
+
                 Tables\Columns\TextColumn::make('name')
                     ->searchable(),
+                ImageColumn::make('icon'),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()

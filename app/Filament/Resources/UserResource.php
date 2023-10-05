@@ -14,6 +14,7 @@ use Filament\Tables\Columns\TextColumn;
 use Filament\Forms\Components\TextInput;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Forms\Components\FileUpload;
+use Filament\Tables\Columns\ToggleColumn;
 use Illuminate\Database\Eloquent\Builder;
 use App\Filament\Resources\UserResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
@@ -45,7 +46,7 @@ class UserResource extends Resource
                     ->dehydrateStateUsing(fn ($state) => Hash::make($state))
                     ->dehydrated(fn ($state) => filled($state))
                     ->required(fn (string $context): bool => $context === 'create'),
-                Select::make('Membre')
+                Select::make('is_member')
                     ->options([
                         '1' => 'oui',
                         '0' => 'non',
@@ -53,6 +54,9 @@ class UserResource extends Resource
                     ->required()
                     ->label('Membre')
                     ->placeholder('Voulez vous etre membre ?'),
+                Forms\Components\Toggle::make('status')
+                    ->label('Status')
+                    ->required(),
                 Forms\Components\Select::make('roles')
                     ->label('Rôles')
                     ->multiple()
@@ -61,7 +65,7 @@ class UserResource extends Resource
                     ->preload(),
                 FileUpload::make('image')
                     ->required()
-                    ->label('Veuillez entrer votre image'),
+                    ->image()->directory('utilisateur')->label("Image de l'utilisateur"),
             ]);
     }
 
@@ -72,6 +76,10 @@ class UserResource extends Resource
                 Tables\Columns\TextColumn::make('name'),
                 ImageColumn::make('image'),
                 Tables\Columns\TextColumn::make('email'),
+                ToggleColumn::make('is_member')
+                    ->label('Membre'),
+                ToggleColumn::make('status')
+                    ->label('Status'),
                 Tables\Columns\TextColumn::make('roles.name')
                     ->label('Rôles')
                     ->searchable(),

@@ -10,6 +10,7 @@ use Filament\Tables\Table;
 use Filament\Resources\Resource;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Forms\Components\FileUpload;
+use Filament\Tables\Columns\ToggleColumn;
 use Illuminate\Database\Eloquent\Builder;
 use App\Filament\Resources\PartnerResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
@@ -31,6 +32,10 @@ class PartnerResource extends Resource
                     ->required()
                     ->maxLength(255),
                 FileUpload::make('logo')
+                    ->required()
+                    ->image()->directory('partenaire')->label('Image du logo'),
+                Forms\Components\Toggle::make('status')
+                    ->label('Status')
                     ->required(),
                 Forms\Components\TextInput::make('website')
                     ->required()
@@ -45,6 +50,8 @@ class PartnerResource extends Resource
                 Tables\Columns\TextColumn::make('name')
                     ->searchable(),
                 ImageColumn::make('logo'),
+                ToggleColumn::make('status')
+                    ->label('Status'),
             ])
             ->filters([
                 //

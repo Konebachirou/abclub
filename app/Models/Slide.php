@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Slide extends Model
 {
@@ -12,4 +13,8 @@ class Slide extends Model
         'image',
         'description',
     ];
+    public function imageUrl(): string
+    {
+        return Storage::url($this->image);
+    }
 }

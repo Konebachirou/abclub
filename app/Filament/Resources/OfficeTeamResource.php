@@ -34,7 +34,8 @@ class OfficeTeamResource extends Resource
                     ->required()
                     ->maxLength(255),
                 FileUpload::make('image')
-                    ->required(),
+                    ->required()
+                    ->image()->directory('membre')->label('Image du membre'),
                 Forms\Components\TextInput::make('level')
                     ->required()
                     ->maxLength(255),

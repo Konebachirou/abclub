@@ -2,9 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Report extends Model
 {
@@ -14,9 +15,8 @@ class Report extends Model
         'title',
         'description',
         'illustration',
-        'gallery',
         'caption',
-        'album',
+        'album' => 'array',
         'status',
         'date',
         'pole_id',
@@ -39,5 +39,9 @@ class Report extends Model
     public function comments()
     {
         return $this->hasMany(Comment::class)->whereNull('parent_id');
+    }
+    public function illustrationUrl(): string
+    {
+        return Storage::url($this->illustration);
     }
 }

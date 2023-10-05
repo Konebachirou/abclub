@@ -11,6 +11,7 @@ use Filament\Resources\Resource;
 use Filament\Forms\Components\Select;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Forms\Components\FileUpload;
+use Filament\Tables\Columns\ToggleColumn;
 use Illuminate\Database\Eloquent\Builder;
 use App\Filament\Resources\ReportResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
@@ -34,20 +35,16 @@ class ReportResource extends Resource
                     ->required()
                     ->options(\App\Models\Pole::pluck('name', 'id')),
                 Forms\Components\TextInput::make('title')
-                    ->required()
-                    ->maxLength(255),
-                Forms\Components\Textarea::make('description')
-                    ->required()
-                    ->maxLength(65535)
-                    ->columnSpanFull(),
-                FileUpload::make('illustration')
                     ->required(),
-                Forms\Components\TextInput::make('caption')
+                Forms\Components\Textarea::make('description')
+                    ->required(),
+                FileUpload::make('illustration')
                     ->required()
-                    ->maxLength(255),
+                    ->image()->directory('report')->label("Image de la new ou de l'action"),
+                Forms\Components\TextInput::make('caption'),
                 FileUpload::make('album')
                     ->multiple()
-                    ->required(),
+                    ->directory('album')->label("Album"),
                 Forms\Components\Toggle::make('status')
                     ->required(),
                 Forms\Components\DatePicker::make('date')
@@ -66,25 +63,22 @@ class ReportResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('pole.name')->label('Pole'),
-                Tables\Columns\TextColumn::make('title')
-                    ->searchable(),
                 ImageColumn::make('illustration'),
                 Tables\Columns\TextColumn::make('caption')
                     ->searchable(),
-                Tables\Columns\IconColumn::make('status')
-                    ->boolean(),
+
+                ToggleColumn::make('status')
+                    ->label('Status'),
                 Tables\Columns\TextColumn::make('date')
                     ->date()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('is_report')
-                    ->formatStateUsing(function (Report $report) {
-                        return $report->is_report ? '✔️' : '❌'; // Vous pouvez personnaliser les icônes ici.
-                    })
-                    ->label('Action'),
-                Tables\Columns\TextColumn::make('is_action')
-                    ->formatStateUsing(function (Report $report) {
-                        return $report->is_action ? '✔️' : '❌'; // Vous pouvez personnaliser les icônes ici.
-                    })
+                ImageColumn::make('album')
+                    ->circular()
+                    ->stacked(),
+
+                ToggleColumn::make('is_report')
+                    ->label('News'),
+                ToggleColumn::make('is_action')
                     ->label('Action'),
 
                 Tables\Columns\TextColumn::make('created_at')

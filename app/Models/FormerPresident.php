@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -44,5 +45,11 @@ class FormerPresident extends Model
                 return "{$this->start_date} - {$this->end_date}";
             }
         );
+    }
+
+
+    public function imageUrl(): string
+    {
+        return Storage::url($this->image);
     }
 }

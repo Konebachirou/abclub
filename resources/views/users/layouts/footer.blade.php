@@ -52,7 +52,7 @@
                                         <a href="{{ route('about_link') }}\#vision">Mission & Vision</a>
                                     </li>
                                     <li>
-                                        <a href="{{ route('about_link') }}\#last">Alumnis</a>
+                                        <a href="{{ route('about_link') }}\#partners">partenaires</a>
                                     </li>
                                     
                                 </ul>
