@@ -170,7 +170,7 @@
 
     @include('users.global.partners')
 
-    <div class="rbt-team-area bg-color-white "style="padding-top: 8%;">
+    <div class="rbt-team-area bg-color-white "style="padding-top: 8%;" id="last">
         <div class="container">
             <div class="row mb--60">
                 <div class="col-lg-12">

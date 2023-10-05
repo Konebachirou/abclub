@@ -135,7 +135,7 @@
                                     <ul class="has-show-more-inner-content rbt-course-details-list-wrapper">
                                         <li><span>Date</span><span class="rbt-feature-value rbt-badge-5"> {{date("d M \, Y", strtotime($event->start_date))}}</span>
                                         </li>
-                                        <li><span>Heure</span><span class="rbt-feature-value rbt-badge-5">{{date("h:m ", strtotime($event->start_times))}} </span></li>
+                                        <li><span>Heure</span><span class="rbt-feature-value rbt-badge-5">{{date("H:i ", strtotime($event->start_times))}} </span></li>
                                         <!-- <li><span>End Date</span><span class="rbt-feature-value rbt-badge-5">{{$event->description}}25 Jan, 2024</span></li> -->
                                         <li><span>Nombre de Place</span><span class="rbt-feature-value rbt-badge-5">{{$event->Number_of_place}}</span></li>
                                         <li><span>Adresse</span><span class="rbt-feature-value rbt-badge-5">{{$event->lieu}}</span></li>

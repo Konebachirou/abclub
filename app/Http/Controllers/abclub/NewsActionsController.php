@@ -6,7 +6,7 @@ use App\Models\Pole;
 use App\Models\Report;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
+use stdClass;
 class NewsActionsController extends Controller
 {
     /**
@@ -31,8 +31,10 @@ class NewsActionsController extends Controller
     public function details(string $title)
     {
         $new = Report::where('title', $title)->first();
+        $album = json_decode($new->album, true);
+        // dd($album);
         $similars = Report::latest()->take(3)->get();
-        return view('users.news.news_detail', ['new' => $new, 'similars' => $similars]);
+        return view('users.news.news_detail', ['new' => $new, 'similars' => $similars, 'album' => $album,]);
     }
 
     /**

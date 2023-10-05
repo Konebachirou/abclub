@@ -81,7 +81,11 @@
                                 <div class="rbt-blog-grid rbt-card variation-02 rbt-hover">
                                     <div class="rbt-card-img">
                                         <a href="{{ route('news_details_link', $report->title) }}">
-                                            <img src="assets/images/blog/blog-grid-04.jpg" alt="Card image"> </a>
+                                        @if($report->illustration != "")
+                                            <img  src="{{Storage::url($report->illustration)}}" alt="{{$report->title}}">
+                                        @else
+                                            <img src="assets/images/blog/blog-grid-04.jpg" alt="{{$report->title}}"> </a>
+                                        @endif
                                     </div>
                                     <div class="rbt-card-body">
                                         <h5 class="rbt-card-title elipses2"><a href="{{ route('news_details_link', $report->title) }}">{{$report->title}}</a></h5>
@@ -116,7 +120,7 @@
                                 <div class="rbt-blog-grid rbt-card variation-02 rbt-hover">
                                     <div class="rbt-card-img">
                                         <a href="{{ route('news_details_link', $reseau->title) }}">
-                                            <img src="assets/images/blog/blog-grid-04.jpg" alt="Card image"> </a>
+                                            <img src="assets/images/blog/blog-grid-04.jpg" alt="{{$report->title}}"> </a>
                                     </div>
                                     <div class="rbt-card-body">
                                         <h5 class="rbt-card-title elipses2"><a href="{{ route('news_details_link', $reseau->title) }}">{{$reseau->title}}</a></h5>
@@ -149,7 +153,7 @@
                                 <div class="rbt-blog-grid rbt-card variation-02 rbt-hover">
                                     <div class="rbt-card-img">
                                         <a href="{{ route('news_details_link', $amid->title) }}">
-                                            <img src="assets/images/blog/blog-grid-04.jpg" alt="Card image"> </a>
+                                            <img src="assets/images/blog/blog-grid-04.jpg" alt="{{$report->title}}"> </a>
                                     </div>
                                     <div class="rbt-card-body">
                                         <h5 class="rbt-card-title elipses2"><a href="{{ route('news_details_link', $amid->title) }}">{{$amid->title}}</a></h5>
@@ -183,7 +187,7 @@
                                 <div class="rbt-blog-grid rbt-card variation-02 rbt-hover">
                                     <div class="rbt-card-img">
                                         <a href="{{ route('news_details_link', $nms->title) }}">
-                                            <img src="assets/images/blog/blog-grid-04.jpg" alt="Card image"> </a>
+                                            <img src="assets/images/blog/blog-grid-04.jpg" alt="{{$report->title}}"> </a>
                                     </div>
                                     <div class="rbt-card-body">
                                         <h5 class="rbt-card-title elipses2"><a href="{{ route('news_details_link', $nms->title) }}">{{$nms->title}}</a></h5>

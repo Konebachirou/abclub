@@ -268,7 +268,7 @@
                     <div class="rbt-card-body">
                         <ul class="rbt-meta">
                             <li><i class="feather-map-pin"></i>{!!$event->lieu!!}</li><br>
-                            <li><span><i class="feather-calendar"></i>{{date("d M \, Y", strtotime($event->start_date))}}</span> <span style="padding-left: 10px;"><i class="feather-clock"></i>{{date("h:m ", strtotime($event->start_times))}} - {{date("h:m ", strtotime($event->end_times))}} 
+                            <li><span><i class="feather-calendar"></i>{{date("d M \, Y", strtotime($event->start_date))}}</span> <span style="padding-left: 10px;"><i class="feather-clock"></i>{{date("H:i ", strtotime($event->start_times))}} - {{date("H:i ", strtotime($event->end_times))}} 
                             </li></span>
                         </ul>
                         <h5 class="rbt-card-title elipses2"><a href="{{ route('event_details_link', $event->title) }}">{!! $event->title !!}</a>
@@ -322,7 +322,11 @@
                     <div class="rbt-card variation-02 rbt-hover">
                         <div class="rbt-card-img">
                             <a href="{{ route('news_details_link', $new->title) }}">
-                                <img src="{{ asset('assets/images/blog/blog-grid-01.jpg') }}" alt="Card image">
+                                @if($new->illustration != "")
+                                    <img  src="{{Storage::url($new->illustration)}}" alt="{{$new->title}}">
+                                @else
+                                    <img src="{{ asset('assets/images/blog/blog-grid-01.jpg') }}" alt="{{$new->title}}">
+                                @endif
                             </a>
                         </div>
                         <div class="rbt-card-body">
