@@ -13,6 +13,11 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+        \App\Models\User::factory()->create([
+            'name' => 'Administrateur',
+            'email' => 'admin@abc.com',
+            'password' => bcrypt('password'),
+        ]);
         \App\Models\User::factory(15)->create();
         $this->call(FormerPresidentSeeder::class);
         $this->call(PoleSeeder::class);

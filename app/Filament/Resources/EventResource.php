@@ -11,6 +11,8 @@ use Filament\Resources\Resource;
 use Filament\Forms\Components\Select;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\TimePicker;
+use Filament\Tables\Columns\ToggleColumn;
 use Illuminate\Database\Eloquent\Builder;
 use App\Filament\Resources\EventResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
@@ -37,7 +39,8 @@ class EventResource extends Resource
                     ->required()
                     ->maxLength(255),
                 FileUpload::make('illustration')
-                    ->required(),
+                    ->required()
+                    ->image()->directory('event')->label("Image de l'evenement"),
                 Forms\Components\Textarea::make('description')
                     ->required()
                     ->maxLength(65535)
@@ -53,9 +56,9 @@ class EventResource extends Resource
                     ->required(),
                 Forms\Components\DatePicker::make('end_date')
                     ->required(),
-                Forms\Components\TextInput::make('start_times')
+                TimePicker::make('start_times')
                     ->required(),
-                Forms\Components\TextInput::make('end_times')
+                TimePicker::make('end_times')
                     ->required(),
                 Forms\Components\TextInput::make('lieu')
                     ->required()
@@ -69,13 +72,13 @@ class EventResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('pole.name')->label('Pole')
                     ->sortable(),
-                Tables\Columns\TextColumn::make('title')
-                    ->searchable(),
                 ImageColumn::make('illustration'),
-                Tables\Columns\IconColumn::make('is_active')
-                    ->boolean(),
-                Tables\Columns\IconColumn::make('is_free')
-                    ->boolean(),
+
+                ToggleColumn::make('is_active')
+                    ->label('Status'),
+                ToggleColumn::make('is_free')
+                    ->label('Bénévolement'),
+
                 Tables\Columns\TextColumn::make('Number_of_place')
                     ->numeric()
                     ->sortable(),

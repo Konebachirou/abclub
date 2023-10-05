@@ -6,6 +6,7 @@ namespace App\Models;
 use Filament\Panel;
 use Laravel\Sanctum\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Notifications\Notifiable;
 use Filament\Models\Contracts\FilamentUser;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -26,6 +27,9 @@ class User extends Authenticatable implements FilamentUser
         'name',
         'email',
         'password',
+        'image',
+        'status',
+        'is_member',
     ];
 
     /**
@@ -51,5 +55,10 @@ class User extends Authenticatable implements FilamentUser
     public function canAccessPanel(Panel $panel): bool
     {
         return true;
+    }
+
+    public function imageUrl(): string
+    {
+        return Storage::url($this->image);
     }
 }

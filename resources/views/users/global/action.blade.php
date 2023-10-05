@@ -23,15 +23,15 @@
     <!-- End Breadcrumb Area -->
 
     @foreach ($actions as $action)
-        @if($loop->index  % 2 === 0)
+        @if ($loop->index % 2 === 0)
             <!-- Start Button Area  -->
             <div class="rbt-video-area bg-color-white" style="margin-bottom: 7%;">
                 <div class="container">
                     <div class="row g-5 align-items-center">
                         <div class="col-lg-6 order-2 order-lg-1">
                             <div class="video-popup-wrapper">
-                                <a  href="{{ route('news_details_link', $action->title) }}">
-                                    <img class="w-100 rbt-radius" src="assets/images/others/video-01.jpg" alt="Video Images">
+                                <a href="{{ route('news_details_link', $action->title) }}">
+                                    <img class="w-100 rbt-radius" src="{{ $action->illustrationUrl() }}" alt="Video Images">
                                 </a>
                             </div>
                         </div>
@@ -39,10 +39,10 @@
                             <div class="inner pr--50 pr_md--0 pr_sm--0">
                                 <div class="section-title text-start">
                                     <!-- <span class="subtitle bg-primary-opacity">How We Work</span> -->
-                                    <a  href="{{ route('news_details_link', $action->title) }}">
-                                        <h3 class="title elipses2" >{{$action->title}}</h3>
+                                    <a href="{{ route('news_details_link', $action->title) }}">
+                                        <h3 class="title elipses2">{{ $action->title }}</h3>
                                     </a>
-                                    <p class="description elipses2 mt--30">{{$action->description}}</p>
+                                    <p class="description elipses2 mt--30">{{ $action->description }}</p>
                                     <div class="read-more-btn">
                                         <a class="rbt-moderbt-btn" href="{{ route('news_details_link', $action->title) }}">
                                             <span class="moderbt-btn-text">Lire Plus</span>
@@ -58,18 +58,18 @@
             </div>
             <!-- End Button Area  -->
         @else
-             <!-- Start Button Area  -->
-             <div class="rbt-video-area bg-color-white" style="margin-bottom: 7%;">
+            <!-- Start Button Area  -->
+            <div class="rbt-video-area bg-color-white" style="margin-bottom: 7%;">
                 <div class="container">
                     <div class="row g-5 align-items-center">
                         <div class="col-lg-6 order-2 order-lg-1">
                             <div class="inner pr--50 pr_md--0 pr_sm--0">
                                 <div class="section-title text-start">
                                     <!-- <span class="subtitle bg-primary-opacity">How We Work</span> -->
-                                    <a  href="{{ route('news_details_link', $action->title) }}">
-                                        <h2 class="title elipses2">{{$action->title}}</h2>
+                                    <a href="{{ route('news_details_link', $action->title) }}">
+                                        <h2 class="title elipses2">{{ $action->title }}</h2>
                                     </a>
-                                    <p class="description elipses4 mt--30">{{$action->description}}</p>
+                                    <p class="description elipses4 mt--30">{{ $action->description }}</p>
                                     <div class="read-more-btn">
                                         <a class="rbt-moderbt-btn" href="{{ route('news_details_link', $action->title) }}">
                                             <span class="moderbt-btn-text">Lire Plus</span>
@@ -81,8 +81,9 @@
                         </div>
                         <div class="col-lg-6 order-1 order-lg-2">
                             <div class="video-popup-wrapper">
-                                <a  href="{{ route('news_details_link', $action->title) }}">
-                                    <img class="w-100 rbt-radius" src="assets/images/others/video-01.jpg" alt="Video Images">
+                                <a href="{{ route('news_details_link', $action->title) }}">
+                                    <img class="w-100 rbt-radius" src="assets/images/others/video-01.jpg"
+                                        alt="Video Images">
                                 </a>
                             </div>
                         </div>

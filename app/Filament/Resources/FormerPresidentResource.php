@@ -34,7 +34,8 @@ class FormerPresidentResource extends Resource
                     ->required()
                     ->maxLength(255),
                 FileUpload::make('image')
-                    ->required(),
+                    ->required()
+                    ->image()->directory('president')->label('Image du president'),
                 Forms\Components\DatePicker::make('start_date')
                     ->required(),
                 Forms\Components\DatePicker::make('end_date')

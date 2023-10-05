@@ -16,7 +16,7 @@ class HomeController extends Controller
         $poles = Pole::orderby('id', 'desc')->get();
         $slides = Slide::orderby('id', 'desc')->get();
         $events = Event::orderby('id', 'desc')->take(4)->get();
-        $news = Report::orderby('id', 'desc')->where('is_report', true)->where('is_action', false)->take(3)->get(); 
+        $news = Report::orderby('id', 'desc')->take(3)->get();
         return view('users.global.home', ['poles' => $poles, 'slides' => $slides, 'events' => $events, 'news' => $news]);
     }
 }

@@ -126,8 +126,7 @@
 
                             <li class="nav-item" role="presentation">
                                 <a href="#" class="nav-link tab-button" id="contact-tab" data-bs-toggle="tab"
-                                    data-bs-target="#contact" role="tab" aria-controls="contact"
-                                    aria-selected="false">
+                                    data-bs-target="#contact" role="tab" aria-controls="contact" aria-selected="false">
                                     <div class="tab">
                                         <h4 class="title">Nos valeurs.</h4>
                                         <p class="description">Nous avons pour Valeur:</p>
@@ -170,7 +169,7 @@
 
     @include('users.global.partners')
 
-    <div class="rbt-team-area bg-color-white "style="padding-top: 8%;" id="last">
+    <div class="rbt-team-area bg-color-white "style="padding-top: 8%;">
         <div class="container">
             <div class="row mb--60">
                 <div class="col-lg-12">
@@ -190,8 +189,7 @@
                     <div class="col-lg-3 col-md-6 col-sm-6 col-12 mt--30">
                         <div class="team">
                             @if ($item->image !== '')
-                                <div class="thumbnail"><img src="{{ asset('assets/images/team/' . $item->image) }}"
-                                        alt="Blog Images">
+                                <div class="thumbnail"><img src="{{ $item->imageUrl() }}" alt="Blog Images">
                                 @else
                                     <div class="thumbnail"><img src="{{ asset('assets/images/team/team-01.jpg') }}"
                                             alt="Blog Images">
@@ -202,17 +200,18 @@
                             <p class="designation">{{ $item->period }}</p>
                         </div>
                         <ul class="social-icon">
-                            @if( $item->facebook != '' )
-                            <li><a href="{{ $item->facebook ? $item->facebook : '#' }}"><i
-                                class="fab fa-facebook-f"></i></a></li>
-                             @endif
-                            @if($item->linkedin != '')
-                            <li><a href="{{ $item->linkedin ? $item->linkedin : '#' }}"><i
-                                class="fab fa-linkedin-in"></i></a></li>
+                            @if ($item->facebook != '')
+                                <li><a href="{{ $item->facebook ? $item->facebook : '#' }}"><i
+                                            class="fab fa-facebook-f"></i></a></li>
                             @endif
-                            @if($item->twitter != '')
-                            <li><a href="{{ $item->twitter ? $item->twitter : '#' }}"><i class="fab fa-twitter"></i></a>
-                            </li>
+                            @if ($item->linkedin != '')
+                                <li><a href="{{ $item->linkedin ? $item->linkedin : '#' }}"><i
+                                            class="fab fa-linkedin-in"></i></a></li>
+                            @endif
+                            @if ($item->twitter != '')
+                                <li><a href="{{ $item->twitter ? $item->twitter : '#' }}"><i
+                                            class="fab fa-twitter"></i></a>
+                                </li>
                             @endif
                             @if ($item->first_name === 'MAGASSA')
                                 <li><span class="rbt-badge-6 ">Fondateur</span></li>

@@ -6,20 +6,22 @@
                 <!-- Start Single Banner  -->
                 <div class="swiper-slide">
                     <div class="rbt-banner-area rbt-banner-6 variation-03 bg_image "
-                        style="background-image: url('{{ asset('assets/' . $slide->image) }}')" data-gradient-overlay="5">
+                        style="background-image: url({{ $slide->imageUrl() }})" data-gradient-overlay="5">
                         <div class="wrapper w-100">
                             <div class="container">
                                 <div class="row align-items-center">
                                     <div class="col-lg-12">
                                         <div class="inner text-center">
                                             <div class="section-title">
-                                                <span class="subtitle bg-white-opacity d-inline-block">Bienvenue Sur le site de 
+                                                <span class="subtitle bg-white-opacity d-inline-block">Bienvenue Sur le
+                                                    site de
                                                     L'African Business Club</span>
                                             </div>
                                             <h1 class="title w-300">{!! $slide->description !!}</h1>
                                             <div class="social-share-wrapper mt--70">
                                                 <ul class="social-icon social-default transparent-with-border">
-                                                    <li><a href="https://www.facebook.com/Africanbusinessclub" target="_blank">
+                                                    <li><a href="https://www.facebook.com/Africanbusinessclub"
+                                                            target="_blank">
                                                             <i class="feather-facebook"></i>
                                                         </a>
                                                     </li>
@@ -27,11 +29,13 @@
                                                             <i class="feather-twitter"></i>
                                                         </a>
                                                     </li>
-                                                    <li><a href="https://instagram.com/africanbusinessclub_?igshid=MzRlODBiNWFlZA==" target="_blank">
+                                                    <li><a href="https://instagram.com/africanbusinessclub_?igshid=MzRlODBiNWFlZA=="
+                                                            target="_blank">
                                                             <i class="feather-instagram"></i>
                                                         </a>
                                                     </li>
-                                                    <li><a href="https://www.linkedin.com/company/african-business-club/" target="_blank">
+                                                    <li><a href="https://www.linkedin.com/company/african-business-club/"
+                                                            target="_blank">
                                                             <i class="feather-linkedin"></i>
                                                         </a>
                                                     </li>
@@ -70,7 +74,7 @@
         <div class="swiper-wrapper">
             @foreach ($slides as $slide)
                 <div class="swiper-slide">
-                    <img src="{{ asset('assets/' . $slide->image) }}" alt="Banner Images" />
+                    <img src="{{ $slide->imageUrl() }}" alt="Banner Images" />
                 </div>
             @endforeach
             <!-- <div class="swiper-slide">

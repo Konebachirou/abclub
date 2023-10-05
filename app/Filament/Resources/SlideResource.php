@@ -28,7 +28,7 @@ class SlideResource extends Resource
             ->schema([
                 FileUpload::make('image')
                     ->required()
-                    ->label('Veuillez entrer votre image'),
+                    ->image()->directory('slide')->label('Image du slide'),
                 Forms\Components\Textarea::make('description')
                     ->required()
                     ->maxLength(65535)
@@ -40,8 +40,6 @@ class SlideResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('description')
-                    ->searchable(),
                 ImageColumn::make('image'),
             ])
             ->filters([
