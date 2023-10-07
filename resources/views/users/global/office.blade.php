@@ -17,7 +17,7 @@
                         <div class="inner">
                             <div class="rbt-team-thumbnail">
                                 <div class="thumb">
-                                    <img src="{{asset('assets/images/team/team3.png')}}" alt="Testimonial Images">
+                                    <img src="{{asset('assets/images/team/team3.png')}}" alt="Juvenal ABOUA">
                                 </div>
                             </div>
                             <div class="rbt-team-details">
@@ -97,7 +97,7 @@
                         <div class="inner">
                             <div class="rbt-team-thumbnail">
                                 <div class="thumb">
-                                    <img src="{{asset('assets/images/team/team4.png')}}" alt="Testimonial Images">
+                                    <img src="{{asset('assets/images/team/team4.png')}}" alt="Yannick Mekwegne">
                                 </div>
                             </div>
                             <div class="rbt-team-details">
@@ -137,7 +137,7 @@
                         <div class="inner">
                             <div class="rbt-team-thumbnail">
                                 <div class="thumb">
-                                    <img src="{{asset('assets/images/team/team1.png')}}" alt="Testimonial Images">
+                                    <img src="{{asset('assets/images/team/team1.png')}}" alt="Bertille houadjeto-koffi">
                                 </div>
                             </div>
                             <div class="rbt-team-details">
@@ -177,7 +177,7 @@
                         <div class="inner">
                             <div class="rbt-team-thumbnail">
                                 <div class="thumb">
-                                    <img src="{{asset('assets/images/team/team6.png')}}" alt="Testimonial Images">
+                                    <img src="{{asset('assets/images/team/team6.png')}}" alt="Grace ADOUGBA">
                                 </div>
                             </div>
                             <div class="rbt-team-details">
@@ -217,7 +217,7 @@
                         <div class="inner">
                             <div class="rbt-team-thumbnail">
                                 <div class="thumb">
-                                    <img src="{{asset('assets/images/team/team-01.jpg')}}" alt="Testimonial Images">
+                                    <img src="{{asset('assets/images/team/team9.png')}}" alt="Bachirou KONE">
                                 </div>
                             </div>
                             <div class="rbt-team-details">
@@ -257,7 +257,7 @@
                         <div class="inner">
                             <div class="rbt-team-thumbnail">
                                 <div class="thumb">
-                                    <img src="{{asset('assets/images/team/team8.png')}}" alt="Testimonial Images">
+                                    <img src="{{asset('assets/images/team/team8.png')}}" alt="Arnaud Lonzo">
                                 </div>
                             </div>
                             <div class="rbt-team-details">
@@ -434,7 +434,7 @@
                         <a id="team-tab6-tab" data-bs-toggle="tab" data-bs-target="#team-tab6" role="tab" aria-controls="team-tab6" aria-selected="false">
                             <div class="testimonial-thumbnai">
                                 <div class="thumb">
-                                    <img src="{{asset('assets/images/team/team-01.jpg')}}" alt="Testimonial Images">
+                                    <img src="{{asset('assets/images/team/team9.png')}}" alt="Testimonial Images">
                                 </div>
                             </div>
                         </a>

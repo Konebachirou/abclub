@@ -54,7 +54,7 @@
                         </div>
                     </div>
                     <!-- Social Share Block  -->
-                    <div class="social-share-block">
+                    <!-- <div class="social-share-block">
                         <div class="post-like">
                             <a href="#"><i class="feather feather-thumbs-up"></i><span>2.2k Like</span></a>
                         </div>
@@ -76,7 +76,7 @@
                                 </a>
                             </li>
                         </ul>
-                    </div>
+                    </div> -->
 
                 </div>
                 <div class="rbt-comment-area">
@@ -88,7 +88,7 @@
                                 <div class="comment-body">
                                     <div class="single-comment">
                                         <div class="comment-img">
-                                            <img src="{{ asset('assets/images/testimonial/testimonial-1.jpg') }}"
+                                            <img src="{{ asset('assets/images/testimonial/avatar.png') }}"
                                                 alt="Author Images">
                                         </div>
                                         <div class="comment-inner">
@@ -119,7 +119,7 @@
                                             <div class="comment-body">
                                                 <div class="single-comment">
                                                     <div class="comment-img">
-                                                        <img src="{{ asset('assets/images/testimonial/testimonial-2.jpg') }}"
+                                                        <img src="{{ asset('assets/images/testimonial/avatar.png') }}"
                                                             alt="Author Images">
                                                     </div>
                                                     <div class="comment-inner">
