@@ -2,9 +2,9 @@
 @section('content')
     <div class="rbt-overlay-page-wrapper">
         <div class="breadcrumb-image-container breadcrumb-style-max-width">
-            <div class="breadcrumb-image-wrapper">
-                <img src="{{ $new->illustrationUrl() }}" alt="Education Images">
-            </div>
+            <!-- <div class="breadcrumb-image-wrapper">
+                 <img src="{{ $new->illustrationUrl() }}" alt="Education Images"> 
+            </div> -->
             <div class="breadcrumb-content-top text-center">
                 <ul class="meta-list justify-content-center mb--10">
                     <li class="list-item">
@@ -30,23 +30,27 @@
                 <div class="content">
                     <div class="post-thumbnail mb--30 position-relative wp-block-image alignwide">
                         <figure>
-                            <img src="{{ asset('assets/images/blog/blog-single-03.png') }}" alt="Blog Images">
+                            @if($new->illustration != "")
+                                <img  src="{{Storage::url($new->illustration)}}" alt="{{$new->title}}">
+                            @else
+                                <img src="{{ asset('assets/images/blog/blog-single-03.png') }}" alt="{{$new->title}}">
+                            @endif
                             <figcaption class="w-500">{{ $new->caption }}</figcaption>
                         </figure>
                     </div>
-                    <p>{{ $new->description }}</p>
+                    <p>{!! $new->description !!}</p>
                     <div class="rbt-gallery-area" style="margin-top: 5%; margin-bottom: 3%;">
                         <div class="row g-0 parent-gallery-container"
                             style="display: flex; justify-content: center; align-items: center;">
-                            @for ($i = 0; $i < 4; $i++)
-                                <a href="{{ asset('assets/images/gallery/gallery-thumb-01.jpg') }}"
-                                    class="child-gallery-single col-lg-3 col-md-4 col-sm-6 col-6 ">
+                            @if($album != null)
+                            @for($i = 0; $i < count($album) ; $i++ ) 
+                                <a href="{{Storage::url($album[$i])}}" class="child-gallery-single col-lg-3 col-md-4 col-sm-6 col-6 ">
                                     <div class="rbt-gallery">
-                                        <img class="w-100" src="{{ asset('assets/images/gallery/gallery-thumb-01.jpg') }}"
-                                            alt="Gallery Images">
+                                        <img class="w-100" src="{{Storage::url($album[$i])}}" alt="Gallery Images">
                                     </div>
                                 </a>
-                            @endfor
+                                @endfor
+                            @endif
                         </div>
                     </div>
                     <!-- Social Share Block  -->

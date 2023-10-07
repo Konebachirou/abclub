@@ -42,7 +42,7 @@
                                     <a href="{{ route('news_details_link', $action->title) }}">
                                         <h3 class="title elipses2">{{ $action->title }}</h3>
                                     </a>
-                                    <p class="description elipses2 mt--30">{{ $action->description }}</p>
+                                    <p class="description elipses2 mt--30">{!! $action->description !!}</p>
                                     <div class="read-more-btn">
                                         <a class="rbt-moderbt-btn" href="{{ route('news_details_link', $action->title) }}">
                                             <span class="moderbt-btn-text">Lire Plus</span>
@@ -69,7 +69,7 @@
                                     <a href="{{ route('news_details_link', $action->title) }}">
                                         <h2 class="title elipses2">{{ $action->title }}</h2>
                                     </a>
-                                    <p class="description elipses4 mt--30">{{ $action->description }}</p>
+                                    <p class="description elipses4 mt--30">{!! $action->description !!}</p>
                                     <div class="read-more-btn">
                                         <a class="rbt-moderbt-btn" href="{{ route('news_details_link', $action->title) }}">
                                             <span class="moderbt-btn-text">Lire Plus</span>
@@ -82,7 +82,7 @@
                         <div class="col-lg-6 order-1 order-lg-2">
                             <div class="video-popup-wrapper">
                                 <a href="{{ route('news_details_link', $action->title) }}">
-                                    <img class="w-100 rbt-radius" src="assets/images/others/video-01.jpg"
+                                    <img class="w-100 rbt-radius" src="{{ $action->illustrationUrl() }}"
                                         alt="Video Images">
                                 </a>
                             </div>

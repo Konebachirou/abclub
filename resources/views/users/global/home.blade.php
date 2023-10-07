@@ -356,7 +356,7 @@
                                     <h5 class="rbt-card-title elipses2"><a
                                             href="{{ route('news_details_link', $new->title) }}">{!! $new->title !!}</a>
                                     </h5>
-                                    <p class="rbt-card-text elipses3">{!! $new->description !!}</p>
+                                    <p class="rbt-card-text elipses3">{!! Str::limit($new->description, 120) !!}</p>
                                     <div class="rbt-card-bottom">
                                         <a class="transparent-button"
                                             href="{{ route('news_details_link', $new->title) }}">Lire Plus<i><svg

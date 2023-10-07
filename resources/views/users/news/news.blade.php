@@ -105,7 +105,7 @@
                                                     <li><i class="feather-clock"></i>
                                                         {{ date('d M \, Y', strtotime($report->created_at)) }}</li>
                                                 </ul>
-                                                <p class="rbt-card-text elipses4">{{ $report->description }}</p>
+                                                <p class="rbt-card-text elipses4">{!! Str::limit($report->description, 120) !!}</p>
                                                 <div class="rbt-card-bottom">
                                                     <a class="transparent-button"
                                                         href="{{ route('news_details_link', $report->title) }}">Lire
@@ -145,7 +145,7 @@
                                                     <li><i class="feather-user"></i> admin</li>
                                                     <li><i class="feather-clock"></i> August 3, 2023</li>
                                                 </ul>
-                                                <p class="rbt-card-text elipses4">{{ $reseau->description }}</p>
+                                                <p class="rbt-card-text elipses4">{!! $reseau->description !!}</p>
                                                 <div class="rbt-card-bottom">
                                                     <a class="transparent-button"
                                                         href="{{ route('news_details_link', $reseau->title) }}">Lire
@@ -183,7 +183,7 @@
                                                     <li><i class="feather-user"></i> admin</li>
                                                     <li><i class="feather-clock"></i> August 3, 2023</li>
                                                 </ul>
-                                                <p class="rbt-card-text elipses4">{{ $amid->description }}</p>
+                                                <p class="rbt-card-text elipses4">{!! $amid->description !!}</p>
                                                 <div class="rbt-card-bottom">
                                                     <a class="transparent-button"
                                                         href="{{ route('news_details_link', $amid->title) }}">Learn
@@ -223,7 +223,7 @@
                                                     <li><i class="feather-clock"></i> August 3, 2023</li>
                                                     <!-- <li><i class="feather-watch"></i> 1 min read</li> -->
                                                 </ul>
-                                                <p class="rbt-card-text elipses4">{{ $nms->description }}</p>
+                                                <p class="rbt-card-text elipses4">{!! $nms->description !!}</p>
                                                 <div class="rbt-card-bottom">
                                                     <a class="transparent-button"
                                                         href="{{ route('news_details_link', $nms->title) }}">Learn

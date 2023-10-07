@@ -42,7 +42,9 @@ class FormerPresident extends Model
     {
         return Attribute::make(
             get: function () {
-                return "{$this->start_date} - {$this->end_date}";
+                $start = date('Y', strtotime($this->start_date));
+                $end = date('Y', strtotime($this->end_date));
+                return "{$start} - {$end}";
             }
         );
     }

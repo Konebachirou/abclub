@@ -29,8 +29,8 @@
                                         <span class="location">Paris, France</span>
                                     </span>
                                 </div>
-                                <p>Consultant in Strategy & Transformation | Intelligent and Sustainable Operations at Cap Gemini Invent, Master in Management EDHEC.</p>
-                                <ul class="social-icon social-default mt--20 justify-content-start">
+                                <p>Consultant en Stratégie & Transformation | Opérations intelligentes et durables à Cap Gemini Invent, Master en Management à EDHEC.</p>
+                                <!-- <ul class="social-icon social-default mt--20 justify-content-start">
                                     <li><a href="https://www.linkedin.com/">
                                             <i class="feather-linkedin"></i>
                                         </a>
@@ -43,7 +43,7 @@
                                             <i class="feather-instagram"></i>
                                         </a>
                                     </li>
-                                </ul>
+                                </ul> -->
                                 <ul class="rbt-information-list mt--25">
                                     <li>
                                         <a href="mailto:juvenal@abclub-paris.com"><i class="feather-mail"></i>juvenal@abclub-paris.com</a>
@@ -109,8 +109,8 @@
                                         <span class="location">Paris, France</span>
                                     </span>
                                 </div>
-                                <p>Energy Professional I Operations & Project Management </p>
-                                <ul class="social-icon social-default mt--20 justify-content-start">
+                                <p>Professionnel de l'énergie I Opérations et gestion de projets </p>
+                                <!-- <ul class="social-icon social-default mt--20 justify-content-start">
                                     <li><a href="https://www.linkedin.com/">
                                             <i class="feather-linkedin"></i>
                                         </a>
@@ -123,7 +123,7 @@
                                             <i class="feather-instagram"></i>
                                         </a>
                                     </li>
-                                </ul>
+                                </ul> -->
                                 <ul class="rbt-information-list mt--25">
                                     <li>
                                         <a href="mailto:yannick.mekwegne@abclub-paris.com"><i class="feather-mail"></i>yannick.mekwegne@abclub-paris.com</a>
@@ -150,7 +150,7 @@
                                     </span>
                                 </div>
                                 <p>Étudiante en M2, Programme Grande Ecole à Montpellier Business School</p>
-                                <ul class="social-icon social-default mt--20 justify-content-start">
+                                <!-- <ul class="social-icon social-default mt--20 justify-content-start">
                                     <li><a href="https://www.linkedin.com/">
                                             <i class="feather-linkedin"></i>
                                         </a>
@@ -163,7 +163,7 @@
                                             <i class="feather-instagram"></i>
                                         </a>
                                     </li>
-                                </ul>
+                                </ul> -->
                                 <ul class="rbt-information-list mt--25">
                                     <li>
                                         <a href="mailto:hkbertille@abclub-paris.com"><i class="feather-mail"></i>hkbertille@abclub-paris.com</a>
@@ -229,8 +229,8 @@
                                         <span class="location">Paris, France</span>
                                     </span>
                                 </div>
-                                <p>Alternant MIAGE & Développeur Web à la Cnam (Caisse nationale de l’Assurance Maladie)</p>
-                                <ul class="social-icon social-default mt--20 justify-content-start">
+                                <p>Développeur Web à la Cnam (Caisse nationale de l’Assurance Maladie)</p>
+                                <!-- <ul class="social-icon social-default mt--20 justify-content-start">
                                     <li><a href="https://www.linkedin.com/">
                                             <i class="feather-linkedin"></i>
                                         </a>
@@ -243,7 +243,7 @@
                                             <i class="feather-instagram"></i>
                                         </a>
                                     </li>
-                                </ul>
+                                </ul> -->
                                 <ul class="rbt-information-list mt--25">
                                     <li>
                                         <a href="mailto:bachirou.kone@abclub-paris.com"><i class="feather-mail"></i>bachirou.kone@abclub-paris.com</a>
@@ -269,8 +269,8 @@
                                         <span class="location">Paris, France</span>
                                     </span>
                                 </div>
-                                <p>Experienced senior consultant Financial services Bank</p>
-                                <ul class="social-icon social-default mt--20 justify-content-start">
+                                <p>Consultant senior expérimenté Services financiers Banque</p>
+                                <!-- <ul class="social-icon social-default mt--20 justify-content-start">
                                     <li><a href="https://www.linkedin.com/">
                                             <i class="feather-linkedin"></i>
                                         </a>
@@ -283,7 +283,7 @@
                                             <i class="feather-instagram"></i>
                                         </a>
                                     </li>
-                                </ul>
+                                </ul> -->
                                 <ul class="rbt-information-list mt--25">
                                     <li>
                                         <a href="mailto:arnaud.lonzo@abclub-paris.com"><i class="feather-mail"></i>arnaud.lonzo@abclub-paris.com</a>

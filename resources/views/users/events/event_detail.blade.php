@@ -2,22 +2,22 @@
 @section('content')
     <!-- Start breadcrumb Area -->
     <div class="rbt-breadcrumb-default rbt-breadcrumb-style-3">
-        <div class="breadcrumb-inner">
+        <!-- <div class="breadcrumb-inner">
             <img src="{{ asset('assets/images/bg/bg-image-10.jpg') }}" alt="Education Images">
-        </div>
+        </div> -->
         <div class="container">
             <div class="row">
                 <div class="col-lg-9">
                     <div class="content">
                         <div class="content text-start">
-                            <ul class="page-list">
+                            <!-- <ul class="page-list">
                                 <li class="rbt-breadcrumb-item"><a href="{{ route('home_link') }}">Home</a></li>
                                 <li>
                                     <div class="icon-right"><i class="feather-chevron-right">{{ $event->title }}</i></div>
                                 </li>
                                 <li class="rbt-breadcrumb-item active"></li>
-                            </ul>
-                            <h2 class="title mb--2">{{ $event->title }}</h2>
+                            </ul> -->
+                            <h2 class="title mb--2">{!! $event->title !!}</h2>
                         </div>
                     </div>
                 </div>
@@ -50,7 +50,7 @@
                                 </div>
                                 <!-- Start Feture Box  -->
                                 <div>
-                                    <p>{{ $event->description }}</p>
+                                    <p>{!! $event->description !!}</p>
                                 </div>
                                 <!-- End Feture Box  -->
                             </div>
@@ -99,7 +99,7 @@
 
                 </div>
 
-                <div class="col-lg-4 mt_md--60 mt_sm--60" style="margin-top: 15%;">
+                <div class="col-lg-4 mt_md--60 mt_sm--60" style="margin-top: 28%;">
                     <div class="course-sidebar rbt-gradient-border sticky-top rbt-shadow-box course-sidebar-top">
                         <div class="inner">
 
@@ -139,14 +139,15 @@
                                                 {{ date('d M \, Y', strtotime($event->start_date)) }}</span>
                                         </li>
                                         <li><span>Heure</span><span
-                                                class="rbt-feature-value rbt-badge-5">{{ date('h:m ', strtotime($event->start_times)) }}
+                                                class="rbt-feature-value rbt-badge-5">{{date("H:i ", strtotime($event->start_times))}}
+                                                            - {{date("H:i ", strtotime($event->end_times))}}
                                             </span></li>
                                         <!-- <li><span>End Date</span><span class="rbt-feature-value rbt-badge-5">{{ $event->description }}25 Jan, 2024</span></li> -->
                                         <li><span>Nombre de Place</span><span
                                                 class="rbt-feature-value rbt-badge-5">{{ $event->Number_of_place }}</span>
                                         </li>
                                         <li><span>Adresse</span><span
-                                                class="rbt-feature-value rbt-badge-5">{{ $event->lieu }}</span></li>
+                                                class="rbt-feature-value rbt-badge-5">{!! $event->lieu !!}</span></li>
                                         <!-- <li><span>Certificate</span><span class="rbt-feature-value rbt-badge-5">Yes</span></li> -->
                                     </ul>
                                 </div>
