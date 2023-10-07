@@ -27,10 +27,10 @@
 
                             <div class="row mb--30">
                                 <div class="col-lg-6">
-                                    <div class="rbt-checkbox">
+                                    <!-- <div class="rbt-checkbox">
                                         <input type="checkbox" id="rememberme" name="rememberme">
                                         <label for="rememberme">Resté connecter</label>
-                                    </div>
+                                    </div> -->
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="rbt-lost-password text-end">
@@ -50,8 +50,6 @@
                                 </button>
                             </div>
                         </form>
-                        <p class="mt-5">Je n'ai pas de Compte, Je<a href="#"> crée mon
-                                compte</a></p>
                     </div>
                 </div>
             </div>
