@@ -1,4 +1,5 @@
 @extends('users.layouts.app')
+@section('titre', "A propos - African Business Club")
 @section('content')
     <!-- Start Banner Area -->
     <div class="rbt-banner-area rbt-banner-1">

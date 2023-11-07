@@ -7,9 +7,7 @@
     Message:<br>
     {{ $contact->message }}
 
-    <x-mail::button :url="$url" color="success">
-        Button Text
-    </x-mail::button>
+    
 
     Cordialement,<br>
     {{ config('app.name') }}

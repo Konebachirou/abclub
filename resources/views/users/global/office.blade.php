@@ -189,7 +189,7 @@
                                         <span class="location">Paris, France</span>
                                     </span>
                                 </div>
-                                <p>Histudy The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested.</p>
+                                <p>Jeune experte en marketing agroalimentaire.</p>
                                 <!-- <ul class="social-icon social-default mt--20 justify-content-start">
                                     <li><a href="https://www.linkedin.com/">
                                             <i class="feather-linkedin"></i>

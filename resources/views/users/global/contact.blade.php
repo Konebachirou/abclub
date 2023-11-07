@@ -1,4 +1,6 @@
 @extends('users.layouts.app')
+@section('titre', "contacts - African Business Club")
+
 @section('content')
 
     <div class="rbt-conatct-area bg-gradient-11 rbt-section-gap">

@@ -123,7 +123,7 @@
     </div>
 
 
-    <div class="rbt-countdown-area bg_image bg_image--6 bg_image_fixed " style="padding-bottom:3% ; padding-top: 3%;"
+    <!-- div class="rbt-countdown-area bg_image bg_image--6 bg_image_fixed " style="padding-bottom:3% ; padding-top: 3%;"
         data-black-overlay="6">
         <div class="container">
             <div class="row  align-items-center">
@@ -131,7 +131,7 @@
                     <div class="inner">
                         <div class="section-title text-center">
                             <h3 class="title color-white">Dîner Gala d'Anniversaire des 20 ans de African Business Club</h3>
-                            <!-- <span class="subtitle bg-white-opacity">Why Choose Us</span> -->
+                            
                             <p class="description has-medium-font-size mt--20 mb--0 color-white ">Venez célébrer avec nous
                                 les 20 ans de l'African Business Club</p>
                             <p class="description has-medium-font-size mt--20 mb--0 color-white ">Heure et lieu <br>27
@@ -174,13 +174,13 @@
                             <span class="btn-icon"><i class="feather-arrow-right"></i></span>
                         </a>
                     </div>
-                    <!-- </div> -->
+                    
                 </div>
 
             </div>
         </div>
     </div>
-    </div>
+    </div-->
 
     <div class="rbt-pricing-area bg-color-white" style="margin-top: 5%;">
         <div class="container">

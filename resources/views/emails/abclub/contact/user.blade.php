@@ -8,9 +8,7 @@
     de vous repondre.<br>
     Nous vous prions d’agréer, Mr/Mme {{ $contact->full_name }} nos salutations les meilleures.<br>
 
-    <x-mail::button :url="$url" color="success">
-        Cliquez-ici
-    </x-mail::button>
+   
 
     Cordialement,<br>
     {{ config('app.name') }}

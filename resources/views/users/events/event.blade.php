@@ -1,4 +1,6 @@
 @extends('users.layouts.app')
+@section('titre', 'Events - African Business Club')
+
 @section('content')
     <div class="rbt-page-banner-wrapper">
         <!-- Start Banner BG Image  -->

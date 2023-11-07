@@ -23,7 +23,7 @@ class ContactController extends Controller
     {
         $contact = Contact::create($request->validated());
         Mail::to($request->email)->send(new ContactNotification($contact));
-        //Mail::to('admin_email')->send(new AdminContactNotification($contact));
+        Mail::to('contact.site@abclub-paris.com')->send(new AdminContactNotification($contact));
         return redirect()->back()->with('success', 'Votre message a bien été envoyé');
     }
 
