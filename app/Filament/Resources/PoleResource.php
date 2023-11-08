@@ -14,6 +14,7 @@ use Illuminate\Database\Eloquent\Builder;
 use App\Filament\Resources\PoleResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use App\Filament\Resources\PoleResource\RelationManagers;
+use Filament\Forms\Components\RichEditor;
 
 class PoleResource extends Resource
 {
@@ -33,7 +34,7 @@ class PoleResource extends Resource
                 Forms\Components\TextInput::make('name')
                     ->required()
                     ->maxLength(255),
-                Forms\Components\Textarea::make('description')
+                RichEditor::make('description')
                     ->required()
                     ->maxLength(65535)
                     ->columnSpanFull(),

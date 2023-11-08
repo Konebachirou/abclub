@@ -16,6 +16,7 @@ use Illuminate\Database\Eloquent\Builder;
 use App\Filament\Resources\ReportResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use App\Filament\Resources\ReportResource\RelationManagers;
+use Filament\Forms\Components\RichEditor;
 
 class ReportResource extends Resource
 {
@@ -36,12 +37,12 @@ class ReportResource extends Resource
                     ->options(\App\Models\Pole::pluck('name', 'id')),
                 Forms\Components\TextInput::make('title')
                     ->required(),
-                Forms\Components\Textarea::make('description')
+                RichEditor::make('description')
                     ->required(),
                 FileUpload::make('illustration')
                     ->required()
                     ->image()->directory('report')->label("Image de la new ou de l'action"),
-                Forms\Components\TextInput::make('caption'),
+                RichEditor::make('caption'),
                 FileUpload::make('album')
                     ->multiple()
                     ->directory('album')->label("Album"),

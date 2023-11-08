@@ -8,8 +8,10 @@ use Filament\Forms\Form;
 use App\Models\OfficeTeam;
 use Filament\Tables\Table;
 use Filament\Resources\Resource;
+use Filament\Tables\Actions\ActionGroup;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\RichEditor;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use App\Filament\Resources\OfficeTeamResource\Pages;
@@ -48,10 +50,9 @@ class OfficeTeamResource extends Resource
                 Forms\Components\TextInput::make('email')
                     ->required()
                     ->maxLength(255),
-                Forms\Components\Textarea::make('description')
-                    ->required()
-                    ->maxLength(65535)
-                    ->columnSpanFull(),
+
+                RichEditor::make('description')
+                    ->required(),
                 Forms\Components\TextInput::make('facebook')
                     ->maxLength(255),
                 Forms\Components\TextInput::make('linkedin')
@@ -68,9 +69,7 @@ class OfficeTeamResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('first_name')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('last_name')
+                Tables\Columns\TextColumn::make('fullName')
                     ->searchable(),
                 ImageColumn::make('image'),
                 Tables\Columns\TextColumn::make('office.name')->label('Office')
@@ -79,8 +78,6 @@ class OfficeTeamResource extends Resource
                     ->searchable(),
                 Tables\Columns\TextColumn::make('email')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('country')
-                    ->searchable(),
                 Tables\Columns\TextColumn::make('city')
                     ->searchable(),
             ])
@@ -88,8 +85,10 @@ class OfficeTeamResource extends Resource
                 //
             ])
             ->actions([
-                Tables\Actions\EditAction::make(),
-                Tables\Actions\DeleteAction::make(),
+                ActionGroup::make([
+                    Tables\Actions\EditAction::make(),
+                    Tables\Actions\DeleteAction::make(),
+                ])
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([

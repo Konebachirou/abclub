@@ -17,6 +17,7 @@ use Illuminate\Database\Eloquent\Builder;
 use App\Filament\Resources\EventResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use App\Filament\Resources\EventResource\RelationManagers;
+use Filament\Forms\Components\RichEditor;
 
 class EventResource extends Resource
 {
@@ -41,7 +42,7 @@ class EventResource extends Resource
                 FileUpload::make('illustration')
                     ->required()
                     ->image()->directory('event')->label("Image de l'evenement"),
-                Forms\Components\Textarea::make('description')
+                RichEditor::make('description')
                     ->required()
                     ->maxLength(65535)
                     ->columnSpanFull(),
