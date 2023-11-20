@@ -45,6 +45,11 @@ Route::controller(EventController::class)->group(function () {
 
 Route::post('/comments/store', [CommentController::class, 'store'])->name('comments-store');
 Route::get('/l\'association', [AboutController::class, 'about'])->name('about_link');
+Route::get('/amid/ane', [HomeController::class, 'ane'])->name('ane_link');
+Route::get('/amid/anp', [HomeController::class, 'anp'])->name('anp_link');
+Route::get('/postuler', [HomeController::class, 'postuler'])->name('postuler_link');
+Route::get('/jobs', [HomeController::class, 'jobs'])->name('jobs_link');
+Route::get('/jobs/detail', [HomeController::class, 'jobsDetail'])->name('jobs_detail_link');
 Route::get('/forgot-Password', [DashboardController::class, 'ForgotPassword'])->name('forgotPassword_link');
 
 Route::controller(ContactController::class)->group(function () {

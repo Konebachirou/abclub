@@ -16854,7 +16854,7 @@ span.transparent-button:hover i {
 }
 
 .rbt-service.rbt-service-2 {
-  padding: 30px;
+  padding: 10px;
   background: var(--color-white);
   box-shadow: var(--shadow-1);
   border-radius: var(--radius);
@@ -16862,19 +16862,20 @@ span.transparent-button:hover i {
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
   .rbt-service.rbt-service-2 {
-    padding: 30px 20px;
+    padding: 20px 10px;
   }
 }
 
 @media only screen and (max-width: 767px) {
   .rbt-service.rbt-service-2 {
-    padding: 30px 20px;
+    padding: 20px 10px;
   }
 }
 
 .rbt-service.rbt-service-2 .inner {
   display: flex;
   align-items: center;
+  min-height:   300px;
 }
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
@@ -16905,7 +16906,7 @@ span.transparent-button:hover i {
 }
 
 .rbt-service.rbt-service-2 .inner .content {
-  flex-basis: 50%;
+  flex-basis: 100%;
 }
 
 @media only screen and (max-width: 767px) {
@@ -17627,7 +17628,7 @@ span.transparent-button:hover i {
 }
 
 .rbt-feature.feature-style-2 {
-  padding: 20px;
+  padding: 10px;
 }
 
 .rbt-feature.feature-style-2:hover {
@@ -17839,7 +17840,7 @@ span.transparent-button:hover i {
 }
 
 .about-style-2 .about-wrapper {
-  margin-top: -150px;
+  margin-top: -120px;
   background: var(--color-white);
   border-radius: 10px;
   padding: 15px;
@@ -17862,7 +17863,8 @@ span.transparent-button:hover i {
 
 .about-style-2 .about-wrapper .thumbnail img {
   border-radius: 10px;
-  width: 100%;
+  width: 205em;
+  height: 500px;
 }
 
 .about-style-2 .about-wrapper .content .inner {
@@ -17876,7 +17878,7 @@ span.transparent-button:hover i {
 }
 
 .about-style-2 .about-wrapper .content .inner .title {
-  font-size: 32px;
+  font-size: 28px;
   margin-bottom: 22px;
 }
 
@@ -17888,7 +17890,7 @@ span.transparent-button:hover i {
 
 .about-style-2 .about-wrapper .content .inner p {
   margin-bottom: 20px;
-  width: 80%;
+  width: 100%;
 }
 
 .contact-address {
@@ -18116,27 +18118,27 @@ span.transparent-button:hover i {
 
 .rbt-cta-5 .title {
   font-size: 60px;
-  padding-right: 26%;
+  /* padding-right: 26%; */
 }
 
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
   .rbt-cta-5 .title {
     font-size: 45px;
-    padding-right: 10%;
+    /* padding-right: 10%; */
   }
 }
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
   .rbt-cta-5 .title {
     font-size: 40px;
-    padding-right: 0;
+    /* padding-right: 0; */
   }
 }
 
 @media only screen and (max-width: 767px) {
   .rbt-cta-5 .title {
     font-size: 34px;
-    padding-right: 0;
+    /* padding-right: 0; */
   }
 }
 
@@ -24164,13 +24166,13 @@ body.modal-open {
 
 .rbt-team-modal .modal-dialog,
 .rbt-default-modal .modal-dialog {
-  width: 100%;
+  width: 80%;
   max-width: 1230px;
 }
 
 .rbt-team-modal .modal-dialog .modal-content,
 .rbt-default-modal .modal-dialog .modal-content {
-  padding: 45px;
+  padding: 10px;
   border-radius: 10px;
   overflow: hidden;
   border: none;
@@ -24180,18 +24182,26 @@ body.modal-open {
 }
 
 @media only screen and (max-width: 767px) {
-
+  .rbt-team-modal .modal-dialog,
+  .rbt-default-modal .modal-dialog {
+    width: 100%;
+    max-width: 1230px;
+  }
   .rbt-team-modal .modal-dialog .modal-content,
   .rbt-default-modal .modal-dialog .modal-content {
-    padding: 30px;
+    padding: 5px;
   }
 }
 
 @media only screen and (max-width: 479px) {
-
+  .rbt-team-modal .modal-dialog,
+  .rbt-default-modal .modal-dialog {
+    width: 100%;
+    max-width: 1230px;
+  }
   .rbt-team-modal .modal-dialog .modal-content,
   .rbt-default-modal .modal-dialog .modal-content {
-    padding: 40px 15px 25px 15px;
+    padding: 5px 10px 15px 10px;
   }
 }
 
@@ -27073,7 +27083,17 @@ blockquote.has-text-align-right cite,
   display: flex;
   align-items: center;
 }
+.height-450 {
+  height: 450px;
+  display: flex;
+  align-items: center;
+}
 
+@media only screen and (max-width: 1199px) {
+  .height-450 {
+    height: auto;
+  }
+}
 @media only screen and (max-width: 1199px) {
   .height-850 {
     height: auto;
@@ -27171,23 +27191,23 @@ blockquote.has-text-align-right cite,
 /*-------------------------------------------------------
     Banner Style Home One And Home Five (variation-2)
 -------------------------------------------------------------*/
-/* .rbt-banner-1 {
+.rbt-banner-1 {
   background-color: var(--color-light);
-  padding: 0 150px;
+  padding: 0 100px;
   position: relative;
   overflow: hidden;
-  background-image: url(../images/bg/bg-g1.webp);
+  /* background-image: url(../images/bg/bg2.png); */
   background-position: top center;
-} */
+}
 
-.rbt-banner-1 {
+/* .rbt-banner-1 {
   background-color: rgba(34, 209, 25, 0.304);
   padding: 0 150px;
   position: relative;
   overflow: hidden;
-  /* background-image: url(../images/bg/bg.png, ); */
+  background-image: url(../images/bg/bg.png, );
   background-position: top center;
-}
+} */
 
 @media only screen and (min-width: 1200px) and (max-width: 1599px) {
   .rbt-banner-1 {
@@ -27509,9 +27529,9 @@ blockquote.has-text-align-right cite,
 }
 
 .rbt-banner-1.variation-2 .content .inner .title {
-  font-size: 60px;
+  font-size: 30px;
   font-weight: 700;
-  margin-top: 40px;
+  margin-top: 0px;
   margin-bottom: 29px;
   padding-right: 10%;
 }
@@ -27818,7 +27838,7 @@ blockquote.has-text-align-right cite,
 }
 
 .rbt-banner-4 .wrapper {
-  padding: 140px 0;
+  padding: 160px 0;
 }
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {

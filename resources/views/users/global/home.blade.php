@@ -254,7 +254,7 @@
     </div>
 
     <!-- Start Event Area  -->
-    <div class="rbt-event-area bg-color-white " style="margin-top: 8%;">
+    <div class=" bg-color-white " style="margin-top: 8%;">
         <div class="container">
             <div class="row g-5 align-items-end mb--60">
                 <div class="col-lg-6 col-md-12 col-12">

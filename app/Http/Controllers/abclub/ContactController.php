@@ -17,7 +17,9 @@ class ContactController extends Controller
 {
     public function contact()
     {
-        return view('users.global.contact');
+          // Déterminer l'onglet actif
+          $ongletActif = 'contact';
+        return view('users.global.contact',['ongletActif' => $ongletActif]);
     }
     public function sendContact(ContactRequest $request)
     {
@@ -29,6 +31,7 @@ class ContactController extends Controller
 
     public function newsLetters(NewsletterSubscriberRequest $request)
     {
+
         $newsletterSubscriber = NewsletterSubscriber::create($request->validated());
         Mail::to($request->email)->send(new NewslettersNotification($newsletterSubscriber));
 

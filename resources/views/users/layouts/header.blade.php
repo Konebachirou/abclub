@@ -14,11 +14,29 @@
                     <div class="rbt-main-navigation d-none d-xl-block">
                         <nav class="mainmenu-nav">
                             <ul class="mainmenu">
-                                <li class=" has-menu-child-item position-static"><a href="{{ route('home_link') }}">Accueil </a></li>
-                                <li class=" has-menu-child-item position-static"><a href="{{ route('about_link') }}">L'association </a></li>
-                                <li class=" has-menu-child-item position-static"><a href="{{ route('action_link') }}">Nos Actions </a></li>
-                                <li class=" has-menu-child-item position-static"><a href="{{ route('news_link') }}">News </a></li>
-                                <li class=" has-menu-child-item position-static"><a href="{{ route('event_link') }}">Events </a></li>
+                                <li class=" has-menu-child-item position-static {{ $ongletActif === 'accueil' ? 'active' : '' }}"><a href="{{ route('home_link') }}">Accueil </a></li>
+                                <li class=" has-dropdown has-menu-child-item {{ $ongletActif === 'about' ? 'active' : '' }}">
+                                    <a href="#">L'association</a>
+                                    <ul class="submenu">
+                                        <li class="has-menu-child-item "><a href="{{ route('about_link') }}">A propos de l'ABC</a>
+                                        <li class=" has-menu-child-item position-static"><a href="{{ route('action_link') }}">Nos Actions </a></li>
+                                    </ul>
+                                    <!-- <a href="{{ route('about_link') }}">
+                                    L'association </a> -->
+                                </li>
+                                <li class=" has-menu-child-item position-static  {{ $ongletActif === 'news' ? 'active' : '' }}" ><a href="{{ route('news_link') }}">News </a></li>
+                                <li class=" has-menu-child-item position-static {{ $ongletActif === 'event' ? 'active' : '' }}"><a href="{{ route('event_link') }}">Events </a></li>
+                                <li class=" has-dropdown has-menu-child-item {{ $ongletActif === 'amid' ? 'active' : '' }}">
+                                    <a href="#">AMID</a>
+                                    <ul class="submenu">
+                                        <li class="has-menu-child-item"><a href="{{ route('ane_link') }}">ANE</a>
+                                        <li class=" has-menu-child-item position-static"><a href="{{ route('anp_link') }}">ANP</a></li>
+                                        <li class=" has-menu-child-item position-static"><a href="{{ route('action_link') }}">Patenariat</a></li>
+                                    </ul>
+                                    <!-- <a href="{{ route('about_link') }}">
+                                    L'association </a> -->
+                                </li>
+                                <li class=" has-menu-child-item position-static {{ $ongletActif === 'jobs' ? 'active' : '' }}"><a href="{{ route('jobs_link') }}">Jobs </a></li>
 
                                 <!-- <li class="has-dropdown has-menu-child-item">
                                     <a href="#">Pôles
@@ -44,7 +62,7 @@
                                         </li>
                                     </ul>
                                 </li> -->
-                                <li class="with-megamenu has-menu-child-item position-static"><a href="{{ route('contact_link') }}">Contacts</a></li>
+                                <li class="with-megamenu has-menu-child-item position-static {{ $ongletActif === 'contact' ? 'active' : '' }}"><a href="{{ route('contact_link') }}">Contacts</a></li>
                             </ul>
                         </nav>
                     </div>
@@ -52,7 +70,7 @@
                         <!-- Navbar Icons -->
                         <ul class="quick-access">
                             @if(Auth::check() == true)
-                            <li class="access-icon rbt-user-wrapper right-align-dropdown">
+                            <li class="access-icon rbt-user-wrapper right-align-dropdown  {{ $ongletActif === 'profil' ? 'active' : '' }}">
                                 <a class="rbt-round-btn" href="#">
                                     <i class="feather-user"></i>
                                 </a>

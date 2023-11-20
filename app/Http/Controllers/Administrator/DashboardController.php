@@ -9,26 +9,31 @@ class DashboardController extends Controller
 {
     public function ForgotPassword()
     {
-        return view('users.auth.forgotpassword');
+        $ongletActif = 'profil';
+        return view('users.auth.forgotpassword',['ongletActif' => $ongletActif]);
     }
 
     public function Profil()
     {
-        return view('users.user_dashboard.info');
+        $ongletActif = 'profil';
+        return view('users.user_dashboard.info',['ongletActif' => $ongletActif]);
     }
 
     public function Dashboard()
     {
-        return view('users.user_dashboard.home');
+        $ongletActif = 'profil';
+        return view('users.user_dashboard.home',['ongletActif' => $ongletActif]);
     }
 
     public function MyEvents()
     {
-        return view('users.user_dashboard.my_event');
+        $ongletActif = 'profil';
+        return view('users.user_dashboard.my_event',['ongletActif' => $ongletActif]);
     }
 
     public function Setting()
     {
-        return view('users.user_dashboard.setting');
+        $ongletActif = 'profil';
+        return view('users.user_dashboard.setting',['ongletActif' => $ongletActif]);
     }
 }

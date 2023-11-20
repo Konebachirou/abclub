@@ -11,11 +11,13 @@ class EventController extends Controller
 {
     public function events()
     {
+          // Déterminer l'onglet actif
+        $ongletActif = 'event';
         $events = Event::orderby('id', 'desc')->get();
         $reseaux = Event::withPoleName('Pôle Réseau')->get();
         $amids = Event::withPoleName('Pôle AMID')->get();
         $nmss = Event::withPoleName('Pôle Meet & Share')->get();
-        return view('users.events.event', ['events' => $events, 'reseaux' => $reseaux, 'amids' => $amids, 'nmss' => $nmss]);
+        return view('users.events.event', ['events' => $events, 'reseaux' => $reseaux, 'amids' => $amids, 'nmss' => $nmss, 'ongletActif' => $ongletActif]);
     }
 
     public function eventsDatails(string $title)
