@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\abclub\HomeController;
 use App\Http\Controllers\abclub\AboutController;
+use App\Http\Controllers\abclub\AneController;
 use App\Http\Controllers\abclub\CommentController;
 use App\Http\Controllers\abclub\ContactController;
 use App\Http\Controllers\abclub\EventController;
@@ -45,12 +46,18 @@ Route::controller(EventController::class)->group(function () {
 
 Route::post('/comments/store', [CommentController::class, 'store'])->name('comments-store');
 Route::get('/l\'association', [AboutController::class, 'about'])->name('about_link');
-Route::get('/amid/ane', [HomeController::class, 'ane'])->name('ane_link');
+
 Route::get('/amid/anp', [HomeController::class, 'anp'])->name('anp_link');
-Route::get('/postuler', [HomeController::class, 'postuler'])->name('postuler_link');
+
 Route::get('/jobs', [HomeController::class, 'jobs'])->name('jobs_link');
 Route::get('/jobs/detail', [HomeController::class, 'jobsDetail'])->name('jobs_detail_link');
 Route::get('/forgot-Password', [DashboardController::class, 'ForgotPassword'])->name('forgotPassword_link');
+
+Route::controller(AneController::class)->group(function () {
+    Route::get('/amid/ane', 'ane')->name('ane_link');
+    Route::get('/postuler', 'postuler')->name('postuler_link');
+    Route::post('/postuler/store', 'store')->name('postuler-store');
+});
 
 Route::controller(ContactController::class)->group(function () {
     Route::get('/contact', 'contact')->name('contact_link');

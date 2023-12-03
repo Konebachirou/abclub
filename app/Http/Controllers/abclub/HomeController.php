@@ -22,31 +22,24 @@ class HomeController extends Controller
         return view('users.global.home', ['poles' => $poles, 'slides' => $slides, 'events' => $events, 'news' => $news, 'ongletActif' => $ongletActif]);
     }
 
-    public function jobs() {
+    public function jobs()
+    {
 
         $ongletActif = 'jobs';
         return view('users.jobs.jobs', ['ongletActif' => $ongletActif]);
     }
 
-    public function jobsDetail() {
+    public function jobsDetail()
+    {
 
         $ongletActif = 'jobs';
         return view('users.jobs.jobs_detail', ['ongletActif' => $ongletActif]);
     }
 
-    public function ane() {
-        $slides = Slide::orderby('id', 'desc')->get();
-        $ongletActif = 'amid';
-        return view('users.business.ane', ['slides' => $slides, 'ongletActif' => $ongletActif]);
-    }
 
-    public function postuler() {
-        // Déterminer l'onglet actif
-        $ongletActif = 'amid';
-        return view('users.business.ane_form', ['ongletActif' => $ongletActif]);
-    }
 
-    public function anp() {
+    public function anp()
+    {
         // Déterminer l'onglet actif
         $ongletActif = 'amid';
         return view('users.business.anp', ['ongletActif' => $ongletActif]);
