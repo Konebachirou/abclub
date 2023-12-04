@@ -31,7 +31,7 @@
                                     <ul class="submenu">
                                         <li class="has-menu-child-item"><a href="{{ route('ane_link') }}">ANE</a>
                                         <li class=" has-menu-child-item position-static"><a href="{{ route('anp_link') }}">ANP</a></li>
-                                        <li class=" has-menu-child-item position-static"><a href="{{ route('action_link') }}">Patenariat</a></li>
+                                        <li class=" has-menu-child-item position-static"><a href="{{ route('action_link') }}">Partenariat</a></li>
                                     </ul>
                                     <!-- <a href="{{ route('about_link') }}">
                                     L'association </a> -->

@@ -124,7 +124,7 @@
                                                                         <input type="email" placeholder="Email" name="email">
                                                                     </div>
                                                                     <div class="col-md-6 col-12 mb--10">
-                                                                        <label>Szcteur d'activité *</label>
+                                                                        <label>Secteur d'activité *</label>
                                                                         <div class="rbt-modern-select bg-transparent height-45">
                                                                             <select class="w-100" name="">
                                                                                 <option>Finance</option>
