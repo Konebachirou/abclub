@@ -14,6 +14,7 @@ use Illuminate\Database\Eloquent\Builder;
 use App\Filament\Resources\SlideResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use App\Filament\Resources\SlideResource\RelationManagers;
+use Filament\Forms\Components\RichEditor;
 
 class SlideResource extends Resource
 {
@@ -29,7 +30,7 @@ class SlideResource extends Resource
                 FileUpload::make('image')
                     ->required()
                     ->image()->directory('slide')->label('Image du slide'),
-                Forms\Components\Textarea::make('description')
+                RichEditor::make('description')
                     ->required()
                     ->maxLength(65535)
                     ->columnSpanFull(),
