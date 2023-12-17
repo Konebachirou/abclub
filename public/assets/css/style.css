@@ -17629,17 +17629,21 @@ span.transparent-button:hover i {
 }
 
 .rbt-feature.feature-style-2 {
-  padding: 10px;
+  padding: 6px;
 }
 
 .rbt-feature.feature-style-2:hover {
   box-shadow: var(--shadow-5);
   transform: scale(1.1);
+  z-index: 4;
+
 }
 
 @media only screen and (max-width: 767px) {
   .rbt-feature.feature-style-2:hover {
     transform: scale(1);
+    z-index: 4;
+
   }
 }
 
@@ -23035,7 +23039,7 @@ ul.testimonial-thumb-wrapper li a.active .thumb img {
 
 .rbt-splite-style .thumbnail img {
   border-radius: 0;
-  width: 100%;
+  width: 140%;
 }
 
 .rbt-splite-style .thumbnail.image-left-content img {

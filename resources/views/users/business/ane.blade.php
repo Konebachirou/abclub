@@ -38,104 +38,57 @@
         </div>
     </div>
 </div>
-<!-- End Banner Area -->
 
-<div class="about-style-2 ">
+<div class="rbt-about-area about-style-1 bg-color-white " style="margin-top: 5%" >
     <div class="container">
-        <div class="row">
-            <div class="col-lg-12 ">
-                <div class="row row--0 about-wrapper align-items-center theme-shape">
-                    <div class="col-lg-6">
-                        <div class="thumbnail">
-                            <img src="{{asset('assets/images/bg/bg4.png')}}" alt="About Images">
-                        </div>
-                    </div>
-                    <div class="col-lg-6 mt_md--30 mt_sm--30">
-                        <div class="content">
-                            <div class="inner">
-                                <h4 class="title">about Entrepreneuriat.</h4>
-                                <p> L'African Mobility and Innovation Day est un événement organisé par l'association African Business Club,
-                                    dédié à l'entrepreneuriat et au recrutement des jeunes diplômés en Afrique. Cet événement se tient chaque
-                                    année depuis sa création en 2015 et vise à promouvoir l'innovation et la mobilité en Afrique. Pendant cette journée,
-                                    des conférences inspirantes, des ateliers pratiques et des sessions de réseautage sont organisés pour
-                                    permettre aux jeunes entrepreneurs de développer leurs compétences et de rencontrer des acteurs clés de l'industrie.
-                                    L'événement met également en avant les opportunités professionnelles en Afrique et encourage les jeunes diplômés à contribuer
-                                    au développement économique du continent. L'African Mobility and Innovation Day est devenu un rendez-vous incontournable pour
-                                    les jeunes talents africains souhaitant
-                                    se lancer dans l'entrepreneuriat et trouver des opportunités de carrière en Afrique.</p>
-
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="top-circle-shape position-bottom-right"></div>
-                </div>
+<div class="row g-5 align-items-center">
+    <!-- Start List Style  -->
+    <!-- <div class="rbt-feature-wrapper"> -->
+        <div class="col-lg-4 rbt-feature " data-sal="slide-up" data-sal-duration="400">
+            <div class="icon bg-primary-opacity">
+                <i class="feather-book"></i>
+            </div>
+            <div class="feature-content">
+                <h6 class="feature-title">Favoriser l'entrepreneuriat</h6>
+                <p class="feature-description">L'événement vise à encourager et inspirer les jeunes entrepreneurs en leur fournissant des informations et des
+                    ressources nécessaires pour lancer et développer leurs propres entreprises en Afrique.</p>
             </div>
         </div>
-    </div>
-</div>
-<div class="rbt-split-area bg-color-white overflow-hidden rbt-section-gapTop">
-    <div class="wrapper">
-        <div class="rbt-splite-style">
-            <div class="split-wrapper">
-                <div class="row g-0 align-items-center">
-                    <div class="col-lg-12 col-xl-6 col-12">
-                        <div class="thumbnail image-left-content">
-                            <img src="{{asset('assets/images/bg/bg4.png')}}" alt="split Images">
-                        </div>
-                    </div>
-                    <div class="col-lg-12 col-xl-6 col-12">
-                        <div class="split-inner">
-                            <!-- Start List Style  -->
-                            <div class="rbt-feature-wrapper">
-                                <div class="rbt-feature feature-style-2">
-                                    <div class="icon bg-primary-opacity">
-                                        <i class="feather-book"></i>
-                                    </div>
-                                    <div class="feature-content">
-                                        <h6 class="feature-title">Favoriser l'entrepreneuriat :</h6>
-                                        <p class="feature-description">L'événement vise à encourager et inspirer les jeunes entrepreneurs en leur fournissant des informations et des
-                                            ressources nécessaires pour lancer et développer leurs propres entreprises en Afrique.</p>
-                                    </div>
-                                </div>
 
-                                <div class="rbt-feature feature-style-2">
-                                    <div class="icon bg-primary-opacity">
-                                        <i class="feather-book"></i>
-                                    </div>
-                                    <div class="feature-content">
-                                        <h6 class="feature-title">Promouvoir l'innovation : </h6>
-                                        <p class="feature-description">L'événement met l'accent sur l'importance de l'innovation dans le développement économique de l'Afrique,
-                                            en mettant en avant les projets et les idées novatrices des jeunes entrepreneurs.</p>
-                                    </div>
-                                </div>
-
-                                <div class="rbt-feature feature-style-2">
-                                    <div class="icon bg-primary-opacity">
-                                        <i class="feather-book"></i>
-                                    </div>
-                                    <div class="feature-content">
-                                        <h6 class="feature-title">Connecter les acteurs clés : </h6>
-                                        <p class="feature-description">L'African Next Entrepreneurs réunit des entrepreneurs, des investisseurs,
-                                            des représentants d'entreprises, des responsables gouvernementaux et des experts du secteur,
-                                            créant ainsi un espace propice aux échanges et au partage d'expériences.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- End List Style  -->
-                        </div>
-                    </div>
-                </div>
+        <div class="col-lg-4 rbt-feature " data-sal="slide-up" data-sal-duration="400">
+            <div class="icon bg-primary-opacity">
+                <i class="feather-book"></i>
+            </div>
+            <div class="feature-content">
+                <h6 class="feature-title">Promouvoir l'innovation</h6>
+                <p class="feature-description">L'événement met l'accent sur l'importance de l'innovation dans le développement économique de l'Afrique,
+                    en mettant en avant les projets et les idées novatrices des jeunes entrepreneurs.</p>
             </div>
         </div>
-    </div>
+
+        <div class=" col-lg-4 rbt-feature " data-sal="slide-up" data-sal-duration="400">
+            <div class="icon bg-primary-opacity">
+                <i class="feather-book"></i>
+            </div>
+            <div class="feature-content">
+                <h6 class="feature-title">Connecter les acteurs clés</h6>
+                <p class="feature-description">L'African Next Entrepreneurs réunit des entrepreneurs, des investisseurs,
+                    des représentants d'entreprises, des responsables gouvernementaux et des experts du secteur,
+                    créant ainsi un espace propice aux échanges et au partage d'expériences.</p>
+            </div>
+        </div>
+    <!-- </div> -->
+    <!-- End List Style  -->
 </div>
-<div class="rbt-service-area bg-color-extra2 rbt-section-gap">
+</div>
+</div>
+
+<div class="rbt-counterup-area bg_image bg_image_fixed  ptb--110 bg-black-overlay" style="background-image: url(../assets/images/bg/bg4.png); margin-top: 5%;" data-black-overlay="2">
     <div class="container">
         <div class="row mb--60">
             <div class="col-lg-12">
-                <div class="section-title text-center">
-                    <h2 class="title">Critères de sélection</h2>
+                <div class="section-title text-center mt--10">
+                    <h2 class="title text-white">Critères de sélection</h2>
                 </div>
             </div>
         </div>
@@ -277,10 +230,63 @@
                     </div>
                 </div>
                 <!-- End Single Team  -->
+                
                 @endfor
 
         </div>
     </div>
 </div>
+<!-- Start Testimonial Area   -->
+<div class="rbt-testimonial-area bg-color-white overflow-hidden" style="margin-top: 6%;">
+    <div class="wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-title text-center mb--10">
+                        <!-- <span class="subtitle bg-primary-opacity">EDUCATION FOR EVERYONE</span> -->
+                        <h2 class="title">Ils ont décider de nous accompagner</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="scroll-animation-wrapper no-overlay mt--50" >
+        <div class="scroll-animation scroll-right-left">
+            @for($i=0 ; $i < 10 ; $i++) <!-- Start Single Testimonial -->
+                <div class="single-column-20 bg-theme-gradient-odd">
+                    <div class="rbt-testimonial-box style-2">
+                        <div class="inner">
+                            <div class="icons">
+                                <img src="{{asset('assets/images/icons/facebook.png')}}" alt="Clint Images">
+                            </div>
+                            <div class="description">
+                                <p class="subtitle-3">After the launch, vulputate at sapien sit amet,
+                                    auctor iaculis lorem. In vel hend rerit nisi. Vestibulum eget risus velit.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Single Testimonial  -->
+
+                <!-- Start Single Testimonial  -->
+                <div class="single-column-20 bg-theme-gradient-odd">
+                    <div class="rbt-testimonial-box style-2">
+                        <div class="inner">
+                            <div class="icons">
+                                <img src="{{asset('assets/images/icons/google.png')}}" alt="Clint Images">
+                            </div>
+                            <div class="description">
+                                <p class="subtitle-3">Histudy education, vulputate at sapien sit amet,
+                                    auctor iaculis lorem. In vel hend rerit nisi. Vestibulum eget risus velit.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Single Testimonial  -->
+                @endfor
+        </div>
+    </div>
+</div>
+<!-- End Testimonial Area   -->
 
 @stop
