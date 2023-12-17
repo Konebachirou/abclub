@@ -42,10 +42,9 @@
                                     <label>Choisissez une option de la liste *</label>
                                     <div class="rbt-modern-select bg-transparent height-45">
                                         <select name="Choisissez_option_liste" class="w-100">
-                                            <option value="Dhaka">Dhaka</option>
-                                            <option value="barisal">Barisal</option>
-                                            <option value="khulna">Khulna</option>
-                                            <option value="comila">Comilla</option>
+                                            @foreach($selects as $item)
+                                            <option value="{{$item}}">{{$item}}</option>
+                                            @endforeach
                                         </select>
                                         @error('Choisissez_option_liste')
                                             <div class="alert alert-danger">{{ $message }}</div>

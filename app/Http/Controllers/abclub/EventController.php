@@ -22,9 +22,10 @@ class EventController extends Controller
 
     public function eventsDatails(string $title)
     {
+        $ongletActif = 'event';
         $event = Event::where('title', $title)->first();
         $conferencier = Conferencier::where('event_id',$event->id)->get();
         // dd($event);
-        return view('users.events.event_detail', ['event' => $event,'conferencier' => $conferencier]);
+        return view('users.events.event_detail', ['event' => $event,'conferencier' => $conferencier,'ongletActif' => $ongletActif]);
     }
 }

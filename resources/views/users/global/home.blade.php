@@ -54,7 +54,7 @@
             <div class="row mb--60">
                 <div class="col-lg-12" style="margin-top: 5%;">
                     <div class="section-title text-center">
-                        <span class="subtitle bg-primary-opacity">Pôle ABC</span>
+                        <span class="subtitle bg-primary-opacity">Pôles ABC</span>
                         <h2 class="title">Nos Pôles d'activités</h2>
                     </div>
                 </div>
@@ -123,7 +123,7 @@
     </div>
 
 
-    <!-- div class="rbt-countdown-area bg_image bg_image--6 bg_image_fixed " style="padding-bottom:3% ; padding-top: 3%;"
+    <div class="rbt-countdown-area bg_image bg_image--6 bg_image_fixed " style="padding-bottom:3% ; padding-top: 3%;"
         data-black-overlay="6">
         <div class="container">
             <div class="row  align-items-center">
@@ -142,7 +142,7 @@
                                 Tenue de Soirée exigée</p>
                         </div>
                         <div class="countdown-style-1 mt--50">
-                            <div class="countdown" data-date="2023-10-27">
+                            <div class="countdown" data-date="2024-12-27">
                                 <div class="countdown-container days">
                                     <span class="countdown-value">--</span>
                                     <span class="countdown-heading">Jours</span>
@@ -180,14 +180,14 @@
             </div>
         </div>
     </div>
-    </div-->
+    </div
 
     <div class="rbt-pricing-area bg-color-white" style="margin-top: 5%;">
         <div class="container">
             <div class="row g-5 mb--60">
                 <div class="col-12">
                     <div class="section-title text-center">
-                        <span class="subtitle bg-pink-opacity">ABC CONNECT</span>
+                        <!-- <span class="subtitle bg-pink-opacity">ABC CONNECT</span> -->
                     </div>
                 </div>
             </div>
@@ -254,7 +254,7 @@
     </div>
 
     <!-- Start Event Area  -->
-    <div class=" bg-color-white " style="margin-top: 8%;">
+    <div class=" bg-color-white " style="margin-top: 4%;">
         <div class="container">
             <div class="row g-5 align-items-end mb--60">
                 <div class="col-lg-6 col-md-12 col-12">

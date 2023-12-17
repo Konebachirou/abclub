@@ -19,9 +19,35 @@ class AneController extends Controller
 
     public function postuler()
     {
+        $selects = [
+            "Agriculture",
+            "Automobile",
+            "Aérospatiale",
+            "Biotechnologie",
+            "Chimie",
+            "Construction",
+            "Électronique",
+            "Énergie (y compris l'énergie renouvelable)",
+            "Finance",
+            "Hôtellerie et tourisme",
+            "Informatique",
+            "Industrie pharmaceutique",
+            "Médias et divertissement",
+            "Métallurgie",
+            "Pétrole et gaz",
+            "Santé",
+            "Services financiers",
+            "Technologies de l'information",
+            "Télécommunications",
+            "Textile et habillement",
+            "Transport et logistique"
+        ];
         // Déterminer l'onglet actif
         $ongletActif = 'amid';
-        return view('users.business.ane_form', ['ongletActif' => $ongletActif]);
+        return view('users.business.ane_form', [
+            'ongletActif' => $ongletActif,
+            'selects' => $selects,
+        ]);
     }
     public function store(AneRequest $request)
     {

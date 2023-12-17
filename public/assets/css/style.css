@@ -8973,7 +8973,7 @@ hr {
 }
 
 .bg_image--19 {
-  background-image: url(../images/bg/bg-image-19.jpg);
+  background-image: url(../images/bg/1.png);
 }
 
 .bg_image--20 {
@@ -14447,6 +14447,7 @@ fieldset:disabled {
   color: var(--color-white);
   background-size: 300% 100%;
   background-image: linear-gradient(to right, var(--color-primary), var(--color-secondary), var(--color-secondary), var(--color-primary));
+  width: 100%;
 }
 
 .rbt-btn.btn-gradient.btn-gradient-2 {
@@ -27838,18 +27839,18 @@ blockquote.has-text-align-right cite,
 }
 
 .rbt-banner-4 .wrapper {
-  padding: 160px 0;
+  padding: 120px 0;
 }
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
   .rbt-banner-4 .wrapper {
-    padding: 80px 0;
+    padding: 60px 0;
   }
 }
 
 @media only screen and (max-width: 767px) {
   .rbt-banner-4 .wrapper {
-    padding: 60px 0;
+    padding: 50px 0;
   }
 }
 
@@ -27899,7 +27900,7 @@ blockquote.has-text-align-right cite,
 .rbt-banner-4 .banner-images .shape-image {
   position: absolute;
   bottom: 50px;
-  max-height: 560px;
+  max-height: 460px;
   object-fit: cover;
 }
 

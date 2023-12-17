@@ -44,4 +44,11 @@ class HomeController extends Controller
         $ongletActif = 'amid';
         return view('users.business.anp', ['ongletActif' => $ongletActif]);
     }
+
+    public function about()
+    {
+        // Déterminer l'onglet actif
+        $ongletActif = 'amid';
+        return view('users.amid.about', ['ongletActif' => $ongletActif]);
+    }
 }

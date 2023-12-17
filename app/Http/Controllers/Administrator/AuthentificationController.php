@@ -12,7 +12,11 @@ class AuthentificationController extends Controller
 {
     public function signin()
     {
-        return view('users.auth.login');
+        $ongletActif = 'profil';
+        
+        return view('users.auth.login',[
+            'ongletActif' => $ongletActif,
+        ]);
     }
 
     public function authenticate(LoginRequest $request): RedirectResponse
@@ -38,5 +42,36 @@ class AuthentificationController extends Controller
         $request->session()->regenerateToken();
 
         return redirect('/');
+    }
+
+    public function Register(){
+        $selects = [
+            "Agriculture",
+            "Automobile",
+            "Aérospatiale",
+            "Biotechnologie",
+            "Chimie",
+            "Construction",
+            "Électronique",
+            "Énergie (y compris l'énergie renouvelable)",
+            "Finance",
+            "Hôtellerie et tourisme",
+            "Informatique",
+            "Industrie pharmaceutique",
+            "Médias et divertissement",
+            "Métallurgie",
+            "Pétrole et gaz",
+            "Santé",
+            "Services financiers",
+            "Technologies de l'information",
+            "Télécommunications",
+            "Textile et habillement",
+            "Transport et logistique"
+        ];
+        $ongletActif = 'profil';
+        return view('users.auth.register',[
+            'ongletActif' => $ongletActif,
+            'selects' => $selects,
+        ]);
     }
 }

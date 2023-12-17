@@ -13,7 +13,7 @@ class DashboardController extends Controller
         return view('users.auth.forgotpassword',['ongletActif' => $ongletActif]);
     }
 
-    public function Profil()
+    public function profil()
     {
         $ongletActif = 'profil';
         return view('users.user_dashboard.info',['ongletActif' => $ongletActif]);
@@ -36,4 +36,12 @@ class DashboardController extends Controller
         $ongletActif = 'profil';
         return view('users.user_dashboard.setting',['ongletActif' => $ongletActif]);
     }
+
+    public function MyJobs()
+    {
+        $ongletActif = 'profil';
+        return view('users.user_dashboard.my_jobs',['ongletActif' => $ongletActif]);
+    }
+
+    
 }

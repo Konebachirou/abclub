@@ -26,8 +26,11 @@ use App\Http\Controllers\Administrator\DashboardController;
 Route::controller(AuthentificationController::class)->group(function () {
     Route::get('/signin', 'signin')->name('login_link');
     Route::get('/logout', 'logout')->name('logout_link');
+    Route::get('/register', 'register')->name('register_link');
+
     Route::post('/auhentification', 'authenticate')->name('authentification');
 });
+// Route::get('/register',[AppController::class,'Register'])->name('register_link');
 
 Route::get('/', [HomeController::class, 'Home'])->name('home_link');
 
@@ -48,6 +51,7 @@ Route::post('/comments/store', [CommentController::class, 'store'])->name('comme
 Route::get('/l\'association', [AboutController::class, 'about'])->name('about_link');
 
 Route::get('/amid/anp', [HomeController::class, 'anp'])->name('anp_link');
+Route::get('/amid/about', [HomeController::class, 'about'])->name('about_amid_link');
 
 Route::get('/jobs', [HomeController::class, 'jobs'])->name('jobs_link');
 Route::get('/jobs/detail', [HomeController::class, 'jobsDetail'])->name('jobs_detail_link');
@@ -72,6 +76,7 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/dashboard', 'Dashboard')->name('dashboard_link');
         Route::get('/profil', 'Profil')->name('profil_link');
         Route::get('/my event', 'MyEvents')->name('myEvent_link');
+        Route::get('/my Jobs', 'MyJobs')->name('myjobs_link');
         Route::get('/setting', 'Setting')->name('setting_link');
     });
 });

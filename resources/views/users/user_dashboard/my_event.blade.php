@@ -13,7 +13,7 @@
                 <div class="col-lg-6 col-md-6 col-12">
                     <div class="rbt-card event-grid-card variation-01 rbt-hover">
                         <div class="rbt-card-img">
-                            <a href="{{ route('event_details_link') }}">
+                            <a href="">
                                 <img src="assets/images/event/grid-type-01.jpg" alt="Card image">
                                 <!-- <div class="rbt-badge-3 bg-white">
                                     <span>11 Jan</span>
@@ -27,7 +27,7 @@
                             <li><span ><i class="feather-calendar"></i>11 Jan, 2023</span> 
                             <span style="padding-left: 10px;"><i class="feather-clock"></i>8:00 am - 5:00 pm </span> </li>
                          </ul>
-                            <h4 class="rbt-card-title"><a href="{{ route('event_details_link') }}">International Education Fair 2023</a></h4>
+                            <h4 class="rbt-card-title"><a href="">International Education Fair 2023</a></h4>
 
                             <div class="read-more-btn">
                                 <a class="rbt-btn btn-border hover-icon-reverse btn-sm radius-round" href="event-details.html">

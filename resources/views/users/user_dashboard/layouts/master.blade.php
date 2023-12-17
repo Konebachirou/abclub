@@ -15,15 +15,19 @@
             <div class="col-lg-12">
                 <!-- Start Dashboard Top  -->
                 <div class="rbt-dashboard-content-wrapper">
-                    <div class="tutor-bg-photo bg_image bg_image--22 height-350"></div>
+                    <div class="tutor-bg-photo bg_image  height-350" style="background-image: url(./assets/images/banner/banner.png);"></div>
                         <!-- Start Tutor Information  -->
                         <div class="rbt-tutor-information">
                             <div class="rbt-tutor-information-left">
                                 <div class="thumbnail rbt-avatars size-lg">
-                                    <img src="assets/images/team/avatar.jpg" alt="Instructor">
+                                @if (Auth::user()->image !== '')
+                                                    <img src="{{asset('assets/images/team/'.Auth::user()->image)}}" alt="">
+                                                    @else
+                                                    <img src="{{asset('assets/images/icons/avatar.png')}}" alt="">
+                                                @endif
                                 </div>
                                 <div class="tutor-content">
-                                    <h5 class="title">John Due</h5>
+                                    <h5 class="title">{{Auth::user()->name}}</h5>
                                 </div>
                             </div>
                         </div>
@@ -44,6 +48,7 @@
                                                     <!-- <li><a href="{{ route('dashboard_link') }}"><i class="feather-home"></i><span>Dashboard</span></a></li> -->
                                                     <li><a href="{{ route('profil_link') }}"><i class="feather-user"></i><span>View Profile</span></a></li>
                                                     <li><a href="{{ route('myEvent_link') }}"><i class="feather-book-open"></i><span>Enrolled Events</span></a></li>
+                                                    <li><a href="{{ route('myjobs_link') }}"><i class="feather-book-open"></i><span>Enrolled Jobs</span></a></li>
                                                     <!-- <li><a href="instructor-order-history.html"><i class="feather-shopping-bag"></i><span>Order History</span></a></li> -->
                                                 </ul>
                                             </nav>
