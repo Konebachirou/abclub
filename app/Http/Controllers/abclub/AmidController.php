@@ -78,10 +78,11 @@ class AmidController extends Controller
     public function store(AneRequest $request)
     {
 
-        Ane::create($request->all());
-        $path =  $request->file('lien_video_presentation')->store('public/anes');
+        //dd($request->all());
+        $path =  $request->file('lien_video_presentation')->store('public/ane');
         $request["image"] = $path;
+        Ane::create($request->all());
 
-        return redirect('/amid/ane');
+        return redirect('/amid/ane')->with('success', 'Votre candidature a bien été envoyée');
     }
 }

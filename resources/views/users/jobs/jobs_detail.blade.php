@@ -56,6 +56,13 @@
                     <i class="feather-arrow-right"></i>
                 </a>
             </div>
+            <button class="rbt-btn btn-gradient hover-icon-reverse">
+                <span class="icon-reverse-wrapper">
+                    <span class="btn-text">Je candidate</span>
+                    <span class="btn-icon"><i class="feather-arrow-right"></i></span>
+                    <span class="btn-icon"><i class="feather-arrow-right"></i></span>
+                </span>
+            </button>
 
         </div>
     </div>

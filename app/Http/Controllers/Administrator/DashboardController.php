@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Administrator\EditPasswordRequest;
 use App\Http\Requests\Administrator\EditProfileRequest;
+use Illuminate\Support\Facades\Auth;
 
 class DashboardController extends Controller
 {
@@ -31,7 +32,10 @@ class DashboardController extends Controller
     public function MyEvents()
     {
         $ongletActif = 'profil';
-        return view('users.user_dashboard.my_event', ['ongletActif' => $ongletActif]);
+        $user = User::where('id', Auth()->user()->id)->first();
+        $userEvents = $user->events()->paginate(4);
+
+        return view('users.user_dashboard.my_event', ['ongletActif' => $ongletActif, 'userEvents' => $userEvents]);
     }
 
     public function Setting()
@@ -72,6 +76,8 @@ class DashboardController extends Controller
     public function MyJobs()
     {
         $ongletActif = 'profil';
-        return view('users.user_dashboard.my_jobs', ['ongletActif' => $ongletActif]);
+        $user = User::where('id', Auth()->user()->id)->first();
+        $userJobs = $user->jobs()->paginate(4);
+        return view('users.user_dashboard.my_jobs', ['ongletActif' => $ongletActif, 'userJobs' => $userJobs]);
     }
 }

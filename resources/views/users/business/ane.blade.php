@@ -163,6 +163,9 @@
     <!-- Start Call To Action  -->
     <div class="rbt-callto-action-area">
         <div class="rbt-callto-action rbt-cta-default style-4 variation-2 bg-gradient-6 mt--75">
+            @if (Session::has('success'))
+                <div class="rbt-btn btn-gradient">{{ Session::get('success') }}</div>
+            @endif
             <div class="container">
                 <div class="row align-items-center content-wrapper row--30 mt_dec--30 position-relative">
                     <div class="col-lg-9 mt--30 offset-lg-3">
