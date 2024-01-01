@@ -11,9 +11,10 @@ class EventController extends Controller
 {
     public function events()
     {
-          // Déterminer l'onglet actif
+        // Déterminer l'onglet actif
         $ongletActif = 'event';
-        $events = Event::orderby('id', 'desc')->get();
+        $events = Event::orderby('id', 'desc')->where('is_event', true)->get();
+        // dd($events);
         $reseaux = Event::withPoleName('Pôle Réseau')->get();
         $amids = Event::withPoleName('Pôle AMID')->get();
         $nmss = Event::withPoleName('Pôle Meet & Share')->get();
@@ -24,8 +25,8 @@ class EventController extends Controller
     {
         $ongletActif = 'event';
         $event = Event::where('title', $title)->first();
-        $conferencier = Conferencier::where('event_id',$event->id)->get();
+        $conferencier = Conferencier::where('event_id', $event->id)->get();
         // dd($event);
-        return view('users.events.event_detail', ['event' => $event,'conferencier' => $conferencier,'ongletActif' => $ongletActif]);
+        return view('users.events.event_detail', ['event' => $event, 'conferencier' => $conferencier, 'ongletActif' => $ongletActif]);
     }
 }

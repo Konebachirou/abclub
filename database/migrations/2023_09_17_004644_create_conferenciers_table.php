@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('job');
             $table->text('description');
             $table->unsignedBigInteger('event_id');
+            $table->boolean('status')->default(true);
             $table->foreign('event_id')->references('id')->on('events')->onDelete('cascade');
             $table->timestamps();
         });

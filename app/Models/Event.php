@@ -19,7 +19,9 @@ class Event extends Model
         'is_free',
         'Number_of_place',
         'start_date',
+        'payment_link',
         'end_date',
+        'is_event',
         'start_times',
         'end_times',
         'pole_id',
@@ -38,7 +40,7 @@ class Event extends Model
     public function scopeWithPoleName($query, $poleName)
     {
         return $query->whereHas('pole', function ($query) use ($poleName) {
-            $query->where('name', $poleName);
+            $query->where('name', $poleName)->where('is_active', true);
         });
     }
 

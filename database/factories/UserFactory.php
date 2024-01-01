@@ -18,8 +18,12 @@ class UserFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => fake()->name(),
+            'firstName' => fake()->firstName(),
+            'lastName' => fake()->lastName(),
+            'tel' => fake()->phoneNumber(),
+            'domaine' => fake()->jobTitle(),
             'email' => fake()->unique()->safeEmail(),
+            'address' => fake()->address(),
             'email_verified_at' => now(),
             'is_member' => fake()->boolean(),
             'image' => 'https://randomuser.me/api/portraits/men/1.jpg',

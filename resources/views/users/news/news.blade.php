@@ -103,7 +103,7 @@
                                                         href="{{ route('news_details_link', $report->title) }}">{{ $report->title }}</a>
                                                 </h5>
                                                 <ul class="blog-meta">
-                                                    <li><i class="feather-user"></i> admin</li>
+
                                                     <li><i class="feather-clock"></i>
                                                         {{ date('d M \, Y', strtotime($report->created_at)) }}</li>
                                                 </ul>
@@ -115,8 +115,7 @@
                                                                 xmlns="http://www.w3.org/2000/svg">
                                                                 <g stroke="#27374D" fill="none" fill-rule="evenodd">
                                                                     <path d="M10.614 0l5.629 5.629-5.63 5.629" />
-                                                                    <path stroke-linecap="square"
-                                                                        d="M.663 5.572h14.594" />
+                                                                    <path stroke-linecap="square" d="M.663 5.572h14.594" />
                                                                 </g>
                                                             </svg></i>
                                                     </a>
@@ -144,8 +143,9 @@
                                                         href="{{ route('news_details_link', $reseau->title) }}">{{ $reseau->title }}</a>
                                                 </h5>
                                                 <ul class="blog-meta">
-                                                    <li><i class="feather-user"></i> admin</li>
-                                                    <li><i class="feather-clock"></i> August 3, 2023</li>
+
+                                                    <li><i class="feather-clock"></i>
+                                                        {{ date('d M \, Y', strtotime($reseau->created_at)) }}</li>
                                                 </ul>
                                                 <p class="rbt-card-text elipses4">{!! $reseau->description !!}</p>
                                                 <div class="rbt-card-bottom">
@@ -155,8 +155,7 @@
                                                                 xmlns="http://www.w3.org/2000/svg">
                                                                 <g stroke="#27374D" fill="none" fill-rule="evenodd">
                                                                     <path d="M10.614 0l5.629 5.629-5.63 5.629" />
-                                                                    <path stroke-linecap="square"
-                                                                        d="M.663 5.572h14.594" />
+                                                                    <path stroke-linecap="square" d="M.663 5.572h14.594" />
                                                                 </g>
                                                             </svg></i></a>
                                                 </div>
@@ -182,8 +181,9 @@
                                                         href="{{ route('news_details_link', $amid->title) }}">{{ $amid->title }}</a>
                                                 </h5>
                                                 <ul class="blog-meta">
-                                                    <li><i class="feather-user"></i> admin</li>
-                                                    <li><i class="feather-clock"></i> August 3, 2023</li>
+
+                                                    <li><i class="feather-clock"></i>
+                                                        {{ date('d M \, Y', strtotime($amids->created_at)) }}</li>
                                                 </ul>
                                                 <p class="rbt-card-text elipses4">{!! $amid->description !!}</p>
                                                 <div class="rbt-card-bottom">
@@ -193,8 +193,7 @@
                                                                 xmlns="http://www.w3.org/2000/svg">
                                                                 <g stroke="#27374D" fill="none" fill-rule="evenodd">
                                                                     <path d="M10.614 0l5.629 5.629-5.63 5.629" />
-                                                                    <path stroke-linecap="square"
-                                                                        d="M.663 5.572h14.594" />
+                                                                    <path stroke-linecap="square" d="M.663 5.572h14.594" />
                                                                 </g>
                                                             </svg></i></a>
                                                 </div>
@@ -221,8 +220,9 @@
                                                         href="{{ route('news_details_link', $nms->title) }}">{{ $nms->title }}</a>
                                                 </h5>
                                                 <ul class="blog-meta">
-                                                    <!-- <li><i class="feather-user"></i> admin</li> -->
-                                                    <li><i class="feather-clock"></i> August 3, 2023</li>
+                                                    <!-- -->
+                                                    <li><i class="feather-clock"></i>
+                                                        {{ date('d M \, Y', strtotime($nmss->created_at)) }}</li>
                                                     <!-- <li><i class="feather-watch"></i> 1 min read</li> -->
                                                 </ul>
                                                 <p class="rbt-card-text elipses4">{!! $nms->description !!}</p>
@@ -233,8 +233,7 @@
                                                                 xmlns="http://www.w3.org/2000/svg">
                                                                 <g stroke="#27374D" fill="none" fill-rule="evenodd">
                                                                     <path d="M10.614 0l5.629 5.629-5.63 5.629" />
-                                                                    <path stroke-linecap="square"
-                                                                        d="M.663 5.572h14.594" />
+                                                                    <path stroke-linecap="square" d="M.663 5.572h14.594" />
                                                                 </g>
                                                             </svg></i></a>
                                                 </div>

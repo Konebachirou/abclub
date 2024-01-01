@@ -110,8 +110,9 @@
                                                     <li><i class="feather-map-pin"></i>{!! $event->lieu !!}</li><br>
                                                     <li><span><i
                                                                 class="feather-calendar"></i>{{ date('d M \, Y', strtotime($event->start_date)) }}</span>
-                                                        <span style="padding-left: 10px;"><i class="feather-clock"></i>{{date("H:i ", strtotime($event->start_times))}}
-                                                            - {{date("H:i ", strtotime($event->end_times))}}
+                                                        <span style="padding-left: 10px;"><i
+                                                                class="feather-clock"></i>{{ date('H:i ', strtotime($event->start_times)) }}
+                                                            - {{ date('H:i ', strtotime($event->end_times)) }}
                                                     </li></span>
                                                 </ul>
                                                 <h4 class="rbt-card-title"><a
@@ -145,7 +146,8 @@
                                         <div class="rbt-card card-list-2 event-list-card variation-01 rbt-hover">
                                             <div class="rbt-card-img">
                                                 <a href="{{ route('event_details_link', $reseau->title) }}">
-                                                    <img src="{{ $reseau->illustrationUrl() }}" alt="Card image">
+                                                    <img src="{{ $reseau->illustrationUrl() }}"
+                                                        alt="{{ $reseau->title }}">
                                                 </a>
                                             </div>
                                             <div class="rbt-card-body">
@@ -154,8 +156,8 @@
                                                     <li><span><i
                                                                 class="feather-calendar"></i>{{ date('d M \, Y', strtotime($reseau->start_date)) }}</span>
                                                         <span style="padding-left: 10px;"><i
-                                                                class="feather-clock"></i>{{date("H:i ", strtotime($event->start_times))}}
-                                                            - {{date("H:i ", strtotime($event->end_times))}}
+                                                                class="feather-clock"></i>{{ date('H:i ', strtotime($event->start_times)) }}
+                                                            - {{ date('H:i ', strtotime($event->end_times)) }}
                                                     </li>
                                                     </span>
                                                 </ul>
@@ -198,8 +200,8 @@
                                                     <li><span><i
                                                                 class="feather-calendar"></i>{{ date('d M \, Y', strtotime($amid->start_date)) }}</span>
                                                         <span style="padding-left: 10px;"><i
-                                                                class="feather-clock"></i>{{date("H:i ", strtotime($event->start_times))}}
-                                                            - {{date("H:i ", strtotime($event->end_times))}}
+                                                                class="feather-clock"></i>{{ date('H:i ', strtotime($event->start_times)) }}
+                                                            - {{ date('H:i ', strtotime($event->end_times)) }}
                                                     </li></span>
                                                 </ul>
                                                 <h4 class="rbt-card-title"><a
@@ -242,8 +244,8 @@
                                                     <li><span><i
                                                                 class="feather-calendar"></i>{{ date('d M \, Y', strtotime($nms->start_date)) }}</span>
                                                         <span style="padding-left: 10px;"><i
-                                                                class="feather-clock"></i>{{date("H:i ", strtotime($event->start_times))}}
-                                                            - {{date("H:i ", strtotime($event->end_times))}}
+                                                                class="feather-clock"></i>{{ date('H:i ', strtotime($event->start_times)) }}
+                                                            - {{ date('H:i ', strtotime($event->end_times)) }}
                                                     </li></span>
                                                 </ul>
                                                 <h4 class="rbt-card-title"><a

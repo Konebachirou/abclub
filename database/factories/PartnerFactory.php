@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Pole;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -20,6 +21,8 @@ class PartnerFactory extends Factory
             'name' => fake()->word(),
             'logo' =>  fake()->imageUrl(),
             'website' => fake()->url(),
+            'description' => fake()->paragraph(2.5),
+            //'pole_id' => Pole::all()->random()->id
         ];
     }
 }

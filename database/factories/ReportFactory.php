@@ -18,7 +18,7 @@ class ReportFactory extends Factory
     public function definition(): array
     {
         return [
-            'title' => fake()->sentence($nbWords = 15, $variableNbWords = true),
+            'title' => fake()->sentence(3, true),
             'description' => fake()->paragraph(nbSentences: 8),
             'illustration' => fake()->imageUrl(),
             'caption' => fake()->sentence(),

@@ -1,5 +1,5 @@
 @extends('users.layouts.app')
-@section('titre', "A propos - African Business Club")
+@section('titre', 'A propos - African Business Club')
 @section('content')
     <!-- Start Banner Area -->
     <div class="rbt-banner-area rbt-banner-1">
@@ -168,7 +168,7 @@
 
     @include('users.global.office')
 
-    @include('users.global.partners')
+    <livewire:component.partner-component />
 
     <div class="rbt-team-area bg-color-white "style="padding-top: 8%;">
         <div class="container">

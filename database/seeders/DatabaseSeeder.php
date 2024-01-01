@@ -14,7 +14,11 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         \App\Models\User::factory()->create([
-            'name' => 'Administrateur',
+            'firstName' => 'Admin',
+            'lastName' => 'ABC',
+            'tel' => '0612345678',
+            'domaine' => 'Informatique',
+            'is_member' => true,
             'email' => 'admin@abc.com',
             'password' => bcrypt('password'),
         ]);
@@ -23,14 +27,16 @@ class DatabaseSeeder extends Seeder
         $this->call(PoleSeeder::class);
         $this->call(SlideSeeder::class);
 
-
-        \App\Models\Report::factory(6)->create();
-        \App\Models\Office::factory(5)->create();
+        \App\Models\Report::factory(10)->create();
+        \App\Models\Office::factory(10)->create();
         \App\Models\OfficeTeam::factory(10)->create();
-        \App\Models\Event::factory(2)->create();
-        \App\Models\Conferencier::factory(4)->create();
+        \App\Models\Event::factory(10)->create();
+        \App\Models\Conferencier::factory(10)->create();
+        \App\Models\Comment::factory(5)->create();
 
-        \App\Models\Comment::factory(10)->create();
-        \App\Models\Partner::factory(20)->create();
+        \App\Models\Partner::factory(10)->create();
+
+        \App\Models\AneWinner::factory(10)->create();
+        \App\Models\Job::factory(10)->create();
     }
 }

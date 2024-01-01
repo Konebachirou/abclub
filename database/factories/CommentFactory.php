@@ -20,7 +20,7 @@ class CommentFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => User::all()->random()->name,
+            'name' => User::all()->random()->firstName,
             'email' => User::all()->random()->email,
             'report_id' => Report::all()->random()->id,
             'content' => fake()->paragraph(),

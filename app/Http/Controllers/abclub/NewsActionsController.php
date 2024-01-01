@@ -32,7 +32,7 @@ class NewsActionsController extends Controller
 
     public function details(string $title)
     {
-       
+
         $new = Report::where('title', $title)->first();
         $album = json_decode($new->album, true);
         // dd($album);

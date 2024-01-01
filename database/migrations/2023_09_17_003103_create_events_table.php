@@ -23,8 +23,9 @@ return new class extends Migration
             $table->date('end_date');
             $table->time('start_times');
             $table->time('end_times');
-            $table->unsignedBigInteger('pole_id');
-            $table->foreign('pole_id')->references('id')->on('poles')->onDelete('cascade');
+            $table->boolean('is_event');
+            $table->string('payment_link')->nullable();
+            $table->foreignId('pole_id')->nullable()->constrained();
             $table->string('lieu');
 
 

@@ -42,8 +42,8 @@
                                     <label>Choisissez une option de la liste *</label>
                                     <div class="rbt-modern-select bg-transparent height-45">
                                         <select name="Choisissez_option_liste" class="w-100">
-                                            @foreach($selects as $item)
-                                            <option value="{{$item}}">{{$item}}</option>
+                                            @foreach ($selects as $item)
+                                                <option value="{{ $item }}">{{ $item }}</option>
                                             @endforeach
                                         </select>
                                         @error('Choisissez_option_liste')
@@ -246,56 +246,56 @@
                                 </div>
                                 <div class="col-md-6 col-12 mb--20">
                                     <label>CA 2022 *</label>
-                                    <input type="number" name="ca_2022" placeholder=" CA 2022 *">
+                                    <input type="number" name="ca_n1" placeholder=" CA 2022 *">
                                     @error('ca_2022')
                                         <div class="alert alert-danger">{{ $message }}</div>
                                     @enderror
                                 </div>
                                 <div class="col-md-6 col-12 mb--20">
                                     <label>CA 2023 *</label>
-                                    <input type="number" name="ca_2023" placeholder=" CA 2023 *">
+                                    <input type="number" name="ca_n2" placeholder=" CA 2023 *">
                                     @error('ca_2023')
                                         <div class="alert alert-danger">{{ $message }}</div>
                                     @enderror
                                 </div>
                                 <div class="col-md-6 col-12 mb--20">
                                     <label>CA 2024 ( Prévisionel) *</label>
-                                    <input type="number" name="ca_2024" placeholder=" CA 2024 *">
+                                    <input type="number" name="ca_n3" placeholder=" CA 2024 *">
                                     @error('ca_2024')
                                         <div class="alert alert-danger">{{ $message }}</div>
                                     @enderror
                                 </div>
                                 <div class="col-md-6 col-12 mb--20">
                                     <label>CA 2025 ( Prévisionel) *</label>
-                                    <input type="number" name="ca_2025" placeholder=" CA 2024 *">
+                                    <input type="number" name="ca_n4" placeholder=" CA 2024 *">
                                     @error('ca_2025')
                                         <div class="alert alert-danger">{{ $message }}</div>
                                     @enderror
                                 </div>
                                 <div class="col-md-6 col-12 mb--20">
                                     <label>Effectif 2022 ( Prévisionel) *</label>
-                                    <input type="number" name="effectif_2022" placeholder=" Effectif 2022 *">
+                                    <input type="number" name="effectif_n1" placeholder=" Effectif 2022 *">
                                     @error('effectif_2022')
                                         <div class="alert alert-danger">{{ $message }}</div>
                                     @enderror
                                 </div>
                                 <div class="col-md-6 col-12 mb--20">
                                     <label>Effectif 2023 ( Prévisionel) *</label>
-                                    <input type="number" name="effectif_2023" placeholder=" Effectif 2023 *">
+                                    <input type="number" name="effectif_n2" placeholder=" Effectif 2023 *">
                                     @error('effectif_2023')
                                         <div class="alert alert-danger">{{ $message }}</div>
                                     @enderror
                                 </div>
                                 <div class="col-md-6 col-12 mb--20">
                                     <label>Effectif 2024 ( Prévisionel) *</label>
-                                    <input type="number" name="effectif_2024" placeholder=" Effectif 2024 *">
+                                    <input type="number" name="effectif_n3" placeholder=" Effectif 2024 *">
                                     @error('effectif_2024')
                                         <div class="alert alert-danger">{{ $message }}</div>
                                     @enderror
                                 </div>
                                 <div class="col-md-6 col-12 mb--20">
                                     <label>Effectif 2025 ( Prévisionel) *</label>
-                                    <input type="number" name="effectif_2025" placeholder=" Effectif 2025 *">
+                                    <input type="number" name="effectif_n4" placeholder=" Effectif 2025 *">
                                     @error('effectif_2025')
                                         <div class="alert alert-danger">{{ $message }}</div>
                                     @enderror

@@ -24,7 +24,11 @@ class User extends Authenticatable implements FilamentUser
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
+        'firstName',
+        'lastName',
+        'domaine',
+        'tel',
+        'address',
         'email',
         'password',
         'image',
@@ -60,5 +64,10 @@ class User extends Authenticatable implements FilamentUser
     public function imageUrl(): string
     {
         return Storage::url($this->image);
+    }
+
+    public function getNameAttribute()
+    {
+        return $this->firstName . ' ' . $this->lastName;
     }
 }

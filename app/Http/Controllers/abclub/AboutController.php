@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers\abclub;
 
+use App\Models\Office;
 use Illuminate\Http\Request;
 use App\Models\FormerPresident;
 use App\Http\Controllers\Controller;
-use App\Models\Office;
 
 class AboutController extends Controller
 {

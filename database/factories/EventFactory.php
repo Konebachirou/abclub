@@ -23,12 +23,14 @@ class EventFactory extends Factory
             'description' => fake()->paragraph(),
             'is_active' => fake()->boolean(),
             'is_free' => fake()->boolean(),
-            'pole_id' => Pole::all()->random()->id,
+            'payment_link' => fake()->url(),
+            //'pole_id' => Pole::all()->random()->id,
             'lieu' => fake()->city(),
             'start_date' => fake()->date(),
             'end_date' => fake()->date(),
             'start_times' => fake()->time(),
             'end_times' => fake()->time(),
+            'is_event' => fake()->boolean(),
             'Number_of_place' => fake()->numberBetween(1, 100),
         ];
     }

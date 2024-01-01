@@ -17,8 +17,8 @@ return new class extends Migration
             $table->string('logo')->nullable();
             $table->boolean('status')->default(true);
             $table->string('website')->nullable();
-            $table->unsignedBigInteger('pole_id');
-            $table->foreign('pole_id')->references('id')->on('poles')->onDelete('cascade');
+            $table->text('description')->nullable();
+            $table->foreignId('pole_id')->nullable()->constrained();
             $table->timestamps();
         });
     }

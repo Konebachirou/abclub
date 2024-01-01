@@ -2,15 +2,18 @@
 
 use Illuminate\Support\Facades\Route;
 
+
+use App\Http\Controllers\abclub\AmidController;
 use App\Http\Controllers\abclub\HomeController;
 use App\Http\Controllers\abclub\AboutController;
-use App\Http\Controllers\abclub\AneController;
+use App\Http\Controllers\abclub\EventController;
 use App\Http\Controllers\abclub\CommentController;
 use App\Http\Controllers\abclub\ContactController;
-use App\Http\Controllers\abclub\EventController;
+use App\Http\Controllers\abclub\Amid\AnpController;
+use App\Http\Controllers\abclub\JobController;
 use App\Http\Controllers\abclub\NewsActionsController;
-use App\Http\Controllers\Administrator\AuthentificationController;
 use App\Http\Controllers\Administrator\DashboardController;
+use App\Http\Controllers\Administrator\AuthentificationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,7 +35,7 @@ Route::controller(AuthentificationController::class)->group(function () {
 });
 // Route::get('/register',[AppController::class,'Register'])->name('register_link');
 
-Route::get('/', [HomeController::class, 'Home'])->name('home_link');
+Route::get('/',  [HomeController::class, 'Home'])->name('home_link');
 
 
 Route::controller(NewsActionsController::class)->group(function () {
@@ -50,15 +53,18 @@ Route::controller(EventController::class)->group(function () {
 Route::post('/comments/store', [CommentController::class, 'store'])->name('comments-store');
 Route::get('/l\'association', [AboutController::class, 'about'])->name('about_link');
 
-Route::get('/amid/anp', [HomeController::class, 'anp'])->name('anp_link');
-Route::get('/amid/about', [HomeController::class, 'about'])->name('about_amid_link');
 
-Route::get('/jobs', [HomeController::class, 'jobs'])->name('jobs_link');
-Route::get('/jobs/detail', [HomeController::class, 'jobsDetail'])->name('jobs_detail_link');
-Route::get('/forgot-Password', [DashboardController::class, 'ForgotPassword'])->name('forgotPassword_link');
+Route::controller(JobController::class)->group(function () {
+    Route::get('/jobs',  'jobs')->name('jobs_link');
+    Route::get('/jobs/detail/{slug}',  'jobsDetail')->name('jobs_detail_link');
+});
 
-Route::controller(AneController::class)->group(function () {
+
+
+Route::controller(AmidController::class)->group(function () {
     Route::get('/amid/ane', 'ane')->name('ane_link');
+    Route::get('/amid/anp', 'anp')->name('anp_link');
+    Route::get('/amid/about', 'about')->name('about_amid_link');
     Route::get('/postuler', 'postuler')->name('postuler_link');
     Route::post('/postuler/store', 'store')->name('postuler-store');
 });
@@ -70,6 +76,8 @@ Route::controller(ContactController::class)->group(function () {
 });
 
 
+Route::get('/forgot-Password', [DashboardController::class, 'ForgotPassword'])->name('forgotPassword_link');
+
 Route::middleware(['auth'])->group(function () {
     Route::controller(DashboardController::class)->group(function () {
         //Dashboard profil & setting
@@ -78,5 +86,7 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/my event', 'MyEvents')->name('myEvent_link');
         Route::get('/my Jobs', 'MyJobs')->name('myjobs_link');
         Route::get('/setting', 'Setting')->name('setting_link');
+        Route::post('/setting/edit-profile', 'editProfil')->name('edit_profile_link');
+        Route::post('/setting/edit-password', 'editPassword')->name('edit_password_link');
     });
 });

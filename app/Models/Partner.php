@@ -14,6 +14,7 @@ class Partner extends Model
         'logo',
         'status',
         'website',
+        'description',
         'pole_id',
     ];
 

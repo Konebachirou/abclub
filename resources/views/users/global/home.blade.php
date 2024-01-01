@@ -131,7 +131,7 @@
                     <div class="inner">
                         <div class="section-title text-center">
                             <h3 class="title color-white">Dîner Gala d'Anniversaire des 20 ans de African Business Club</h3>
-                            
+
                             <p class="description has-medium-font-size mt--20 mb--0 color-white ">Venez célébrer avec nous
                                 les 20 ans de l'African Business Club</p>
                             <p class="description has-medium-font-size mt--20 mb--0 color-white ">Heure et lieu <br>27
@@ -174,76 +174,73 @@
                             <span class="btn-icon"><i class="feather-arrow-right"></i></span>
                         </a>
                     </div>
-                    
+
                 </div>
 
             </div>
         </div>
     </div>
-    </div
-
-    <div class="rbt-pricing-area bg-color-white" style="margin-top: 5%;">
-        <div class="container">
-            <div class="row g-5 mb--60">
-                <div class="col-12">
-                    <div class="section-title text-center">
-                        <!-- <span class="subtitle bg-pink-opacity">ABC CONNECT</span> -->
-                    </div>
+    </div <div class="rbt-pricing-area bg-color-white" style="margin-top: 5%;">
+    <div class="container">
+        <div class="row g-5 mb--60">
+            <div class="col-12">
+                <div class="section-title text-center">
+                    <!-- <span class="subtitle bg-pink-opacity">ABC CONNECT</span> -->
                 </div>
             </div>
-            <div class="row">
-                <div class="col-lg-10 offset-lg-1">
-                    <div class="advance-pricing ">
-                        <div class="inner">
-                            <div class="row row--0">
-                                <div class="col-lg-6 col-md-6 col-12">
-                                    <div class="pricing-left bg_image bg_image--6 ">
-                                        <h3 class="main-title">Pack Adherent</h3>
-                                        <p class="description">L'African Business Club vous offre une nouvelle manière de
-                                            profiter de ses
-                                            évènements et des services de ses partenaires. </p>
-                                        <div class="price-wrapper">
-                                            <span class="price-amount">40€<sup>/Annuel</sup></span>
-                                        </div>
-                                        <div class="pricing-btn-group">
-                                            <a class="rbt-btn btn-gradient hover-icon-reverse" href="javascript:void(0)"
-                                                data-bs-toggle="modal" data-bs-target="#packModal">
-                                                <span class="icon-reverse-wrapper">
-                                                    <span class="btn-text">J'adhère</span>
-                                                    <span class="btn-icon"><i class="feather-arrow-right"></i></span>
-                                                    <span class="btn-icon"><i class="feather-arrow-right"></i></span>
-                                                </span>
-                                            </a>
-                                        </div>
-                                        <small class="subtitle mt-4">Nous avons 500+ Adhérant.</small>
+        </div>
+        <div class="row">
+            <div class="col-lg-10 offset-lg-1">
+                <div class="advance-pricing ">
+                    <div class="inner">
+                        <div class="row row--0">
+                            <div class="col-lg-6 col-md-6 col-12">
+                                <div class="pricing-left bg_image bg_image--6 ">
+                                    <h3 class="main-title">Pack Adherent</h3>
+                                    <p class="description">L'African Business Club vous offre une nouvelle manière de
+                                        profiter de ses
+                                        évènements et des services de ses partenaires. </p>
+                                    <div class="price-wrapper">
+                                        <span class="price-amount">40€<sup>/Annuel</sup></span>
                                     </div>
+                                    <div class="pricing-btn-group">
+                                        <a class="rbt-btn btn-gradient hover-icon-reverse" href="javascript:void(0)"
+                                            data-bs-toggle="modal" data-bs-target="#packModal">
+                                            <span class="icon-reverse-wrapper">
+                                                <span class="btn-text">J'adhère</span>
+                                                <span class="btn-icon"><i class="feather-arrow-right"></i></span>
+                                                <span class="btn-icon"><i class="feather-arrow-right"></i></span>
+                                            </span>
+                                        </a>
+                                    </div>
+                                    <small class="subtitle mt-4">Nous avons 500+ Adhérant.</small>
                                 </div>
-                                <div class="col-lg-6 col-md-6 col-12">
-                                    <div class="pricing-right position-relative">
-                                        <ul class="plan-offer-list">
-                                            <li>
-                                                <i class="feather-check"></i> Accès au réseau ABC (carnet d&#39;adresse)
-                                            </li>
-                                            <li class="mt--20">
-                                                <i class="feather-check"></i> Retour d’expériences ( Africarrières)
-                                            </li>
-                                            <li class="mt--20">
-                                                <i class="feather-check"></i> Accès privilégiés aux évènements ABC
-                                            </li>
-                                            <li class="mt--20">
-                                                <i class="feather-check"></i> Un accès privilégié aux offres partenaires,
-                                            </li>
-                                            <li class="mt--20">
-                                                <i class="feather-check"></i> Un accompagnement RH de qualité pour une
-                                                insertion professionnelle rapide
-                                            </li>
-                                            <li class="mt--20">
-                                                <i class="feather-check"></i> Des places VIP aux événements de l’ABC (AMID,
-                                                M&amp;S),
-                                            </li>
-                                        </ul>
-                                        <div class="pricing-badge"><span class="pl-3">AVANTAGES DU PACK</span></div>
-                                    </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-12">
+                                <div class="pricing-right position-relative">
+                                    <ul class="plan-offer-list">
+                                        <li>
+                                            <i class="feather-check"></i> Accès au réseau ABC (carnet d&#39;adresse)
+                                        </li>
+                                        <li class="mt--20">
+                                            <i class="feather-check"></i> Retour d’expériences ( Africarrières)
+                                        </li>
+                                        <li class="mt--20">
+                                            <i class="feather-check"></i> Accès privilégiés aux évènements ABC
+                                        </li>
+                                        <li class="mt--20">
+                                            <i class="feather-check"></i> Un accès privilégié aux offres partenaires,
+                                        </li>
+                                        <li class="mt--20">
+                                            <i class="feather-check"></i> Un accompagnement RH de qualité pour une
+                                            insertion professionnelle rapide
+                                        </li>
+                                        <li class="mt--20">
+                                            <i class="feather-check"></i> Des places VIP aux événements de l’ABC (AMID,
+                                            M&amp;S),
+                                        </li>
+                                    </ul>
+                                    <div class="pricing-badge"><span class="pl-3">AVANTAGES DU PACK</span></div>
                                 </div>
                             </div>
                         </div>
@@ -251,6 +248,7 @@
                 </div>
             </div>
         </div>
+    </div>
     </div>
 
     <!-- Start Event Area  -->
@@ -412,7 +410,8 @@
         </div>
     </div>
 
-    @include('users.global.partners')
+
+    <livewire:component.partner-component />
 
     <div class="rbt-separator-mid">
         <div class="container">

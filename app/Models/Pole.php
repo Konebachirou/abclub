@@ -24,8 +24,19 @@ class Pole extends Model
     {
         return $this->hasMany(Report::class);
     }
+
     public function iconUrl(): string
     {
         return Storage::url($this->icon);
+    }
+
+    public function partners(): HasMany
+    {
+        return $this->hasMany(Partner::class);
+    }
+
+    public function jobs(): HasMany
+    {
+        return $this->hasMany(Job::class);
     }
 }
