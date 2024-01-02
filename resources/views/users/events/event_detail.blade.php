@@ -3,20 +3,20 @@
     <!-- Start breadcrumb Area -->
     <div class="rbt-breadcrumb-default rbt-breadcrumb-style-3">
         <!-- <div class="breadcrumb-inner">
-                                    <img src="{{ asset('assets/images/bg/bg-image-10.jpg') }}" alt="Education Images">
-                                </div> -->
+                                                            <img src="{{ asset('assets/images/bg/bg-image-10.jpg') }}" alt="Education Images">
+                                                        </div> -->
         <div class="container">
             <div class="row">
                 <div class="col-lg-9">
                     <div class="content">
                         <div class="content text-start">
                             <!-- <ul class="page-list">
-                                                        <li class="rbt-breadcrumb-item"><a href="{{ route('home_link') }}">Home</a></li>
-                                                        <li>
-                                                            <div class="icon-right"><i class="feather-chevron-right">{{ $event->title }}</i></div>
-                                                        </li>
-                                                        <li class="rbt-breadcrumb-item active"></li>
-                                                    </ul> -->
+                                                                                <li class="rbt-breadcrumb-item"><a href="{{ route('home_link') }}">Home</a></li>
+                                                                                <li>
+                                                                                    <div class="icon-right"><i class="feather-chevron-right">{{ $event->title }}</i></div>
+                                                                                </li>
+                                                                                <li class="rbt-breadcrumb-item active"></li>
+                                                                            </ul> -->
                             <h2 class="title mb--2">{!! $event->title !!}</h2>
                         </div>
                     </div>
@@ -79,11 +79,11 @@
                                                         <h2 class="title">{{ $conferencier->full_name }}</h2>
                                                         <h6 class="subtitle theme-gradient">{{ $conferencier->job }}</h6>
                                                         <!-- <span class="team-form">
-                                                                                            <i class="feather-map-pin"></i>
-                                                                                            <span class="location">CO Miego, AD,USA</span>
-                                                                                        </span>
-                                                                                        <p class="description">Yes, I am a Depertment Teacher. I have a passion for
-                                                                                            learning system.</p> -->
+                                                                                                                    <i class="feather-map-pin"></i>
+                                                                                                                    <span class="location">CO Miego, AD,USA</span>
+                                                                                                                </span>
+                                                                                                                <p class="description">Yes, I am a Depertment Teacher. I have a passion for
+                                                                                                                    learning system.</p> -->
 
                                                     </div>
                                                 </div>
@@ -105,33 +105,40 @@
 
                             <!-- Start Viedo Wrapper  -->
                             <!-- <a class="video-popup-with-text video-popup-wrapper text-center popup-video sidebar-video-hidden mb--15" href="https://www.youtube.com/watch?v=nA1Aqp0sPQo">
-                                                                        <div class="video-content">
-                                                                            <img class="w-100 rbt-radius" src="{{ asset('assets/images/others/video-01.jpg') }}" alt="Video Images">
-                                                                            <div class="position-to-top">
-                                                                                <span class="rbt-btn rounded-player-2 with-animation">
-                                                                                    <span class="play-icon"></span>
-                                                                                </span>
-                                                                            </div>
-                                                                            <span class="play-view-text d-block color-white"><i class="feather-eye"></i> Preview this course</span>
-                                                                        </div>
-                                                                    </a> -->
+                                                                                                <div class="video-content">
+                                                                                                    <img class="w-100 rbt-radius" src="{{ asset('assets/images/others/video-01.jpg') }}" alt="Video Images">
+                                                                                                    <div class="position-to-top">
+                                                                                                        <span class="rbt-btn rounded-player-2 with-animation">
+                                                                                                            <span class="play-icon"></span>
+                                                                                                        </span>
+                                                                                                    </div>
+                                                                                                    <span class="play-view-text d-block color-white"><i class="feather-eye"></i> Preview this course</span>
+                                                                                                </div>
+                                                                                            </a> -->
                             <!-- End Viedo Wrapper  -->
 
                             <div class="content pt--30">
                                 @if (!$event->is_free)
-                                    <div class="add-to-card-button mb--15">
-                                        <a class="rbt-btn btn-gradient icon-hover w-100 d-block text-center" href="#">
-                                            <span class="btn-text">Get Ticket</span>
-                                            <span class="btn-icon"><i class="feather-arrow-right"></i></span>
-                                        </a>
-                                    </div>
+                                    <form action="{{ route('user_event_link') }}" method="POST"
+                                        class="add-to-card-button mb--15">
+                                        @csrf
+                                        <input type="hidden" name="event_id" value="{{ $event->id }}">
+
+                                        <button class="rbt-btn btn-gradient hover-icon-reverse">
+                                            <span class="icon-reverse-wrapper">
+                                                <span class="btn-text">Je candidate</span>
+                                                <span class="btn-icon"><i class="feather-arrow-right"></i></span>
+                                                <span class="btn-icon"><i class="feather-arrow-right"></i></span>
+                                            </span>
+                                        </button>
+                                    </form>
                                 @endif
                                 <!-- <div class="buy-now-btn">
-                                                                            <a class="rbt-btn btn-border icon-hover w-100 d-block text-center" href="#">
-                                                                                <span class="btn-text">Book Now</span>
-                                                                                <span class="btn-icon"><i class="feather-arrow-right"></i></span>
-                                                                            </a>
-                                                                        </div> -->
+                                                                                                    <a class="rbt-btn btn-border icon-hover w-100 d-block text-center" href="#">
+                                                                                                        <span class="btn-text">Book Now</span>
+                                                                                                        <span class="btn-icon"><i class="feather-arrow-right"></i></span>
+                                                                                                    </a>
+                                                                                                </div> -->
 
                                 <div class="rbt-widget-details has-show-more">
                                     <ul class="has-show-more-inner-content rbt-course-details-list-wrapper">
@@ -154,25 +161,25 @@
 
                                 <div class="social-share-wrapper  text-center">
                                     <!-- <div class="rbt-post-share d-flex align-items-center justify-content-center">
-                                                                                <ul class="social-icon social-default transparent-with-border justify-content-center">
-                                                                                    <li><a href="https://www.facebook.com/">
-                                                                                            <i class="feather-facebook"></i>
-                                                                                        </a>
-                                                                                    </li>
-                                                                                    <li><a href="https://www.twitter.com">
-                                                                                            <i class="feather-twitter"></i>
-                                                                                        </a>
-                                                                                    </li>
-                                                                                    <li><a href="https://www.instagram.com/">
-                                                                                            <i class="feather-instagram"></i>
-                                                                                        </a>
-                                                                                    </li>
-                                                                                    <li><a href="https://www.linkdin.com/">
-                                                                                            <i class="feather-linkedin"></i>
-                                                                                        </a>
-                                                                                    </li>
-                                                                                </ul>
-                                                                            </div> -->
+                                                                                                        <ul class="social-icon social-default transparent-with-border justify-content-center">
+                                                                                                            <li><a href="https://www.facebook.com/">
+                                                                                                                    <i class="feather-facebook"></i>
+                                                                                                                </a>
+                                                                                                            </li>
+                                                                                                            <li><a href="https://www.twitter.com">
+                                                                                                                    <i class="feather-twitter"></i>
+                                                                                                                </a>
+                                                                                                            </li>
+                                                                                                            <li><a href="https://www.instagram.com/">
+                                                                                                                    <i class="feather-instagram"></i>
+                                                                                                                </a>
+                                                                                                            </li>
+                                                                                                            <li><a href="https://www.linkdin.com/">
+                                                                                                                    <i class="feather-linkedin"></i>
+                                                                                                                </a>
+                                                                                                            </li>
+                                                                                                        </ul>
+                                                                                                    </div> -->
                                     <hr class="mt--10">
                                     <div class="contact-with-us text-center">
                                         <p>Pour plus d'informations</p>

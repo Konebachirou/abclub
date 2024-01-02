@@ -183,7 +183,7 @@
                                                 <ul class="blog-meta">
 
                                                     <li><i class="feather-clock"></i>
-                                                        {{ date('d M \, Y', strtotime($amids->created_at)) }}</li>
+                                                        {{ date('d M \, Y', strtotime($amid->created_at)) }}</li>
                                                 </ul>
                                                 <p class="rbt-card-text elipses4">{!! $amid->description !!}</p>
                                                 <div class="rbt-card-bottom">

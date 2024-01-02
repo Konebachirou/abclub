@@ -53,20 +53,13 @@ Route::controller(EventController::class)->group(function () {
 Route::post('/comments/store', [CommentController::class, 'store'])->name('comments-store');
 Route::get('/l\'association', [AboutController::class, 'about'])->name('about_link');
 
-
-Route::controller(JobController::class)->group(function () {
-    Route::get('/jobs',  'jobs')->name('jobs_link');
-    Route::get('/jobs/detail/{slug}',  'jobsDetail')->name('jobs_detail_link');
-});
-
-
+Route::get('/jobs', [JobController::class, 'jobs'])->name('jobs_link');
 
 Route::controller(AmidController::class)->group(function () {
     Route::get('/amid/ane', 'ane')->name('ane_link');
     Route::get('/amid/anp', 'anp')->name('anp_link');
     Route::get('/amid/about', 'about')->name('about_amid_link');
     Route::get('/postuler', 'postuler')->name('postuler_link');
-    Route::post('/postuler/store', 'store')->name('postuler-store');
 });
 
 Route::controller(ContactController::class)->group(function () {
@@ -77,6 +70,8 @@ Route::controller(ContactController::class)->group(function () {
 
 
 Route::get('/forgot-Password', [DashboardController::class, 'ForgotPassword'])->name('forgotPassword_link');
+
+
 
 Route::middleware(['auth'])->group(function () {
     Route::controller(DashboardController::class)->group(function () {
@@ -89,4 +84,12 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/setting/edit-profile', 'editProfil')->name('edit_profile_link');
         Route::post('/setting/edit-password', 'editPassword')->name('edit_password_link');
     });
+
+    Route::post('/postuler/store', [AmidController::class, 'store'])->name('postuler-store');
+
+    Route::controller(JobController::class)->group(function () {
+        Route::get('/jobs/detail/{slug}',  'jobsDetail')->name('jobs_detail_link');
+        Route::post('/job/postuler',  'userJob')->name('user_job_link');
+    });
+    Route::post('/events/get-ticket', [EventController::class, 'userEvent'])->name('user_event_link');
 });

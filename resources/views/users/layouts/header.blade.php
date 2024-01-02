@@ -99,8 +99,7 @@
                                         <div class="rbt-admin-profile">
                                             <div class="admin-thumbnail">
                                                 @if (Auth::user()->image !== '')
-                                                    <img src="{{ asset('assets/images/team/' . Auth::user()->image) }}"
-                                                        alt="User Images">
+                                                    <img src="{{ Auth::user()->imageUrl() }}" alt="User Images">
                                                 @else
                                                     <img src="{{ asset('assets/images/icons/avatar.png') }}"
                                                         alt="User Images">

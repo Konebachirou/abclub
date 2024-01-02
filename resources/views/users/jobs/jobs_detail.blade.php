@@ -50,20 +50,24 @@
                 <h4 class="title">Description de l'offre </h4>
                 <p class="description">{{ $job->content }}</p>
             </div>
-            <div class="rbt-button-group text-center" style="margin-top: 2%;">
+            {{-- <div class="rbt-button-group text-center" style="margin-top: 2%;">
                 <a class="rbt-moderbt-btn" href="{{ $job->job_link }}">
                     <span class="moderbt-btn-text">Postuler</span>
                     <i class="feather-arrow-right"></i>
                 </a>
-            </div>
-            <button class="rbt-btn btn-gradient hover-icon-reverse">
-                <span class="icon-reverse-wrapper">
-                    <span class="btn-text">Je candidate</span>
-                    <span class="btn-icon"><i class="feather-arrow-right"></i></span>
-                    <span class="btn-icon"><i class="feather-arrow-right"></i></span>
-                </span>
-            </button>
+            </div> --}}
+            <form action="{{ route('user_job_link') }}" method="POST">
+                @csrf
+                <input type="hidden" name="job_id" value="{{ $job->id }}">
 
+                <button class="rbt-btn btn-gradient hover-icon-reverse">
+                    <span class="icon-reverse-wrapper">
+                        <span class="btn-text">Je candidate</span>
+                        <span class="btn-icon"><i class="feather-arrow-right"></i></span>
+                        <span class="btn-icon"><i class="feather-arrow-right"></i></span>
+                    </span>
+                </button>
+            </form>
         </div>
     </div>
     <!-- End Intructor Area  -->

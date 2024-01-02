@@ -3,9 +3,11 @@
 namespace App\Http\Controllers\abclub;
 
 use App\Models\Event;
+use App\Models\UserEvent;
+use App\Models\Conferencier;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Conferencier;
+use Illuminate\Support\Facades\Auth;
 
 class EventController extends Controller
 {
@@ -26,7 +28,16 @@ class EventController extends Controller
         $ongletActif = 'event';
         $event = Event::where('title', $title)->first();
         $conferencier = Conferencier::where('event_id', $event->id)->get();
-        // dd($event);
         return view('users.events.event_detail', ['event' => $event, 'conferencier' => $conferencier, 'ongletActif' => $ongletActif]);
+    }
+
+    public function userEvent(Request $request)
+    {
+        $event = Event::where('id', $request->event_id)->first();
+        UserEvent::create([
+            'user_id' => Auth::user()->id,
+            'event_id' => $event->id
+        ]);
+        return redirect($event->payment_link);
     }
 }
