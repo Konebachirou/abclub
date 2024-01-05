@@ -16,17 +16,17 @@ class NewsActionsController extends Controller
     {
         // Déterminer l'onglet actif
         $ongletActif = 'news';
-        $reports = Report::orderby('id', 'desc')->where('is_report', true)->where('is_action', false)->get();
-        $reseaux = Report::withPoleName('Pôle Réseau')->where('is_report', true)->where('is_action', false)->get();
-        $amids = Report::withPoleName('Pôle AMID')->where('is_report', true)->where('is_action', false)->get();
-        $nmss = Report::withPoleName('Pôle Meet & Share')->where('is_report', true)->where('is_action', false)->get();
+        $reports = Report::orderby('id', 'desc')->where('is_report', true)->where('is_action', false)->where('status', true)->get();
+        $reseaux = Report::withPoleName('Pôle Réseau')->where('is_report', true)->where('is_action', false)->where('status', true)->get();
+        $amids = Report::withPoleName('Pôle AMID')->where('is_report', true)->where('is_action', false)->where('status', true)->get();
+        $nmss = Report::withPoleName('Pôle Meet & Share')->where('is_report', true)->where('is_action', false)->where('status', true)->get();
         return view('users.news.news', ['reports' => $reports, 'reseaux' => $reseaux, 'amids' => $amids, 'nmss' => $nmss, 'ongletActif' => $ongletActif]);
     }
 
     public function indexActions()
     {
         $ongletActif = 'about';
-        $actions = Report::orderby('id', 'desc')->where('is_action', true)->where('is_report', false)->take(3)->get();
+        $actions = Report::orderby('id', 'desc')->where('is_action', true)->where('is_report', false)->where('status', true)->take(3)->get();
         return view('users.global.action', ['actions' => $actions, 'ongletActif' => $ongletActif]);
     }
 

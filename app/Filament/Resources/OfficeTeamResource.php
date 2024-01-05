@@ -24,6 +24,7 @@ class OfficeTeamResource extends Resource
     protected static ?string $navigationIcon = 'heroicon-o-building-office-2';
     protected static ?string $navigationLabel = 'Conseil d Administration';
     protected static ?string $navigationGroup = 'Equipes';
+    protected static ?string $label = 'Conseil d Administration';
 
     public static function form(Form $form): Form
     {
@@ -70,15 +71,18 @@ class OfficeTeamResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('fullName')
-                    ->searchable(),
+                    ->searchable()
+                    ->label('Nom et prenoms'),
                 ImageColumn::make('image'),
                 Tables\Columns\TextColumn::make('office.name')->label('Office')
                     ->sortable(),
                 Tables\Columns\TextColumn::make('level')
-                    ->searchable(),
+                    ->searchable()
+                    ->label('Profession'),
                 Tables\Columns\TextColumn::make('email')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('city')
+                    ->label('Ville')
                     ->searchable(),
             ])
             ->filters([

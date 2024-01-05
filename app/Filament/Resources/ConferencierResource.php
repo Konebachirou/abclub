@@ -4,33 +4,32 @@ namespace App\Filament\Resources;
 
 use Filament\Forms;
 use Filament\Tables;
-use App\Models\Report;
 use Filament\Forms\Form;
 use Filament\Tables\Table;
+use App\Models\Conferencier;
 use Filament\Infolists\Infolist;
 use Filament\Resources\Resource;
 use Filament\Forms\Components\Select;
 use Filament\Infolists\Components\Grid;
 use Filament\Infolists\Components\Split;
 use Filament\Tables\Actions\ActionGroup;
-use Filament\Tables\Columns\ImageColumn;
 use Filament\Forms\Components\FileUpload;
-use Filament\Forms\Components\RichEditor;
-use Filament\Tables\Columns\ToggleColumn;
 use Illuminate\Database\Eloquent\Builder;
 use Filament\Infolists\Components\Section;
 use Filament\Infolists\Components\TextEntry;
 use Filament\Infolists\Components\ImageEntry;
-use App\Filament\Resources\ReportResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
-use App\Filament\Resources\ReportResource\RelationManagers;
+use App\Filament\Resources\ConferencierResource\Pages;
+use App\Filament\Resources\ConferencierResource\RelationManagers;
 
-class ReportResource extends Resource
+class ConferencierResource extends Resource
 {
-    protected static ?string $model = Report::class;
+    protected static ?string $model = Conferencier::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-arrow-up-on-square-stack';
-    protected static ?string $navigationLabel = 'Nos Actions && News';
+
+    protected static ?string $navigationIcon = 'heroicon-o-users';
+    protected static ?string $navigationLabel = 'Conferenciers';
+    protected static ?string $label = 'Conferenciers';
     protected static ?string $navigationGroup = 'Actualités et Événements';
 
     public static function infolist(Infolist $infolist): Infolist
@@ -43,16 +42,16 @@ class ReportResource extends Resource
                             Grid::make(3)
                                 ->schema([
 
-                                    TextEntry::make('pole.name')
+                                    TextEntry::make('event.title')
                                         ->hiddenLabel()
                                         ->grow(),
                                     Grid::make(2)
                                         ->schema([
-                                            TextEntry::make('title')->label('Titre'),
-                                            TextEntry::make('date')->label('date'),
+                                            TextEntry::make('full_name')->label('Nom et Prenom'),
+                                            TextEntry::make('email')->label('E-mail'),
                                         ]),
 
-                                    ImageEntry::make('illustration')
+                                    ImageEntry::make('photo')
                                         ->hiddenLabel()
                                         // ->size(750)
                                         ->height(800)
@@ -79,35 +78,35 @@ class ReportResource extends Resource
 
             ]);
     }
+
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                Select::make('pole_id')
-                    ->label('Pole')
-                    ->placeholder('Choisir un pole')
+
+                Select::make('event_id')
+                    ->label('Evenement')
+                    ->placeholder('Choisir un evenement')
                     ->required()
-                    ->options(\App\Models\Pole::pluck('name', 'id')),
-                Forms\Components\TextInput::make('title')
-                    ->required(),
-                RichEditor::make('description')
-                    ->required(),
-                FileUpload::make('illustration')
+                    ->options(\App\Models\Event::pluck('title', 'id')),
+                Forms\Components\TextInput::make('full_name')
                     ->required()
-                    ->image()->directory('report')->label("Image de la new ou de l'action"),
-                RichEditor::make('caption'),
-                FileUpload::make('album')
-                    ->multiple()
-                    ->directory('album')->label("Album"),
+                    ->maxLength(255),
+                Forms\Components\TextInput::make('email')
+                    ->email()
+                    ->required()
+                    ->maxLength(255),
+                FileUpload::make('photo')
+                    ->required()
+                    ->image()->directory('conferencier')->label("Image"),
+                Forms\Components\TextInput::make('job')
+                    ->required()
+                    ->maxLength(255),
+                Forms\Components\Textarea::make('description')
+                    ->required()
+                    ->maxLength(65535)
+                    ->columnSpanFull(),
                 Forms\Components\Toggle::make('status')
-                    ->required(),
-                Forms\Components\DatePicker::make('date')
-                    ->required(),
-                Forms\Components\Toggle::make('is_report')
-                    ->label('Report')
-                    ->required(),
-                Forms\Components\Toggle::make('is_action')
-                    ->label('Action')
                     ->required(),
             ]);
     }
@@ -116,25 +115,16 @@ class ReportResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('pole.name')->label('Pole'),
-                ImageColumn::make('illustration'),
-                Tables\Columns\TextColumn::make('caption')
+                Tables\Columns\TextColumn::make('event.title')->label('Event')
                     ->searchable(),
-
-                ToggleColumn::make('status')
-                    ->label('Status'),
-                Tables\Columns\TextColumn::make('date')
-                    ->date()
-                    ->sortable(),
-                ImageColumn::make('album')
-                    ->circular()
-                    ->stacked(),
-
-                ToggleColumn::make('is_report')
-                    ->label('News'),
-                ToggleColumn::make('is_action')
-                    ->label('Action'),
-
+                Tables\Columns\TextColumn::make('full_name')
+                    ->searchable()->label('Nom et Prenom'),
+                Tables\Columns\TextColumn::make('email')
+                    ->searchable(),
+                Tables\Columns\ImageColumn::make('photo'),
+                Tables\Columns\TextColumn::make('Profession')
+                    ->searchable(),
+                Tables\Columns\ToggleColumn::make('status'),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
@@ -171,9 +161,9 @@ class ReportResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListReports::route('/'),
-            'create' => Pages\CreateReport::route('/create'),
-            'edit' => Pages\EditReport::route('/{record}/edit'),
+            'index' => Pages\ListConferenciers::route('/'),
+            'create' => Pages\CreateConferencier::route('/create'),
+            'edit' => Pages\EditConferencier::route('/{record}/edit'),
         ];
     }
 }

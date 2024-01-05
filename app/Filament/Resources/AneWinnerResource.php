@@ -4,34 +4,31 @@ namespace App\Filament\Resources;
 
 use Filament\Forms;
 use Filament\Tables;
-use App\Models\Report;
 use Filament\Forms\Form;
+use App\Models\AneWinner;
 use Filament\Tables\Table;
 use Filament\Infolists\Infolist;
 use Filament\Resources\Resource;
-use Filament\Forms\Components\Select;
 use Filament\Infolists\Components\Grid;
 use Filament\Infolists\Components\Split;
 use Filament\Tables\Actions\ActionGroup;
-use Filament\Tables\Columns\ImageColumn;
 use Filament\Forms\Components\FileUpload;
-use Filament\Forms\Components\RichEditor;
-use Filament\Tables\Columns\ToggleColumn;
 use Illuminate\Database\Eloquent\Builder;
 use Filament\Infolists\Components\Section;
 use Filament\Infolists\Components\TextEntry;
 use Filament\Infolists\Components\ImageEntry;
-use App\Filament\Resources\ReportResource\Pages;
+use App\Filament\Resources\AneWinnerResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
-use App\Filament\Resources\ReportResource\RelationManagers;
+use App\Filament\Resources\AneWinnerResource\RelationManagers;
 
-class ReportResource extends Resource
+class AneWinnerResource extends Resource
 {
-    protected static ?string $model = Report::class;
+    protected static ?string $model = AneWinner::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-arrow-up-on-square-stack';
-    protected static ?string $navigationLabel = 'Nos Actions && News';
-    protected static ?string $navigationGroup = 'Actualités et Événements';
+    protected static ?string $navigationIcon = 'heroicon-o-chart-pie';
+    protected static ?string $label = 'ANE Winners';
+    protected static ?string $navigationLabel = 'ANE Winners';
+    protected static ?string $navigationGroup = 'AMID';
 
     public static function infolist(Infolist $infolist): Infolist
     {
@@ -43,25 +40,22 @@ class ReportResource extends Resource
                             Grid::make(3)
                                 ->schema([
 
-                                    TextEntry::make('pole.name')
+                                    TextEntry::make('team_name')
                                         ->hiddenLabel()
                                         ->grow(),
                                     Grid::make(2)
                                         ->schema([
-                                            TextEntry::make('title')->label('Titre'),
-                                            TextEntry::make('date')->label('date'),
+                                            TextEntry::make('rating')->label('Rang'),
+                                            TextEntry::make('year')->label('Année'),
                                         ]),
 
-                                    ImageEntry::make('illustration')
+                                    ImageEntry::make('team_picture')
                                         ->hiddenLabel()
                                         // ->size(750)
                                         ->height(800)
                                         ->width(600)
                                         ->grow(),
-
-
                                 ])
-
                         ]),
                         Section::make('Description')
                             ->schema([
@@ -73,42 +67,40 @@ class ReportResource extends Resource
                             ->collapsible(),
 
                     ])
-
-
-
-
             ]);
     }
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                Select::make('pole_id')
-                    ->label('Pole')
-                    ->placeholder('Choisir un pole')
+                Forms\Components\TextInput::make('team_name')
                     ->required()
-                    ->options(\App\Models\Pole::pluck('name', 'id')),
-                Forms\Components\TextInput::make('title')
-                    ->required(),
-                RichEditor::make('description')
-                    ->required(),
-                FileUpload::make('illustration')
+                    ->maxLength(255)
+                    ->label('Equipe'),
+                FileUpload::make('team_picture')
                     ->required()
-                    ->image()->directory('report')->label("Image de la new ou de l'action"),
-                RichEditor::make('caption'),
-                FileUpload::make('album')
-                    ->multiple()
-                    ->directory('album')->label("Album"),
+                    ->label('Image'),
+                Forms\Components\DatePicker::make('year')
+                    ->required()
+                    ->label('Année'),
+                Forms\Components\Textarea::make('description')
+                    ->required()
+                    ->maxLength(65535)
+                    ->columnSpanFull(),
+                Forms\Components\TextInput::make('rating')
+                    ->required()
+                    ->numeric()
+                    ->label('rang'),
                 Forms\Components\Toggle::make('status')
                     ->required(),
-                Forms\Components\DatePicker::make('date')
-                    ->required(),
-                Forms\Components\Toggle::make('is_report')
-                    ->label('Report')
-                    ->required(),
-                Forms\Components\Toggle::make('is_action')
-                    ->label('Action')
-                    ->required(),
+                Forms\Components\TextInput::make('facebook')
+                    ->maxLength(255),
+                Forms\Components\TextInput::make('linkedin')
+                    ->maxLength(255),
+                Forms\Components\TextInput::make('twitter')
+                    ->maxLength(255),
+                Forms\Components\TextInput::make('instagram')
+                    ->maxLength(255),
             ]);
     }
 
@@ -116,25 +108,29 @@ class ReportResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('pole.name')->label('Pole'),
-                ImageColumn::make('illustration'),
-                Tables\Columns\TextColumn::make('caption')
-                    ->searchable(),
-
-                ToggleColumn::make('status')
-                    ->label('Status'),
-                Tables\Columns\TextColumn::make('date')
+                Tables\Columns\TextColumn::make('team_name')
+                    ->searchable()
+                    ->label('Equipe'),
+                Tables\Columns\ImageColumn::make('team_picture')
+                    ->searchable()
+                    ->label('Image'),
+                Tables\Columns\TextColumn::make('year')
                     ->date()
-                    ->sortable(),
-                ImageColumn::make('album')
-                    ->circular()
-                    ->stacked(),
-
-                ToggleColumn::make('is_report')
-                    ->label('News'),
-                ToggleColumn::make('is_action')
-                    ->label('Action'),
-
+                    ->sortable()
+                    ->label('Année'),
+                Tables\Columns\TextColumn::make('rating')
+                    ->numeric()
+                    ->sortable()
+                    ->label('rang'),
+                Tables\Columns\ToggleColumn::make('status'),
+                Tables\Columns\TextColumn::make('facebook')
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('linkedin')
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('twitter')
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('instagram')
+                    ->searchable(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
@@ -161,19 +157,10 @@ class ReportResource extends Resource
             ]);
     }
 
-    public static function getRelations(): array
-    {
-        return [
-            //
-        ];
-    }
-
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListReports::route('/'),
-            'create' => Pages\CreateReport::route('/create'),
-            'edit' => Pages\EditReport::route('/{record}/edit'),
+            'index' => Pages\ManageAneWinners::route('/'),
         ];
     }
 }

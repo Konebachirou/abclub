@@ -24,7 +24,6 @@ class TrackVisitor
             $visitor = uniqid();
             // Récupérer l'adresse IP du visiteur
             $ip = $request->ip();
-
             // Utiliser la bibliothèque Location pour obtenir des informations sur l'adresse IP
             $location = Location::get();
             //$location = Location::get($ip);
