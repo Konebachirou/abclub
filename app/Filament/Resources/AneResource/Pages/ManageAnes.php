@@ -9,11 +9,4 @@ use Filament\Resources\Pages\ManageRecords;
 class ManageAnes extends ManageRecords
 {
     protected static string $resource = AneResource::class;
-
-    protected function getHeaderActions(): array
-    {
-        return [
-            Actions\CreateAction::make(),
-        ];
-    }
 }

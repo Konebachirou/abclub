@@ -2,9 +2,13 @@
 
 namespace App\Filament\Resources\JobResource\Pages;
 
-use App\Filament\Resources\JobResource;
+use App\Models\Job;
 use Filament\Actions;
+use App\Filament\Resources\JobResource;
 use Filament\Resources\Pages\ListRecords;
+use Filament\Widgets\StatsOverviewWidget\Stat;
+use App\Filament\Resources\JobResource\Widgets\JobOverview;
+use App\Filament\Resources\JobResource\Widgets\PostulantJobChart;
 
 class ListJobs extends ListRecords
 {
@@ -14,6 +18,13 @@ class ListJobs extends ListRecords
     {
         return [
             Actions\CreateAction::make(),
+        ];
+    }
+    protected function getHeaderWidgets(): array
+    {
+        return [
+            JobOverview::class,
+            PostulantJobChart::class,
         ];
     }
 }

@@ -2,16 +2,22 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\AneResource\Pages;
-use App\Filament\Resources\AneResource\RelationManagers;
 use App\Models\Ane;
 use Filament\Forms;
-use Filament\Forms\Form;
-use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Forms\Form;
 use Filament\Tables\Table;
+use Barryvdh\DomPDF\Facade\Pdf;
+use Filament\Resources\Resource;
+use Illuminate\Support\Facades\Blade;
+use Filament\Tables\Columns\TextColumn;
+use Illuminate\Database\Eloquent\Model;
+use Filament\Forms\Components\TextInput;
+use Filament\Tables\Actions\ActionGroup;
 use Illuminate\Database\Eloquent\Builder;
+use App\Filament\Resources\AneResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use App\Filament\Resources\AneResource\RelationManagers;
 
 class AneResource extends Resource
 {
@@ -23,26 +29,50 @@ class AneResource extends Resource
     protected static ?string $navigationLabel = 'ANE';
     protected static ?string $navigationGroup = 'AMID';
 
-    public static function form(Form $form): Form
-    {
-        return $form
-            ->schema([
-                //
-            ]);
-    }
 
     public static function table(Table $table): Table
     {
         return $table
             ->columns([
-                //
+                TextColumn::make('nom_projet_entreprise')
+                    ->searchable()
+                    ->sortable(),
+                TextColumn::make('nom_de_famille')
+                    ->searchable()
+                    ->sortable(),
+                TextColumn::make('prenom')
+                    ->searchable()
+                    ->sortable(),
+                TextColumn::make('numero_telephone')
+                    ->searchable()
+                    ->sortable(),
+                TextColumn::make('email')
+                    ->searchable()
+                    ->sortable(),
+                TextColumn::make('parcours_professionnel')
+                    ->searchable()
+                    ->sortable(),
+
             ])
             ->filters([
                 //
             ])
             ->actions([
-                Tables\Actions\EditAction::make(),
-                Tables\Actions\DeleteAction::make(),
+                ActionGroup::make([
+                    Tables\Actions\EditAction::make(),
+                    Tables\Actions\DeleteAction::make(),
+                    Tables\Actions\Action::make('pdf')
+                        ->label('PDF')
+                        ->color('success')
+                        ->icon('heroicon-o-arrow-down-tray')
+                        ->action(function (Model $record) {
+                            return response()->streamDownload(function () use ($record) {
+                                echo Pdf::loadHtml(
+                                    Blade::render('pdf', ['record' => $record])
+                                )->stream();
+                            }, $record->number . '.pdf');
+                        }),
+                ]),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
