@@ -35,7 +35,7 @@
                             @else
                                 <img src="{{ asset('assets/images/blog/blog-single-03.png') }}" alt="{{$new->title}}">
                             @endif
-                            <figcaption class="w-500">{{ $new->caption }}</figcaption>
+                            <figcaption class="w-500 m-5">{!! $new->caption !!}</figcaption>
                         </figure>
                     </div>
                     <p>{!! $new->description !!}</p>

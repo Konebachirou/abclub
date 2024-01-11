@@ -251,6 +251,31 @@
     </div>
     </div>
 
+    <!-- Start Video Area  -->
+    <div class="rbt-video-area">
+        <div class="container">
+        <div class="row mb--10">
+                <div class="col-lg-12" style="margin-top: 5%;">
+                    <div class="section-title text-center">
+                        <span class="subtitle bg-primary-opacity">African Business Talks</span>
+                        <!-- <h2 class="title">Nos Pôles d'activités</h2> -->
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="video-popup-wrapper">
+                        <img class="w-100 rbt-radius" src="{{ asset('assets/images/others/podcast.png') }}" alt="Video Images">
+                        <a class="rbt-btn rounded-player-2 popup-video position-to-top with-animation btn-theme-color" href="https://www.youtube.com/watch?v=nA1Aqp0sPQo">
+                            <span class="play-icon"></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Video Area  -->
+
     <!-- Start Event Area  -->
     <div class=" bg-color-white " style="margin-top: 4%;">
         <div class="container">

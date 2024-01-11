@@ -7,9 +7,9 @@
                     <div class="section-title text-center mb--40">
                         <h4 class="small-title w-600">Ils nous font confiance</h4>
                     </div>
-                    <ul class="brand-list brand-style-3 justify-content-center justify-content-lg-between">
+                    <ul class="brand-list brand-style-2 justify-content-center justify-content-lg-between">
                         @foreach ($partners as $partner)
-                            <li><a href="#"><img src="{{ $partner->photoUrl }}" alt="Brand Image"></a></li>
+                            <li><a href="{{$partner->website}}"><img src="{{ $partner->logoUrl() }}" alt="{{$partner->name}}"></a></li>
                         @endforeach
                     </ul>
 

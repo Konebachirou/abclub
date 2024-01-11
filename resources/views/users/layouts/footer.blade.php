@@ -11,7 +11,7 @@
                 <div class="col-lg-4 col-md-6 col-sm-6 col-12   ">
                     <div class="footer-widget">
                         <div class="logo">
-                            <a href="index.html">
+                            <a href="{{ route('home_link') }}">
                                 <img src="{{ asset('assets/images/logo/logo1.png') }}" width="180" alt="ABC">
                             </a>
                         </div>

@@ -65,11 +65,20 @@ class JobResource extends Resource
                 TextInput::make('job_link')->label('Lien du poste')
                     ->required(),
 
-                RichEditor::make('content')->label('Contenu de l\'offre')
+                RichEditor::make('company_desc')->label('Description de l\'entreprise')
                     ->required(),
-                RichEditor::make('description')->label('Description de l\'offre')
+                RichEditor::make('mission')->label('Description de la mission')
                     ->required(),
-
+                RichEditor::make('diplomes')->label('Diplômes requis ')
+                    ->required(),
+                RichEditor::make('experiences')->label('Expériences requises')
+                    ->required(),
+                RichEditor::make('languages')->label('Langues')
+                    ->required(),
+                RichEditor::make('competences')->label('Compétences et expertises')
+                    ->required(),
+                RichEditor::make('process')->label('Processus de recrutement ')
+                    ->required(),
 
             ]);
     }

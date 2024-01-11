@@ -33,11 +33,12 @@ class NewsActionsController extends Controller
     public function details(string $title)
     {
 
+        $ongletActif = 'news';
         $new = Report::where('title', $title)->first();
         $album = json_decode($new->album, true);
         // dd($album);
         $similars = Report::latest()->take(3)->get();
-        return view('users.news.news_detail', ['new' => $new, 'similars' => $similars, 'album' => $album,]);
+        return view('users.news.news_detail', ['new' => $new, 'similars' => $similars, 'album' => $album,'ongletActif' => $ongletActif]);
     }
 
     /**

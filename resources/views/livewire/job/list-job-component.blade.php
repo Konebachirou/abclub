@@ -7,7 +7,7 @@
                         <div class="filter-select rbt-modern-select search-by-category">
 
                             <select wire:model.live="selectedDomain">
-                                <option value="">All Domains</option>
+                                <option value="">Domaine</option>
                                 @foreach ($domains as $domain)
                                     <option value="{{ $domain }}">{{ $domain }}</option>
                                 @endforeach
@@ -79,7 +79,6 @@
                                     <tr>
                                         <th class="pro-thumbnail">Logo</th>
                                         <th class="pro-title">Entreprise</th>
-                                        <th class="pro-title">Domaine</th>
                                         <th class="pro-title">Poste</th>
                                         <th class="pro-title">Localisation</th>
                                         <th class="pro-title">Type</th>
@@ -94,7 +93,6 @@
                                                     src="{{ $job->imageUrl() }}" alt="{{ $job->company }}">
                                             </td>
                                             <td class="pro-price"><span>{{ $job->company }}</span></td>
-                                            <td class="pro-price"><span>{{ $job->domain }}</span></td>
                                             <td class="pro-title text-center">{{ $job->job_title }}</td>
                                             <td class="pro-title text-center"><i class="feather-map-pin"></i>
                                                 {{ $job->location }}</td>

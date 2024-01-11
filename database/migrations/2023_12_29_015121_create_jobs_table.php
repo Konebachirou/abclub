@@ -21,8 +21,13 @@ return new class extends Migration
             $table->enum('type', ['FREELANCE', 'CDI', 'CDD', 'Alternance', 'Stage', 'Intérime']);
             $table->string('location');
             $table->string('domain');
-            $table->text('description');
-            $table->text('content');
+            $table->text('company_desc');
+            $table->text('mission');
+            $table->text('diplomes');
+            $table->text('experiences');
+            $table->text('languages');
+            $table->text('competences');
+            $table->text('process');
             $table->foreignId('pole_id')->nullable()->constrained();
             $table->boolean('status')->default(true);
             $table->timestamps();

@@ -14,7 +14,7 @@
                         <div class="col-lg-12">
                             <!-- Start Breadcrumb Area  -->
                             <ul class="page-list">
-                                <li class="rbt-breadcrumb-item"><a href="index.html">Accueil</a></li>
+                                <li class="rbt-breadcrumb-item"><a href="{{ route('home_link') }}">Accueil</a></li>
                                 <li>
                                     <div class="icon-right"><i class="feather-chevron-right"></i></div>
                                 </li>

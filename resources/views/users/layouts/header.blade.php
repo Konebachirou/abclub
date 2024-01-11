@@ -193,7 +193,7 @@
         <div class="inner-top">
             <div class="content">
                 <div class="logo">
-                    <a href="index.html">
+                    <a href="{{ route('home_link') }}">
                         <img src="{{ asset('assets/images/logo/logo.png') }}" alt="Education Logo Images">
                     </a>
                 </div>

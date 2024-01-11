@@ -10,6 +10,7 @@ class PartnerComponent extends Component
     public function render()
     {
         $partners = Partner::where('pole_id', null)->get();
+        // dd($partners);
         return view('livewire.component.partner-component', ['partners' => $partners]);
     }
 }
