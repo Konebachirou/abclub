@@ -75,17 +75,10 @@
                             <div class="section-title">
                                 <h4 class="rbt-title-style-3">Entreprise</h4>
                             </div>
-                            <p>Are you new to PHP or need a refresher? Then this course will help you get
-                                all the fundamentals of Procedural PHP, Object Oriented PHP, MYSQLi and
-                                ending the course by building a CMS system similar to WordPress, Joomla or
-                                Drupal. Knowing PHP has allowed me to make enough money to stay home and
-                                make courses like this one for students all over the world.Are you new to PHP or need a refresher? Then this course will help you get
-                                all the fundamentals of Procedural PHP, Object Oriented PHP, MYSQLi and
-                                ending the course by building a CMS system similar to WordPress, Joomla or
-                                Drupal. Knowing PHP has allowed me to make enough money to stay home and
-                                make courses like this one for students all over the world. </p>
-                            <div class="rbt-show-more-btn">Show More</div>
+                            {!! $job->company_desc !!}
+
                         </div>
+                        <div class="rbt-show-more-btn">Show More</div>
                     </div>
                     <!-- End jobs company Box  -->
 
@@ -96,7 +89,7 @@
                             <div class="section-title">
                                 <h4 class="rbt-title-style-3">Description de la mission</h4>
                             </div>
-                            {!! $job->description !!}
+                            {!! $job->mission !!}
                         </div>
                         <div class="rbt-show-more-btn">Show More</div>
                     </div>
@@ -104,16 +97,19 @@
 
                     <!-- Start Course Feature Box  -->
                     <div class="rbt-course-feature-box rbt-shadow-box details-wrapper mt--30" id="profil">
-                        <div class="section-title">
+                        <!-- <div class="section-title">
                             <h4 class="rbt-title-style-3">Profil du candidat</h4>
-                        </div>
+                        </div> -->
                         <div class="row g-5">
                             <!-- Start Feture Box  -->
                             <div class="col-lg-6">
                                 <div class="section-title">
                                     <h4 class="rbt-title-style-3 mb--20">Diplôme requis </h4>
                                 </div>
-                                <div></div>
+                                <div>
+                                    {!! $job->diplomes !!}
+
+                                </div>
                             </div>
                             <!-- End Feture Box  -->
 
@@ -122,7 +118,10 @@
                                 <div class="section-title">
                                     <h4 class="rbt-title-style-3 mb--20">Expériences requises</h4>
                                 </div>
-                                <div></div>
+                                <div>
+                                    {!! $job->experiences !!}
+
+                                </div>
                             </div>
                             <!-- End Feture Box  -->
 
@@ -131,16 +130,22 @@
                                 <div class="section-title">
                                     <h4 class="rbt-title-style-3 mb--20">Langues</h4>
                                 </div>
-                                <div></div>
+                                <div>
+                                    {!! $job->languages !!}
+
+                                </div>
                             </div>
                             <!-- End Feture Box  -->
 
                             <!-- Start Feture Box  -->
-                            <div class="col-lg-6">
+                            <div class="col-lg-6 has-show-more">
                                 <div class="section-title">
                                     <h4 class="rbt-title-style-3 mb--20">Compétences et expertises</h4>
                                 </div>
-                                <div></div>
+                                <div class="rbt-course-feature-inner has-show-more-inner-content">
+                                    {!! $job->competences !!}
+                                </div>
+                            <div class="rbt-show-more-btn">Show More</div>
                             </div>
                             <!-- End Feture Box  -->
                         </div>
@@ -154,16 +159,7 @@
                                 <h4 class="rbt-title-style-3">Processus de recrutement</h4>
                             </div>
                             <div class="rbt-course-feature-inner has-show-more-inner-content">
-                                <p>Are you new to PHP or need a refresher? Then this course will help you get
-                                    all the fundamentals of Procedural PHP, Object Oriented PHP, MYSQLi and
-                                    ending the course by building a CMS system similar to WordPress, Joomla or
-                                    Drupal. Knowing PHP has allowed me to make enough money to stay home and
-                                    make courses like this one for students all over the world.Are you new to PHP or need a refresher? Then this course will help you get
-                                    all the fundamentals of Procedural PHP, Object Oriented PHP, MYSQLi and
-                                    ending the course by building a CMS system similar to WordPress, Joomla or
-                                    Drupal. Knowing PHP has allowed me to make enough money to stay home and
-                                    make courses like this one for students all over the world. </p>
-
+                                {!! $job->process !!}
                             </div>
                             <div class="rbt-show-more-btn">Show More</div>
                         </div>
@@ -180,7 +176,7 @@
                         @csrf
                         <input type="hidden" name="job_id" value="{{ $job->id }}">
 
-                        <button class="rbt-btn btn-gradient hover-icon-reverse">
+                        <button class="rbt-btn btn-gradient hover-icon-reverse" style="width: 100%;">
                             <span class="icon-reverse-wrapper">
                                 <span class="btn-text">Je candidate</span>
                                 <span class="btn-icon"><i class="feather-arrow-right"></i></span>

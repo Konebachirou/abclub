@@ -165,6 +165,7 @@
             </div>
         </div>
     </div>
+    @if(count($conferences))
     <!-- Start Card Style -->
     <div class="rbt-rbt-card-area  bg-color-white" style="margin-top: 5%;">
         <div class="container">
@@ -216,6 +217,7 @@
             <!-- End Card Area -->
         </div>
     </div>
+    @endif
     <!-- End Card Style -->
 
     <!-- Start Gallery Area  -->
@@ -229,9 +231,9 @@
         </div>
         <div class="row g-0 parent-gallery-container">
             @foreach ($partners as $partner)
-                <a href="{{ $partner->photoUrl }}" class="child-gallery-single col-lg-2 col-md-4 col-sm-6 col-6">
+                <a href="{{ $partner->logoUrl() }}" class="child-gallery-single col-lg-2 col-md-4 col-sm-6 col-6">
                     <div class="rbt-gallery">
-                        <img class="w-100" src="{{ $partner->photoUrl }}" alt="{{ $partner->name }}">
+                        <img class="w-100" src="{{ $partner->logoUrl() }}" alt="{{ $partner->name }}">
                     </div>
                 </a>
             @endforeach

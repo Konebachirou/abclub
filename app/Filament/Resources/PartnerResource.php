@@ -8,6 +8,7 @@ use App\Models\Partner;
 use Filament\Forms\Form;
 use Filament\Tables\Table;
 use Filament\Resources\Resource;
+use Filament\Forms\Components\Select;
 use Filament\Tables\Actions\ActionGroup;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Forms\Components\FileUpload;
@@ -41,6 +42,10 @@ class PartnerResource extends Resource
                 Forms\Components\TextInput::make('website')
                     ->required()
                     ->maxLength(255),
+                Select::make('pole_id')
+                    ->label('Pole')
+                    ->required()
+                    ->options(\App\Models\Pole::pluck('name', 'id')),
             ]);
     }
 
@@ -53,6 +58,7 @@ class PartnerResource extends Resource
                 ImageColumn::make('logo'),
                 ToggleColumn::make('status')
                     ->label('Status'),
+                
             ])
             ->filters([
                 //
@@ -62,7 +68,7 @@ class PartnerResource extends Resource
                     Tables\Actions\EditAction::make(),
                     Tables\Actions\DeleteAction::make(),
                 ]),
-            ])
+            ]) 
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make(),

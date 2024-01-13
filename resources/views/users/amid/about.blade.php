@@ -200,24 +200,27 @@
         </div>
     </div>
 
-    <!-- Start Testimonial Area   -->
-    <div class="rbt-testimonial-area bg-color-white overflow-hidden">
-        <div class="wrapper">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="section-title text-center mb--10">
-                            <!-- <span class="subtitle bg-primary-opacity">EDUCATION FOR EVERYONE</span> -->
-                            <h2 class="title">Ils ont décider de nous accompagner</h2>
-                        </div>
-                    </div>
+       <!-- Start Gallery Area  -->
+       <div class="rbt-gallery-area" style="margin-top: 5%;">
+        <div class="row row--15 align-items-center mb--30">
+            <div class="col-lg-12">
+                <div class="section-title text-center">
+                    <h2 class="title">Ils ont décider de nous accompagner</h2>
                 </div>
             </div>
         </div>
-        <livewire:component.amid-partner-component />
+        <div class="row g-0 parent-gallery-container">
+            @foreach ($partners as $partner)
+                <a href="{{ $partner->logoUrl() }}" class="child-gallery-single col-lg-2 col-md-4 col-sm-6 col-6">
+                    <div class="rbt-gallery">
+                        <img class="w-100" src="{{ $partner->logoUrl() }}" alt="{{ $partner->name }}">
+                    </div>
+                </a>
+            @endforeach
 
+        </div>
 
     </div>
-    <!-- End Testimonial Area   -->
+    <!-- End Gallery Area  -->
 
 @stop

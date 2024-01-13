@@ -19,5 +19,4 @@
         </div>
     </div>
     <!-- End Brand Area  -->
-
 </div>

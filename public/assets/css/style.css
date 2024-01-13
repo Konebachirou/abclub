@@ -14447,7 +14447,6 @@ fieldset:disabled {
   color: var(--color-white);
   background-size: 300% 100%;
   background-image: linear-gradient(to right, var(--color-primary), var(--color-secondary), var(--color-secondary), var(--color-primary));
-  width: 100%;
 }
 
 .rbt-btn.btn-gradient.btn-gradient-2 {

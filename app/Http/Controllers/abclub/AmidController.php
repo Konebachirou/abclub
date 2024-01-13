@@ -16,8 +16,9 @@ class AmidController extends Controller
 {
     public function about()
     {
+        $partners = Partner::withPoleName('Pôle AMID')->get();
         $ongletActif = 'amid';
-        return view('users.amid.about', ['ongletActif' => $ongletActif]);
+        return view('users.amid.about', [ 'partners' => $partners,'ongletActif' => $ongletActif]);
     }
 
     public function ane()
@@ -32,13 +33,16 @@ class AmidController extends Controller
             ->orderBy('rating', 'asc') // Trie par rating croissant (le rang)
             ->take(3)
             ->get();
-        return view('users.business.ane', ['slides' => $slides, 'winners' => $winners, 'ongletActif' => $ongletActif]);
+        $partners = Partner::withPoleName('Pôle AMID')->get();
+
+        return view('users.business.ane', ['slides' => $slides, 'partners' => $partners, 'winners' => $winners, 'ongletActif' => $ongletActif]);
     }
 
     public function anp()
     {
         $ongletActif = 'amid';
         $partners = Partner::withPoleName('Pôle AMID')->get();
+        // dd($partners);
         $conferences = Event::orderby('id', 'desc')->where('is_event', false)->get();
         return view('users.business.anp', ['ongletActif' => $ongletActif, 'partners' => $partners, 'conferences' => $conferences]);
     }

@@ -7,7 +7,7 @@
                     <div class="rbt-testimonial-box style-2">
                         <div class="inner">
                             <div class="icons">
-                                <img src="{{ $partner->photoUrl }}" alt="{{ $partner->name }}">
+                                <img src="{{ $partner->logoUrl() }}" alt="{{ $partner->name }}">
                             </div>
                             <div class="description">
                                 <p class="subtitle-3">{{ $partner->description }}.</p>

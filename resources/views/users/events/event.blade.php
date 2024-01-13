@@ -25,7 +25,7 @@
                             <div class=" title-wrapper">
                                 <h1 class="title mb--0">Tous les événements</h1>
                             </div>
-                            <p class="description">Event that help beginner designers become true unicorns. </p>
+                            <p class="description">Tous savoir sur les événements organisés par l'African Business Club. </p>
                         </div>
                     </div>
                 </div>
