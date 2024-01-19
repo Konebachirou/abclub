@@ -5,7 +5,6 @@ namespace Filament\Facades;
 use Closure;
 use Filament\Billing\Providers\Contracts\Provider as BillingProvider;
 use Filament\Contracts\Plugin;
-use Filament\Enums\ThemeMode;
 use Filament\FilamentManager;
 use Filament\GlobalSearch\Contracts\GlobalSearchProvider;
 use Filament\Models\Contracts\HasTenants;
@@ -24,7 +23,6 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Facade;
 
 /**
- * @method static bool arePasswordsRevealable()
  * @method static StatefulGuard auth()
  * @method static void bootCurrentPanel()
  * @method static array<NavigationGroup> buildNavigation()
@@ -33,7 +31,6 @@ use Illuminate\Support\Facades\Facade;
  * @method static string | Htmlable getBrandName()
  * @method static string | Htmlable | null getBrandLogo()
  * @method static string | null getBrandLogoHeight()
- * @method static array getClusteredComponents(?string $cluster = null)
  * @method static string getCollapsedSidebarWidth()
  * @method static Panel | null getCurrentPanel()
  * @method static string | Htmlable | null getDarkModeBrandLogo()
@@ -81,7 +78,6 @@ use Illuminate\Support\Facades\Facade;
  * @method static string | null getTenantProfileUrl(array $parameters = [])
  * @method static string | null getTenantRegistrationUrl(array $parameters = [])
  * @method static Theme getTheme()
- * @method static ThemeMode getDefaultThemeMode()
  * @method static string | null getUserAvatarUrl(Model | Authenticatable $user)
  * @method static Model | null getUserDefaultTenant(HasTenants | Model | Authenticatable $user)
  * @method static array<MenuItem> getUserMenuItems()
@@ -104,11 +100,9 @@ use Illuminate\Support\Facades\Facade;
  * @method static bool hasRegistration()
  * @method static bool hasTenancy()
  * @method static bool hasTenantBilling()
- * @method static bool hasTenantMenu()
  * @method static bool hasTenantProfile()
  * @method static bool hasTenantRegistration()
  * @method static bool hasTopNavigation()
- * @method static bool hasUnsavedChangesAlerts()
  * @method static bool isServing()
  * @method static bool isSidebarCollapsibleOnDesktop()
  * @method static bool isSidebarFullyCollapsibleOnDesktop()
@@ -116,7 +110,7 @@ use Illuminate\Support\Facades\Facade;
  * @method static void serving(Closure $callback)
  * @method static void setCurrentPanel(Panel | null $panel = null)
  * @method static void setServingStatus(bool $condition = true)
- * @method static void setTenant(Model | null $tenant = null, bool $isQuiet = false)
+ * @method static void setTenant(Model | null $tenant = null)
  *
  * @see FilamentManager
  */

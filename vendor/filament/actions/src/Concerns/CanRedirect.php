@@ -3,9 +3,6 @@
 namespace Filament\Actions\Concerns;
 
 use Closure;
-use Filament\Support\Facades\FilamentView;
-
-use function Filament\Support\is_app_url;
 
 trait CanRedirect
 {
@@ -37,9 +34,7 @@ trait CanRedirect
 
     public function redirect(string | Closure $url): void
     {
-        $url = $this->evaluate($url);
-
-        $this->getLivewire()->redirect($url, navigate: FilamentView::hasSpaMode() && is_app_url($url));
+        $this->getLivewire()->redirect($this->evaluate($url));
     }
 
     public function failureRedirectUrl(string | Closure | null $url): static

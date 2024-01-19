@@ -11,14 +11,7 @@ return [
     'columns' => [
 
         'text' => [
-
-            'actions' => [
-                'collapse_list' => 'Mostrar menos :count',
-                'expand_list' => 'Mostrar mais :count',
-            ],
-
-            'more_list_items' => 'e mais :count',
-
+            'more_list_items' => 'e :count mais',
         ],
 
     ],
@@ -26,21 +19,21 @@ return [
     'fields' => [
 
         'bulk_select_page' => [
-            'label' => 'Marcar/desmarcar todos os itens para acções em massa.',
+            'label' => 'Marcar/desmarcar todos os itens para ações em massa.',
         ],
 
         'bulk_select_record' => [
-            'label' => 'Marcar/desmarcar o item :key para acções em massa.',
+            'label' => 'Marcar/desmarcar o item :key para ações em massa.',
         ],
 
         'bulk_select_group' => [
-            'label' => 'Marcar/desmarcar o grupo :title para acções em massa.',
+            'label' => 'Marcar/desmarcar o grupo :key para ações em massa.',
         ],
 
         'search' => [
-            'label' => 'Pesquisar',
-            'placeholder' => 'Pesquisar',
-            'indicator' => 'Pesquisar',
+            'label' => 'Procurar',
+            'placeholder' => 'Procurar',
+            'indicator' => 'Procurar',
         ],
 
     ],
@@ -51,7 +44,7 @@ return [
 
         'subheadings' => [
             'all' => 'Todos :label',
-            'group' => 'Resumo de :group',
+            'group' => ':group resumo',
             'page' => 'Esta página',
         ],
 
@@ -92,30 +85,25 @@ return [
         ],
 
         'open_bulk_actions' => [
-            'label' => 'Acções em massa',
+            'label' => 'Abrir ações',
         ],
 
         'toggle_columns' => [
-            'label' => 'Activar colunas',
+            'label' => 'Alternar colunas',
         ],
 
     ],
 
     'empty' => [
 
-        'heading' => 'Sem :model',
+        'heading' => 'Sem registos',
 
-        'description' => 'Crie um(a) :model para começar.',
-
+        'description' => 'Crie um :model para começar.',
     ],
 
     'filters' => [
 
         'actions' => [
-
-            'apply' => [
-                'label' => 'Aplicar filtros',
-            ],
 
             'remove' => [
                 'label' => 'Remover filtro',
@@ -127,9 +115,8 @@ return [
             ],
 
             'reset' => [
-                'label' => 'Repôr',
+                'label' => 'Limpar filtros',
             ],
-
         ],
 
         'heading' => 'Filtros',
@@ -146,13 +133,13 @@ return [
 
         'trashed' => [
 
-            'label' => 'Registos eliminados',
+            'label' => 'Registos excluídos',
 
-            'only_trashed' => 'Apenas registos eliminados',
+            'only_trashed' => 'Somente registos excluídos',
 
-            'with_trashed' => 'Mostrar registos eliminados',
+            'with_trashed' => 'Mostrar registos excluídos',
 
-            'without_trashed' => 'Não mostrar registos eliminados',
+            'without_trashed' => 'Não mostrar registos excluídos',
 
         ],
 
@@ -169,7 +156,7 @@ return [
 
             'direction' => [
 
-                'label' => 'Direcção de agrupamento',
+                'label' => 'Direção do agrupamento',
 
                 'options' => [
                     'asc' => 'Ascendente',
@@ -179,19 +166,18 @@ return [
             ],
 
         ],
-
     ],
 
-    'reorder_indicator' => 'Arraste e solte os registos por ordem.',
+    'reorder_indicator' => 'Arraste e solte os registos na ordem.',
 
     'selection_indicator' => [
 
-        'selected_count' => '1 registo seleccionado|:count registos seleccionados',
+        'selected_count' => '1 registo selecionado|:count registos selecionados',
 
         'actions' => [
 
             'select_all' => [
-                'label' => 'Seleccionar todos os :count',
+                'label' => 'Selecionar todos :count',
             ],
 
             'deselect_all' => [
@@ -201,7 +187,6 @@ return [
         ],
 
     ],
-
     'sorting' => [
 
         'fields' => [
@@ -212,7 +197,7 @@ return [
 
             'direction' => [
 
-                'label' => 'Direcção de ordenação',
+                'label' => 'Direção de ordenação',
 
                 'options' => [
                     'asc' => 'Ascendente',

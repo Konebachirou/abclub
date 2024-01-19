@@ -2,14 +2,14 @@
 
 return [
 
-    'title' => 'Redefinir a sua palavra-passe',
+    'title' => 'Redefinir a sua senha',
 
-    'heading' => 'Esqueceu-se da palavra-passe?',
+    'heading' => 'Esqueceu a sua senha?',
 
     'actions' => [
 
         'login' => [
-            'label' => 'voltar ao início',
+            'label' => 'voltar ao login',
         ],
 
     ],
@@ -17,13 +17,13 @@ return [
     'form' => [
 
         'email' => [
-            'label' => 'Endereço de e-mail',
+            'label' => 'E-mail',
         ],
 
         'actions' => [
 
             'request' => [
-                'label' => 'Enviar e-mail',
+                'label' => 'Enviar email',
             ],
 
         ],

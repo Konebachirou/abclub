@@ -5,7 +5,6 @@ namespace Filament;
 use Closure;
 use Exception;
 use Filament\Contracts\Plugin;
-use Filament\Enums\ThemeMode;
 use Filament\Events\ServingFilament;
 use Filament\Events\TenantSet;
 use Filament\Exceptions\NoDefaultPanelSetException;
@@ -189,11 +188,6 @@ class FilamentManager
         return $this->getCurrentPanel()->getHomeUrl() ?? $this->getCurrentPanel()->getUrl();
     }
 
-    public function getId(): ?string
-    {
-        return $this->getCurrentPanel()?->getId();
-    }
-
     /**
      * @param  array<mixed>  $parameters
      */
@@ -251,14 +245,6 @@ class FilamentManager
     public function getNavigationItems(): array
     {
         return $this->getCurrentPanel()->getNavigationItems();
-    }
-
-    /**
-     * @return array<string | int, array<class-string> | class-string>
-     */
-    public function getClusteredComponents(?string $cluster): array
-    {
-        return $this->getCurrentPanel()->getClusteredComponents($cluster);
     }
 
     /**
@@ -575,11 +561,6 @@ class FilamentManager
         return $this->getCurrentPanel()->hasRegistration();
     }
 
-    public function hasTenantMenu(): bool
-    {
-        return $this->getCurrentPanel()->hasTenantMenu();
-    }
-
     public function hasTenancy(): bool
     {
         return $this->getCurrentPanel()->hasTenancy();
@@ -600,19 +581,9 @@ class FilamentManager
         return $this->getCurrentPanel()->hasTenantRegistration();
     }
 
-    public function hasTopbar(): bool
-    {
-        return $this->getCurrentPanel()->hasTopbar();
-    }
-
     public function hasTopNavigation(): bool
     {
         return $this->getCurrentPanel()->hasTopNavigation();
-    }
-
-    public function hasUnsavedChangesAlerts(): bool
-    {
-        return $this->getCurrentPanel()->hasUnsavedChangesAlerts();
     }
 
     public function isGlobalSearchEnabled(): bool
@@ -684,11 +655,11 @@ class FilamentManager
         $this->isServing = $condition;
     }
 
-    public function setTenant(?Model $tenant, bool $isQuiet = false): void
+    public function setTenant(?Model $tenant): void
     {
         $this->tenant = $tenant;
 
-        if ($tenant && (! $isQuiet)) {
+        if ($tenant) {
             event(new TenantSet($tenant, $this->auth()->user()));
         }
     }
@@ -839,15 +810,5 @@ class FilamentManager
         } catch (NoDefaultPanelSetException $exception) {
             throw new Exception('Please use the `widgets()` method on the panel configuration to register widgets.');
         }
-    }
-
-    public function getDefaultThemeMode(): ThemeMode
-    {
-        return $this->getCurrentPanel()->getDefaultThemeMode();
-    }
-
-    public function arePasswordsRevealable(): bool
-    {
-        return $this->getCurrentPanel()->arePasswordsRevealable();
     }
 }

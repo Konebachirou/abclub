@@ -25,7 +25,7 @@
 
 @php
     if (! $size instanceof ActionSize) {
-        $size = filled($size) ? (ActionSize::tryFrom($size) ?? $size) : null;
+        $size = ActionSize::tryFrom($size) ?? $size;
     }
 
     $iconSize ??= match ($size) {
@@ -36,7 +36,7 @@
     };
 
     if (! $iconSize instanceof IconSize) {
-        $iconSize = filled($iconSize) ? (IconSize::tryFrom($iconSize) ?? $iconSize) : null;
+        $iconSize = IconSize::tryFrom($iconSize) ?? $iconSize;
     }
 
     $buttonClasses = \Illuminate\Support\Arr::toCssClasses([

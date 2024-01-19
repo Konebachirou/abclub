@@ -22,12 +22,11 @@ class TestsColumns
             /** @phpstan-ignore-next-line */
             $this->assertTableColumnVisible($name);
 
-            $livewire = $this->instance();
-            $livewireId = $livewire->getId();
+            $column = $this->instance()->getTable()->getColumn($name);
 
             $html = array_map(
-                function ($record) use ($livewire, $livewireId, $name): string {
-                    return "wire:key=\"{$livewireId}.table.record.{$livewire->getTableRecordKey($record)}.column.{$name}\"";
+                function ($record) use ($column) {
+                    return $column->record($record)->toHtml();
                 },
                 $this->instance()->getTableRecords()->all(),
             );
@@ -44,12 +43,11 @@ class TestsColumns
             /** @phpstan-ignore-next-line  */
             $this->assertTableColumnExists($name);
 
-            $livewire = $this->instance();
-            $livewireId = $livewire->getId();
+            $column = $this->instance()->getTable()->getColumn($name);
 
             $html = array_map(
-                function ($record) use ($livewire, $livewireId, $name): string {
-                    return "wire:key=\"{$livewireId}.table.record.{$livewire->getTableRecordKey($record)}.column.{$name}\"";
+                function ($record) use ($column) {
+                    return $column->record($record)->toHtml();
                 },
                 $this->instance()->getTableRecords()->all(),
             );

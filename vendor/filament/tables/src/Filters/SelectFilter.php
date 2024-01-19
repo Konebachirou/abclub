@@ -104,13 +104,6 @@ class SelectFilter extends BaseFilter
         $this->resetState(['value' => null]);
     }
 
-    public function getActiveCount(): int
-    {
-        $state = $this->getState();
-
-        return filled($this->isMultiple() ? ($state['values'] ?? []) : ($state['value'] ?? null)) ? 1 : 0;
-    }
-
     /**
      * @param  array<string, mixed>  $data
      */

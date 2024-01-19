@@ -26,11 +26,11 @@
 
 @php
     if (! $iconPosition instanceof IconPosition) {
-        $iconPosition = filled($iconPosition) ? (IconPosition::tryFrom($iconPosition) ?? $iconPosition) : null;
+        $iconPosition = $iconPosition ? IconPosition::tryFrom($iconPosition) : null;
     }
 
     if (! $size instanceof ActionSize) {
-        $size = filled($size) ? (ActionSize::tryFrom($size) ?? $size) : null;
+        $size = ActionSize::tryFrom($size) ?? $size;
     }
 
     $iconSize ??= match ($size) {
@@ -39,7 +39,7 @@
     };
 
     if (! $iconSize instanceof IconSize) {
-        $iconSize = filled($iconSize) ? (IconSize::tryFrom($iconSize) ?? $iconSize) : null;
+        $iconSize = IconSize::tryFrom($iconSize) ?? $iconSize;
     }
 
     $linkClasses = \Illuminate\Support\Arr::toCssClasses([
@@ -221,9 +221,7 @@
                                 'wire:loading.delay.' . config('filament.livewire_loading_delay', 'default') => '',
                                 'wire:target' => $loadingIndicatorTarget,
                             ])
-                        )
-                            ->class([$iconClasses])
-                            ->style([$iconStyles])
+                        )->class([$iconClasses])
                     "
                 />
             @endif

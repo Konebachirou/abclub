@@ -12,6 +12,7 @@ use App\Http\Controllers\abclub\ContactController;
 use App\Http\Controllers\abclub\Amid\AnpController;
 use App\Http\Controllers\abclub\JobController;
 use App\Http\Controllers\abclub\NewsActionsController;
+use App\Http\Controllers\abclub\PodcastController;
 use App\Http\Controllers\Administrator\DashboardController;
 use App\Http\Controllers\Administrator\AuthentificationController;
 
@@ -48,6 +49,11 @@ Route::controller(NewsActionsController::class)->group(function () {
 Route::controller(EventController::class)->group(function () {
     Route::get('/events', 'Events')->name('event_link');
     Route::get('/events-details/{title}', 'EventsDatails')->name('event_details_link');
+});
+
+Route::controller(PodcastController::class)->group(function () {
+    Route::get('/podcast', 'podcast')->name('podcast_link');
+    Route::get('/podcast-details/{title}', 'podcastDatails')->name('podcast_details_link');
 });
 
 Route::post('/comments/store', [CommentController::class, 'store'])->name('comments-store');

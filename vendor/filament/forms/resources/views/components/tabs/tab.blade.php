@@ -2,21 +2,41 @@
     $id = $getId();
     $isContained = $getContainer()->getParentComponent()->isContained();
 
-    $activeTabClasses = \Illuminate\Support\Arr::toCssClasses([
-        'fi-active',
+    $visibleTabClasses = \Illuminate\Support\Arr::toCssClasses([
         'p-6' => $isContained,
         'mt-6' => ! $isContained,
     ]);
 
-    $inactiveTabClasses = 'invisible h-0 overflow-y-hidden p-0';
+    $invisibleTabClasses = 'invisible h-0 overflow-y-hidden p-0';
 @endphp
 
 <div
-    x-bind:class="{
-        @js($activeTabClasses): tab === @js($id),
-        @js($inactiveTabClasses): tab !== @js($id),
-    }"
-    x-on:expand="tab = @js($id)"
+    x-bind:class="tab === @js($id) ? @js($visibleTabClasses) : @js($invisibleTabClasses)"
+    x-on:expand-concealing-component.window="
+        $nextTick(() => {
+            error = $el.querySelector('[data-validation-error]')
+
+            if (! error) {
+                return
+            }
+
+            tab = @js($id)
+
+            if (document.body.querySelector('[data-validation-error]') !== error) {
+                return
+            }
+
+            setTimeout(
+                () =>
+                    $el.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start',
+                        inline: 'start',
+                    }),
+                200,
+            )
+        })
+    "
     {{
         $attributes
             ->merge([

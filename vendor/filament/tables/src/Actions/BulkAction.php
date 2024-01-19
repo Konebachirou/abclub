@@ -15,8 +15,6 @@ class BulkAction extends MountableAction implements Groupable, HasTable
     use Concerns\CanDeselectRecordsAfterCompletion;
     use Concerns\InteractsWithRecords;
 
-    protected bool | Closure $shouldFetchSelectedRecords = true;
-
     protected function setUp(): void
     {
         parent::setUp();
@@ -24,18 +22,6 @@ class BulkAction extends MountableAction implements Groupable, HasTable
         $this->extraAttributes([
             'x-bind:disabled' => '! selectedRecords.length',
         ]);
-    }
-
-    public function fetchSelectedRecords(bool | Closure $condition = true): static
-    {
-        $this->shouldFetchSelectedRecords = $condition;
-
-        return $this;
-    }
-
-    public function shouldFetchSelectedRecords(): bool
-    {
-        return (bool) $this->evaluate($this->shouldFetchSelectedRecords);
     }
 
     /**
@@ -75,7 +61,7 @@ class BulkAction extends MountableAction implements Groupable, HasTable
 
     public function getLivewireTarget(): ?string
     {
-        return parent::getLivewireTarget() ?? "mountTableBulkAction('{$this->getName()}')";
+        return "mountTableBulkAction('{$this->getName()}')";
     }
 
     /**
@@ -96,7 +82,8 @@ class BulkAction extends MountableAction implements Groupable, HasTable
     protected function resolveDefaultClosureDependencyForEvaluationByType(string $parameterType): array
     {
         return match ($parameterType) {
-            EloquentCollection::class, Collection::class => [$this->getRecords()],
+            Collection::class => [$this->getRecords()],
+            EloquentCollection::class => [$this->getRecords()],
             default => parent::resolveDefaultClosureDependencyForEvaluationByType($parameterType),
         };
     }

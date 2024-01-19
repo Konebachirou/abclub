@@ -6,6 +6,4 @@
     {{ $this->table }}
 
     {{ \Filament\Support\Facades\FilamentView::renderHook('panels::resource.relation-manager.after', scopes: $this->getRenderHookScopes()) }}
-
-    <x-filament-panels::unsaved-action-changes-alert />
 </div>

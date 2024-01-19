@@ -2,19 +2,8 @@
 
 return [
 
-    'entries' => [
-
-        'text' => [
-
-            'actions' => [
-                'collapse_list' => 'Afficher :count de moins',
-                'expand_list' => 'Afficher :count de plus',
-            ],
-
-            'more_list_items' => 'et :count de plus',
-
-        ],
-
+    'text_entry' => [
+        'more_list_items' => 'et :count de plus',
     ],
 
 ];

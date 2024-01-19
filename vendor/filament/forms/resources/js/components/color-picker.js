@@ -6,8 +6,7 @@ import 'vanilla-colorful/rgba-string-color-picker.js'
 export default function colorPickerFormComponent({
     isAutofocused,
     isDisabled,
-    isLiveDebounced,
-    isLiveOnBlur,
+    isLiveOnPickerClose,
     state,
 }) {
     return {
@@ -30,7 +29,7 @@ export default function colorPickerFormComponent({
                 this.setState(event.detail.value)
             })
 
-            if (isLiveDebounced || isLiveOnBlur) {
+            if (isLiveOnPickerClose) {
                 new MutationObserver(() => {
                     if (this.$refs.panel.style.display !== 'none') {
                         return

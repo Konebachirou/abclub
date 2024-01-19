@@ -2,16 +2,8 @@
 title: Getting started
 ---
 import AutoScreenshot from "@components/AutoScreenshot.astro"
-import LaracastsBanner from "@components/LaracastsBanner.astro"
 
 ## Overview
-
-<LaracastsBanner
-    title="Table Columns"
-    description="Watch the Rapid Laravel Development with Filament series on Laracasts - it will teach you the basics of adding columns to Filament resource tables."
-    url="https://laracasts.com/series/rapid-laravel-development-with-filament/episodes/9"
-    series="rapid-laravel-development"
-/>
 
 Column classes can be found in the `Filament\Tables\Columns` namespace. You can put them inside the `$table->columns()` method:
 
@@ -236,40 +228,6 @@ use Livewire\Attributes\Url;
 public array $tableColumnSearches = [];
 ```
 
-### Customizing the table search debounce
-
-You may customize the debounce time in all table search fields using the `searchDebounce()` method on the `$table`. By default it is set to `500ms`:
-
-```php
-use Filament\Tables\Table;
-
-public static function table(Table $table): Table
-{
-    return $table
-        ->columns([
-            // ...
-        ])
-        ->searchDebounce('750ms');
-}
-```
-
-### Searching when the input is blurred
-
-Instead of automatically reloading the table contents while the user is typing their search, which is affected by the [debounce](#customizing-the-table-search-debounce) of the search field, you may change the behaviour so that the table is only searched when the user blurs the input (tabs or clicks out of it), using the `searchOnBlur()` method:
-
-```php
-use Filament\Tables\Table;
-
-public static function table(Table $table): Table
-{
-    return $table
-        ->columns([
-            // ...
-        ])
-        ->searchOnBlur();
-}
-```
-
 ### Persist search in session
 
 To persist the table or individual column search in the user's session, use the `persistSearchInSession()` or `persistColumnSearchInSession()` method:
@@ -437,11 +395,8 @@ Sometimes you need to calculate the state of a column, instead of directly readi
 By passing a callback function to the `state()` method, you can customize the returned state for that column based on the `$record`:
 
 ```php
-use App\Models\Order;
-use Filament\Tables\Columns\TextColumn;
-
-TextColumn::make('amount_including_vat')
-    ->state(function (Order $record): float {
+Tables\Columns\TextColumn::make('amount_including_vat')
+    ->state(function (Model $record): float {
         return $record->amount * (1 + $record->vat_rate);
     })
 ```
@@ -490,60 +445,6 @@ use Filament\Tables\Columns\TextColumn;
 
 TextColumn::make('name')
     ->alignEnd()
-```
-
-## Allowing column headers to wrap
-
-By default, column headers will not wrap onto multiple lines, if they need more space. You may allow them to wrap using the `wrapHeader()` method:
-
-```php
-use Filament\Tables\Columns\TextColumn;
-
-TextColumn::make('name')
-    ->wrapHeader()
-```
-
-## Grouping columns
-
-You group multiple columns together underneath a single heading using a `ColumnGroup` object:
-
-```php
-use Filament\Tables\Columns\ColumnGroup;
-use Filament\Tables\Columns\IconColumn;
-use Filament\Tables\Columns\TextColumn;
-use Filament\Tables\Table;
-
-public function table(Table $table): Table
-{
-    return $table
-        ->columns([
-            TextColumn::make('title'),
-            TextColumn::make('slug'),
-            ColumnGroup::make('Visibility', [
-                TextColumn::make('status'),
-                IconColumn::make('is_featured'),
-            ]),
-            TextColumn::make('author.name'),
-        ]);
-}
-```
-
-The first argument is the label of the group, and the second is an array of column objects that belong to that group.
-
-<AutoScreenshot name="tables/columns/grouping" alt="Table with grouped columns" version="3.x" />
-
-You can also control the group header [alignment](#aligning-column-content) and [wrapping](#allowing-column-headers-to-wrap) on the `ColumnGroup` object. To improve the multi-line fluency of the API, you can chain the `columns()` onto the object instead of passing it as the second argument:
-
-```php
-use Filament\Support\Enums\Alignment;
-use Filament\Tables\Columns\ColumnGroup;
-
-ColumnGroup::make('Website visibility')
-    ->columns([
-        // ...
-    ])
-    ->alignment(Alignment::Center)
-    ->wrapHeader()
 ```
 
 ## Custom attributes

@@ -4,16 +4,16 @@ return [
 
     'single' => [
 
-        'label' => 'Eliminar',
+        'label' => 'Remover',
 
         'modal' => [
 
-            'heading' => 'Eliminar :label',
+            'heading' => 'Remover :label',
 
             'actions' => [
 
                 'delete' => [
-                    'label' => 'Eliminar',
+                    'label' => 'Remover',
                 ],
 
             ],
@@ -23,7 +23,7 @@ return [
         'notifications' => [
 
             'deleted' => [
-                'title' => 'Eliminado',
+                'title' => 'Excluído',
             ],
 
         ],
@@ -32,16 +32,16 @@ return [
 
     'multiple' => [
 
-        'label' => 'Eliminar seleccionados',
+        'label' => 'Remover selecionado',
 
         'modal' => [
 
-            'heading' => 'Eliminar :label seleccionados',
+            'heading' => 'Remover selecionado :label',
 
             'actions' => [
 
                 'delete' => [
-                    'label' => 'Eliminar',
+                    'label' => 'Remover selecionado',
                 ],
 
             ],
@@ -51,7 +51,7 @@ return [
         'notifications' => [
 
             'deleted' => [
-                'title' => 'Eliminado',
+                'title' => 'Removido!',
             ],
 
         ],

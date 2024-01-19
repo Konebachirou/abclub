@@ -32,10 +32,6 @@ class Action extends MountableAction implements Groupable, HasRecord, HasTable
             return $this->action;
         }
 
-        if ($event = $this->getLivewireEventClickHandler()) {
-            return $event;
-        }
-
         if ($record = $this->getRecord()) {
             $recordKey = $this->getLivewire()->getTableRecordKey($record);
 

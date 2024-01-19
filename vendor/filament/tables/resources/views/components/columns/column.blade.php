@@ -18,7 +18,7 @@
     $url = $column->getUrl();
 
     if (! $alignment instanceof Alignment) {
-        $alignment = filled($alignment) ? (Alignment::tryFrom($alignment) ?? $alignment) : null;
+        $alignment = Alignment::tryFrom($alignment) ?? $alignment;
     }
 
     $columnClasses = \Illuminate\Support\Arr::toCssClasses([
@@ -29,7 +29,7 @@
             Alignment::End => 'justify-end text-end',
             Alignment::Left => 'justify-start text-left',
             Alignment::Right => 'justify-end text-right',
-            Alignment::Justify, Alignment::Between => 'justify-between text-justify',
+            Alignment::Justify => 'justify-between text-justify',
             default => $alignment,
         },
     ]);

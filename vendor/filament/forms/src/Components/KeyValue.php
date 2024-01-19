@@ -5,14 +5,12 @@ namespace Filament\Forms\Components;
 use Closure;
 use Filament\Forms\Components\Actions\Action;
 use Filament\Support\Concerns\HasExtraAlpineAttributes;
-use Filament\Support\Concerns\HasReorderAnimationDuration;
 use Filament\Support\Enums\ActionSize;
 use Filament\Support\Facades\FilamentIcon;
 
 class KeyValue extends Field
 {
     use HasExtraAlpineAttributes;
-    use HasReorderAnimationDuration;
 
     /**
      * @var view-string

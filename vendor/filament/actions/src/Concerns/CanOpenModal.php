@@ -508,16 +508,6 @@ trait CanOpenModal
         return $this->evaluate($this->modalContentFooter);
     }
 
-    public function hasModalContent(): bool
-    {
-        return $this->modalContent !== null;
-    }
-
-    public function hasModalContentFooter(): bool
-    {
-        return $this->modalContentFooter !== null;
-    }
-
     public function getCustomModalHeading(): string | Htmlable | null
     {
         return $this->evaluate($this->modalHeading);
@@ -528,19 +518,9 @@ trait CanOpenModal
         return $this->getCustomModalHeading() ?? $this->getLabel();
     }
 
-    public function hasCustomModalHeading(): bool
-    {
-        return filled($this->getCustomModalHeading());
-    }
-
     public function getModalDescription(): string | Htmlable | null
     {
         return $this->evaluate($this->modalDescription);
-    }
-
-    public function hasModalDescription(): bool
-    {
-        return filled($this->getModalDescription());
     }
 
     public function getModalWidth(): MaxWidth | string

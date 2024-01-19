@@ -4,7 +4,7 @@
     $alignment = $getAlignment() ?? Alignment::Start;
 
     if (! $alignment instanceof Alignment) {
-        $alignment = filled($alignment) ? (Alignment::tryFrom($alignment) ?? $alignment) : null;
+        $alignment = Alignment::tryFrom($alignment) ?? $alignment;
     }
 @endphp
 
@@ -15,10 +15,9 @@
             ->class([
                 'flex flex-col',
                 match ($alignment) {
-                    Alignment::Start, Alignment::Left => 'items-start',
+                    Alignment::Start => 'items-start',
                     Alignment::Center => 'items-center',
                     Alignment::End, Alignment::Right => 'items-end',
-                    Alignment::Justify, Alignment::Between => null,
                     default => $alignment,
                 },
                 match ($space = $getSpace()) {

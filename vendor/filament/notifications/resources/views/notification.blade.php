@@ -20,7 +20,6 @@
                     VerticalAlignment::End => 'translate-y-12',
                     default => null,
                 },
-                default => null,
             }
             : null,
         ])

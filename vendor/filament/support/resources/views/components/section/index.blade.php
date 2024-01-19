@@ -9,7 +9,6 @@
     'compact' => false,
     'contentBefore' => false,
     'description' => null,
-    'headerActions' => [],
     'headerEnd' => null,
     'heading' => null,
     'icon' => null,
@@ -19,15 +18,10 @@
 ])
 
 @php
-    $headerActions = array_filter(
-        $headerActions,
-        fn ($headerAction): bool => $headerAction->isVisible(),
-    );
-    $hasHeaderActions = filled($headerActions);
     $hasDescription = filled((string) $description);
     $hasHeading = filled($heading);
     $hasIcon = filled($icon);
-    $hasHeader = $hasIcon || $hasHeading || $hasDescription || $collapsible || $hasHeaderActions || filled((string) $headerEnd);
+    $hasHeader = $hasIcon || $hasHeading || $hasDescription || $collapsible || filled((string) $headerEnd);
 @endphp
 
 <section
@@ -37,7 +31,31 @@
     }"
     @if ($collapsible)
         x-on:collapse-section.window="if ($event.detail.id == $el.id) isCollapsed = true"
-        x-on:expand="isCollapsed = false"
+        x-on:expand-concealing-component.window="
+            $nextTick(() => {
+                error = $el.querySelector('[data-validation-error]')
+
+                if (! error) {
+                    return
+                }
+
+                isCollapsed = false
+
+                if (document.body.querySelector('[data-validation-error]') !== error) {
+                    return
+                }
+
+                setTimeout(
+                    () =>
+                        $el.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start',
+                            inline: 'start',
+                        }),
+                    200,
+                )
+            })
+        "
         x-on:open-section.window="if ($event.detail.id == $el.id) isCollapsed = false"
         x-on:toggle-section.window="if ($event.detail.id == $el.id) isCollapsed = ! isCollapsed"
         x-bind:class="isCollapsed && 'fi-collapsed'"
@@ -58,7 +76,7 @@
                 x-on:click="isCollapsed = ! isCollapsed"
             @endif
             @class([
-                'fi-section-header flex flex-col gap-3 overflow-hidden sm:flex-row sm:items-center',
+                'fi-section-header flex items-center gap-x-3 overflow-hidden',
                 'cursor-pointer' => $collapsible,
                 match ($compact) {
                     true => 'px-4 py-2.5',
@@ -106,14 +124,6 @@
                         </x-filament::section.description>
                     @endif
                 </div>
-            @endif
-
-            @if ($hasHeaderActions)
-                <x-filament::actions
-                    :actions="$headerActions"
-                    :alignment="\Filament\Support\Enums\Alignment::Start"
-                    x-on:click.stop=""
-                />
             @endif
 
             {{ $headerEnd }}

@@ -37,6 +37,10 @@
                                 <a href="{{ route('event_link') }}">Events </a>
                             </li>
                             <li
+                                class=" has-menu-child-item position-static {{ $ongletActif === 'podcast' ? 'active' : '' }}">
+                                <a href="{{ route('podcast_link') }}">Podcast </a>
+                            </li>
+                            <li
                                 class=" has-dropdown has-menu-child-item {{ $ongletActif === 'amid' ? 'active' : '' }}">
                                 <a href="#">AMID</a>
                                 <ul class="submenu">

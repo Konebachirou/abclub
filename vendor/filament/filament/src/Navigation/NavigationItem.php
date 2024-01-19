@@ -3,17 +3,13 @@
 namespace Filament\Navigation;
 
 use Closure;
-use Exception;
 use Filament\Support\Components\Component;
-use Illuminate\Contracts\Support\Arrayable;
 
 class NavigationItem extends Component
 {
     protected string | Closure | null $group = null;
 
-    protected string | Closure | null $parentItem = null;
-
-    protected bool | Closure | null $isActive = null;
+    protected ?Closure $isActiveWhen = null;
 
     protected string | Closure | null $icon = null;
 
@@ -37,11 +33,6 @@ class NavigationItem extends Component
     protected bool | Closure $isHidden = false;
 
     protected bool | Closure $isVisible = true;
-
-    /**
-     * @var array<NavigationItem> | Arrayable
-     */
-    protected array | Arrayable $childItems = [];
 
     final public function __construct(string | Closure | null $label = null)
     {
@@ -76,13 +67,6 @@ class NavigationItem extends Component
         return $this;
     }
 
-    public function parentItem(string | Closure | null $group): static
-    {
-        $this->parentItem = $group;
-
-        return $this;
-    }
-
     public function icon(string | Closure | null $icon): static
     {
         $this->icon = $icon;
@@ -113,7 +97,7 @@ class NavigationItem extends Component
 
     public function isActiveWhen(Closure $callback): static
     {
-        $this->isActive = $callback;
+        $this->isActiveWhen = $callback;
 
         return $this;
     }
@@ -165,20 +149,9 @@ class NavigationItem extends Component
         return $this->evaluate($this->group);
     }
 
-    public function getParentItem(): ?string
-    {
-        return $this->evaluate($this->parentItem);
-    }
-
     public function getIcon(): ?string
     {
-        $icon = $this->evaluate($this->icon);
-
-        if (blank($icon) && $this->getChildItems()) {
-            throw new Exception("Navigation item [{$this->getLabel()}] has child items but no icon. Parent items must have an icon to ensure a proper user experience.");
-        }
-
-        return $icon;
+        return $this->evaluate($this->icon);
     }
 
     public function isVisible(): bool
@@ -217,44 +190,17 @@ class NavigationItem extends Component
 
     public function isActive(): bool
     {
-        if ($this->isActive instanceof Closure) {
-            $this->isActive = ((bool) $this->evaluate($this->isActive));
+        $callback = $this->isActiveWhen;
+
+        if ($callback === null) {
+            return false;
         }
 
-        return (bool) $this->isActive;
-    }
-
-    public function isChildItemsActive(): bool
-    {
-        foreach ($this->getChildItems() as $childItem) {
-            if ($childItem->isActive()) {
-                return true;
-            }
-        }
-
-        return false;
+        return (bool) $this->evaluate($callback);
     }
 
     public function shouldOpenUrlInNewTab(): bool
     {
         return (bool) $this->evaluate($this->shouldOpenUrlInNewTab);
-    }
-
-    /**
-     * @param  array<NavigationItem> | Arrayable  $items
-     */
-    public function childItems(array | Arrayable $items): static
-    {
-        $this->childItems = $items;
-
-        return $this;
-    }
-
-    /**
-     * @return array<NavigationItem> | Arrayable
-     */
-    public function getChildItems(): array | Arrayable
-    {
-        return $this->childItems;
     }
 }

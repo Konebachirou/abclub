@@ -250,15 +250,6 @@ return [
 
     ],
 
-    'radio' => [
-
-        'boolean' => [
-            'true' => 'Ya',
-            'false' => 'Tidak',
-        ],
-
-    ],
-
     'repeater' => [
 
         'actions' => [

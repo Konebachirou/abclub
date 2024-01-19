@@ -113,7 +113,9 @@ class ActionGroup extends ViewComponent implements HasLivewire
 
     public function button(): static
     {
-        return $this->view(static::BUTTON_VIEW);
+        $this->view(static::BUTTON_VIEW);
+
+        return $this;
     }
 
     public function isButton(): bool
@@ -123,12 +125,16 @@ class ActionGroup extends ViewComponent implements HasLivewire
 
     public function grouped(): static
     {
-        return $this->view(static::GROUPED_VIEW);
+        $this->view(static::GROUPED_VIEW);
+
+        return $this;
     }
 
     public function iconButton(): static
     {
-        return $this->view(static::ICON_BUTTON_VIEW);
+        $this->view(static::ICON_BUTTON_VIEW);
+
+        return $this;
     }
 
     public function isIconButton(): bool
@@ -138,7 +144,9 @@ class ActionGroup extends ViewComponent implements HasLivewire
 
     public function link(): static
     {
-        return $this->view(static::LINK_VIEW);
+        $this->view(static::LINK_VIEW);
+
+        return $this;
     }
 
     public function isLink(): bool

@@ -40,7 +40,6 @@ export default function fileUploadFormComponent({
     imageResizeUpscale,
     isAvatar,
     hasImageEditor,
-    hasCircleCropper,
     canEditSvgs,
     isSvgEditingConfirmed,
     confirmSvgEditingMessage,
@@ -197,10 +196,6 @@ export default function fileUploadFormComponent({
                 }
 
                 if (!this.shouldUpdateState) {
-                    return
-                }
-
-                if (this.state === undefined) {
                     return
                 }
 
@@ -573,33 +568,6 @@ export default function fileUploadFormComponent({
             })
         },
 
-        getRoundedCanvas: function (sourceCanvas) {
-            let width = sourceCanvas.width
-            let height = sourceCanvas.height
-
-            let canvas = document.createElement('canvas')
-            canvas.width = width
-            canvas.height = height
-
-            let context = canvas.getContext('2d')
-            context.imageSmoothingEnabled = true
-            context.drawImage(sourceCanvas, 0, 0, width, height)
-            context.globalCompositeOperation = 'destination-in'
-            context.beginPath()
-            context.ellipse(
-                width / 2,
-                height / 2,
-                width / 2,
-                height / 2,
-                0,
-                0,
-                2 * Math.PI,
-            )
-            context.fill()
-
-            return canvas
-        },
-
         saveEditor: function () {
             if (isDisabled) {
                 return
@@ -609,20 +577,15 @@ export default function fileUploadFormComponent({
                 return
             }
 
-            let croppedCanvas = this.editor.getCroppedCanvas({
-                fillColor: imageEditorEmptyFillColor ?? 'transparent',
-                height: imageResizeTargetHeight,
-                imageSmoothingEnabled: true,
-                imageSmoothingQuality: 'high',
-                width: imageResizeTargetWidth,
-            })
-
-            if (hasCircleCropper) {
-                croppedCanvas = this.getRoundedCanvas(croppedCanvas)
-            }
-
-            croppedCanvas.toBlob(
-                (croppedImage) => {
+            this.editor
+                .getCroppedCanvas({
+                    fillColor: imageEditorEmptyFillColor ?? 'transparent',
+                    height: imageResizeTargetHeight,
+                    imageSmoothingEnabled: true,
+                    imageSmoothingQuality: 'high',
+                    width: imageResizeTargetWidth,
+                })
+                .toBlob((croppedImage) => {
                     if (isMultiple) {
                         this.pond.removeFile(
                             this.pond
@@ -674,8 +637,7 @@ export default function fileUploadFormComponent({
                                     {
                                         type:
                                             this.editingFile.type ===
-                                                'image/svg+xml' ||
-                                            hasCircleCropper
+                                            'image/svg+xml'
                                                 ? 'image/png'
                                                 : this.editingFile.type,
                                         lastModified: new Date().getTime(),
@@ -689,9 +651,7 @@ export default function fileUploadFormComponent({
                                 this.closeEditor()
                             })
                     })
-                },
-                hasCircleCropper ? 'image/png' : this.editingFile.type,
-            )
+                }, this.editingFile.type)
         },
 
         destroyEditor: function () {

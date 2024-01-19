@@ -20,7 +20,7 @@ trait HasState
 
     protected bool | Closure $isDistinctList = false;
 
-    protected string $cachedAbsoluteStatePath;
+    protected string $cachedFullStatePath;
 
     public function getStateUsing(mixed $callback): static
     {
@@ -117,8 +117,8 @@ trait HasState
 
     public function getStatePath(bool $isAbsolute = true): string
     {
-        if (isset($this->cachedAbsoluteStatePath)) {
-            return $this->cachedAbsoluteStatePath;
+        if (isset($this->cachedFullStatePath)) {
+            return $this->cachedFullStatePath;
         }
 
         $pathComponents = [];
@@ -131,7 +131,7 @@ trait HasState
             $pathComponents[] = $this->statePath;
         }
 
-        return $this->cachedAbsoluteStatePath = implode('.', $pathComponents);
+        return $this->cachedFullStatePath = implode('.', $pathComponents);
     }
 
     public function getStateFromRecord(Model $record): mixed
@@ -167,8 +167,8 @@ trait HasState
         return $state->all();
     }
 
-    protected function flushCachedAbsoluteStatePath(): void
+    protected function flushCachedStatePath(): void
     {
-        unset($this->cachedAbsoluteStatePath);
+        unset($this->cachedFullStatePath);
     }
 }
