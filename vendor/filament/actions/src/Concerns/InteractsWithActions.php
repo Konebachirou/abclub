@@ -10,9 +10,9 @@ use Filament\Infolists\Infolist;
 use Filament\Support\Exceptions\Cancel;
 use Filament\Support\Exceptions\Halt;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Arr;
 use Illuminate\Validation\ValidationException;
 use InvalidArgumentException;
+use Livewire\Attributes\Url;
 
 use function Livewire\store;
 
@@ -37,6 +37,18 @@ trait InteractsWithActions
     public ?array $mountedActionsData = [];
 
     /**
+     * @var mixed
+     */
+    #[Url(as: 'action')]
+    public $defaultAction = null;
+
+    /**
+     * @var mixed
+     */
+    #[Url(as: 'actionArguments')]
+    public $defaultActionArguments = null;
+
+    /**
      * @var array<string, Action>
      */
     protected array $cachedActions = [];
@@ -58,10 +70,7 @@ trait InteractsWithActions
             return null;
         }
 
-        $action->arguments([
-            ...Arr::last($this->mountedActionsArguments),
-            ...$arguments,
-        ]);
+        $action->mergeArguments($arguments);
 
         $form = $this->getMountedActionForm();
 
@@ -200,9 +209,10 @@ trait InteractsWithActions
             return false;
         }
 
-        return $action->getModalDescription() ||
-            $action->getModalContent() ||
-            $action->getModalContentFooter() ||
+        return $action->hasCustomModalHeading() ||
+            $action->hasModalDescription() ||
+            $action->hasModalContent() ||
+            $action->hasModalContentFooter() ||
             $action->getInfolist() ||
             $this->mountedActionHasForm();
     }
@@ -298,7 +308,6 @@ trait InteractsWithActions
             return $this->getMountableModalActionFromAction(
                 $action,
                 modalActionNames: $modalActionNames ?? [],
-                parentActionName: $name,
             );
         }
 
@@ -325,18 +334,20 @@ trait InteractsWithActions
         return $this->getMountableModalActionFromAction(
             $this->cacheAction($action),
             modalActionNames: $modalActionNames ?? [],
-            parentActionName: $name,
         );
     }
 
     /**
      * @param  array<string>  $modalActionNames
      */
-    protected function getMountableModalActionFromAction(Action $action, array $modalActionNames, string $parentActionName): ?Action
+    protected function getMountableModalActionFromAction(Action $action, array $modalActionNames): ?Action
     {
         $arguments = $this->mountedActionsArguments;
 
-        if (($actionArguments = array_shift($arguments)) !== null) {
+        if (
+            (($actionArguments = array_shift($arguments)) !== null) &&
+            (! $action->hasArguments())
+        ) {
             $action->arguments($actionArguments);
         }
 
@@ -347,11 +358,12 @@ trait InteractsWithActions
                 return null;
             }
 
-            if (($actionArguments = array_shift($arguments)) !== null) {
+            if (
+                (($actionArguments = array_shift($arguments)) !== null) &&
+                (! $action->hasArguments())
+            ) {
                 $action->arguments($actionArguments);
             }
-
-            $parentActionName = $modalActionName;
         }
 
         if (! $action instanceof Action) {
@@ -405,6 +417,11 @@ trait InteractsWithActions
             $this->closeActionModal();
 
             $action?->clearRecordAfter();
+
+            // Setting these to `null` creates a bug where the properties are
+            // actually set to `'null'` strings and remain in the URL.
+            $this->defaultAction = [];
+            $this->defaultActionArguments = [];
 
             return;
         }

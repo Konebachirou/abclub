@@ -34,7 +34,7 @@ trait HasBulkActions
      */
     public ?array $mountedTableBulkActionData = [];
 
-    protected EloquentCollection $cachedSelectedTableRecords;
+    protected EloquentCollection | Collection $cachedSelectedTableRecords;
 
     protected function configureTableBulkAction(BulkAction $action): void
     {
@@ -55,11 +55,13 @@ trait HasBulkActions
             return null;
         }
 
-        $action->arguments($arguments);
+        $action->mergeArguments($arguments);
 
         $form = $this->getMountedTableBulkActionForm();
 
         $result = null;
+
+        $originallyMountedAction = $this->mountedTableBulkAction;
 
         try {
             if ($this->mountedTableBulkActionHasForm()) {
@@ -97,6 +99,12 @@ trait HasBulkActions
 
         $action->resetArguments();
         $action->resetFormData();
+
+        // If the action was replaced while it was being called,
+        // we don't want to unmount it.
+        if ($originallyMountedAction !== $this->mountedTableBulkAction) {
+            return null;
+        }
 
         $this->unmountTableBulkAction();
 
@@ -167,6 +175,17 @@ trait HasBulkActions
         );
     }
 
+    /**
+     * @param  array<int | string> | null  $selectedRecords
+     */
+    public function replaceMountedTableBulkAction(string $name, ?array $selectedRecords = null): void
+    {
+        $selectedRecords ??= $this->selectedTableRecords;
+
+        $this->resetMountedTableBulkActionProperties();
+        $this->mountTableBulkAction($name, $selectedRecords);
+    }
+
     protected function resetMountedTableBulkActionProperties(): void
     {
         $this->mountedTableBulkAction = null;
@@ -181,19 +200,22 @@ trait HasBulkActions
             return false;
         }
 
-        return $action->getModalDescription() ||
-            $action->getModalContent() ||
-            $action->getModalContentFooter() ||
+        return $action->hasCustomModalHeading() ||
+            $action->hasModalDescription() ||
+            $action->hasModalContent() ||
+            $action->hasModalContentFooter() ||
             $action->getInfolist() ||
             $this->mountedTableBulkActionHasForm();
     }
 
-    public function unmountTableBulkAction(): void
+    public function unmountTableBulkAction(bool $shouldCloseModal = true): void
     {
         $this->mountedTableBulkAction = null;
         $this->selectedTableRecords = [];
 
-        $this->closeTableBulkActionModal();
+        if ($shouldCloseModal) {
+            $this->closeTableBulkActionModal();
+        }
     }
 
     public function mountedTableBulkActionHasForm(): bool
@@ -300,17 +322,17 @@ trait HasBulkActions
         }
 
         if ($this->getTable()->selectsCurrentPageOnly()) {
-            return $this->records->count();
+            return $this->cachedTableRecords->count();
         }
 
-        if ($this->records instanceof LengthAwarePaginator) {
-            return $this->records->total();
+        if ($this->cachedTableRecords instanceof LengthAwarePaginator) {
+            return $this->cachedTableRecords->total();
         }
 
         return $this->getFilteredTableQuery()->count();
     }
 
-    public function getSelectedTableRecords(): EloquentCollection
+    public function getSelectedTableRecords(bool $shouldFetchSelectedRecords = true): EloquentCollection | Collection
     {
         if (isset($this->cachedSelectedTableRecords)) {
             return $this->cachedSelectedTableRecords;
@@ -318,20 +340,27 @@ trait HasBulkActions
 
         $table = $this->getTable();
 
-        if (! ($table->getRelationship() instanceof BelongsToMany && $table->allowsDuplicates())) {
+        if (
+            $shouldFetchSelectedRecords ||
+            (! ($table->getRelationship() instanceof BelongsToMany && $table->allowsDuplicates()))
+        ) {
             $query = $table->getQuery()->whereKey($this->selectedTableRecords);
             $this->applySortingToTableQuery($query);
 
-            foreach ($this->getTable()->getColumns() as $column) {
-                $column->applyEagerLoading($query);
-                $column->applyRelationshipAggregates($query);
+            if ($shouldFetchSelectedRecords) {
+                foreach ($this->getTable()->getColumns() as $column) {
+                    $column->applyEagerLoading($query);
+                    $column->applyRelationshipAggregates($query);
+                }
             }
 
             if ($table->shouldDeselectAllRecordsWhenFiltered()) {
                 $this->filterTableQuery($query);
             }
 
-            return $this->cachedSelectedTableRecords = $query->get();
+            return $this->cachedSelectedTableRecords = $shouldFetchSelectedRecords ?
+                $query->get() :
+                $query->pluck($query->getModel()->getQualifiedKeyName());
         }
 
         /** @var BelongsToMany $relationship */

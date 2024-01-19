@@ -9,12 +9,20 @@ use App\Models\AneWinner;
 use Filament\Tables\Table;
 use Filament\Infolists\Infolist;
 use Filament\Resources\Resource;
+use Filament\Forms\Components\Toggle;
+use Filament\Forms\Components\Section;
 use Filament\Infolists\Components\Grid;
+use Filament\Tables\Actions\ViewAction;
+use Filament\Tables\Columns\TextColumn;
+use Filament\Forms\Components\TextInput;
 use Filament\Infolists\Components\Split;
 use Filament\Tables\Actions\ActionGroup;
+use Filament\Tables\Columns\ImageColumn;
+use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\RichEditor;
+use Filament\Tables\Columns\ToggleColumn;
 use Illuminate\Database\Eloquent\Builder;
-use Filament\Infolists\Components\Section;
 use Filament\Infolists\Components\TextEntry;
 use Filament\Infolists\Components\ImageEntry;
 use App\Filament\Resources\AneWinnerResource\Pages;
@@ -26,81 +34,59 @@ class AneWinnerResource extends Resource
     protected static ?string $model = AneWinner::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-chart-pie';
-    protected static ?string $label = 'ANE Winners';
+    protected static ?string $label = 'ANE Winner';
+    protected static ?string $pluralLabel = 'ANE Winners';
     protected static ?string $navigationLabel = 'ANE Winners';
     protected static ?string $navigationGroup = 'AMID';
 
-    public static function infolist(Infolist $infolist): Infolist
-    {
-        return $infolist
-            ->schema([
-                Section::make()
-                    ->schema([
-                        Split::make([
-                            Grid::make(3)
-                                ->schema([
 
-                                    TextEntry::make('team_name')
-                                        ->hiddenLabel()
-                                        ->grow(),
-                                    Grid::make(2)
-                                        ->schema([
-                                            TextEntry::make('rating')->label('Rang'),
-                                            TextEntry::make('year')->label('Année'),
-                                        ]),
-
-                                    ImageEntry::make('team_picture')
-                                        ->hiddenLabel()
-                                        // ->size(750)
-                                        ->height(800)
-                                        ->width(600)
-                                        ->grow(),
-                                ])
-                        ]),
-                        Section::make('Description')
-                            ->schema([
-                                TextEntry::make('description')
-                                    ->prose()
-                                    ->markdown()
-                                    ->hiddenLabel(),
-                            ])
-                            ->collapsible(),
-
-                    ])
-            ]);
-    }
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('team_name')
-                    ->required()
-                    ->maxLength(255)
-                    ->label('Equipe'),
-                FileUpload::make('team_picture')
-                    ->required()
-                    ->label('Image'),
-                Forms\Components\DatePicker::make('year')
-                    ->required()
-                    ->label('Année'),
-                Forms\Components\Textarea::make('description')
-                    ->required()
-                    ->maxLength(65535)
-                    ->columnSpanFull(),
-                Forms\Components\TextInput::make('rating')
-                    ->required()
-                    ->numeric()
-                    ->label('rang'),
-                Forms\Components\Toggle::make('status')
-                    ->required(),
-                Forms\Components\TextInput::make('facebook')
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('linkedin')
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('twitter')
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('instagram')
-                    ->maxLength(255),
+                Section::make('General')
+                    ->schema([
+                        TextInput::make('team_name')
+                            ->required()
+                            ->maxLength(255)
+                            ->label('Equipe'),
+                        TextInput::make('rating')
+                            ->required()
+                            ->numeric()
+                            ->label('classement'),
+                        DatePicker::make('year')
+                            ->required()
+                            ->label('Année'),
+                        Section::make('Image et Description')
+                            ->schema([
+                                FileUpload::make('team_picture')
+                                    ->required()
+                                    ->label('Image de l\'equipe'),
+
+                                RichEditor::make('description')
+                                    ->required()
+                                    ->label('Description a faire par l\'equipe'),
+                            ])->columns(1),
+                        Section::make('Reseaux sociaux')
+                            ->schema([
+                                TextInput::make('facebook')
+                                    ->maxLength(255),
+                                TextInput::make('linkedin')
+                                    ->maxLength(255),
+                                TextInput::make('twitter')
+                                    ->maxLength(255),
+                                TextInput::make('instagram')
+                                    ->maxLength(255),
+                            ])->columns(4),
+                        Toggle::make('status')
+                            ->required()
+                            ->label('Publier'),
+                    ])->columns(3),
+
+
+
+
+
             ]);
     }
 
@@ -108,48 +94,38 @@ class AneWinnerResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('team_name')
+                TextColumn::make('created_at')
+                    ->label('Date de création')
+                    ->dateTime('d/m/Y'),
+                TextColumn::make('team_name')
                     ->searchable()
                     ->label('Equipe'),
-                Tables\Columns\ImageColumn::make('team_picture')
+                ImageColumn::make('team_picture')
                     ->searchable()
                     ->label('Image'),
-                Tables\Columns\TextColumn::make('year')
+                TextColumn::make('year')
                     ->date()
                     ->sortable()
                     ->label('Année'),
-                Tables\Columns\TextColumn::make('rating')
+                TextColumn::make('rating')
                     ->numeric()
                     ->sortable()
                     ->label('rang'),
-                Tables\Columns\ToggleColumn::make('status'),
-                Tables\Columns\TextColumn::make('facebook')
+                ToggleColumn::make('status'),
+                TextColumn::make('facebook')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('linkedin')
+                TextColumn::make('linkedin')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('twitter')
+                TextColumn::make('twitter')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('instagram')
+                TextColumn::make('instagram')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('created_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('updated_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters([
                 //
             ])
-            ->actions([
-                ActionGroup::make([
-                    Tables\Actions\ViewAction::make(),
-                    Tables\Actions\EditAction::make(),
-                    Tables\Actions\DeleteAction::make(),
-                ]),
-            ])
+            ->actions([ActionGroup::make([ViewAction::make(), Tables\Actions\EditAction::make(), Tables\Actions\DeleteAction::make()])->button()])
+
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make(),

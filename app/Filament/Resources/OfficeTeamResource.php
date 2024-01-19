@@ -8,6 +8,10 @@ use Filament\Forms\Form;
 use App\Models\OfficeTeam;
 use Filament\Tables\Table;
 use Filament\Resources\Resource;
+use Filament\Forms\Components\Section;
+use Filament\Tables\Actions\ViewAction;
+use Filament\Tables\Columns\TextColumn;
+use Filament\Forms\Components\TextInput;
 use Filament\Tables\Actions\ActionGroup;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Forms\Components\FileUpload;
@@ -24,44 +28,53 @@ class OfficeTeamResource extends Resource
     protected static ?string $navigationIcon = 'heroicon-o-building-office-2';
     protected static ?string $navigationLabel = 'Conseil d Administration';
     protected static ?string $navigationGroup = 'Equipes';
-    protected static ?string $label = 'Conseil d Administration';
+    protected static ?string $label = "Membre du Conseil d'Administration";
+    protected static ?string $pluralLabel = "Membres du Conseil d'Administration";
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('first_name')
-                    ->required()
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('last_name')
-                    ->required()
-                    ->maxLength(255),
-                FileUpload::make('image')
-                    ->required()
-                    ->image()->directory('membre')->label('Image du membre'),
-                Forms\Components\TextInput::make('level')
-                    ->required()
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('country')
-                    ->required()
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('city')
-                    ->required()
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('email')
-                    ->required()
-                    ->maxLength(255),
+                Section::make('Membre du Conseil d Administration')
+                    ->description('Information sur le membre du Conseil d Administration')
+                    ->schema([
+                        TextInput::make('last_name')
+                            ->label('Nom')
+                            ->required(),
+                        TextInput::make('first_name')
+                            ->required()
+                            ->label('Prenoms'),
+                        TextInput::make('email')
+                            ->required(),
+                        TextInput::make('level')
+                            ->label('Profession')
+                            ->required(),
+                        TextInput::make('country')
+                            ->label('Pays')
+                            ->required(),
+                        TextInput::make('city')
+                            ->label('Ville')
+                            ->required(),
+                        Section::make('Réseaux sociaux')
+                            ->schema([
+                                TextInput::make('facebook'),
+                                TextInput::make('linkedin'),
+                                TextInput::make('twitter'),
+                                TextInput::make('instagram'),
+                            ])->columns(4),
+                        Section::make('Photo du membre')
+                            ->schema([
+                                FileUpload::make('image')
+                                    ->required()
+                                    ->image()->directory('membre')->label('Image du membre'),
+                            ])->columns(1),
+                        Section::make('Description a propos du membre')
+                            ->schema([
+                                RichEditor::make('description')
+                                    ->required(),
+                            ])->columns(1),
 
-                RichEditor::make('description')
-                    ->required(),
-                Forms\Components\TextInput::make('facebook')
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('linkedin')
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('twitter')
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('instagram')
-                    ->maxLength(255),
+                    ])->columns(3),
 
             ]);
     }
@@ -70,30 +83,27 @@ class OfficeTeamResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('fullName')
+                TextColumn::make('created_at')
+                    ->label('Date de création')
+                    ->dateTime('d/m/Y'),
+                TextColumn::make('fullName')
                     ->searchable()
                     ->label('Nom et prenoms'),
                 ImageColumn::make('image'),
-                Tables\Columns\TextColumn::make('office.name')->label('Office')
+                TextColumn::make('office.name')->label('Bureau')
                     ->sortable(),
-                Tables\Columns\TextColumn::make('level')
+                TextColumn::make('level')
+                    ->label('Profession')
                     ->searchable()
                     ->label('Profession'),
-                Tables\Columns\TextColumn::make('email')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('city')
-                    ->label('Ville')
+                TextColumn::make('email')
                     ->searchable(),
             ])
             ->filters([
                 //
             ])
-            ->actions([
-                ActionGroup::make([
-                    Tables\Actions\EditAction::make(),
-                    Tables\Actions\DeleteAction::make(),
-                ])
-            ])
+            ->actions([ActionGroup::make([ViewAction::make(), Tables\Actions\EditAction::make(), Tables\Actions\DeleteAction::make()])->button()])
+
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make(),

@@ -8,6 +8,10 @@ use Filament\Tables;
 use Filament\Forms\Form;
 use Filament\Tables\Table;
 use Filament\Resources\Resource;
+use Filament\Forms\Components\Section;
+use Filament\Tables\Actions\ViewAction;
+use Filament\Tables\Columns\TextColumn;
+use Filament\Forms\Components\TextInput;
 use Filament\Tables\Actions\ActionGroup;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Forms\Components\FileUpload;
@@ -23,22 +27,26 @@ class PoleResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-bookmark';
     protected static ?string $navigationGroup = 'Pôles';
+    protected static ?string $label = 'Pôle';
+    protected static ?string $pluralLabel = 'Poles';
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-
-                FileUpload::make('icon')
-                    ->required()
-                    ->image()->directory('pole')->label("Icon du pole"),
-                Forms\Components\TextInput::make('name')
-                    ->required()
-                    ->maxLength(255),
-                RichEditor::make('description')
-                    ->required()
-                    ->maxLength(65535)
-                    ->columnSpanFull(),
+                Section::make('Pole')
+                    ->description('Informations du pole')
+                    ->schema([
+                        TextInput::make('name')
+                            ->required()
+                            ->label('Nom du pole'),
+                        FileUpload::make('icon')
+                            ->required()
+                            ->image()->directory('pole')->label("Icon du pole"),
+                        RichEditor::make('description')
+                            ->label('description du pole')
+                            ->required(),
+                    ])
             ]);
     }
 
@@ -46,28 +54,18 @@ class PoleResource extends Resource
     {
         return $table
             ->columns([
-
-                Tables\Columns\TextColumn::make('name')
+                TextColumn::make('created_at')
+                    ->label('Date de création')
+                    ->dateTime('d/m/Y'),
+                TextColumn::make('name')
                     ->searchable(),
                 ImageColumn::make('icon'),
-                Tables\Columns\TextColumn::make('created_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('updated_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters([
                 //
             ])
-            ->actions([
-                ActionGroup::make([
-                    Tables\Actions\EditAction::make(),
-                    Tables\Actions\DeleteAction::make(),
-                ]),
-            ])
+            ->actions([ActionGroup::make([ViewAction::make(), Tables\Actions\EditAction::make(), Tables\Actions\DeleteAction::make()])->button()])
+
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make(),

@@ -101,7 +101,7 @@ if (! function_exists('Filament\Support\prepare_inherited_attributes')) {
 
         $attributes->setAttributes(
             collect($originalAttributes)
-                ->filter(fn ($value, string $name): bool => ! str($name)->startsWith('x-'))
+                ->filter(fn ($value, string $name): bool => ! str($name)->startsWith(['x-', 'data-']))
                 ->mapWithKeys(fn ($value, string $name): array => [Str::camel($name) => $value])
                 ->merge($originalAttributes)
                 ->all(),
@@ -143,6 +143,10 @@ if (! function_exists('Filament\Support\is_app_url')) {
 if (! function_exists('Filament\Support\generate_href_html')) {
     function generate_href_html(?string $url, bool $shouldOpenInNewTab = false): Htmlable
     {
+        if (blank($url)) {
+            return new HtmlString('');
+        }
+
         $html = "href=\"{$url}\"";
 
         if ($shouldOpenInNewTab) {

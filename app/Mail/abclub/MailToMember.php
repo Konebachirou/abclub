@@ -2,12 +2,13 @@
 
 namespace App\Mail\abclub;
 
+use App\Models\User;
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Mail\Mailables\Content;
-use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Mail\Mailables\Envelope;
+use Illuminate\Contracts\Queue\ShouldQueue;
 
 class MailToMember extends Mailable
 {
@@ -16,9 +17,11 @@ class MailToMember extends Mailable
     /**
      * Create a new message instance.
      */
-    public function __construct()
+    public $user, $password;
+    public function __construct(User $user, string $password)
     {
-        //
+        $this->user = $user;
+        $this->password = $password;
     }
 
     /**
@@ -38,6 +41,9 @@ class MailToMember extends Mailable
     {
         return new Content(
             markdown: 'emails.abclub.mailToMember',
+            with: [
+                'url' => 'http://127.0.0.1:8000/admin/login'
+            ],
         );
     }
 
