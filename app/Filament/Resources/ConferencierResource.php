@@ -10,12 +10,19 @@ use App\Models\Conferencier;
 use Filament\Infolists\Infolist;
 use Filament\Resources\Resource;
 use Filament\Forms\Components\Select;
+use Filament\Forms\Components\Toggle;
+use Filament\Forms\Components\Section;
 use Filament\Infolists\Components\Grid;
+use Filament\Tables\Actions\ViewAction;
+use Filament\Tables\Columns\TextColumn;
+use Filament\Forms\Components\TextInput;
 use Filament\Infolists\Components\Split;
 use Filament\Tables\Actions\ActionGroup;
+use Filament\Tables\Columns\ImageColumn;
 use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\RichEditor;
+use Filament\Tables\Columns\ToggleColumn;
 use Illuminate\Database\Eloquent\Builder;
-use Filament\Infolists\Components\Section;
 use Filament\Infolists\Components\TextEntry;
 use Filament\Infolists\Components\ImageEntry;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
@@ -29,85 +36,47 @@ class ConferencierResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-users';
     protected static ?string $navigationLabel = 'Conferenciers';
-    protected static ?string $label = 'Conferenciers';
+    protected static ?string $label = 'Conferencier';
     protected static ?string $navigationGroup = 'Actualités et Événements';
+    protected static ?string $pluralLabel = 'Conferenciers';
 
-    public static function infolist(Infolist $infolist): Infolist
-    {
-        return $infolist
-            ->schema([
-                Section::make()
-                    ->schema([
-                        Split::make([
-                            Grid::make(3)
-                                ->schema([
-
-                                    TextEntry::make('event.title')
-                                        ->hiddenLabel()
-                                        ->grow(),
-                                    Grid::make(2)
-                                        ->schema([
-                                            TextEntry::make('full_name')->label('Nom et Prenom'),
-                                            TextEntry::make('email')->label('E-mail'),
-                                        ]),
-
-                                    ImageEntry::make('photo')
-                                        ->hiddenLabel()
-                                        // ->size(750)
-                                        ->height(800)
-                                        ->width(600)
-                                        ->grow(),
-
-
-                                ])
-
-                        ]),
-                        Section::make('Description')
-                            ->schema([
-                                TextEntry::make('description')
-                                    ->prose()
-                                    ->markdown()
-                                    ->hiddenLabel(),
-                            ])
-                            ->collapsible(),
-
-                    ])
-
-
-
-
-            ]);
-    }
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
+                Section::make("Conferencier")
+                    ->description("Creation de la conferencier")
+                    ->schema([
+                        Select::make('event_id')
+                            ->label('Evenement')
+                            ->placeholder('Choisir un evenement')
+                            ->required()
+                            ->options(\App\Models\Event::pluck('title', 'id')),
+                        TextInput::make('full_name')
+                            ->label('Nom et Prenom')
+                            ->required(),
+                        TextInput::make('email')
+                            ->email()
+                            ->label('E-mail')
+                            ->required(),
+                        TextInput::make('job')
+                            ->label('Profession')
+                            ->required(),
+                        Section::make('Image et description')
+                            ->schema([
+                                FileUpload::make('photo')
+                                    ->required()
+                                    ->image()->directory('conferencier')->label("Image du conferencier"),
 
-                Select::make('event_id')
-                    ->label('Evenement')
-                    ->placeholder('Choisir un evenement')
-                    ->required()
-                    ->options(\App\Models\Event::pluck('title', 'id')),
-                Forms\Components\TextInput::make('full_name')
-                    ->required()
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('email')
-                    ->email()
-                    ->required()
-                    ->maxLength(255),
-                FileUpload::make('photo')
-                    ->required()
-                    ->image()->directory('conferencier')->label("Image"),
-                Forms\Components\TextInput::make('job')
-                    ->required()
-                    ->maxLength(255),
-                Forms\Components\Textarea::make('description')
-                    ->required()
-                    ->maxLength(65535)
-                    ->columnSpanFull(),
-                Forms\Components\Toggle::make('status')
-                    ->required(),
+                                RichEditor::make('description')
+                                    ->required()
+                                    ->label("Description a propos du conferencier"),
+                            ])->columns(1),
+                        Toggle::make('status')
+                            ->required()
+                            ->label('Publier')
+                    ])->columns(2),
             ]);
     }
 
@@ -115,35 +84,25 @@ class ConferencierResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('event.title')->label('Event')
+                TextColumn::make('created_at')
+                    ->label('Date de création')
+                    ->dateTime('d/m/Y'),
+                ImageColumn::make('events.illustration')->label('Evenement')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('full_name')
+                TextColumn::make('full_name')
                     ->searchable()->label('Nom et Prenom'),
-                Tables\Columns\TextColumn::make('email')
+                TextColumn::make('email')
                     ->searchable(),
-                Tables\Columns\ImageColumn::make('photo'),
-                Tables\Columns\TextColumn::make('Profession')
+                ImageColumn::make('photo'),
+                TextColumn::make('job')
                     ->searchable(),
-                Tables\Columns\ToggleColumn::make('status'),
-                Tables\Columns\TextColumn::make('created_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('updated_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
+                ToggleColumn::make('status'),
             ])
             ->filters([
                 //
             ])
-            ->actions([
-                ActionGroup::make([
-                    Tables\Actions\ViewAction::make(),
-                    Tables\Actions\EditAction::make(),
-                    Tables\Actions\DeleteAction::make(),
-                ]),
-            ])
+            ->actions([ActionGroup::make([ViewAction::make(), Tables\Actions\EditAction::make(), Tables\Actions\DeleteAction::make()])->button()])
+
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make(),

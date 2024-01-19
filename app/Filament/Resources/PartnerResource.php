@@ -9,6 +9,11 @@ use Filament\Forms\Form;
 use Filament\Tables\Table;
 use Filament\Resources\Resource;
 use Filament\Forms\Components\Select;
+use Filament\Forms\Components\Toggle;
+use Filament\Forms\Components\Section;
+use Filament\Tables\Actions\ViewAction;
+use Filament\Tables\Columns\TextColumn;
+use Filament\Forms\Components\TextInput;
 use Filament\Tables\Actions\ActionGroup;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Forms\Components\FileUpload;
@@ -25,27 +30,37 @@ class PartnerResource extends Resource
     protected static ?string $navigationIcon = 'heroicon-o-squares-2x2';
     protected static ?string $navigationGroup = 'Partenariat';
     protected static ?string $navigationLabel = 'Partenaires';
+    protected static ?string $label = 'Partenaire';
+    protected static ?string $pluralLabel = 'Partenaires';
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('name')
-                    ->required()
-                    ->maxLength(255),
-                FileUpload::make('logo')
-                    ->required()
-                    ->image()->directory('partenaire')->label('Image du logo'),
-                Forms\Components\Toggle::make('status')
-                    ->label('Status')
-                    ->required(),
-                Forms\Components\TextInput::make('website')
-                    ->required()
-                    ->maxLength(255),
-                Select::make('pole_id')
-                    ->label('Pole')
-                    ->required()
-                    ->options(\App\Models\Pole::pluck('name', 'id')),
+                Section::make('Partenaire')
+                    ->description('Informations du partenaire')
+                    ->schema([
+                        TextInput::make('name')
+                            ->required()
+                            ->label('Nom du partenaire'),
+                        TextInput::make('website')
+                            ->required()
+                            ->label('website du partenaire'),
+                        Select::make('pole_id')
+                            ->label('Selectionner le pole')
+                            ->required()
+                            ->options(\App\Models\Pole::pluck('name', 'id')),
+
+                        Section::make('Logo')
+                            ->description('Logo du partenaire')
+                            ->schema([
+                                FileUpload::make('logo')
+                                    ->required()
+                                    ->image()->directory('partenaire')->label('Enter le logo'),
+                            ]), Toggle::make('status')
+                            ->label('Publier')
+                            ->required(),
+                    ])->columns(3),
             ]);
     }
 
@@ -53,22 +68,21 @@ class PartnerResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('name')
+                TextColumn::make('created_at')
+                    ->label('Date de création')
+                    ->label('Date de création')
+                    ->dateTime('d/m/Y'),
+                TextColumn::make('name')
                     ->searchable(),
                 ImageColumn::make('logo'),
                 ToggleColumn::make('status')
                     ->label('Status'),
-                
             ])
             ->filters([
                 //
             ])
-            ->actions([
-                ActionGroup::make([
-                    Tables\Actions\EditAction::make(),
-                    Tables\Actions\DeleteAction::make(),
-                ]),
-            ]) 
+            ->actions([ActionGroup::make([ViewAction::make(), Tables\Actions\EditAction::make(), Tables\Actions\DeleteAction::make()])->button()])
+
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make(),

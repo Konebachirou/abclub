@@ -8,8 +8,13 @@ use Filament\Forms\Form;
 use Filament\Tables\Table;
 use App\Models\FormerPresident;
 use Filament\Resources\Resource;
+use Filament\Forms\Components\Section;
+use Filament\Tables\Actions\ViewAction;
+use Filament\Tables\Columns\TextColumn;
+use Filament\Forms\Components\TextInput;
 use Filament\Tables\Actions\ActionGroup;
 use Filament\Tables\Columns\ImageColumn;
+use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\FileUpload;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
@@ -23,24 +28,34 @@ class FormerPresidentResource extends Resource
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
     protected static ?string $navigationLabel = 'Presidents';
     protected static ?string $navigationGroup = 'Equipes';
-
+    protected static ?string $label = 'President';
+    protected static ?string $pluralLabel = 'Presidents';
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('first_name')
-                    ->required()
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('last_name')
-                    ->required()
-                    ->maxLength(255),
-                FileUpload::make('image')
-                    ->required()
-                    ->image()->directory('president')->label('Image du president'),
-                Forms\Components\DatePicker::make('start_date')
-                    ->required(),
-                Forms\Components\DatePicker::make('end_date')
-                    ->required(),
+                Section::make('Informations du president')
+                    ->schema([
+                        TextInput::make('first_name')
+                            ->label('Nom du president')
+                            ->required(),
+                        TextInput::make('last_name')
+                            ->required()
+                            ->label('Prenoms du president'),
+                        DatePicker::make('start_date')
+                            ->required()
+                            ->label('Date de debut de mandat du president'),
+                        DatePicker::make('end_date')
+                            ->required()
+                            ->label('Date de fin de mandat du president'),
+                        Section::make('Image du president')
+                            ->schema([
+                                FileUpload::make('image')
+                                    ->required()
+                                    ->image()->directory('president')->label('Image'),
+                            ])
+                    ])->columns(2),
+
             ]);
     }
 
@@ -48,28 +63,30 @@ class FormerPresidentResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('first_name')
+                TextColumn::make('created_at')
+                    ->label('Date de création')
+                    ->dateTime('d/m/Y'),
+                TextColumn::make('first_name')
+                    ->label('Nom')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('last_name')
+                TextColumn::make('last_name')
+                    ->label('Prenoms')
                     ->searchable(),
                 ImageColumn::make('image'),
-                Tables\Columns\TextColumn::make('start_date')
+                TextColumn::make('start_date')
                     ->date()
+                    ->label('Date de debut de mandat')
                     ->sortable(),
-                Tables\Columns\TextColumn::make('end_date')
+                TextColumn::make('end_date')
                     ->date()
+                    ->label('Date de fin de mandat')
                     ->sortable(),
             ])
             ->filters([
                 //
             ])
-            ->actions([
-                ActionGroup::make([
-                    Tables\Actions\ViewAction::make(),
-                    Tables\Actions\EditAction::make(),
-                    Tables\Actions\DeleteAction::make(),
-                ]),
-            ])
+            ->actions([ActionGroup::make([ViewAction::make(), Tables\Actions\EditAction::make(), Tables\Actions\DeleteAction::make()])->button()])
+
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make(),

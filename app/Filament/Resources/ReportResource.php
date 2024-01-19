@@ -10,15 +10,20 @@ use Filament\Tables\Table;
 use Filament\Infolists\Infolist;
 use Filament\Resources\Resource;
 use Filament\Forms\Components\Select;
+use Filament\Forms\Components\Toggle;
+use Filament\Forms\Components\Section;
 use Filament\Infolists\Components\Grid;
+use Filament\Tables\Actions\ViewAction;
+use Filament\Tables\Columns\TextColumn;
+use Filament\Forms\Components\TextInput;
 use Filament\Infolists\Components\Split;
 use Filament\Tables\Actions\ActionGroup;
 use Filament\Tables\Columns\ImageColumn;
+use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\RichEditor;
 use Filament\Tables\Columns\ToggleColumn;
 use Illuminate\Database\Eloquent\Builder;
-use Filament\Infolists\Components\Section;
 use Filament\Infolists\Components\TextEntry;
 use Filament\Infolists\Components\ImageEntry;
 use App\Filament\Resources\ReportResource\Pages;
@@ -32,83 +37,58 @@ class ReportResource extends Resource
     protected static ?string $navigationIcon = 'heroicon-o-arrow-up-on-square-stack';
     protected static ?string $navigationLabel = 'Nos Actions && News';
     protected static ?string $navigationGroup = 'Actualités et Événements';
+    protected static ?string $label = 'Action & New';
+    protected static ?string $pluralLabel = 'Nos Actions & News';
 
-    public static function infolist(Infolist $infolist): Infolist
-    {
-        return $infolist
-            ->schema([
-                Section::make()
-                    ->schema([
-                        Split::make([
-                            Grid::make(3)
-                                ->schema([
-
-                                    TextEntry::make('pole.name')
-                                        ->hiddenLabel()
-                                        ->grow(),
-                                    Grid::make(2)
-                                        ->schema([
-                                            TextEntry::make('title')->label('Titre'),
-                                            TextEntry::make('date')->label('date'),
-                                        ]),
-
-                                    ImageEntry::make('illustration')
-                                        ->hiddenLabel()
-                                        // ->size(750)
-                                        ->height(800)
-                                        ->width(600)
-                                        ->grow(),
-
-
-                                ])
-
-                        ]),
-                        Section::make('Description')
-                            ->schema([
-                                TextEntry::make('description')
-                                    ->prose()
-                                    ->markdown()
-                                    ->hiddenLabel(),
-                            ])
-                            ->collapsible(),
-
-                    ])
-
-
-
-
-            ]);
-    }
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                Select::make('pole_id')
-                    ->label('Pole')
-                    ->placeholder('Choisir un pole')
-                    ->required()
-                    ->options(\App\Models\Pole::pluck('name', 'id')),
-                Forms\Components\TextInput::make('title')
-                    ->required(),
-                RichEditor::make('description')
-                    ->required(),
-                FileUpload::make('illustration')
-                    ->required()
-                    ->image()->directory('report')->label("Image de la new ou de l'action"),
-                RichEditor::make('caption'),
-                FileUpload::make('album')
-                    ->multiple()
-                    ->directory('album')->label("Album"),
-                Forms\Components\Toggle::make('status')
-                    ->required(),
-                Forms\Components\DatePicker::make('date')
-                    ->required(),
-                Forms\Components\Toggle::make('is_report')
-                    ->label('Report')
-                    ->required(),
-                Forms\Components\Toggle::make('is_action')
-                    ->label('Action')
-                    ->required(),
+                Section::make("News / action")
+                    ->description("Creation de la news ou de l\'action")
+                    ->schema([
+                        Select::make('pole_id')
+                            ->label('Selectionner le pole')
+                            ->placeholder('Choisir un pole')
+                            ->required()
+                            ->options(\App\Models\Pole::pluck('name', 'id')),
+                        TextInput::make('title')
+                            ->label('Titre de la news ou de l\'action')
+                            ->required(),
+                        RichEditor::make('description')
+                            ->label('Description de la news ou de l\'action')
+                            ->required(),
+                        RichEditor::make('caption')
+                            ->label('Description de l\'image de la news ou de l\'action'),
+                        Section::make('Vous creez une news ou une action ?')
+                            ->schema([
+                                Toggle::make('is_report')
+                                    ->label('Une news')
+                                    ->required(),
+                                Toggle::make('is_action')
+                                    ->label('Une action')
+                                    ->required(),
+                            ])->columns(2),
+                        Section::make()
+                            ->schema([
+                                Toggle::make('status')
+                                    ->label('Publier')
+                                    ->required(),
+
+                                DatePicker::make('date')
+                                    ->required(),
+                            ])->columns(2),
+                        Section::make('Image')
+                            ->schema([
+                                FileUpload::make('illustration')
+                                    ->required()
+                                    ->image()->directory('report')->label("Image principal de la news ou de l'action"),
+                                FileUpload::make('album')
+                                    ->multiple()
+                                    ->image()
+                                    ->directory('album')->label("Image supplémentaire de la news ou de l'action"),
+                            ])->columns(1),
+                    ])->columns(2),
             ]);
     }
 
@@ -116,16 +96,14 @@ class ReportResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('pole.name')->label('Pole'),
-                ImageColumn::make('illustration'),
-                Tables\Columns\TextColumn::make('caption')
-                    ->searchable(),
-
+                TextColumn::make('created_at')
+                    ->label('Date de création')
+                    ->dateTime('d/m/Y'),
+                TextColumn::make('pole.name')->label('Pole'),
+                ImageColumn::make('illustration')
+                    ->label('Image'),
                 ToggleColumn::make('status')
                     ->label('Status'),
-                Tables\Columns\TextColumn::make('date')
-                    ->date()
-                    ->sortable(),
                 ImageColumn::make('album')
                     ->circular()
                     ->stacked(),
@@ -134,26 +112,12 @@ class ReportResource extends Resource
                     ->label('News'),
                 ToggleColumn::make('is_action')
                     ->label('Action'),
-
-                Tables\Columns\TextColumn::make('created_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('updated_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters([
                 //
             ])
-            ->actions([
-                ActionGroup::make([
-                    Tables\Actions\ViewAction::make(),
-                    Tables\Actions\EditAction::make(),
-                    Tables\Actions\DeleteAction::make(),
-                ]),
-            ])
+            ->actions([ActionGroup::make([ViewAction::make(), Tables\Actions\EditAction::make(), Tables\Actions\DeleteAction::make()])->button()])
+
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make(),

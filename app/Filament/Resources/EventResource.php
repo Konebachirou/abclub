@@ -10,17 +10,22 @@ use Filament\Tables\Table;
 use Filament\Infolists\Infolist;
 use Filament\Resources\Resource;
 use Filament\Forms\Components\Select;
+use Filament\Forms\Components\Toggle;
+use Filament\Forms\Components\Section;
 use Filament\Infolists\Components\Grid;
+use Filament\Tables\Actions\ViewAction;
+use Filament\Tables\Columns\TextColumn;
+use Filament\Forms\Components\TextInput;
 use Filament\Infolists\Components\Group;
 use Filament\Infolists\Components\Split;
 use Filament\Tables\Actions\ActionGroup;
 use Filament\Tables\Columns\ImageColumn;
+use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\TimePicker;
 use Filament\Tables\Columns\ToggleColumn;
 use Illuminate\Database\Eloquent\Builder;
-use Filament\Infolists\Components\Section;
 use Filament\Infolists\Components\TextEntry;
 use Filament\Infolists\Components\ImageEntry;
 use App\Filament\Resources\EventResource\Pages;
@@ -34,101 +39,75 @@ class EventResource extends Resource
     protected static ?string $navigationIcon = 'heroicon-o-cube-transparent';
     protected static ?string $navigationLabel = 'Evenements';
     protected static ?string $navigationGroup = 'Actualités et Événements';
+    protected static ?string $label = 'Evenement';
+    protected static ?string $pluralLabel = 'Evenements';
 
-
-    public static function infolist(Infolist $infolist): Infolist
-    {
-        return $infolist
-            ->schema([
-                Section::make()
-                    ->schema([
-                        Split::make([
-                            Grid::make(3)
-                                ->schema([
-
-                                    TextEntry::make('pole.name')
-                                        ->hiddenLabel()
-                                        ->grow(),
-                                    Grid::make(3)
-                                        ->schema([
-                                            TextEntry::make('start_date')->label('Date debut'),
-                                            TextEntry::make('end_date')->label('Date fin'),
-                                            TextEntry::make('start_times')->label('Heure debut'),
-                                            TextEntry::make('end_times')->label('Heure fin'),
-                                            TextEntry::make('lieu'),
-                                            TextEntry::make('Number_of_place')
-                                                ->label('Place'),
-                                        ]),
-
-                                    ImageEntry::make('illustration')
-                                        ->hiddenLabel()
-                                        // ->size(750)
-                                        ->height(800)
-                                        ->width(600)
-                                        ->grow(),
-
-
-                                ])
-
-                        ]),
-                        Section::make('Description')
-                            ->schema([
-                                TextEntry::make('description')
-                                    ->prose()
-                                    ->markdown()
-                                    ->hiddenLabel(),
-                            ])
-                            ->collapsible(),
-
-                    ])
-
-
-
-
-            ]);
-    }
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                Select::make('pole_id')
-                    ->label('Pole')
-                    ->placeholder('Choisir un pole')
-                    ->required()
-                    ->options(\App\Models\Pole::pluck('name', 'id')),
-                Forms\Components\TextInput::make('title')
-                    ->required()
-                    ->maxLength(255),
-                FileUpload::make('illustration')
-                    ->required()
-                    ->image()->directory('event')->label("Image de l'evenement"),
-                RichEditor::make('description')
-                    ->required()
-                    ->maxLength(65535)
-                    ->columnSpanFull(),
-                Forms\Components\Toggle::make('is_active')
-                    ->required(),
-                Forms\Components\Toggle::make('is_free')
-                    ->required(),
-                Forms\Components\TextInput::make('Number_of_place')
-                    ->required()
-                    ->numeric(),
-                Forms\Components\TextInput::make('payment_link')
-                    ->maxLength(255),
-                Forms\Components\DatePicker::make('start_date')
-                    ->required(),
-                Forms\Components\DatePicker::make('end_date')
-                    ->required(),
-                TimePicker::make('start_times')
-                    ->required(),
-                TimePicker::make('end_times')
-                    ->required(),
-                Forms\Components\TextInput::make('lieu')
-                    ->required()
-                    ->maxLength(255),
-                Forms\Components\Toggle::make('is_event')
-                    ->required(),
+                Section::make("Evenement")
+                    ->description("Creation de l'evenement")
+                    ->schema([
+                        Select::make('pole_id')
+                            ->label('Pole')
+                            ->placeholder('Choisir un pole')
+                            ->required()
+                            ->options(\App\Models\Pole::pluck('name', 'id')),
+                        TextInput::make('title')
+                            ->required()
+                            ->label('Titre de l\'evenement'),
+                        DatePicker::make('start_date')
+                            ->default(now())
+                            ->label('Date de debut de l\'evenement')
+                            ->required(),
+                        DatePicker::make('end_date')
+                            ->label('Date de fin de l\'evenement')
+                            ->required(),
+                        TimePicker::make('start_times')
+                            ->label('Heure de debut de l\'evenement')
+                            ->default(now())
+                            ->required(),
+                        TimePicker::make('end_times')
+                            ->label('Heure de fin de l\'evenement')
+                            ->required(),
+                        TextInput::make('Number_of_place')
+                            ->required()
+                            ->label('Nombre de place')
+                            ->numeric(),
+                        TextInput::make('payment_link')
+                            ->label('Lien de paiement'),
+                        Section::make('Lieu de l\'evenement')
+                            ->schema([
+                                TextInput::make('lieu')
+                            ])->columns(1),
+                        Section::make()
+                            ->schema([
+                                Toggle::make('is_active')
+                                    ->label('Publier')
+                                    ->required(),
+                                Toggle::make('is_free')
+                                    ->label('Bênevolat')
+                                    ->required(),
+                                Toggle::make('is_event')
+                                    ->label('Evenement')
+                                    ->required(),
+                            ])->columns(3),
+                        Section::make('Image de l\'evenement')
+                            ->schema([
+                                FileUpload::make('illustration')
+                                    ->required()
+                                    ->image()->directory('event')->label("Image "),
+
+                            ])->columns(1),
+                        Section::make('Description de l\'evenement')
+                            ->schema([
+                                RichEditor::make('description')
+                                    ->required(),
+                            ])
+                    ])->columns(2),
+
             ]);
     }
 
@@ -136,8 +115,8 @@ class EventResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('pole.name')->label('Pole')
-                    ->sortable(),
+                TextColumn::make('created_at')
+                    ->label('Date de création'),
                 ImageColumn::make('illustration'),
 
                 ToggleColumn::make('is_active')
@@ -147,39 +126,25 @@ class EventResource extends Resource
                 ToggleColumn::make('is_event')
                     ->label('Evenement'),
 
-                Tables\Columns\TextColumn::make('Number_of_place')
+                TextColumn::make('Number_of_place')
                     ->numeric()
                     ->sortable()
                     ->label('Nombre de places'),
-                Tables\Columns\TextColumn::make('start_date')
+                TextColumn::make('start_date')
                     ->date()
+                    ->label('Date de debut')
                     ->sortable(),
-                Tables\Columns\TextColumn::make('end_date')
+                TextColumn::make('end_date')
                     ->date()
+                    ->label('Date de fin')
                     ->sortable(),
-                Tables\Columns\TextColumn::make('start_times'),
-                Tables\Columns\TextColumn::make('end_times'),
-                Tables\Columns\TextColumn::make('lieu')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('created_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('updated_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
+
             ])
             ->filters([
                 //
             ])
-            ->actions([
-                ActionGroup::make([
-                    Tables\Actions\ViewAction::make(),
-                    Tables\Actions\EditAction::make(),
-                    Tables\Actions\DeleteAction::make(),
-                ]),
-            ])
+            ->actions([ActionGroup::make([ViewAction::make(), Tables\Actions\EditAction::make(), Tables\Actions\DeleteAction::make()])->button()])
+
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make(),

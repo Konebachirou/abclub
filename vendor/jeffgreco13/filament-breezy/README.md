@@ -92,9 +92,20 @@ BreezyCore::make()
     ->myProfile(
         shouldRegisterUserMenu: true, // Sets the 'account' link in the panel User Menu (default = true)
         shouldRegisterNavigation: false, // Adds a main navigation item for the My Profile page (default = false)
+        navigationGroup: 'Settings', // Sets the navigation group for the My Profile page (default = null)
         hasAvatars: false, // Enables the avatar upload form component (default = false)
         slug: 'my-profile' // Sets the slug for the profile page (default = 'my-profile')
     )
+```
+
+#### Custom My Profile page class
+
+You can also use a custom My Profile page class by extending the default one, and registering it with the plugin.
+
+```php
+BreezyCore::make()
+    ->myProfile()
+    ->customMyProfilePage(AccountSettingsPage::class),
 ```
 
 #### Using avatars in your Panel
@@ -350,7 +361,7 @@ class User extends Authenticatable
 }
 ```
 
-2. Enable Two Factory Authentication using the `enableTwoFactorAuthentication()` method on the Breezy plugin.
+2. Enable Two Factor Authentication using the `enableTwoFactorAuthentication()` method on the Breezy plugin.
 
 ```php
 BreezyCore::make()
@@ -399,8 +410,12 @@ PasswordButtonAction::make('secure_action')->action('doSecureAction')
 PasswordButtonAction::make('secure_action')->label('Delete')->icon('heroicon-s-shield-check')->modalHeading('Confirmation')->action(fn()=>$this->doAction())
 ```
 
+### Customizing the Registration form
+
+Filament v3+ introduces enhanced capabilities for handling and customizing registration forms seamlessly. This feature is now an integral part of the core Filament functionality. Consequently, the ability to customize registration forms, which was available in Breezy v1, has been deprecated in v2 in favor of the more comprehensive and integrated approach provided by Filament v3+. Laravel Daily has a concise tutorial available, guiding users on creating and registering custom registration forms while incorporating additional fields. [Check out the tutorial here ](https://laraveldaily.com/post/filament-registration-form-extra-fields-choose-user-role)for step-by-step instructions.
+
 ## FAQ
-> How the 2FA session work across multiple panels?
+> How do 2FA sessions work across multiple panels?
 
 By default, Breezy uses the same guard as defined on your Panel. The default is 'web'. Only panels that have registered the BreezyCore plugin will have access to 2FA. If multiple panels use 2FA, and share the same guard, the User only has to enter the OTP once for the duration of the session.
 

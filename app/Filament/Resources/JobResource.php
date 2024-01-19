@@ -10,6 +10,8 @@ use Filament\Tables\Table;
 use Filament\Resources\Resource;
 use App\Livewire\PostulantJobChart;
 use Filament\Forms\Components\Select;
+use Filament\Forms\Components\Section;
+use Filament\Tables\Actions\ViewAction;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Forms\Components\TextInput;
 use Filament\Tables\Actions\ActionGroup;
@@ -37,49 +39,73 @@ class JobResource extends Resource
     {
         return $form
             ->schema([
-                TextInput::make('company')->label('Entreprise')
-                    ->required(),
-                TextInput::make('domain')->label('Domaine')
-                    ->required(),
-                TextInput::make('job_title')->label('Titre de l\'offre')
-                    ->required(),
-                Select::make('type')
-                    ->label('Type')
-                    ->options([
-                        'CDI' => 'CDI',
-                        'CDD' => 'CDD',
-                        'Alternance' => 'Alternance',
-                        'Stage' => 'Stage',
-                        'Freelance' => 'Freelance',
-                        'Intérime' => 'Intérime',
+                Section::make()
+                    ->schema([
+                        Section::make('Informations sur L\entreprise')
+                            ->schema([
+                                TextInput::make('company')->label('Entreprise')
+                                    ->label('Nom de l\'entreprise')
+                                    ->required(),
+                                TextInput::make('domain')->label('Domaine')
+                                    ->label('Domaine de l\'entreprise')
+                                    ->required(),
+                                Section::make()
+                                    ->schema([
+                                        TextInput::make('location')->label('Localisation')
+                                            ->label('Localisation de l\'entreprise')
+                                            ->required(),
+                                    ])->columns(1),
+
+                                Section::make('Image de L\'entreprise')
+                                    ->schema([
+                                        FileUpload::make('image')->label('Image')
+                                            ->image()->directory('job')->label("Image"),
+                                    ])->columns(1),
+                                Section::make('Description de L\'entreprise')
+                                    ->schema([
+                                        RichEditor::make('company_desc')->label('Description')
+                                            ->required(),
+                                    ])->columns(1),
+
+                            ])->columns(2),
+                        Section::make('Informations sur l\'offre')
+                            ->schema([
+                                TextInput::make('job_title')->label('Titre de l\'offre')
+                                    ->required(),
+                                Select::make('type')
+                                    ->label('Type d\'offre')
+                                    ->options([
+                                        'CDI' => 'CDI',
+                                        'CDD' => 'CDD',
+                                        'Alternance' => 'Alternance',
+                                        'Stage' => 'Stage',
+                                        'Freelance' => 'Freelance',
+                                        'Intérime' => 'Intérime',
+                                    ])
+                                    ->required(),
+                                TextInput::make('job_link')->label('Lien du poste')
+                                    ->required(),
+                                Select::make('pole_id')
+                                    ->label('Selectionner le Pole')
+                                    ->required()
+                                    ->options(\App\Models\Pole::pluck('name', 'id')),
+                                Section::make()
+                                    ->schema([
+                                        RichEditor::make('mission')->label('Description de la mission')
+                                            ->required(),
+                                        RichEditor::make('diplomes')->label('Diplômes requis ')
+                                            ->required(),
+                                        RichEditor::make('experiences')->label('Expériences requises')
+                                            ->required(),
+                                        RichEditor::make('languages')->label('Langues')
+                                            ->required(),
+                                        RichEditor::make('competences')->label('Compétences et expertises')
+                                            ->required(),
+                                        RichEditor::make('process')->label('Processus de recrutement ')
+                                            ->required(),
+                                    ])->columns(2),
+                            ])->columns(4),
                     ])
-                    ->required(),
-                TextInput::make('location')->label('Localisation')
-                    ->required(),
-                Select::make('pole_id')
-                    ->label('Pole')
-                    ->required()
-                    ->options(\App\Models\Pole::pluck('name', 'id')),
-                FileUpload::make('image')->label('Image')
-                    ->image()->directory('job')->label("Image"),
-                TextInput::make('job_link')->label('Lien du poste')
-                    ->required(),
-
-                RichEditor::make('company_desc')->label('Description de l\'entreprise')
-                    ->required(),
-                RichEditor::make('mission')->label('Description de la mission')
-                    ->required(),
-                RichEditor::make('diplomes')->label('Diplômes requis ')
-                    ->required(),
-                RichEditor::make('experiences')->label('Expériences requises')
-                    ->required(),
-                RichEditor::make('languages')->label('Langues')
-                    ->required(),
-                RichEditor::make('competences')->label('Compétences et expertises')
-                    ->required(),
-                RichEditor::make('process')->label('Processus de recrutement ')
-                    ->required(),
-
             ]);
     }
 
@@ -87,20 +113,34 @@ class JobResource extends Resource
     {
         return $table
             ->columns([
+                TextColumn::make('created_at')
+                    ->label('Date de création')
+                    ->dateTime('d/m/Y'),
                 ImageColumn::make('image')->label('Image'),
-                TextColumn::make('company')->label('Entreprise')
-                    ->searchable()
-                    ->sortable(),
+
                 TextColumn::make('location')->label('Localisation')
-                    ->searchable()
-                    ->sortable(),
-                TextColumn::make('domain')->label('Domaine')
                     ->searchable()
                     ->sortable(),
                 TextColumn::make('job_title')->label('Titre de l\'offre')
                     ->searchable()
                     ->sortable(),
                 TextColumn::make('type')->label('Type')
+                    ->badge()
+                    ->color(function (Job $record) {
+                        if ($record->type === 'CDI') {
+                            return 'success';
+                        } elseif ($record->type === 'CDD') {
+                            return 'warning';
+                        } elseif ($record->type === 'Alternance') {
+                            return 'danger';
+                        } elseif ($record->type === 'Stage') {
+                            return 'info';
+                        } elseif ($record->type === 'Freelance') {
+                            return 'secondary';
+                        } elseif ($record->type === 'Intérime') {
+                            return 'primary';
+                        }
+                    })
                     ->searchable()
                     ->sortable(),
                 ToggleColumn::make('status')
@@ -108,19 +148,12 @@ class JobResource extends Resource
                 TextColumn::make('pole.name')->label('Pole')
                     ->searchable()
                     ->sortable(),
-
-
-
             ])
             ->filters([
                 //
             ])
-            ->actions([
-                ActionGroup::make([
-                    Tables\Actions\EditAction::make(),
-                    Tables\Actions\DeleteAction::make(),
-                ]),
-            ])
+            ->actions([ActionGroup::make([ViewAction::make(), Tables\Actions\EditAction::make(), Tables\Actions\DeleteAction::make()])->button()])
+
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make(),

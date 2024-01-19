@@ -8,6 +8,10 @@ use App\Models\Office;
 use Filament\Forms\Form;
 use Filament\Tables\Table;
 use Filament\Resources\Resource;
+use Filament\Forms\Components\Section;
+use Filament\Tables\Actions\ViewAction;
+use Filament\Tables\Columns\TextColumn;
+use Filament\Forms\Components\TextInput;
 use Filament\Tables\Actions\ActionGroup;
 use Illuminate\Database\Eloquent\Builder;
 use App\Filament\Resources\OfficeResource\Pages;
@@ -21,23 +25,34 @@ class OfficeResource extends Resource
     protected static ?string $navigationIcon = 'heroicon-o-building-office';
     protected static ?string $navigationLabel = 'Bureaux';
     protected static ?string $navigationGroup = 'Equipes';
+    protected static ?string $label = 'Bureau';
+    protected static ?string $pluralLabel = 'Bureaux';
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('name')
-                    ->required()
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('address')
-                    ->required()
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('phone')
-                    ->required()
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('email')
-                    ->required()
-                    ->maxLength(255),
+                Section::make('Bureau')
+                    ->description('Information sur le Bureau')
+                    ->schema([
+                        TextInput::make('name')
+                            ->required()
+                            ->label('Nom du Bureau'),
+                        TextInput::make('email')
+                            ->required()
+                            ->label('Email'),
+                        TextInput::make('phone')
+                            ->required()
+                            ->label('Telephone'),
+                        Section::make('Adresse du Bureau')
+                            ->schema([
+                                TextInput::make('address')
+                                    ->required()
+                                    ->label('Addresse'),
+                            ])->columns(1)
+
+                    ])->columns(3),
+
             ]);
     }
 
@@ -45,25 +60,23 @@ class OfficeResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('name')
+                TextColumn::make('created_at')
+                    ->label('Date de création')
+                    ->dateTime('d/m/Y'),
+                TextColumn::make('name')
+                    ->label('Nom du Bureau')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('address')
+                TextColumn::make('phone')
+                    ->label('Telephone')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('phone')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('email')
+                TextColumn::make('email')
                     ->searchable(),
             ])
             ->filters([
                 //
             ])
-            ->actions([
-                ActionGroup::make([
-                    Tables\Actions\ViewAction::make(),
-                    Tables\Actions\EditAction::make(),
-                    Tables\Actions\DeleteAction::make(),
-                ]),
-            ])
+            ->actions([ActionGroup::make([ViewAction::make(), Tables\Actions\EditAction::make(), Tables\Actions\DeleteAction::make()])->button()])
+
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make(),

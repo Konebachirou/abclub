@@ -6,7 +6,6 @@ use Closure;
 use Filament\Forms\Components\Actions\Action;
 use Filament\Support\Enums\ActionSize;
 use Filament\Support\Services\RelationshipJoiner;
-use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Contracts\Support\Htmlable;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
@@ -14,10 +13,13 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Support\Str;
 
-class CheckboxList extends Field implements Contracts\HasNestedRecursiveValidationRules
+class CheckboxList extends Field implements Contracts\CanDisableOptions, Contracts\HasNestedRecursiveValidationRules
 {
     use Concerns\CanBeSearchable;
     use Concerns\CanDisableOptions;
+    use Concerns\CanDisableOptionsWhenSelectedInSiblingRepeaterItems;
+    use Concerns\CanFixIndistinctState;
+    use Concerns\HasDescriptions;
     use Concerns\HasExtraInputAttributes;
     use Concerns\HasGridDirection;
     use Concerns\HasNestedRecursiveValidationRules;
@@ -33,11 +35,6 @@ class CheckboxList extends Field implements Contracts\HasNestedRecursiveValidati
     protected ?Closure $getOptionLabelFromRecordUsing = null;
 
     protected string | Closure | null $relationship = null;
-
-    /**
-     * @var array<string | Htmlable> | Arrayable | Closure
-     */
-    protected array | Arrayable | Closure $descriptions = [];
 
     protected bool | Closure $isBulkToggleable = false;
 
@@ -125,7 +122,7 @@ class CheckboxList extends Field implements Contracts\HasNestedRecursiveValidati
         return 'deselectAll';
     }
 
-    public function relationship(string | Closure | null $name, string | Closure | null $titleAttribute = null, ?Closure $modifyQueryUsing = null): static
+    public function relationship(string | Closure | null $name = null, string | Closure | null $titleAttribute = null, ?Closure $modifyQueryUsing = null): static
     {
         $this->relationship = $name ?? $this->getName();
         $this->relationshipTitleAttribute = $titleAttribute;
@@ -268,45 +265,5 @@ class CheckboxList extends Field implements Contracts\HasNestedRecursiveValidati
     public function isBulkToggleable(): bool
     {
         return (bool) $this->evaluate($this->isBulkToggleable);
-    }
-
-    /**
-     * @param  array<string | Htmlable> | Arrayable | Closure  $descriptions
-     */
-    public function descriptions(array | Arrayable | Closure $descriptions): static
-    {
-        $this->descriptions = $descriptions;
-
-        return $this;
-    }
-
-    /**
-     * @param  array-key  $value
-     */
-    public function hasDescription($value): bool
-    {
-        return array_key_exists($value, $this->getDescriptions());
-    }
-
-    /**
-     * @param  array-key  $value
-     */
-    public function getDescription($value): string | Htmlable | null
-    {
-        return $this->getDescriptions()[$value] ?? null;
-    }
-
-    /**
-     * @return array<string | Htmlable>
-     */
-    public function getDescriptions(): array
-    {
-        $descriptions = $this->evaluate($this->descriptions);
-
-        if ($descriptions instanceof Arrayable) {
-            $descriptions = $descriptions->toArray();
-        }
-
-        return $descriptions;
     }
 }

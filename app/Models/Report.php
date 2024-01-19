@@ -16,12 +16,17 @@ class Report extends Model
         'description',
         'illustration',
         'caption',
-        'album' => 'array',
+        'album',
         'status',
         'date',
         'pole_id',
         'is_report',
         'is_action',
+    ];
+
+
+    protected $casts = [
+        'album' => 'array'
     ];
 
     public function pole()
