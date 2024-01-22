@@ -17,7 +17,7 @@
                                                     site de
                                                     L'African Business Club</span>
                                             </div>
-                                            <h1 class="title w-300">{!! $slide->description !!}</h1>
+                                            <div class="title w-300 color-white">{!! $slide->description !!}</div>
                                             <div class="social-share-wrapper mt--70">
                                                 <ul class="social-icon social-default transparent-with-border">
                                                     <li><a href="https://www.facebook.com/Africanbusinessclub"

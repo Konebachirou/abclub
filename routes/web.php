@@ -53,7 +53,6 @@ Route::controller(EventController::class)->group(function () {
 
 Route::controller(PodcastController::class)->group(function () {
     Route::get('/podcast', 'podcast')->name('podcast_link');
-    Route::get('/podcast-details/{title}', 'podcastDatails')->name('podcast_details_link');
 });
 
 Route::post('/comments/store', [CommentController::class, 'store'])->name('comments-store');

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\abclub;
 
 use App\Http\Controllers\Controller;
 use App\Models\Event;
+use App\Models\Podcast;
 use App\Models\Pole;
 use App\Models\Report;
 use App\Models\Slide;
@@ -19,7 +20,8 @@ class HomeController extends Controller
         $slides = Slide::orderby('id', 'desc')->get();
         $events = Event::orderby('id', 'desc')->take(4)->get();
         $news = Report::orderby('id', 'desc')->where('is_report', true)->where('status', true)->take(3)->get();
+        $podcasts = Podcast::orderby('id', 'desc')->take(4)->get();
 
-        return view('users.global.home', ['poles' => $poles, 'slides' => $slides, 'events' => $events, 'news' => $news, 'ongletActif' => $ongletActif]);
+        return view('users.global.home', ['poles' => $poles, 'slides' => $slides, 'events' => $events,'podcasts' => $podcasts, 'news' => $news, 'ongletActif' => $ongletActif]);
     }
 }

@@ -264,16 +264,16 @@
 
 
             <div class="row">
-                <div class="col-lg-12">
-                    <div class="video-popup-wrapper">
-                        <img class="w-100 rbt-radius" src="{{ asset('assets/images/others/podcast.png') }}"
-                            alt="Video Images">
-                        <a class="rbt-btn rounded-player-2 popup-video position-to-top with-animation btn-theme-color"
-                            href="https://www.youtube.com/watch?v=nA1Aqp0sPQo">
-                            <span class="play-icon"></span>
-                        </a>
-                    </div>
+            @foreach($podcasts as $podcast)
+            <div class="col-lg-4 p-2">
+                <div class="video-popup-wrapper">
+                    <img class="w-100 rbt-radius" src="{{$podcast->illustrationUrl()}}" alt="Video Images">
+                    <a class="rbt-btn rounded-player-2 popup-video position-to-top with-animation btn-theme-color" href="{{$podcast->lien}}">
+                        <span class="play-icon"></span>
+                    </a>
                 </div>
+            </div>
+                @endforeach
             </div>
 
 

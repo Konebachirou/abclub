@@ -42,16 +42,16 @@
         <!-- Start Card Area -->
         <div class="row">
             <div class="row g-5">
-                @for($i=0; $i< 20; $i++)
+                @foreach($podcasts as $podcast)
             <div class="col-lg-4 p-2">
                 <div class="video-popup-wrapper">
-                    <img class="w-100 rbt-radius" src="{{ asset('assets/images/others/podcast.png') }}" alt="Video Images">
-                    <a class="rbt-btn rounded-player-2 popup-video position-to-top with-animation btn-theme-color" href="https://podcasters.spotify.com/pod/show/africanbusinesstalks/episodes/Google--African-Business-Club---Lintelligence-Artificielle-en-Afrique--quels-enjeux-et-perspectives---avec-Abdoulaye-Diack--Resarch-Program-Manager--Google-AI-e2dm7qr/a-aapf9h3">
+                    <img class="w-100 rbt-radius" src="{{$podcast->illustrationUrl()}}" alt="Video Images">
+                    <a class="rbt-btn rounded-player-2 popup-video position-to-top with-animation btn-theme-color" href="{{$podcast->lien}}">
                         <span class="play-icon"></span>
                     </a>
                 </div>
             </div>
-                @endfor
+                @endforeach
             </div>
         </div>
     </div>
