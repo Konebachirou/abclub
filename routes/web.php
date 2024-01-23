@@ -15,6 +15,7 @@ use App\Http\Controllers\abclub\NewsActionsController;
 use App\Http\Controllers\abclub\PodcastController;
 use App\Http\Controllers\Administrator\DashboardController;
 use App\Http\Controllers\Administrator\AuthentificationController;
+use App\Http\Controllers\payementController;
 
 /*
 |--------------------------------------------------------------------------
@@ -88,6 +89,9 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/setting', 'Setting')->name('setting_link');
         Route::post('/setting/edit-profile', 'editProfil')->name('edit_profile_link');
         Route::post('/setting/edit-password', 'editPassword')->name('edit_password_link');
+        Route::get('/payer-Adhésion', [payementController::class, 'payer'])->name('payer_link');
+        Route::get('/payerSucces', [payementController::class, 'payerSucces'])->name('payerSucces_link');
+
     });
 
     Route::post('/postuler/store', [AmidController::class, 'store'])->name('postuler-store');

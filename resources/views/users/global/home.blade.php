@@ -203,7 +203,7 @@
                                             <span class="price-amount">40€<sup>/Annuel</sup></span>
                                         </div>
                                         <div class="pricing-btn-group">
-                                            <a class="rbt-btn btn-gradient hover-icon-reverse" target="_blank" href="https://buy.stripe.com/14k3giczQ8nYfRudQU">
+                                            <a class="rbt-btn btn-gradient hover-icon-reverse"  href="{{ route('payer_link') }}">
                                             <!-- <a class="rbt-btn btn-gradient hover-icon-reverse" href="javascript:void(0)"
                                                 data-bs-toggle="modal" data-bs-target="#packModal"> -->
                                                 <span class="icon-reverse-wrapper">
