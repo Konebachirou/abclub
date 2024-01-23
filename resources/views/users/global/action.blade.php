@@ -33,12 +33,15 @@
                 <div class="inner">
                     <div class="section-title text-start">
                         <h2 class="title">{{ $action->title }}</h2>
-                        <p class="description elipses4 mt--30">{!! $action->description !!}</p>
-                        <div class="read-more-btn">
+                        <div class="description mt--30" style="display: -webkit-box;
+        -webkit-line-clamp: 5;
+        -webkit-box-orient: vertical;
+        overflow: hidden;">{!! $action->description !!}</div>
+                        <div class="read-more-btn mt-3">
                             <a class="rbt-moderbt-btn" href="{{ route('news_details_link', $action->title) }}">
                                 <span class="moderbt-btn-text">Lire Plus</span>
                                 <i class="feather-arrow-right"></i>
-                            </a>
+                            </a> 
                         </div>
                     </div>
                 </div>

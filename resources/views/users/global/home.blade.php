@@ -203,8 +203,9 @@
                                             <span class="price-amount">40€<sup>/Annuel</sup></span>
                                         </div>
                                         <div class="pricing-btn-group">
-                                            <a class="rbt-btn btn-gradient hover-icon-reverse" href="javascript:void(0)"
-                                                data-bs-toggle="modal" data-bs-target="#packModal">
+                                            <a class="rbt-btn btn-gradient hover-icon-reverse" target="_blank" href="https://buy.stripe.com/14k3giczQ8nYfRudQU">
+                                            <!-- <a class="rbt-btn btn-gradient hover-icon-reverse" href="javascript:void(0)"
+                                                data-bs-toggle="modal" data-bs-target="#packModal"> -->
                                                 <span class="icon-reverse-wrapper">
                                                     <span class="btn-text">J'adhère</span>
                                                     <span class="btn-icon"><i class="feather-arrow-right"></i></span>
@@ -212,7 +213,7 @@
                                                 </span>
                                             </a>
                                         </div>
-                                        <small class="subtitle mt-4">Nous avons 500+ Adhérant.</small>
+                                        <small class="subtitle mt-4">Nous avons 500+ adhérents.</small>
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-12">
@@ -386,8 +387,12 @@
                                     <h5 class="rbt-card-title elipses2"><a
                                             href="{{ route('news_details_link', $new->title) }}">{!! $new->title !!}</a>
                                     </h5>
-                                    <p class="rbt-card-text elipses3">{!! Str::limit($new->description, 120) !!}</p>
-                                    <div class="rbt-card-bottom">
+                                    <div class="description mt--30" style="display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;">{!! $new->description !!}</div>
+                                    <!-- <p class="rbt-card-text elipses3">{!! Str::limit($new->description, 120) !!}</p> -->
+                                    <div class="rbt-card-bottom mt-3">
                                         <a class="transparent-button"
                                             href="{{ route('news_details_link', $new->title) }}">Lire Plus<i><svg
                                                     width="17" height="12" xmlns="http://www.w3.org/2000/svg">
