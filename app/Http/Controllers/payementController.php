@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\connect;
+use App\Mail\connectSec;
 use App\Models\Adhesion;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use Stripe\Event;
 use Stripe\PaymentIntent;
 
@@ -49,7 +52,8 @@ class payementController extends Controller
             'user_id' => Auth::user()->id,
             'num_payement' => $request->session_id,
         ]);
-
+        Mail::to('data_it@abclub-paris.com')->send(new connect());
+        Mail::to('african.business_club@abclub-paris.com')->send(new connectSec());
         return redirect(route('felicitation_link'));
             
     }

@@ -3,7 +3,7 @@
 
 @section('content')
 
-    <div class="rbt-conatct-area bg-gradient-11 rbt-section-gap">
+    <div class="rbt-conatct-area bg-gradient-2 rbt-section-gap">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
