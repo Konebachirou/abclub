@@ -89,12 +89,12 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/setting', 'Setting')->name('setting_link');
         Route::post('/setting/edit-profile', 'editProfil')->name('edit_profile_link');
         Route::post('/setting/edit-password', 'editPassword')->name('edit_password_link');
-        Route::get('/payer-Adhésion', [payementController::class, 'payer'])->name('payer_link');
-        Route::get('/payerSucces', [payementController::class, 'payerSucces'])->name('payerSucces_link');
-
     });
 
-    Route::post('/postuler/store', [AmidController::class, 'store'])->name('postuler-store');
+        Route::get('/payer-Adhésion', [payementController::class, 'payer'])->name('payer_link');
+        Route::get('/payerSucces', [payementController::class, 'payerSucces'])->name('payerSucces_link');
+        Route::post('/postuler/store', [AmidController::class, 'store'])->name('postuler-store');
+        Route::get('/felicitation', [payementController::class, 'checkoutfinish'])->name('felicitation_link');
 
     Route::controller(JobController::class)->group(function () {
         Route::get('/jobs/detail/{slug}',  'jobsDetail')->name('jobs_detail_link');
