@@ -1,5 +1,5 @@
 @extends('users.layouts.app')
-@section('titre', "contacts - African Business Club")
+@section('titre', 'contacts - African Business Club')
 
 @section('content')
 
@@ -97,7 +97,7 @@
                             @csrf
                             <div class="form-group">
                                 <input name="full_name" id="contact-name" type="text">
-                                <label>Name</label>
+                                <label>Nom et prénom</label>
                                 <span class="focus-border"></span>
                                 @if ($errors->has('full_name'))
                                     <span class="main__table-text--red">{{ $errors->first('full_name') }}</span>
@@ -105,7 +105,7 @@
                             </div>
                             <div class="form-group">
                                 <input name="email" type="email">
-                                <label>Email</label>
+                                <label>E-mail</label>
                                 <span class="focus-border"></span>
                                 @if ($errors->has('email'))
                                     <span class="main__table-text--red">{{ $errors->first('email') }}</span>
@@ -113,7 +113,7 @@
                             </div>
                             <div class="form-group">
                                 <input type="text" id="subject" name="subject">
-                                <label>Your Subject</label>
+                                <label>Sujet</label>
                                 <span class="focus-border"></span>
                                 @if ($errors->has('subject'))
                                     <span class="main__table-text--red">{{ $errors->first('subject') }}</span>
@@ -126,6 +126,10 @@
                                 @if ($errors->has('message'))
                                     <span class="main__table-text--red">{{ $errors->first('message') }}</span>
                                 @endif
+                            </div>
+                            <div class="form-group">
+                                {!! NoCaptcha::renderJs() !!}
+                                {!! NoCaptcha::display() !!}
                             </div>
                             <div class="form-submit-group">
                                 <button name="submit" type="submit" id="submit"

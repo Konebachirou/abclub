@@ -17,13 +17,14 @@ class ContactController extends Controller
 {
     public function contact()
     {
-          // Déterminer l'onglet actif
-          $ongletActif = 'contact';
-        return view('users.global.contact',['ongletActif' => $ongletActif]);
+        // Déterminer l'onglet actif
+        $ongletActif = 'contact';
+        return view('users.global.contact', ['ongletActif' => $ongletActif]);
     }
     public function sendContact(ContactRequest $request)
     {
-        $contact = Contact::create($request->validated());
+        $data = $request->except('g-recaptcha-response');
+        $contact = Contact::create($data);
         Mail::to($request->email)->send(new ContactNotification($contact));
         Mail::to('contact.site@abclub-paris.com')->send(new AdminContactNotification($contact));
         return redirect()->back()->with('success', 'Votre message a bien été envoyé');
@@ -31,8 +32,8 @@ class ContactController extends Controller
 
     public function newsLetters(NewsletterSubscriberRequest $request)
     {
-
-        $newsletterSubscriber = NewsletterSubscriber::create($request->validated());
+        $data = $request->except('g-recaptcha-response');
+        $newsletterSubscriber = NewsletterSubscriber::create($data);
         Mail::to($request->email)->send(new NewslettersNotification($newsletterSubscriber));
 
         return redirect()->back()->with('success', 'Votre inscription a bien été prise en compte');

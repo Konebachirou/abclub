@@ -124,61 +124,61 @@
 
 
     <!-- <div class="rbt-countdown-area bg_image bg_image--6 bg_image_fixed " style="padding-bottom:3% ; padding-top: 3%;" data-black-overlay="6">
-                                <div class="container">
-                                    <div class="row  align-items-center">
-                                        <div class="col-lg-7">
-                                            <div class="inner">
-                                                <div class="section-title text-center">
-                                                    <h3 class="title color-white">Dîner Gala d'Anniversaire des 20 ans de African Business Club</h3>
+                                                        <div class="container">
+                                                            <div class="row  align-items-center">
+                                                                <div class="col-lg-7">
+                                                                    <div class="inner">
+                                                                        <div class="section-title text-center">
+                                                                            <h3 class="title color-white">Dîner Gala d'Anniversaire des 20 ans de African Business Club</h3>
 
-                                                    <p class="description has-medium-font-size mt--20 mb--0 color-white ">Venez célébrer avec nous
-                                                        les 20 ans de l'African Business Club</p>
-                                                    <p class="description has-medium-font-size mt--20 mb--0 color-white ">Heure et lieu <br>27
-                                                        octobre 2023, 18:30 - 23:00</p>
-                                                    <p class="description has-medium-font-size mt--20 mb--0 color-white ">Cercle National des
-                                                        Armées, 8 Pl. Saint-Augustin, 75008 Paris, France</p>
-                                                    <p class="description has-medium-font-size mt--20 mb--0 color-white ">Code vestimentaire <br>
-                                                        Tenue de Soirée exigée</p>
-                                                </div>
-                                                <div class="countdown-style-1 mt--50">
-                                                    <div class="countdown" data-date="2024-12-27">
-                                                        <div class="countdown-container days">
-                                                            <span class="countdown-value">--</span>
-                                                            <span class="countdown-heading">Jours</span>
-                                                        </div>
-                                                        <div class="countdown-container hours">
-                                                            <span class="countdown-value">--</span>
-                                                            <span class="countdown-heading">Heures</span>
-                                                        </div>
-                                                        <div class="countdown-container minutes">
-                                                            <span class="countdown-value">--</span>
-                                                            <span class="countdown-heading">Minutes</span>
-                                                        </div>
-                                                        <div class="countdown-container seconds">
-                                                            <span class="countdown-value">--</span>
-                                                            <span class="countdown-heading">Secondes</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-5">
-                                            <div class="thumbnail">
-                                                <img class="w-100 radius-10" src="assets/images/product/gala.jpg" alt="Product Images">
-                                            </div>
-                                            <div style="display: flex; justify-content: center; align-items: center;">
-                                                <a class="rbt-btn btn-gradient hover-icon-reverse mt--30" style="width: 100%;" href="https://buy.stripe.com/cN29EGeHYgUu8p2145" target="_blank">
-                                                    <span class="icon-reverse-wrapper">
-                                                        <span class="btn-text">Reservé</span>
-                                                    </span>
-                                                </a>
-                                            </div>
+                                                                            <p class="description has-medium-font-size mt--20 mb--0 color-white ">Venez célébrer avec nous
+                                                                                les 20 ans de l'African Business Club</p>
+                                                                            <p class="description has-medium-font-size mt--20 mb--0 color-white ">Heure et lieu <br>27
+                                                                                octobre 2023, 18:30 - 23:00</p>
+                                                                            <p class="description has-medium-font-size mt--20 mb--0 color-white ">Cercle National des
+                                                                                Armées, 8 Pl. Saint-Augustin, 75008 Paris, France</p>
+                                                                            <p class="description has-medium-font-size mt--20 mb--0 color-white ">Code vestimentaire <br>
+                                                                                Tenue de Soirée exigée</p>
+                                                                        </div>
+                                                                        <div class="countdown-style-1 mt--50">
+                                                                            <div class="countdown" data-date="2024-12-27">
+                                                                                <div class="countdown-container days">
+                                                                                    <span class="countdown-value">--</span>
+                                                                                    <span class="countdown-heading">Jours</span>
+                                                                                </div>
+                                                                                <div class="countdown-container hours">
+                                                                                    <span class="countdown-value">--</span>
+                                                                                    <span class="countdown-heading">Heures</span>
+                                                                                </div>
+                                                                                <div class="countdown-container minutes">
+                                                                                    <span class="countdown-value">--</span>
+                                                                                    <span class="countdown-heading">Minutes</span>
+                                                                                </div>
+                                                                                <div class="countdown-container seconds">
+                                                                                    <span class="countdown-value">--</span>
+                                                                                    <span class="countdown-heading">Secondes</span>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-5">
+                                                                    <div class="thumbnail">
+                                                                        <img class="w-100 radius-10" src="assets/images/product/gala.jpg" alt="Product Images">
+                                                                    </div>
+                                                                    <div style="display: flex; justify-content: center; align-items: center;">
+                                                                        <a class="rbt-btn btn-gradient hover-icon-reverse mt--30" style="width: 100%;" href="https://buy.stripe.com/cN29EGeHYgUu8p2145" target="_blank">
+                                                                            <span class="icon-reverse-wrapper">
+                                                                                <span class="btn-text">Reservé</span>
+                                                                            </span>
+                                                                        </a>
+                                                                    </div>
 
-                                        </div>
+                                                                </div>
 
-                                    </div>
-                                </div>
-                            </div> -->
+                                                            </div>
+                                                        </div>
+                                                    </div> -->
 
     <div class="rbt-pricing-area bg-color-white" style="margin-top: 5%;">
         <div class="container">
@@ -203,9 +203,10 @@
                                             <span class="price-amount">40€<sup>/Annuel</sup></span>
                                         </div>
                                         <div class="pricing-btn-group">
-                                            <a class="rbt-btn btn-gradient hover-icon-reverse"  href="{{ route('payer_link') }}">
-                                            <!-- <a class="rbt-btn btn-gradient hover-icon-reverse" href="javascript:void(0)"
-                                                data-bs-toggle="modal" data-bs-target="#packModal"> -->
+                                            <a class="rbt-btn btn-gradient hover-icon-reverse"
+                                                href="{{ route('payer_link') }}">
+                                                <!-- <a class="rbt-btn btn-gradient hover-icon-reverse" href="javascript:void(0)"
+                                                                        data-bs-toggle="modal" data-bs-target="#packModal"> -->
                                                 <span class="icon-reverse-wrapper">
                                                     <span class="btn-text">J'adhère</span>
                                                     <span class="btn-icon"><i class="feather-arrow-right"></i></span>
@@ -265,15 +266,16 @@
 
 
             <div class="row">
-            @foreach($podcasts as $podcast)
-            <div class="col-lg-4 p-2">
-                <div class="video-popup-wrapper">
-                    <img class="w-100 rbt-radius" src="{{$podcast->illustrationUrl()}}" alt="Video Images">
-                    <a class="rbt-btn rounded-player-2 popup-video position-to-top with-animation btn-theme-color" href="{{$podcast->lien}}">
-                        <span class="play-icon"></span>
-                    </a>
-                </div>
-            </div>
+                @foreach ($podcasts as $podcast)
+                    <div class="col-lg-4 p-2">
+                        <div class="video-popup-wrapper">
+                            <img class="w-100 rbt-radius" src="{{ $podcast->illustrationUrl() }}" alt="Video Images">
+                            <a class="rbt-btn rounded-player-2 popup-video position-to-top with-animation btn-theme-color"
+                                href="{{ $podcast->lien }}">
+                                <span class="play-icon"></span>
+                            </a>
+                        </div>
+                    </div>
                 @endforeach
             </div>
 
@@ -387,10 +389,12 @@
                                     <h5 class="rbt-card-title elipses2"><a
                                             href="{{ route('news_details_link', $new->title) }}">{!! $new->title !!}</a>
                                     </h5>
-                                    <div class="description mt--30" style="display: -webkit-box;
+                                    <div class="description mt--30"
+                                        style="display: -webkit-box;
         -webkit-line-clamp: 3;
         -webkit-box-orient: vertical;
-        overflow: hidden;">{!! $new->description !!}</div>
+        overflow: hidden;">
+                                        {!! $new->description !!}</div>
                                     <!-- <p class="rbt-card-text elipses3">{!! Str::limit($new->description, 120) !!}</p> -->
                                     <div class="rbt-card-bottom mt-3">
                                         <a class="transparent-button"
@@ -438,6 +442,10 @@
                                 <span class="btn-icon"><i class="feather-arrow-right"></i></span>
                             </span>
                         </button>
+                        <span class="#">
+                            {!! NoCaptcha::renderJs() !!}
+                            {!! NoCaptcha::display() !!}
+                        </span>
                     </form>
                     @if ($errors->has('email'))
                         <span class="#">{{ $errors->first('email') }}</span>

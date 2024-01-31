@@ -250,6 +250,15 @@ return [
 
     ],
 
+    'radio' => [
+
+        'boolean' => [
+            'true' => 'Sí',
+            'false' => 'No',
+        ],
+
+    ],
+
     'repeater' => [
 
         'actions' => [
@@ -356,6 +365,7 @@ return [
                         'create' => [
                             'label' => 'Crear',
                         ],
+
                         'create_another' => [
                             'label' => 'Crear y crear otro',
                         ],
@@ -407,6 +417,31 @@ return [
 
     'tags_input' => [
         'placeholder' => 'Nueva etiqueta',
+    ],
+
+    'text_input' => [
+
+        'actions' => [
+
+            'hide_password' => [
+                'label' => 'Ocultar contraseña',
+            ],
+
+            'show_password' => [
+                'label' => 'Mostrar contraseña',
+            ],
+
+        ],
+
+    ],
+
+    'toggle_buttons' => [
+
+        'boolean' => [
+            'true' => 'Sí',
+            'false' => 'No',
+        ],
+
     ],
 
     'wizard' => [

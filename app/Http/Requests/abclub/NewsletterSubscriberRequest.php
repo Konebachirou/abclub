@@ -23,6 +23,7 @@ class NewsletterSubscriberRequest extends FormRequest
     {
         return [
             'email' => ['required', 'email', 'unique:newsletter_subscribers,email,'],
+            'g-recaptcha-response' => ['required|captcha'],
         ];
     }
 }

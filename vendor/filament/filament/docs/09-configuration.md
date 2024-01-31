@@ -8,7 +8,7 @@ By default, the configuration file is located at `app/Providers/Filament/AdminPa
 
 ## Introducing panels
 
-By default, when you install the package, there is one panel that has been set up for you - and it lives on `/admin`. All the [resources](resources/getting-started), [pages](pages), and [dashboard widgets](dashboard) you create get registered to this panel.
+By default, when you install the package, there is one panel that has been set up for you - and it lives on `/admin`. All the [resources](resources/getting-started), [custom pages](pages), and [dashboard widgets](dashboard) you create get registered to this panel.
 
 However, you can create as many panels as you want, and each can have its own set of resources, pages and widgets.
 
@@ -100,7 +100,7 @@ public function panel(Panel $panel): Panel
 
 ## Customizing the maximum content width
 
-By default, Filament will restrict the width of the content on a page, so it doesn't become too wide on large screens. To change this, you may use the `maxContentWidth()` method. Options correspond to [Tailwind's max-width scale](https://tailwindcss.com/docs/max-width). The options are `ExtraSmall`, `Small`, `Medium`, `Large`, `ExtraLarge`, `TwoExtraLarge`, `ThreeExtraLarge`, `FourExtraLarge`, `FiveExtraLarge`, `SixExtraLarge`, `SevenExtraLarge`, `Prose`, `ScreenSmall`, `ScreenMedium`, `ScreenLarge`, `ScreenExtraLarge`, `ScreenTwoExtraLarge` and `Full`. The default is `SevenExtraLarge`:
+By default, Filament will restrict the width of the content on the page, so it doesn't become too wide on large screens. To change this, you may use the `maxContentWidth()` method. Options correspond to [Tailwind's max-width scale](https://tailwindcss.com/docs/max-width). The options are `ExtraSmall`, `Small`, `Medium`, `Large`, `ExtraLarge`, `TwoExtraLarge`, `ThreeExtraLarge`, `FourExtraLarge`, `FiveExtraLarge`, `SixExtraLarge`, `SevenExtraLarge`, `Full`, `MinContent`, `MaxContent`, `FitContent`,  `Prose`, `ScreenSmall`, `ScreenMedium`, `ScreenLarge`, `ScreenExtraLarge` and `ScreenTwoExtraLarge`. The default is `SevenExtraLarge`:
 
 ```php
 use Filament\Panel;
@@ -133,8 +133,6 @@ public function panel(Panel $panel): Panel
 
 ## SPA mode
 
-> Warning: This feature is experimental, and you may encounter bugs while using it. Please report any issues you find to [Livewire](https://github.com/livewire/livewire) with a pull request containing a failing test.
-
 SPA mode utilizes [Livewire's `wire:navigate` feature](https://livewire.laravel.com/docs/navigate) to make your server-rendered panel feel like a single-page-application, with less delay between page loads and a loading bar for longer requests. To enable SPA mode on a panel, you can use the `spa()` method:
 
 ```php
@@ -145,5 +143,106 @@ public function panel(Panel $panel): Panel
     return $panel
         // ...
         ->spa();
+}
+```
+
+## Unsaved changes alerts
+
+You may alert users if they attempt to navigate away from a page without saving their changes. This is applied on [Create](resources/creating-records) and [Edit](resources/editing-records) pages of a resource, as well as any open action modals. To enable this feature, you can use the `unsavedChangesAlerts()` method:
+
+```php
+use Filament\Panel;
+
+public function panel(Panel $panel): Panel
+{
+    return $panel
+        // ...
+        ->unsavedChangesAlerts();
+}
+```
+
+> Please note: this feature is not compatible with [SPA mode](#spa-mode).
+
+## Registering assets for a panel
+
+You can register [assets](../support/assets) that will only be loaded on pages within a specific panel, and not in the rest of the app. To do that, pass an array of assets to the `assets()` method:
+
+```php
+use Filament\Panel;
+use Filament\Support\Assets\Css;
+use Filament\Support\Assets\Js;
+
+public function panel(Panel $panel): Panel
+{
+    return $panel
+        // ...
+        ->assets([
+            Css::make('custom-stylesheet', resource_path('css/custom.css')),
+            Js::make('custom-script', resource_path('js/custom.js')),
+        ]);
+}
+```
+
+## Applying middleware
+
+You can apply extra middleware to all routes by passing an array of middleware classes to the `middleware()` method in the configuration:
+
+```php
+use Filament\Panel;
+
+public function panel(Panel $panel): Panel
+{
+    return $panel
+        // ...
+        ->middleware([
+            // ...
+        ]);
+}
+```
+
+By default, middleware will be run when the page is first loaded, but not on subsequent Livewire AJAX requests. If you want to run middleware on every request, you can make it persistent by passing `true` as the second argument to the `middleware()` method:
+
+```php
+use Filament\Panel;
+
+public function panel(Panel $panel): Panel
+{
+    return $panel
+        // ...
+        ->middleware([
+            // ...
+        ], isPersistent: true);
+}
+```
+
+### Applying middleware to authenticated routes
+
+You can apply middleware to all authenticated routes by passing an array of middleware classes to the `authMiddleware()` method in the configuration:
+
+```php
+use Filament\Panel;
+
+public function panel(Panel $panel): Panel
+{
+    return $panel
+        // ...
+        ->authMiddleware([
+            // ...
+        ]);
+}
+```
+
+By default, middleware will be run when the page is first loaded, but not on subsequent Livewire AJAX requests. If you want to run middleware on every request, you can make it persistent by passing `true` as the second argument to the `authMiddleware()` method:
+
+```php
+use Filament\Panel;
+
+public function panel(Panel $panel): Panel
+{
+    return $panel
+        // ...
+        ->authMiddleware([
+            // ...
+        ], isPersistent: true);
 }
 ```

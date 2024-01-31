@@ -2,6 +2,7 @@
 
 namespace Filament\Resources\Pages;
 
+use Filament\Actions\Action;
 use Filament\Forms\Form;
 use Filament\Infolists\Infolist;
 use Filament\Resources\Concerns\InteractsWithRelationshipTable;
@@ -20,7 +21,9 @@ use function Filament\authorize;
 class ManageRelatedRecords extends Page implements Tables\Contracts\HasTable
 {
     use Concerns\HasRelationManagers;
-    use Concerns\InteractsWithRecord;
+    use Concerns\InteractsWithRecord {
+        configureAction as configureActionRecord;
+    }
     use InteractsWithRelationshipTable;
 
     /**
@@ -80,13 +83,16 @@ class ManageRelatedRecords extends Page implements Tables\Contracts\HasTable
 
     protected function authorizeAccess(): void
     {
-        static::authorizeResourceAccess();
-
-        abort_unless(static::canAccess($this->getRecord()), 403);
+        abort_unless(static::canAccess(['record' => $this->getRecord()]), 403);
     }
 
-    public static function canAccess(?Model $record = null): bool
+    /**
+     * @param  array<string, mixed>  $parameters
+     */
+    public static function canAccess(array $parameters = []): bool
     {
+        $record = $parameters['record'] ?? null;
+
         if (! $record) {
             return false;
         }
@@ -122,19 +128,9 @@ class ManageRelatedRecords extends Page implements Tables\Contracts\HasTable
         return $this->getRecord();
     }
 
-    protected function getMountedActionFormModel(): Model
+    protected function configureAction(Action $action): void
     {
-        return $this->getRecord();
-    }
-
-    /**
-     * @return array<string, mixed>
-     */
-    public function getWidgetData(): array
-    {
-        return [
-            'record' => $this->getRecord(),
-        ];
+        $this->configureActionRecord($action);
     }
 
     protected function configureTableAction(Tables\Actions\Action $action): void
@@ -391,22 +387,10 @@ class ManageRelatedRecords extends Page implements Tables\Contracts\HasTable
     }
 
     /**
-     * @return array<string, mixed>
+     * @return array<int | string, string | Form>
      */
-    public function getSubNavigationParameters(): array
+    protected function getForms(): array
     {
-        return [
-            'record' => $this->getRecord(),
-        ];
-    }
-
-    public function getSubNavigation(): array
-    {
-        return static::getResource()::getRecordSubNavigation($this);
-    }
-
-    public static function shouldRegisterNavigation(array $parameters = []): bool
-    {
-        return parent::shouldRegisterNavigation($parameters) && static::canAccess($parameters['record']);
+        return [];
     }
 }

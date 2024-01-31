@@ -104,6 +104,13 @@ class SelectFilter extends BaseFilter
         $this->resetState(['value' => null]);
     }
 
+    public function getActiveCount(): int
+    {
+        $state = $this->getState();
+
+        return filled($this->isMultiple() ? ($state['values'] ?? []) : ($state['value'] ?? null)) ? 1 : 0;
+    }
+
     /**
      * @param  array<string, mixed>  $data
      */
@@ -123,7 +130,7 @@ class SelectFilter extends BaseFilter
             $data['values'] ?? null :
             $data['value'] ?? null;
 
-        if (! count(array_filter(
+        if (blank(Arr::first(
             Arr::wrap($values),
             fn ($value) => filled($value),
         ))) {

@@ -5,6 +5,8 @@
         </x-slot>
     @endif
 
+    {{ \Filament\Support\Facades\FilamentView::renderHook('panels::auth.password-reset.request.form.before', scopes: $this->getRenderHookScopes()) }}
+
     <x-filament-panels::form wire:submit="request">
         {{ $this->form }}
 
@@ -13,4 +15,6 @@
             :full-width="$this->hasFullWidthFormActions()"
         />
     </x-filament-panels::form>
+
+    {{ \Filament\Support\Facades\FilamentView::renderHook('panels::auth.password-reset.request.form.after', scopes: $this->getRenderHookScopes()) }}
 </x-filament-panels::page.simple>
