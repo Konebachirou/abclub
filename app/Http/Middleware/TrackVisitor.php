@@ -18,6 +18,7 @@ class TrackVisitor
     public function handle(Request $request, Closure $next): Response
     {
         $visitor = $request->cookie('visitor');
+		$data = $request->except('g-recaptcha-response');
 
         if (!$visitor) {
             // Le visiteur n'est pas enregistré, générez un nouvel identifiant

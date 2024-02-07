@@ -431,21 +431,27 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-12 col-xl-5 mt_lg--30 mt_md--30 mt_sm--30">
+   				<div class="col-lg-12 col-xl-5 mt_lg--30 mt_md--30 mt_sm--30">
                     <form action="{{ route('news-letters') }}" method="POST" class="newsletter-form-1">
                         @csrf
-                        <input type="email" name="email" placeholder="Enter Your E-Email">
-                        <button type="submit" class="rbt-btn btn-md btn-gradient hover-icon-reverse">
-                            <span class="icon-reverse-wrapper">
-                                <span class="btn-text">S'abonner</span>
-                                <span class="btn-icon"><i class="feather-arrow-right"></i></span>
-                                <span class="btn-icon"><i class="feather-arrow-right"></i></span>
-                            </span>
-                        </button>
-                        <span class="#">
+                       <div  class="newsletter-form-1">
+                        <input type="email" name="email" required pattern="[^@\s]+@[^@\s]+\.[^@\s]+"  placeholder="Entrer votre E-Email">
+                            <div class="d-sm-block d-md-none" style="margin-bottom: 4px; margin-top:4%;">
+                                {!! NoCaptcha::renderJs() !!}
+                                {!! NoCaptcha::display() !!}
+                            </div>
+                         <button type="submit" class="rbt-btn btn-md btn-gradient hover-icon-reverse">
+                                <span class="icon-reverse-wrapper">
+                                    <span class="btn-text">S'abonner</span>
+                                    <span class="btn-icon"><i class="feather-arrow-right"></i></span>
+                                    <span class="btn-icon"><i class="feather-arrow-right"></i></span>
+                                </span>
+                            </button>
+                        </div>
+                        <div class="d-none d-md-block" style="margin-top: 6%">
                             {!! NoCaptcha::renderJs() !!}
                             {!! NoCaptcha::display() !!}
-                        </span>
+                        </div>
                     </form>
                     @if ($errors->has('email'))
                         <span class="#">{{ $errors->first('email') }}</span>

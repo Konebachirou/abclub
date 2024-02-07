@@ -34,6 +34,7 @@ Route::controller(AuthentificationController::class)->group(function () {
     Route::get('/register', 'register')->name('register_link');
 
     Route::post('/auhentification', 'authenticate')->name('authentification');
+    Route::post('/register', 'registration')->name('registration');
 });
 // Route::get('/register',[AppController::class,'Register'])->name('register_link');
 
@@ -77,6 +78,8 @@ Route::controller(ContactController::class)->group(function () {
 
 Route::get('/forgot-Password', [DashboardController::class, 'ForgotPassword'])->name('forgotPassword_link');
 
+Route::post('/forgot-Password', [DashboardController::class, 'ResetPassword'])->name('resetPassword_link');
+
 
 
 Route::middleware(['auth'])->group(function () {
@@ -91,10 +94,10 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/setting/edit-password', 'editPassword')->name('edit_password_link');
     });
 
-        Route::get('/payer-Adhésion', [payementController::class, 'payer'])->name('payer_link');
-        Route::get('/payerSucces', [payementController::class, 'payerSucces'])->name('payerSucces_link');
-        Route::post('/postuler/store', [AmidController::class, 'store'])->name('postuler-store');
-        Route::get('/felicitation', [payementController::class, 'checkoutfinish'])->name('felicitation_link');
+    Route::get('/payer-Adhésion', [payementController::class, 'payer'])->name('payer_link');
+    Route::get('/payerSucces', [payementController::class, 'payerSucces'])->name('payerSucces_link');
+    Route::post('/postuler/store', [AmidController::class, 'store'])->name('postuler-store');
+    Route::get('/felicitation', [payementController::class, 'checkoutfinish'])->name('felicitation_link');
 
     Route::controller(JobController::class)->group(function () {
         Route::get('/jobs/detail/{slug}',  'jobsDetail')->name('jobs_detail_link');

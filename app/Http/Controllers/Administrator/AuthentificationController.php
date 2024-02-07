@@ -3,18 +3,20 @@
 namespace App\Http\Controllers\Administrator;
 
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 use App\Http\Requests\LoginRequest;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\RedirectResponse;
+use App\Actions\User\CreateUserAction;
+use App\Http\Requests\Administrator\UserRegsitrationRequest;
 
 class AuthentificationController extends Controller
 {
     public function signin()
     {
         $ongletActif = 'profil';
-        
-        return view('users.auth.login',[
+
+        return view('users.auth.login', [
             'ongletActif' => $ongletActif,
         ]);
     }
@@ -44,7 +46,8 @@ class AuthentificationController extends Controller
         return redirect('/');
     }
 
-    public function Register(){
+    public function Register()
+    {
         $selects = [
             "Agriculture",
             "Automobile",
@@ -69,9 +72,20 @@ class AuthentificationController extends Controller
             "Transport et logistique"
         ];
         $ongletActif = 'profil';
-        return view('users.auth.register',[
+        return view('users.auth.register', [
             'ongletActif' => $ongletActif,
             'selects' => $selects,
         ]);
+    }
+
+    public function registration(UserRegsitrationRequest $request, CreateUserAction $createUserAction)
+    {
+        $createUserAction->handle($request->validated());
+
+        Auth::attempt($request->only('email', 'password'));
+
+        $request->session()->regenerate();
+
+        return redirect()->intended('dashboard');
     }
 }

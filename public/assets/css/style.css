@@ -14868,7 +14868,7 @@ fieldset:disabled {
 
 @media only screen and (max-width: 767px) {
   .rbt-btn.btn-md {
-    padding: 0 15px;
+    padding: 0 120px;
   }
 }
 
@@ -21050,12 +21050,12 @@ span.transparent-button:hover i {
 }
 
 .brand-style-1 li {
-  flex-basis: 25%;
+  flex-basis: 20%;
   border-width: 1px 0px 0px 1px;
   border-style: solid;
   margin: 0px 0px -1px 0px;
   border-color: var(--color-border-2);
-  padding: 70px 0;
+  padding: 20px 0;
   text-align: center;
   display: flex;
   align-items: center;

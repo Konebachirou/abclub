@@ -5,9 +5,12 @@ namespace App\Http\Controllers\Administrator;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Administrator\EditPasswordRequest;
-use App\Http\Requests\Administrator\EditProfileRequest;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\abclub\ResetPasswordMail;
+use App\Http\Requests\Administrator\EditProfileRequest;
+use App\Http\Requests\Administrator\EditPasswordRequest;
 
 class DashboardController extends Controller
 {
@@ -15,6 +18,22 @@ class DashboardController extends Controller
     {
         $ongletActif = 'profil';
         return view('users.auth.forgotpassword', ['ongletActif' => $ongletActif]);
+    }
+
+    public  function ResetPassword(Request $request)
+    {
+        $user = User::where('email', $request->email)->first();
+        if ($user) {
+            $newPassword = "abclub_password_" . time();
+            $user->update([
+                'password' => Hash::make($newPassword),
+            ]);
+
+            Mail::to($user->email)->send(new ResetPasswordMail($user, $newPassword));
+            return redirect()->route('login_link');
+        } else {
+            return back()->with('error', 'Cet email n\'existe pas');
+        }
     }
 
     public function profil()

@@ -23,7 +23,10 @@ class ContactController extends Controller
     }
     public function sendContact(ContactRequest $request)
     {
-        $data = $request->except('g-recaptcha-response');
+        //$data = $request->except('g-recaptcha-response');
+      	$request->validate([
+            'g-recaptcha-response' => 'required|captcha',
+        ]);
         $contact = Contact::create($data);
         Mail::to($request->email)->send(new ContactNotification($contact));
         Mail::to('contact.site@abclub-paris.com')->send(new AdminContactNotification($contact));
@@ -32,7 +35,10 @@ class ContactController extends Controller
 
     public function newsLetters(NewsletterSubscriberRequest $request)
     {
-        $data = $request->except('g-recaptcha-response');
+        //$data = $request->except('g-recaptcha-response');
+      	$request->validate([
+            'g-recaptcha-response' => 'required|captcha',
+        ]);
         $newsletterSubscriber = NewsletterSubscriber::create($data);
         Mail::to($request->email)->send(new NewslettersNotification($newsletterSubscriber));
 
