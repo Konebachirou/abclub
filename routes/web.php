@@ -83,16 +83,20 @@ Route::post('/forgot-Password', [DashboardController::class, 'ResetPassword'])->
 
 
 Route::middleware(['auth'])->group(function () {
-    Route::controller(DashboardController::class)->group(function () {
-        //Dashboard profil & setting
-        Route::get('/dashboard', 'Dashboard')->name('dashboard_link');
-        Route::get('/profil', 'Profil')->name('profil_link');
-        Route::get('/my event', 'MyEvents')->name('myEvent_link');
-        Route::get('/my Jobs', 'MyJobs')->name('myjobs_link');
-        Route::get('/setting', 'Setting')->name('setting_link');
-        Route::post('/setting/edit-profile', 'editProfil')->name('edit_profile_link');
-        Route::post('/setting/edit-password', 'editPassword')->name('edit_password_link');
-    });
+    Route::middleware(['user_dashboard'])->group(
+        function () {
+            Route::controller(DashboardController::class)->group(function () {
+                //Dashboard profil & setting
+                Route::get('/dashboard', 'Dashboard')->name('dashboard_link');
+                Route::get('/profil', 'Profil')->name('profil_link');
+                Route::get('/my event', 'MyEvents')->name('myEvent_link');
+                Route::get('/my Jobs', 'MyJobs')->name('myjobs_link');
+                Route::get('/setting', 'Setting')->name('setting_link');
+                Route::post('/setting/edit-profile', 'editProfil')->name('edit_profile_link');
+                Route::post('/setting/edit-password', 'editPassword')->name('edit_password_link');
+            });
+        }
+    );
 
     Route::get('/payer-Adhésion', [payementController::class, 'payer'])->name('payer_link');
     Route::get('/payerSucces', [payementController::class, 'payerSucces'])->name('payerSucces_link');

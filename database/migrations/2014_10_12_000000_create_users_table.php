@@ -24,6 +24,7 @@ return new class extends Migration
             $table->string('image')->nullable();
             $table->boolean('status')->default(true);
             $table->boolean('is_member')->default(false);
+            $table->boolean('is_admin')->default(false);
             $table->rememberToken();
             $table->timestamps();
         });

@@ -8,10 +8,9 @@ use App\Http\Controllers\Controller;
 use App\Models\NewsletterSubscriber;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\abclub\ContactNotification;
-use App\Http\Requests\abclub\ContactRequest;
 use App\Mail\abclub\NewslettersNotification;
 use App\Mail\abclub\AdminContactNotification;
-use App\Http\Requests\abclub\NewsletterSubscriberRequest;
+
 
 class ContactController extends Controller
 {
@@ -21,26 +20,36 @@ class ContactController extends Controller
         $ongletActif = 'contact';
         return view('users.global.contact', ['ongletActif' => $ongletActif]);
     }
-    public function sendContact(ContactRequest $request)
+    public function sendContact(Request $request)
     {
         //$data = $request->except('g-recaptcha-response');
-      	$request->validate([
+        $request->validate([
+            'full_name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'email'],
+            'subject' => ['required', 'string', 'max:255'],
+            'message' => ['required', 'string'],
             'g-recaptcha-response' => 'required|captcha',
         ]);
-        $contact = Contact::create($data);
+        $contact_exept = $request->except('g-recaptcha-response');
+        $contact = Contact::create($contact_exept);
         Mail::to($request->email)->send(new ContactNotification($contact));
         Mail::to('contact.site@abclub-paris.com')->send(new AdminContactNotification($contact));
         return redirect()->back()->with('success', 'Votre message a bien été envoyé');
     }
 
-    public function newsLetters(NewsletterSubscriberRequest $request)
+
+    public function newsLetters(Request $request)
     {
         //$data = $request->except('g-recaptcha-response');
-      	$request->validate([
+        $request->validate([
+            'email' => 'required|email|unique:newsletter_subscribers',
             'g-recaptcha-response' => 'required|captcha',
         ]);
-        $newsletterSubscriber = NewsletterSubscriber::create($data);
-        Mail::to($request->email)->send(new NewslettersNotification($newsletterSubscriber));
+
+        $newsletter_exept = $request->except('g-recaptcha-response');
+        $newsletter = NewsletterSubscriber::create($newsletter_exept);
+
+        Mail::to($request->email)->send(new NewslettersNotification($newsletter));
 
         return redirect()->back()->with('success', 'Votre inscription a bien été prise en compte');
     }

@@ -79,18 +79,23 @@ class UserResource extends Resource
                             ])->columns(2),
                         Section::make('Statut')
                             ->schema([
+                                Select::make('is_admin')
+                                    ->options([
+                                        '1' => 'oui',
+                                        '0' => 'non',
+                                    ])
+                                    ->label('Administrateur')
+                                    ->placeholder('Cet utilisateur est-il un admin ?'),
                                 Select::make('is_member')
                                     ->options([
                                         '1' => 'oui',
                                         '0' => 'non',
                                     ])
-                                    ->required()
                                     ->label('Membre')
                                     ->placeholder('Voulez vous etre membre ?'),
                                 Forms\Components\Toggle::make('status')
-                                    ->label('Status')
-                                    ->required(),
-                            ])->columns(2),
+                                    ->label('Cet utilisateur est-il actif ?'),
+                            ])->columns(3),
                         Section::make('Image de l\'utilisateur')
                             ->schema([
 

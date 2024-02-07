@@ -35,6 +35,7 @@ class User extends Authenticatable implements FilamentUser
         'image',
         'status',
         'is_member',
+        'is_admin',
     ];
 
     /**
@@ -80,5 +81,9 @@ class User extends Authenticatable implements FilamentUser
     public function events(): BelongsToMany
     {
         return $this->belongsToMany(Event::class, 'user_events', 'user_id', 'event_id');
+    }
+    public function isAdmin(): bool
+    {
+        return $this->is_admin == true;
     }
 }

@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
             'tel' => '0612345678',
             'domaine' => 'Informatique',
             'is_member' => true,
+            'is_admin' => true,
             'email' => 'admin@abc.com',
             'password' => bcrypt('password'),
         ]);
