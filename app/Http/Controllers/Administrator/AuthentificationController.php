@@ -27,7 +27,7 @@ class AuthentificationController extends Controller
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-            return redirect()->intended('dashboard');
+            return redirect()->intended('profil');
         }
 
         return back()->withErrors([
@@ -86,6 +86,6 @@ class AuthentificationController extends Controller
 
         $request->session()->regenerate();
 
-        return redirect()->intended('dashboard');
+        return redirect()->intended('profil');
     }
 }
