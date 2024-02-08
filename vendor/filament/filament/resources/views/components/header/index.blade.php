@@ -34,7 +34,7 @@
     {{ \Filament\Support\Facades\FilamentView::renderHook('panels::page.header.actions.before', scopes: $this->getRenderHookScopes()) }}
 
     @if ($actions)
-        <x-filament::actions
+        <x-filament-actions::actions
             :actions="$actions"
             @class([
                 'shrink-0',

@@ -12,8 +12,6 @@ use Throwable;
 
 class ImageColumn extends Column
 {
-    use Concerns\CanWrap;
-
     /**
      * @var view-string
      */

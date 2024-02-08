@@ -99,31 +99,16 @@ trait HasNavigation
             $this->mountNavigation();
         }
 
-        $groups = collect($this->getNavigationGroups());
-
         return collect($this->getNavigationItems())
             ->filter(fn (NavigationItem $item): bool => $item->isVisible())
             ->sortBy(fn (NavigationItem $item): int => $item->getSort())
             ->groupBy(fn (NavigationItem $item): ?string => $item->getGroup())
-            ->map(function (Collection $items, ?string $groupIndex) use ($groups): NavigationGroup {
-                $parentItems = $items->groupBy(fn (NavigationItem $item): ?string => $item->getParentItem());
-
-                $items = $parentItems->get('')
-                    ->keyBy(fn (NavigationItem $item): string => $item->getLabel());
-
-                $parentItems->except([''])->each(function (Collection $parentItemItems, string $parentItemLabel) use ($items) {
-                    if (! $items->has($parentItemLabel)) {
-                        return;
-                    }
-
-                    $items->get($parentItemLabel)->childItems($parentItemItems);
-                });
-
+            ->map(function (Collection $items, ?string $groupIndex): NavigationGroup {
                 if (blank($groupIndex)) {
                     return NavigationGroup::make()->items($items);
                 }
 
-                $registeredGroup = $groups
+                $registeredGroup = collect($this->getNavigationGroups())
                     ->first(function (NavigationGroup | string $registeredGroup, string | int $registeredGroupIndex) use ($groupIndex) {
                         if ($registeredGroupIndex === $groupIndex) {
                             return true;

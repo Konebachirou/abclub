@@ -22,7 +22,7 @@
                         <div class="rbt-tutor-information">
                             <div class="rbt-tutor-information-left">
                                 <div class="thumbnail rbt-avatars size-lg">
-                                    @if (Auth::user()->image !== '')
+                                    @if (Auth::user()->image !== null)
                                         <img src="{{ Auth::user()->imageUrl() }}" alt="">
                                     @else
                                         <img src="{{ asset('assets/images/icons/avatar.png') }}" alt="">
@@ -47,16 +47,16 @@
                                         <div class="rbt-default-sidebar-wrapper">
                                             <nav class="mainmenu-nav">
                                                 <ul class="dashboard-mainmenu rbt-default-sidebar-list">
-                                                    <li><a href="{{ route('dashboard_link') }}"><i
-                                                                class="feather-home"></i><span>Dashboard</span></a></li>
+                                                    <!--li><a href="{{ route('dashboard_link') }}"><i
+                                                                class="feather-home"></i><span>Dashboard</span></a></li-->
                                                     <li><a href="{{ route('profil_link') }}"><i
-                                                                class="feather-user"></i><span>View Profile</span></a>
+                                                                class="feather-user"></i><span>Mon Profil</span></a>
                                                     </li>
                                                     <li><a href="{{ route('myEvent_link') }}"><i
-                                                                class="feather-book-open"></i><span>Enrolled
+                                                                class="feather-book-open"></i><span>Mes
                                                                 Events</span></a></li>
                                                     <li><a href="{{ route('myjobs_link') }}"><i
-                                                                class="feather-book-open"></i><span>Enrolled
+                                                                class="feather-book-open"></i><span>Mes
                                                                 Jobs</span></a></li>
                                                     <!-- <li><a href="instructor-order-history.html"><i class="feather-shopping-bag"></i><span>Order History</span></a></li> -->
                                                 </ul>
@@ -72,7 +72,7 @@
                                                                 class="feather-settings"></i><span>Settings</span></a>
                                                     </li>
                                                     <li><a href="{{ route('filament.admin.auth.logout') }}"><i
-                                                                class="feather-log-out"></i><span>Logout</span></a></li>
+                                                                class="feather-log-out"></i><span>Déconnexion</span></a></li>
                                                 </ul>
                                             </nav>
                                         </div>

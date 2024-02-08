@@ -27,10 +27,6 @@ class Action extends MountableAction implements Contracts\Groupable, Contracts\H
             return $this->action;
         }
 
-        if ($event = $this->getLivewireEventClickHandler()) {
-            return $event;
-        }
-
         $argumentsParameter = '';
 
         if (count($arguments = $this->getArguments())) {

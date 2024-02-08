@@ -5,7 +5,7 @@
         <div class="rbt-dashboard-content bg-color-white rbt-shadow-box">
             <div class="content">
                 <div class="section-title">
-                    <h4 class="rbt-title-style-3">Enrolled Events</h4>
+                    <h4 class="rbt-title-style-3">Mes Events</h4>
                 </div>
                 <div class="row g-5">
                     @foreach ($userEvents as $event)

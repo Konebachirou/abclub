@@ -3,27 +3,20 @@
 namespace Filament\Forms\Components;
 
 use Closure;
-use Filament\Support\Concerns\HasColor;
 use Filament\Support\Concerns\HasExtraAlpineAttributes;
-use Filament\Support\Concerns\HasReorderAnimationDuration;
 use Illuminate\Contracts\Support\Arrayable;
 
-class TagsInput extends Field implements Contracts\HasAffixActions, Contracts\HasNestedRecursiveValidationRules
+class TagsInput extends Field implements Contracts\HasNestedRecursiveValidationRules
 {
-    use Concerns\HasAffixes;
     use Concerns\HasExtraInputAttributes;
     use Concerns\HasNestedRecursiveValidationRules;
     use Concerns\HasPlaceholder;
-    use HasColor;
     use HasExtraAlpineAttributes;
-    use HasReorderAnimationDuration;
 
     /**
      * @var view-string
      */
     protected string $view = 'filament-forms::components.tags-input';
-
-    protected bool | Closure $isReorderable = false;
 
     protected string | Closure | null $separator = null;
 
@@ -76,8 +69,6 @@ class TagsInput extends Field implements Contracts\HasAffixActions, Contracts\Ha
         });
 
         $this->placeholder(__('filament-forms::components.tags_input.placeholder'));
-
-        $this->reorderAnimationDuration(100);
     }
 
     public function tagPrefix(string | Closure | null $prefix): static
@@ -90,13 +81,6 @@ class TagsInput extends Field implements Contracts\HasAffixActions, Contracts\Ha
     public function tagSuffix(string | Closure | null $suffix): static
     {
         $this->tagSuffix = $suffix;
-
-        return $this;
-    }
-
-    public function reorderable(bool | Closure $condition = true): static
-    {
-        $this->isReorderable = $condition;
 
         return $this;
     }
@@ -163,10 +147,5 @@ class TagsInput extends Field implements Contracts\HasAffixActions, Contracts\Ha
         }
 
         return $suggestions;
-    }
-
-    public function isReorderable(): bool
-    {
-        return (bool) $this->evaluate($this->isReorderable);
     }
 }

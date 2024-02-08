@@ -12,6 +12,6 @@
         Changer le mot de passe
     @endcomponent
 
-    Merci,<br>
+    Merci,
     {{ config('app.name') }}
 @endcomponent

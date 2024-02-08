@@ -4,7 +4,7 @@
     $verticalAlignment = $getVerticalAlignment();
 
     if (! $verticalAlignment instanceof VerticalAlignment) {
-        $verticalAlignment = filled($verticalAlignment) ? (VerticalAlignment::tryFrom($verticalAlignment) ?? $verticalAlignment) : null;
+        $verticalAlignment = VerticalAlignment::tryFrom($verticalAlignment) ?? $verticalAlignment;
     }
 @endphp
 
@@ -26,7 +26,7 @@
             ])
     }}
 >
-    <x-filament::actions
+    <x-filament-actions::actions
         :actions="$getChildComponentContainer()->getComponents()"
         :alignment="$getAlignment()"
         :full-width="$isFullWidth()"

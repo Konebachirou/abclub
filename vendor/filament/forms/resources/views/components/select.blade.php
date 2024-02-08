@@ -14,11 +14,7 @@
     $statePath = $getStatePath();
 @endphp
 
-<x-dynamic-component
-    :component="$getFieldWrapperView()"
-    :field="$field"
-    :inline-label-vertical-alignment="\Filament\Support\Enums\VerticalAlignment::Center"
->
+<x-dynamic-component :component="$getFieldWrapperView()" :field="$field">
     <x-filament::input.wrapper
         :disabled="$isDisabled"
         :inline-prefix="$isPrefixInline"

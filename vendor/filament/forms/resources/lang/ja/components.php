@@ -185,15 +185,6 @@ return [
 
             ],
 
-            'svg' => [
-
-                'messages' => [
-                    'confirmation' => 'SVGファイルの編集は拡大縮小する際に品質の低下を引き起こす可能性があるため、お勧めしません。\n 続行しますか？',
-                    'disabled' => '拡大縮小する際に品質が低下する可能性があるためSVGファイルの編集は無効になっています',
-                ],
-
-            ],
-
         ],
 
     ],
@@ -211,7 +202,7 @@ return [
             ],
 
             'reorder' => [
-                'label' => '行の並べ替え',
+                'label' => 'Reorder row',
             ],
 
         ],
@@ -250,25 +241,12 @@ return [
 
     ],
 
-    'radio' => [
-
-        'boolean' => [
-            'true' => 'はい',
-            'false' => 'いいえ',
-        ],
-
-    ],
-
     'repeater' => [
 
         'actions' => [
 
             'add' => [
                 'label' => ':labelへ追加',
-            ],
-
-            'add_between' => [
-                'label' => '間に挿入',
             ],
 
             'delete' => [

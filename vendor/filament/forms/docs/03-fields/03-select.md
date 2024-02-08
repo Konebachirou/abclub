@@ -2,16 +2,8 @@
 title: Select
 ---
 import AutoScreenshot from "@components/AutoScreenshot.astro"
-import LaracastsBanner from "@components/LaracastsBanner.astro"
 
 ## Overview
-
-<LaracastsBanner
-    title="Select Input"
-    description="Watch the Rapid Laravel Development with Filament series on Laracasts - it will teach you the basics of adding select fields to Filament forms."
-    url="https://laracasts.com/series/rapid-laravel-development-with-filament/episodes/4"
-    series="rapid-laravel-development"
-/>
 
 The select component allows you to select from a list of predefined options:
 
@@ -202,19 +194,6 @@ Select::make('author_id')
     ->relationship(name: 'author', titleAttribute: 'name')
     ->searchable()
     ->preload()
-```
-
-### Excluding the current record
-
-When working with recursive relationships, you will likely want to remove the current record from the set of results.
-
-This can be easily be done using the `ignoreRecord` argument:
-
-```php
-use Filament\Forms\Components\Select;
-
-Select::make('parent_id')
-    ->relationship(name: 'parent', titleAttribute: 'name', ignoreRecord: true)
 ```
 
 ### Customizing the relationship query

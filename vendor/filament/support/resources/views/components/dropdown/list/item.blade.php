@@ -5,7 +5,6 @@
 @props([
     'badge' => null,
     'badgeColor' => null,
-    'badgeTooltip' => null,
     'color' => 'gray',
     'disabled' => false,
     'href' => null,
@@ -165,11 +164,7 @@
         </span>
 
         @if (filled($badge))
-            <x-filament::badge
-                :color="$badgeColor"
-                size="sm"
-                :tooltip="$badgeTooltip"
-            >
+            <x-filament::badge :color="$badgeColor" size="sm">
                 {{ $badge }}
             </x-filament::badge>
         @endif

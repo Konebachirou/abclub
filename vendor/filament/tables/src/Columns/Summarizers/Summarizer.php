@@ -82,7 +82,7 @@ class Summarizer extends ViewComponent
         $attribute = $column->getName();
         $query = $this->getQuery()->clone();
 
-        if ($column->hasRelationship($query->getModel())) {
+        if ($column->queriesRelationships($query->getModel())) {
             $relationship = $column->getRelationship($query->getModel());
             $attribute = $column->getRelationshipAttribute();
 

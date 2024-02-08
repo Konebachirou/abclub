@@ -11,14 +11,14 @@ use Filament\Pages\Concerns;
 use Filament\Pages\Page;
 use Filament\Panel;
 use Filament\Support\Exceptions\Halt;
-use Filament\Support\Facades\FilamentView;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Contracts\Support\Htmlable;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\Route;
 use Livewire\Attributes\Locked;
 
 use function Filament\authorize;
-use function Filament\Support\is_app_url;
 
 /**
  * @property Form $form
@@ -48,14 +48,25 @@ abstract class EditTenantProfile extends Page
 
     abstract public static function getLabel(): string;
 
-    public static function getRelativeRouteName(): string
+    public static function routes(Panel $panel): void
     {
-        return 'profile';
+        $slug = static::getSlug();
+
+        Route::get("/{$slug}", static::class)
+            ->middleware(static::getRouteMiddleware($panel))
+            ->withoutMiddleware(static::getWithoutRouteMiddleware($panel))
+            ->name('profile');
     }
 
-    public static function isTenantSubscriptionRequired(Panel $panel): bool
+    /**
+     * @return string | array<string>
+     */
+    public static function getRouteMiddleware(Panel $panel): string | array
     {
-        return false;
+        return [
+            ...(static::isEmailVerificationRequired($panel) ? [static::getEmailVerifiedMiddleware($panel)] : []),
+            ...Arr::wrap(static::$routeMiddleware),
+        ];
     }
 
     public function mount(): void
@@ -121,7 +132,7 @@ abstract class EditTenantProfile extends Page
         $this->getSavedNotification()?->send();
 
         if ($redirectUrl = $this->getRedirectUrl()) {
-            $this->redirect($redirectUrl, navigate: FilamentView::hasSpaMode() && is_app_url($redirectUrl));
+            $this->redirect($redirectUrl);
         }
     }
 

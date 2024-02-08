@@ -20,7 +20,6 @@ class ActionGroup extends BaseActionGroup implements Arrayable
             'actions' => collect($this->getActions())->toArray(),
             'color' => $this->getColor(),
             'dropdownMaxHeight' => $this->getDropdownMaxHeight(),
-            'dropdownOffset' => $this->getDropdownOffset(),
             'dropdownPlacement' => $this->getDropdownPlacement(),
             'dropdownWidth' => $this->getDropdownWidth(),
             'extraAttributes' => $this->getExtraAttributes(),
@@ -64,7 +63,6 @@ class ActionGroup extends BaseActionGroup implements Arrayable
         $static->color($data['color'] ?? null);
         $static->dropdown($data['hasDropdown'] ?? false);
         $static->dropdownMaxHeight($data['dropdownMaxHeight'] ?? null);
-        $static->dropdownOffset($data['dropdownOffset'] ?? null);
         $static->dropdownPlacement($data['dropdownPlacement'] ?? null);
         $static->dropdownWidth($data['dropdownWidth'] ?? null);
         $static->extraAttributes($data['extraAttributes'] ?? []);

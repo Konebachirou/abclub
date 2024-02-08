@@ -43,7 +43,7 @@
     }
 
     if (! $alignment instanceof Alignment) {
-        $alignment = filled($alignment) ? (Alignment::tryFrom($alignment) ?? $alignment) : null;
+        $alignment = Alignment::tryFrom($alignment) ?? $alignment;
     }
 
     $hintActions = array_filter(
@@ -112,7 +112,7 @@
                         Alignment::Start => 'text-start',
                         Alignment::Center => 'text-center',
                         Alignment::End => 'text-end',
-                        Alignment::Justify, Alignment::Between => 'text-justify',
+                        Alignment::Justify => 'text-justify',
                         Alignment::Left => 'text-left',
                         Alignment::Right => 'text-right',
                         default => $alignment,

@@ -2,20 +2,14 @@
 
 namespace Filament\Panel\Concerns;
 
-use Closure;
 use Filament\Billing\Providers\Contracts\Provider as BillingProvider;
 use Filament\Navigation\MenuItem;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
-use Illuminate\Support\Str;
 
 trait HasTenancy
 {
     protected ?BillingProvider $tenantBillingProvider = null;
-
-    protected string $tenantBillingRouteSlug = 'billing';
-
-    protected bool | Closure $hasTenantMenu = true;
 
     protected ?string $tenantRoutePrefix = null;
 
@@ -56,13 +50,6 @@ trait HasTenancy
         return $this;
     }
 
-    public function tenantMenu(bool | Closure $condition = true): static
-    {
-        $this->hasTenantMenu = $condition;
-
-        return $this;
-    }
-
     public function tenant(?string $model, ?string $slugAttribute = null, ?string $ownershipRelationship = null): static
     {
         $this->tenantModel = $model;
@@ -82,13 +69,6 @@ trait HasTenancy
     public function tenantBillingProvider(?BillingProvider $provider): static
     {
         $this->tenantBillingProvider = $provider;
-
-        return $this;
-    }
-
-    public function tenantBillingRouteSlug(string $slug): static
-    {
-        $this->tenantBillingRouteSlug = $slug;
 
         return $this;
     }
@@ -147,11 +127,6 @@ trait HasTenancy
         return $this->tenantBillingProvider;
     }
 
-    public function getTenantBillingRouteSlug(): string
-    {
-        return Str::start($this->tenantBillingRouteSlug, '/');
-    }
-
     public function getTenantProfilePage(): ?string
     {
         return $this->tenantProfilePage;
@@ -195,10 +170,13 @@ trait HasTenancy
             return null;
         }
 
-        return $this->route('tenant.billing', [
-            'tenant' => $tenant,
-            ...$parameters,
-        ]);
+        return route(
+            "filament.{$this->getId()}.tenant.billing",
+            [
+                'tenant' => $tenant,
+                ...$parameters,
+            ],
+        );
     }
 
     /**
@@ -210,7 +188,7 @@ trait HasTenancy
             return null;
         }
 
-        return $this->route('tenant.profile', $parameters);
+        return route("filament.{$this->getId()}.tenant.profile", $parameters);
     }
 
     /**
@@ -222,12 +200,7 @@ trait HasTenancy
             return null;
         }
 
-        return $this->route('tenant.registration', $parameters);
-    }
-
-    public function hasTenantMenu(): bool
-    {
-        return (bool) $this->evaluate($this->hasTenantMenu);
+        return route("filament.{$this->getId()}.tenant.registration", $parameters);
     }
 
     /**

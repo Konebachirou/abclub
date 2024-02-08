@@ -12,15 +12,23 @@
             {!! str($getState())->markdown()->sanitizeHtml() !!}
         </div>
     @else
-        <x-filament::input.wrapper
-            :valid="! $errors->has($statePath)"
-            :attributes="
-                \Filament\Support\prepare_inherited_attributes($getExtraAttributeBag())
-                    ->class(['fi-fo-markdown-editor max-w-full overflow-hidden font-mono text-base text-gray-950 dark:text-white sm:text-sm'])
-            "
+        <div
+            {{
+                $attributes
+                    ->merge($getExtraAttributes(), escape: false)
+                    ->class([
+                        'fi-fo-markdown-editor max-w-full overflow-hidden rounded-lg bg-white font-mono text-base text-gray-950 shadow-sm ring-1 transition duration-75 focus-within:ring-2 dark:bg-white/5 dark:text-white sm:text-sm',
+                        'ring-gray-950/10 focus-within:ring-primary-600 dark:ring-white/20 dark:focus-within:ring-primary-500' => ! $errors->has($statePath),
+                        'ring-danger-600 focus-within:ring-danger-600 dark:ring-danger-500 dark:focus-within:ring-danger-500' => $errors->has($statePath),
+                    ])
+            }}
         >
             <div
-                ax-load="visible"
+                @if (FilamentView::hasSpaMode())
+                    ax-load="visible"
+                @else
+                    ax-load
+                @endif
                 ax-load-src="{{ \Filament\Support\Facades\FilamentAsset::getAlpineComponentSrc('markdown-editor', 'filament/forms') }}"
                 x-data="markdownEditorFormComponent({
                             isLiveDebounced: @js($isLiveDebounced()),
@@ -50,6 +58,6 @@
             >
                 <textarea x-ref="editor" class="hidden"></textarea>
             </div>
-        </x-filament::input.wrapper>
+        </div>
     @endif
 </x-dynamic-component>

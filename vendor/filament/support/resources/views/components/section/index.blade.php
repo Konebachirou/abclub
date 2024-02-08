@@ -9,7 +9,6 @@
     'compact' => false,
     'contentBefore' => false,
     'description' => null,
-    'headerActions' => [],
     'headerEnd' => null,
     'heading' => null,
     'icon' => null,
@@ -19,15 +18,10 @@
 ])
 
 @php
-    $headerActions = is_array($headerActions) ? array_filter(
-        $headerActions,
-        fn ($headerAction): bool => $headerAction->isVisible(),
-    ) : $headerActions;
-    $hasHeaderActions = filled($headerActions);
     $hasDescription = filled((string) $description);
     $hasHeading = filled($heading);
     $hasIcon = filled($icon);
-    $hasHeader = $hasIcon || $hasHeading || $hasDescription || $collapsible || $hasHeaderActions || filled((string) $headerEnd);
+    $hasHeader = $hasIcon || $hasHeading || $hasDescription || $collapsible || filled((string) $headerEnd);
 @endphp
 
 <section
@@ -37,7 +31,31 @@
     }"
     @if ($collapsible)
         x-on:collapse-section.window="if ($event.detail.id == $el.id) isCollapsed = true"
-        x-on:expand="isCollapsed = false"
+        x-on:expand-concealing-component.window="
+            $nextTick(() => {
+                error = $el.querySelector('[data-validation-error]')
+
+                if (! error) {
+                    return
+                }
+
+                isCollapsed = false
+
+                if (document.body.querySelector('[data-validation-error]') !== error) {
+                    return
+                }
+
+                setTimeout(
+                    () =>
+                        $el.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start',
+                            inline: 'start',
+                        }),
+                    200,
+                )
+            })
+        "
         x-on:open-section.window="if ($event.detail.id == $el.id) isCollapsed = false"
         x-on:toggle-section.window="if ($event.detail.id == $el.id) isCollapsed = ! isCollapsed"
         x-bind:class="isCollapsed && 'fi-collapsed'"
@@ -58,7 +76,7 @@
                 x-on:click="isCollapsed = ! isCollapsed"
             @endif
             @class([
-                'fi-section-header flex flex-col gap-3',
+                'fi-section-header flex items-center gap-x-3 overflow-hidden',
                 'cursor-pointer' => $collapsible,
                 match ($compact) {
                     true => 'px-4 py-2.5',
@@ -66,80 +84,58 @@
                 } => ! $aside,
             ])
         >
-            <div class="flex items-center gap-3">
-                @if ($hasIcon)
-                    <x-filament::icon
-                        :icon="$icon"
-                        @class([
-                            'fi-section-header-icon self-start',
-                            match ($iconColor) {
-                                'gray' => 'fi-color-gray text-gray-400 dark:text-gray-500',
-                                default => 'fi-color-custom text-custom-500 dark:text-custom-400',
-                            },
-                            match ($iconSize) {
-                                IconSize::Small, 'sm' => 'h-4 w-4 mt-1',
-                                IconSize::Medium, 'md' => 'h-5 w-5 mt-0.5',
-                                IconSize::Large, 'lg' => 'h-6 w-6',
-                                default => $iconSize,
-                            },
-                        ])
-                        @style([
-                            \Filament\Support\get_color_css_variables(
-                                $iconColor,
-                                shades: [400, 500],
-                                alias: 'section.header.icon',
-                            ) => $iconColor !== 'gray',
-                        ])
-                    />
-                @endif
+            @if ($hasIcon)
+                <x-filament::icon
+                    :icon="$icon"
+                    @class([
+                        'fi-section-header-icon self-start',
+                        match ($iconColor) {
+                            'gray' => 'fi-color-gray text-gray-400 dark:text-gray-500',
+                            default => 'fi-color-custom text-custom-500 dark:text-custom-400',
+                        },
+                        match ($iconSize) {
+                            IconSize::Small, 'sm' => 'h-4 w-4 mt-1',
+                            IconSize::Medium, 'md' => 'h-5 w-5 mt-0.5',
+                            IconSize::Large, 'lg' => 'h-6 w-6',
+                            default => $iconSize,
+                        },
+                    ])
+                    @style([
+                        \Filament\Support\get_color_css_variables(
+                            $iconColor,
+                            shades: [400, 500],
+                            alias: 'section.header.icon',
+                        ) => $iconColor !== 'gray',
+                    ])
+                />
+            @endif
 
-                @if ($hasHeading || $hasDescription)
-                    <div class="grid flex-1 gap-y-1">
-                        @if ($hasHeading)
-                            <x-filament::section.heading>
-                                {{ $heading }}
-                            </x-filament::section.heading>
-                        @endif
+            @if ($hasHeading || $hasDescription)
+                <div class="grid flex-1 gap-y-1">
+                    @if ($hasHeading)
+                        <x-filament::section.heading>
+                            {{ $heading }}
+                        </x-filament::section.heading>
+                    @endif
 
-                        @if ($hasDescription)
-                            <x-filament::section.description>
-                                {{ $description }}
-                            </x-filament::section.description>
-                        @endif
-                    </div>
-                @endif
-
-                @if ($hasHeaderActions)
-                    <div class="hidden sm:block">
-                        <x-filament::actions
-                            :actions="$headerActions"
-                            :alignment="\Filament\Support\Enums\Alignment::Start"
-                            x-on:click.stop=""
-                        />
-                    </div>
-                @endif
-
-                {{ $headerEnd }}
-
-                @if ($collapsible)
-                    <x-filament::icon-button
-                        color="gray"
-                        icon="heroicon-m-chevron-down"
-                        icon-alias="section.collapse-button"
-                        x-on:click.stop="isCollapsed = ! isCollapsed"
-                        x-bind:class="{ 'rotate-180': ! isCollapsed }"
-                    />
-                @endif
-            </div>
-
-            @if ($hasHeaderActions)
-                <div class="sm:hidden">
-                    <x-filament::actions
-                        :actions="$headerActions"
-                        :alignment="\Filament\Support\Enums\Alignment::Start"
-                        x-on:click.stop=""
-                    />
+                    @if ($hasDescription)
+                        <x-filament::section.description>
+                            {{ $description }}
+                        </x-filament::section.description>
+                    @endif
                 </div>
+            @endif
+
+            {{ $headerEnd }}
+
+            @if ($collapsible)
+                <x-filament::icon-button
+                    color="gray"
+                    icon="heroicon-m-chevron-down"
+                    icon-alias="section.collapse-button"
+                    x-on:click.stop="isCollapsed = ! isCollapsed"
+                    x-bind:class="{ 'rotate-180': ! isCollapsed }"
+                />
             @endif
         </header>
     @endif

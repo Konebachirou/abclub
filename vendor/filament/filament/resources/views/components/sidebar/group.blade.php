@@ -3,14 +3,12 @@
     'icon' => null,
     'items' => [],
     'label' => null,
-    'sidebarCollapsible' => true,
-    'subNavigation' => false,
 ])
 
 <li
-    x-data="{ label: @js($subNavigation ? "sub_navigation_{$label}" : $label) }"
+    x-data="{ label: @js($label) }"
     data-group-label="{{ $label }}"
-    {{ $attributes->class(['fi-sidebar-group flex flex-col gap-y-1']) }}
+    class="fi-sidebar-group flex flex-col gap-y-1"
 >
     @if ($label)
         <div
@@ -24,7 +22,7 @@
                 x-transition:enter-end="opacity-100"
             @endif
             @class([
-                'fi-sidebar-group-button flex items-center gap-x-3 px-2 py-2',
+                'flex items-center gap-x-3 px-2 py-2',
                 'cursor-pointer' => $collapsible,
             ])
         >
@@ -36,7 +34,7 @@
             @endif
 
             <span
-                class="fi-sidebar-group-label flex-1 text-sm font-medium leading-6 text-gray-500 dark:text-gray-400"
+                class="fi-sidebar-group-label flex-1 text-sm font-semibold leading-6 text-gray-700 dark:text-gray-200"
             >
                 {{ $label }}
             </span>
@@ -68,20 +66,16 @@
     >
         @foreach ($items as $item)
             <x-filament-panels::sidebar.item
-                :active="$item->isActive()"
-                :active-child-items="$item->isChildItemsActive()"
                 :active-icon="$item->getActiveIcon()"
-                :badge="$item->getBadge()"
+                :active="$item->isActive()"
                 :badge-color="$item->getBadgeColor()"
-                :badge-tooltip="$item->getBadgeTooltip()"
-                :child-items="$item->getChildItems()"
+                :badge="$item->getBadge()"
                 :first="$loop->first"
                 :grouped="filled($label)"
                 :icon="$item->getIcon()"
                 :last="$loop->last"
-                :should-open-url-in-new-tab="$item->shouldOpenUrlInNewTab()"
-                :sidebar-collapsible="$sidebarCollapsible"
                 :url="$item->getUrl()"
+                :should-open-url-in-new-tab="$item->shouldOpenUrlInNewTab()"
             >
                 {{ $item->getLabel() }}
             </x-filament-panels::sidebar.item>

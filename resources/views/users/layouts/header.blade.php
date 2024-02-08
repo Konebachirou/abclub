@@ -102,7 +102,7 @@
                                     <div class="inner">
                                         <div class="rbt-admin-profile">
                                             <div class="admin-thumbnail">
-                                                @if (Auth::user()->image !== '')
+                                                @if (Auth::user()->image !== null)
                                                     <img src="{{ Auth::user()->imageUrl() }}" alt="User Images">
                                                 @else
                                                     <img src="{{ asset('assets/images/icons/avatar.png') }}"
@@ -119,13 +119,19 @@
                                             <li>
                                                 <a href="{{ route('profil_link') }}">
                                                     <i class="feather-home"></i>
-                                                    <span>My Profil</span>
+                                                    <span>Mon Profil</span>
                                                 </a>
                                             </li>
                                             <li>
                                                 <a href="{{ route('myEvent_link') }}">
                                                     <i class="feather-book-open"></i>
-                                                    <span>Enrolled Events</span>
+                                                    <span>Mes Events</span>
+                                                </a>
+                                            </li>
+                                          <li>
+                                                <a href="{{ route('myjobs_link') }}">
+                                                    <i class="feather-book-open"></i>
+                                                    <span>Mes Jobs</span>
                                                 </a>
                                             </li>
                                             <li>
@@ -142,7 +148,7 @@
                                             <li>
                                                 <a href="{{ route('logout_link') }}">
                                                     <i class="feather-log-out"></i>
-                                                    <span>Logout</span>
+                                                    <span>Déconnexion</span>
                                                 </a>
                                             </li>
                                         </ul>

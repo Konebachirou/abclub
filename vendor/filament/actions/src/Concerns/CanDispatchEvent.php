@@ -9,7 +9,7 @@ trait CanDispatchEvent
     protected string | Closure | null $event = null;
 
     /**
-     * @var array<mixed> | Closure
+     * @var array<int, mixed> | Closure
      */
     protected array | Closure $eventData = [];
 
@@ -18,14 +18,14 @@ trait CanDispatchEvent
     protected ?string $dispatchToComponent = null;
 
     /**
-     * @param  array<mixed> | Closure  $data
+     * @param  array<int, mixed> | Closure  $data
      */
     public function dispatch(
         string | Closure | null $event,
         array | Closure $data = [],
     ): static {
         $this->event = $event;
-        $this->eventData($data);
+        $this->eventData = $data;
         $this->dispatchDirection = false;
 
         return $this;
@@ -108,7 +108,7 @@ trait CanDispatchEvent
     }
 
     /**
-     * @param  array<mixed> | Closure  $data
+     * @param  array<int, mixed> | Closure  $data
      */
     public function eventData(array | Closure $data): static
     {
@@ -118,7 +118,7 @@ trait CanDispatchEvent
     }
 
     /**
-     * @return array<mixed>
+     * @return array<int, mixed>
      */
     public function getEventData(): array
     {

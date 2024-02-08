@@ -9,7 +9,7 @@ trait HasState
 {
     protected ?string $statePath = null;
 
-    protected string $cachedAbsoluteStatePath;
+    protected string $cachedFullStatePath;
 
     public function callAfterStateHydrated(): void
     {
@@ -68,14 +68,14 @@ trait HasState
      * @param  array<string, mixed>  $state
      * @return array<string, mixed>
      */
-    public function dehydrateState(array &$state = [], bool $isDehydrated = true): array
+    public function dehydrateState(array &$state = []): array
     {
         foreach ($this->getComponents() as $component) {
             if ($component->isHidden()) {
                 continue;
             }
 
-            $component->dehydrateState($state, $isDehydrated);
+            $component->dehydrateState($state);
         }
 
         return $state;
@@ -125,48 +125,9 @@ trait HasState
     }
 
     /**
-     * @param  array<string, mixed>  $state
-     * @return array<string, mixed>
-     */
-    public function mutateStateForValidation(array &$state = []): array
-    {
-        foreach ($this->getComponents() as $component) {
-            if ($component->isHidden()) {
-                continue;
-            }
-
-            foreach ($component->getChildComponentContainers() as $container) {
-                if ($container->isHidden()) {
-                    continue;
-                }
-
-                $container->mutateStateForValidation($state);
-            }
-
-            if ($component->getStatePath(isAbsolute: false)) {
-                if (! $component->mutatesStateForValidation()) {
-                    continue;
-                }
-
-                $componentStatePath = $component->getStatePath();
-
-                data_set(
-                    $state,
-                    $componentStatePath,
-                    $component->mutateStateForValidation(
-                        data_get($state, $componentStatePath),
-                    ),
-                );
-            }
-        }
-
-        return $state;
-    }
-
-    /**
      * @param  array<string, mixed> | null  $state
      */
-    public function fill(?array $state = null, bool $andCallHydrationHooks = true, bool $andFillStateWithNull = true): static
+    public function fill(?array $state = null): static
     {
         $hydratedDefaultState = null;
 
@@ -184,11 +145,9 @@ trait HasState
             }
         }
 
-        $this->hydrateState($hydratedDefaultState, $andCallHydrationHooks);
+        $this->hydrateState($hydratedDefaultState);
 
-        if ($andFillStateWithNull) {
-            $this->fillStateWithNull();
-        }
+        $this->fillStateWithNull();
 
         return $this;
     }
@@ -196,10 +155,10 @@ trait HasState
     /**
      * @param  array<string, mixed> | null  $hydratedDefaultState
      */
-    public function hydrateState(?array &$hydratedDefaultState, bool $andCallHydrationHooks = true): void
+    public function hydrateState(?array &$hydratedDefaultState): void
     {
         foreach ($this->getComponents(withHidden: true) as $component) {
-            $component->hydrateState($hydratedDefaultState, $andCallHydrationHooks);
+            $component->hydrateState($hydratedDefaultState);
         }
     }
 
@@ -268,8 +227,8 @@ trait HasState
 
     public function getStatePath(bool $isAbsolute = true): string
     {
-        if (isset($this->cachedAbsoluteStatePath)) {
-            return $this->cachedAbsoluteStatePath;
+        if (isset($this->cachedFullStatePath)) {
+            return $this->cachedFullStatePath;
         }
 
         $pathComponents = [];
@@ -282,11 +241,11 @@ trait HasState
             $pathComponents[] = $statePath;
         }
 
-        return $this->cachedAbsoluteStatePath = implode('.', $pathComponents);
+        return $this->cachedFullStatePath = implode('.', $pathComponents);
     }
 
-    protected function flushCachedAbsoluteStatePath(): void
+    protected function flushCachedStatePath(): void
     {
-        unset($this->cachedAbsoluteStatePath);
+        unset($this->cachedFullStatePath);
     }
 }

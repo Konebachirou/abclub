@@ -39,7 +39,7 @@
                             @csrf
                             <div class="rbt-tutor-information-left">
                                 <div class="thumbnail rbt-avatars size-lg position-relative">
-                                    @if (Auth::user()->image !== '')
+                                    @if (Auth::user()->image !== null)
                                         <img src="{{ Auth::user()->imageUrl() }}" id="previewImage" alt="">
                                     @else
                                         <img src="{{ asset('assets/images/icons/avatar.png') }}" id="previewImage"

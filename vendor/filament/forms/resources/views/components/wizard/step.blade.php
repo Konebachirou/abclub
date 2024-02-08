@@ -2,26 +2,44 @@
     $id = $getId();
     $isContained = $getContainer()->getParentComponent()->isContained();
 
-    $activeStepClasses = \Illuminate\Support\Arr::toCssClasses([
-        'fi-active',
+    $visibleStepClasses = \Illuminate\Support\Arr::toCssClasses([
         'p-6' => $isContained,
         'mt-6' => ! $isContained,
     ]);
 
-    $inactiveStepClasses = 'invisible h-0 overflow-y-hidden p-0';
+    $invisibleStepClasses = 'invisible h-0 overflow-y-hidden p-0';
 @endphp
 
 <div
-    x-bind:class="{
-        @js($activeStepClasses): step === @js($id),
-        @js($inactiveStepClasses): step !== @js($id),
-    }"
-    x-on:expand="
-        if (! isStepAccessible(@js($id))) {
-            return
-        }
+    x-bind:class="step === @js($id) ? @js($visibleStepClasses) : @js($invisibleStepClasses)"
+    x-on:expand-concealing-component.window="
+        $nextTick(() => {
+            error = $el.querySelector('[data-validation-error]')
 
-        step = @js($id)
+            if (! error) {
+                return
+            }
+
+            if (! isStepAccessible(step, @js($id))) {
+                return
+            }
+
+            step = @js($id)
+
+            if (document.body.querySelector('[data-validation-error]') !== error) {
+                return
+            }
+
+            setTimeout(
+                () =>
+                    $el.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start',
+                        inline: 'start',
+                    }),
+                200,
+            )
+        })
     "
     x-ref="step-{{ $id }}"
     {{

@@ -6,7 +6,6 @@ use Closure;
 use Filament\Forms\ComponentContainer;
 use Filament\Forms\Components\Actions\Action;
 use Filament\Forms\Components\Builder\Block;
-use Filament\Support\Concerns\HasReorderAnimationDuration;
 use Filament\Support\Enums\ActionSize;
 use Filament\Support\Enums\MaxWidth;
 use Filament\Support\Facades\FilamentIcon;
@@ -16,14 +15,12 @@ use Illuminate\Support\Str;
 use function Filament\Forms\array_move_after;
 use function Filament\Forms\array_move_before;
 
-class Builder extends Field implements Contracts\CanConcealComponents, Contracts\HasExtraItemActions
+class Builder extends Field implements Contracts\CanConcealComponents
 {
     use Concerns\CanBeCloned;
     use Concerns\CanBeCollapsed;
     use Concerns\CanGenerateUuids;
     use Concerns\CanLimitItemsLength;
-    use Concerns\HasExtraItemActions;
-    use HasReorderAnimationDuration;
 
     /**
      * @var view-string
@@ -142,7 +139,7 @@ class Builder extends Field implements Contracts\CanConcealComponents, Contracts
 
                 $component->state($items);
 
-                $component->getChildComponentContainer($newUuid)->fill();
+                $component->getChildComponentContainers()[$newUuid]->fill();
 
                 $component->collapsed(false, shouldMakeComponentCollapsible: false);
 
@@ -197,7 +194,7 @@ class Builder extends Field implements Contracts\CanConcealComponents, Contracts
 
                 $component->state($items);
 
-                $component->getChildComponentContainer($newUuid)->fill();
+                $component->getChildComponentContainers()[$newUuid]->fill();
 
                 $component->collapsed(false, shouldMakeComponentCollapsible: false);
 
@@ -725,14 +722,11 @@ class Builder extends Field implements Contracts\CanConcealComponents, Contracts
     }
 
     /**
-     * @return array<Block>
+     * @return array<Component>
      */
     public function getBlocks(): array
     {
-        /** @var array<Block> $blocks */
-        $blocks = $this->getChildComponentContainer()->getComponents();
-
-        return $blocks;
+        return $this->getChildComponentContainer()->getComponents();
     }
 
     public function getChildComponentContainers(bool $withHidden = false): array
@@ -742,7 +736,7 @@ class Builder extends Field implements Contracts\CanConcealComponents, Contracts
         }
 
         return collect($this->getState())
-            ->filter(fn (array $itemData): bool => filled($itemData['type'] ?? null) && $this->hasBlock($itemData['type']))
+            ->filter(fn (array $itemData): bool => $this->hasBlock($itemData['type']))
             ->map(
                 fn (array $itemData, $itemIndex): ComponentContainer => $this
                     ->getBlock($itemData['type'])
@@ -838,32 +832,6 @@ class Builder extends Field implements Contracts\CanConcealComponents, Contracts
     }
 
     /**
-     * @return array<Block>
-     */
-    public function getBlockPickerBlocks(): array
-    {
-        $state = $this->getState();
-
-        /** @var array<Block> $blocks */
-        $blocks = array_filter($this->getBlocks(), function (Block $block) use ($state): bool {
-            /** @var Block $block */
-            $maxItems = $block->getMaxItems();
-
-            if ($maxItems === null) {
-                return true;
-            }
-
-            $count = count(array_filter($state, function (array $item) use ($block): bool {
-                return $item['type'] === $block->getName();
-            }));
-
-            return $count < $maxItems;
-        });
-
-        return $blocks;
-    }
-
-    /**
      * @param  array<string, int | string | null> | int | string | null  $columns
      */
     public function blockPickerColumns(array | int | string | null $columns = 2): static
@@ -912,41 +880,6 @@ class Builder extends Field implements Contracts\CanConcealComponents, Contracts
 
     public function getBlockPickerWidth(): MaxWidth | string | null
     {
-        $width = $this->evaluate($this->blockPickerWidth);
-
-        if (filled($width)) {
-            return $width;
-        }
-
-        $columns = $this->getBlockPickerColumns();
-
-        if (empty($columns)) {
-            return null;
-        }
-
-        return match (max($columns)) {
-            2 => 'md',
-            3 => '2xl',
-            4 => '4xl',
-            5 => '6xl',
-            6 => '7xl',
-            default => null,
-        };
-    }
-
-    /**
-     * @return array<string, mixed>
-     */
-    public function getItemState(string $uuid): array
-    {
-        return $this->getChildComponentContainer($uuid)->getState(shouldCallHooksBefore: false);
-    }
-
-    /**
-     * @return array<string, mixed>
-     */
-    public function getRawItemState(string $uuid): array
-    {
-        return $this->getChildComponentContainer($uuid)->getRawState();
+        return $this->evaluate($this->blockPickerWidth);
     }
 }

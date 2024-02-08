@@ -9,7 +9,6 @@ use Filament\Support\Concerns;
 class Tabs extends Component
 {
     use Concerns\CanBeContained;
-    use Concerns\CanPersistTab;
     use Concerns\HasExtraAlpineAttributes;
 
     /**
@@ -56,7 +55,7 @@ class Tabs extends Component
         if ($this->isTabPersistedInQueryString()) {
             $queryStringTab = request()->query($this->getTabQueryStringKey());
 
-            foreach ($this->getChildComponentContainer()->getComponents() as $index => $tab) {
+            foreach ($this->getChildComponents() as $index => $tab) {
                 if ($tab->getId() !== $queryStringTab) {
                     continue;
                 }

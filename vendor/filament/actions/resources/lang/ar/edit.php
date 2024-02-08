@@ -13,7 +13,7 @@ return [
             'actions' => [
 
                 'save' => [
-                    'label' => 'حفظ التغييرات',
+                    'label' => 'حفظ',
                 ],
 
             ],

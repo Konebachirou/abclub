@@ -14,21 +14,12 @@ trait HasFormSchema
      */
     protected array | Closure | null $formSchema = null;
 
-    protected ?Closure $modifyFormFieldUsing = null;
-
     /**
      * @param  array<Component> | Closure | null  $schema
      */
     public function form(array | Closure | null $schema): static
     {
         $this->formSchema = $schema;
-
-        return $this;
-    }
-
-    public function modifyFormFieldUsing(?Closure $callback): static
-    {
-        $this->modifyFormFieldUsing = $callback;
 
         return $this;
     }
@@ -50,18 +41,6 @@ trait HasFormSchema
             return [];
         }
 
-        $field = $this->evaluate(
-            $this->modifyFormFieldUsing,
-            namedInjections: [
-                'field' => $field,
-            ],
-            typedInjections: [
-                Component::class => $field,
-                Field::class => $field,
-                $field::class => $field,
-            ],
-        ) ?? $field;
-
         return [$field];
     }
 
@@ -79,7 +58,7 @@ trait HasFormSchema
     {
         return $this->getLivewire()
             ->getTableFiltersForm()
-            ->getComponent($this->getName())
+            ->getComponents()[$this->getName()]
             ->getChildComponentContainer();
     }
 }

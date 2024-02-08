@@ -1,14 +1,9 @@
 @php
-    use Filament\Forms\Components\TextInput\Actions\HidePasswordAction;
-    use Filament\Forms\Components\TextInput\Actions\ShowPasswordAction;
-
     $datalistOptions = $getDatalistOptions();
     $extraAlpineAttributes = $getExtraAlpineAttributes();
-    $hasInlineLabel = $hasInlineLabel();
     $id = $getId();
     $isConcealed = $isConcealed();
     $isDisabled = $isDisabled();
-    $isPasswordRevealable = $isPasswordRevealable();
     $isPrefixInline = $isPrefixInline();
     $isSuffixInline = $isSuffixInline();
     $mask = $getMask();
@@ -19,38 +14,9 @@
     $suffixIcon = $getSuffixIcon();
     $suffixLabel = $getSuffixLabel();
     $statePath = $getStatePath();
-
-    if ($isPasswordRevealable) {
-        $xData = '{ isPasswordRevealed: false }';
-    } elseif (count($extraAlpineAttributes) || filled($mask)) {
-        $xData = '{}';
-    } else {
-        $xData = null;
-    }
-
-    if ($isPasswordRevealable) {
-        $type = null;
-    } elseif (filled($mask)) {
-        $type = 'text';
-    } else {
-        $type = $getType();
-    }
 @endphp
 
-<x-dynamic-component
-    :component="$getFieldWrapperView()"
-    :field="$field"
-    :has-inline-label="$hasInlineLabel"
->
-    <x-slot
-        name="label"
-        @class([
-            'sm:pt-1.5' => $hasInlineLabel,
-        ])
-    >
-        {{ $getLabel() }}
-    </x-slot>
-
+<x-dynamic-component :component="$getFieldWrapperView()" :field="$field">
     <x-filament::input.wrapper
         :disabled="$isDisabled"
         :inline-prefix="$isPrefixInline"
@@ -64,10 +30,10 @@
         :suffix-icon="$suffixIcon"
         :suffix-icon-color="$getSuffixIconColor()"
         :valid="! $errors->has($statePath)"
-        :x-data="$xData"
+        class="fi-fo-text-input"
         :attributes="
             \Filament\Support\prepare_inherited_attributes($getExtraAttributeBag())
-                ->class(['fi-fo-text-input overflow-hidden'])
+                ->class(['overflow-hidden'])
         "
     >
         <x-filament::input
@@ -92,14 +58,11 @@
                         'readonly' => $isReadOnly(),
                         'required' => $isRequired() && (! $isConcealed),
                         'step' => $getStep(),
-                        'type' => $type,
+                        'type' => blank($mask) ? $getType() : 'text',
                         $applyStateBindingModifiers('wire:model') => $statePath,
-                        'x-bind:type' => $isPasswordRevealable ? 'isPasswordRevealed ? \'text\' : \'password\'' : null,
+                        'x-data' => (count($extraAlpineAttributes) || filled($mask)) ? '{}' : null,
                         'x-mask' . ($mask instanceof \Filament\Support\RawJs ? ':dynamic' : '') => filled($mask) ? $mask : null,
                     ], escape: false)
-                    ->class([
-                        '[&::-ms-reveal]:hidden' => $isPasswordRevealable,
-                    ])
             "
         />
     </x-filament::input.wrapper>

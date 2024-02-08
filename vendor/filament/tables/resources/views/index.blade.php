@@ -1,27 +1,20 @@
 @php
     use Filament\Support\Enums\Alignment;
-    use Filament\Support\Enums\VerticalAlignment;
     use Filament\Support\Facades\FilamentView;
-    use Filament\Tables\Columns\Column;
-    use Filament\Tables\Columns\ColumnGroup;
     use Filament\Tables\Enums\ActionsPosition;
     use Filament\Tables\Enums\FiltersLayout;
     use Filament\Tables\Enums\RecordCheckboxPosition;
-    use Illuminate\Support\Str;
 
     $actions = $getActions();
     $actionsAlignment = $getActionsAlignment();
     $actionsPosition = $getActionsPosition();
     $actionsColumnLabel = $getActionsColumnLabel();
-    $activeFiltersCount = $getActiveFiltersCount();
     $columns = $getVisibleColumns();
     $collapsibleColumnsLayout = $getCollapsibleColumnsLayout();
-    $columnsLayout = $getColumnsLayout();
     $content = $getContent();
     $contentGrid = $getContentGrid();
     $contentFooter = $getContentFooter();
     $filterIndicators = $getFilterIndicators();
-    $hasColumnGroups = $hasColumnGroups();
     $hasColumnsLayout = $hasColumnsLayout();
     $hasSummary = $hasSummary();
     $header = $getHeader();
@@ -44,7 +37,6 @@
     $isReordering = $isReordering();
     $isColumnSearchVisible = $isSearchableByColumn();
     $isGlobalSearchVisible = $isSearchable();
-    $isSearchOnBlur = $isSearchOnBlur();
     $isSelectionEnabled = $isSelectionEnabled() && (! $isGroupsOnly);
     $recordCheckboxPosition = $getRecordCheckboxPosition();
     $isStriped = $isStriped();
@@ -61,7 +53,6 @@
     $hasHeaderToolbar = $isReorderable || $areGroupingSettingsVisible || $isGlobalSearchVisible || $hasFiltersDialog || $hasColumnToggleDropdown;
     $pluralModelLabel = $getPluralModelLabel();
     $records = $isLoaded ? $getRecords() : null;
-    $searchDebounce = $getSearchDebounce();
     $allSelectableRecordsCount = ($isSelectionEnabled && $isLoaded) ? $getAllSelectableRecordsCount() : null;
     $columnsCount = count($columns);
     $reorderRecordsTriggerAction = $getReorderRecordsTriggerAction($isReordering);
@@ -79,7 +70,7 @@
         $groupedSummarySelectedState = $this->getTableSummarySelectedState($this->getAllTableSummaryQuery(), modifyQueryUsing: fn (\Illuminate\Database\Query\Builder $query) => $group->groupQuery($query, model: $getQuery()->getModel()));
     }
 
-    $getHiddenClasses = function (Column | ColumnGroup $column): ?string {
+    $getHiddenClasses = function (Filament\Tables\Columns\Column $column): ?string {
         if ($breakpoint = $column->getHiddenFrom()) {
             return match ($breakpoint) {
                 'sm' => 'sm:hidden',
@@ -143,25 +134,23 @@
                 <div
                     x-data="{ areFiltersOpen: @js(! $hasFiltersAboveContentCollapsible) }"
                     @class([
-                        'fi-ta-filters-above-content-ctn grid px-4 py-4 sm:px-6',
+                        'grid gap-y-3 px-4 py-4 sm:px-6',
                     ])
                 >
+                    @if ($hasFiltersAboveContentCollapsible)
+                        <span
+                            x-on:click="areFiltersOpen = ! areFiltersOpen"
+                            class="ms-auto"
+                        >
+                            {{ $filtersTriggerAction->badge(count(\Illuminate\Support\Arr::flatten($filterIndicators))) }}
+                        </span>
+                    @endif
+
                     <x-filament-tables::filters
-                        :apply-action="$getFiltersApplyAction()"
                         :form="$getFiltersForm()"
                         x-cloak
                         x-show="areFiltersOpen"
                     />
-
-                    @if ($hasFiltersAboveContentCollapsible)
-                        <span
-                            x-on:click="areFiltersOpen = ! areFiltersOpen"
-                            x-bind:class="{ @js($hasDeferredFilters() ? '-mt-7' : 'mt-3'): areFiltersOpen }"
-                            class="ms-auto"
-                        >
-                            {{ $filtersTriggerAction->badge($activeFiltersCount) }}
-                        </span>
-                    @endif
                 </div>
             @endif
 
@@ -210,8 +199,6 @@
 
                         @if ($isGlobalSearchVisible)
                             <x-filament-tables::search-field
-                                :debounce="$searchDebounce"
-                                :on-blur="$isSearchOnBlur"
                                 :placeholder="$getSearchPlaceholder()"
                             />
                         @endif
@@ -221,9 +208,8 @@
                         @if ($hasFiltersDialog || $hasColumnToggleDropdown)
                             @if ($hasFiltersDialog)
                                 <x-filament-tables::filters.dialog
-                                    :active-filters-count="$activeFiltersCount"
-                                    :apply-action="$getFiltersApplyAction()"
                                     :form="$getFiltersForm()"
+                                    :indicators-count="count(\Illuminate\Support\Arr::flatten($filterIndicators))"
                                     :layout="$filtersLayout"
                                     :max-height="$getFiltersFormMaxHeight()"
                                     :trigger-action="$filtersTriggerAction"
@@ -273,7 +259,7 @@
                 wire:poll.{{ $pollingInterval }}
             @endif
             @class([
-                'fi-ta-content divide-y divide-gray-200 overflow-x-auto dark:divide-white/10 dark:border-t-white/10',
+                'fi-ta-content relative divide-y divide-gray-200 overflow-x-auto dark:divide-white/10 dark:border-t-white/10',
                 '!border-t-0' => ! $hasHeader,
             ])
         >
@@ -292,8 +278,6 @@
                         >
                             @if ($isSelectionEnabled && (! $isReordering))
                                 <x-filament-tables::selection.checkbox
-                                    {{-- Make sure the "checked" state gets re-evaluated after a Livewire request: --}}
-                                    :wire:key="$this->getId() . '.table.bulk_select_page.checkbox.' . Str::random()"
                                     :label="__('filament-tables::table.fields.bulk_select_page.label')"
                                     x-bind:checked="
                                         const recordsOnPage = getRecordsOnPage()
@@ -393,7 +377,6 @@
                         :two-xl="$contentGrid['2xl'] ?? null"
                         x-on:end.stop="$wire.reorderTable($event.target.sortable.toArray())"
                         x-sortable
-                        :data-sortable-animation-duration="$getReorderAnimationDuration()"
                         @class([
                             'fi-ta-content-grid gap-4 p-4 sm:px-6' => $contentGrid,
                             'pt-0' => $contentGrid && $this->getTableGrouping(),
@@ -480,7 +463,7 @@
                                     'fi-ta-record relative h-full bg-white transition duration-75 dark:bg-gray-900',
                                     'hover:bg-gray-50 dark:hover:bg-white/5' => ($recordUrl || $recordAction) && (! $contentGrid),
                                     'hover:bg-gray-50 dark:hover:bg-white/10 dark:hover:ring-white/20' => ($recordUrl || $recordAction) && $contentGrid,
-                                    'rounded-xl shadow-sm ring-1 ring-gray-950/5 dark:bg-white/5 dark:ring-white/10' => $contentGrid,
+                                    'rounded-xl shadow-sm ring-1 ring-gray-950/5' => $contentGrid,
                                     ...$getRecordClasses($record),
                                 ])
                                 x-bind:class="{
@@ -564,7 +547,7 @@
                                                     class="{{ $recordContentClasses }}"
                                                 >
                                                     <x-filament-tables::columns.layout
-                                                        :components="$columnsLayout"
+                                                        :components="$getColumnsLayout()"
                                                         :record="$record"
                                                         :record-key="$recordKey"
                                                         :row-loop="$loop"
@@ -585,7 +568,7 @@
                                                     class="{{ $recordContentClasses }}"
                                                 >
                                                     <x-filament-tables::columns.layout
-                                                        :components="$columnsLayout"
+                                                        :components="$getColumnsLayout()"
                                                         :record="$record"
                                                         :record-key="$recordKey"
                                                         :row-loop="$loop"
@@ -596,7 +579,7 @@
                                                     class="{{ $recordContentClasses }}"
                                                 >
                                                     <x-filament-tables::columns.layout
-                                                        :components="$columnsLayout"
+                                                        :components="$getColumnsLayout()"
                                                         :record="$record"
                                                         :record-key="$recordKey"
                                                         :row-loop="$loop"
@@ -682,85 +665,7 @@
                     </x-filament-tables::table>
                 @endif
             @elseif (($records !== null) && count($records))
-                <x-filament-tables::table
-                    :reorderable="$isReorderable"
-                    :reorder-animation-duration="$getReorderAnimationDuration()"
-                >
-                    @if ($hasColumnGroups)
-                        <x-slot name="headerGroups">
-                            @if ($isReordering)
-                                <th></th>
-                            @else
-                                @if (count($actions) && in_array($actionsPosition, [ActionsPosition::BeforeCells, ActionsPosition::BeforeColumns]))
-                                    <th></th>
-                                @endif
-
-                                @if ($isSelectionEnabled && $recordCheckboxPosition === RecordCheckboxPosition::BeforeCells)
-                                    <th></th>
-                                @endif
-                            @endif
-
-                            @foreach ($columnsLayout as $columnGroup)
-                                @if ($columnGroup instanceof Column)
-                                    @if ($columnGroup->isVisible() && (! $columnGroup->isToggledHidden()))
-                                        <th></th>
-                                    @endif
-                                @elseif ($columnGroup instanceof ColumnGroup)
-                                    @php
-                                        $columnGroupAlignment = $columnGroup->getAlignment();
-                                        $columnGroupColumnsCount = count($columnGroup->getVisibleColumns());
-                                        $isColumnGroupHeaderWrapped = $columnGroup->isHeaderWrapped();
-                                    @endphp
-
-                                    @if ($columnGroupColumnsCount)
-                                        <th
-                                            colspan="{{ $columnGroupColumnsCount }}"
-                                            {{
-                                                $columnGroup->getExtraHeaderAttributeBag()->class([
-                                                    'fi-table-header-group-cell border-gray-200 px-3 py-2 dark:border-white/5 sm:first-of-type:ps-6 sm:last-of-type:pe-6 [&:not(:first-of-type)]:border-s [&:not(:last-of-type)]:border-e',
-                                                ])
-                                            }}
-                                        >
-                                            <div
-                                                @class([
-                                                    'flex w-full items-center',
-                                                    'whitespace-nowrap' => ! $isColumnGroupHeaderWrapped,
-                                                    'whitespace-normal' => $isColumnGroupHeaderWrapped,
-                                                    match ($columnGroupAlignment) {
-                                                        Alignment::Start => 'justify-start',
-                                                        Alignment::Center => 'justify-center',
-                                                        Alignment::End => 'justify-end',
-                                                        Alignment::Left => 'justify-start rtl:flex-row-reverse',
-                                                        Alignment::Right => 'justify-end rtl:flex-row-reverse',
-                                                        Alignment::Justify, Alignment::Between => 'justify-between',
-                                                        default => $columnGroupAlignment,
-                                                    },
-                                                    $getHiddenClasses($columnGroup),
-                                                ])
-                                            >
-                                                <span
-                                                    class="text-sm font-semibold text-gray-950 dark:text-white"
-                                                >
-                                                    {{ $columnGroup->getLabel() }}
-                                                </span>
-                                            </div>
-                                        </th>
-                                    @endif
-                                @endif
-                            @endforeach
-
-                            @if (! $isReordering)
-                                @if (count($actions) && in_array($actionsPosition, [ActionsPosition::AfterColumns, ActionsPosition::AfterCells]))
-                                    <th></th>
-                                @endif
-
-                                @if ($isSelectionEnabled && $recordCheckboxPosition === RecordCheckboxPosition::AfterCells)
-                                    <th></th>
-                                @endif
-                            @endif
-                        </x-slot>
-                    @endif
-
+                <x-filament-tables::table :reorderable="$isReorderable">
                     <x-slot name="header">
                         @if ($isReordering)
                             <th></th>
@@ -778,8 +683,6 @@
                             @if ($isSelectionEnabled && $recordCheckboxPosition === RecordCheckboxPosition::BeforeCells)
                                 <x-filament-tables::selection.cell tag="th">
                                     <x-filament-tables::selection.checkbox
-                                        {{-- Make sure the "checked" state gets re-evaluated after a Livewire request: --}}
-                                        :wire:key="$this->getId() . '.table.bulk_select_page.checkbox.' . Str::random()"
                                         :label="__('filament-tables::table.fields.bulk_select_page.label')"
                                         x-bind:checked="
                                             const recordsOnPage = getRecordsOnPage()
@@ -822,8 +725,6 @@
                                     \Filament\Support\prepare_inherited_attributes($column->getExtraHeaderAttributeBag())
                                         ->class([
                                             'fi-table-header-cell-' . str($column->getName())->camel()->kebab(),
-                                            'w-full' => $column->canGrow(default: false),
-                                            '[&:not(:first-of-type)]:border-s [&:not(:last-of-type)]:border-e border-gray-200 dark:border-white/5' => $column->getGroup(),
                                             $getHiddenClasses($column),
                                         ])
                                 "
@@ -848,8 +749,6 @@
                             @if ($isSelectionEnabled && $recordCheckboxPosition === RecordCheckboxPosition::AfterCells)
                                 <x-filament-tables::selection.cell tag="th">
                                     <x-filament-tables::selection.checkbox
-                                        {{-- Make sure the "checked" state gets re-evaluated after a Livewire request: --}}
-                                        :wire:key="$this->getId() . '.table.bulk_select_page.checkbox.' . Str::random()"
                                         :label="__('filament-tables::table.fields.bulk_select_page.label')"
                                         x-bind:checked="
                                             const recordsOnPage = getRecordsOnPage()
@@ -906,8 +805,6 @@
                                 >
                                     @if ($column->isIndividuallySearchable())
                                         <x-filament-tables::search-field
-                                            :debounce="$searchDebounce"
-                                            :on-blur="$isSearchOnBlur"
                                             wire-model="tableColumnSearches.{{ $column->getName() }}"
                                         />
                                     @endif
@@ -1087,12 +984,6 @@
                                                 \Filament\Support\prepare_inherited_attributes($column->getExtraCellAttributeBag())
                                                     ->class([
                                                         'fi-table-cell-' . str($column->getName())->camel()->kebab(),
-                                                        match ($column->getVerticalAlignment()) {
-                                                            VerticalAlignment::Start => 'align-top',
-                                                            VerticalAlignment::Center => 'align-middle',
-                                                            VerticalAlignment::End => 'align-bottom',
-                                                            default => null,
-                                                        },
                                                         $getHiddenClasses($column),
                                                     ])
                                             "
@@ -1220,15 +1111,14 @@
             <x-filament::pagination
                 :page-options="$getPaginationPageOptions()"
                 :paginator="$records"
-                class="fi-ta-pagination px-3 py-3 sm:px-6"
+                class="px-3 py-3 sm:px-6"
             />
         @endif
 
         @if ($hasFiltersBelowContent)
             <x-filament-tables::filters
-                :apply-action="$getFiltersApplyAction()"
                 :form="$getFiltersForm()"
-                class="fi-ta-filters-below-content p-4 sm:px-6"
+                class="p-4 sm:px-6"
             />
         @endif
     </x-filament-tables::container>

@@ -5,15 +5,10 @@ namespace Filament\Navigation;
 use Closure;
 use Exception;
 use Filament\Support\Components\Component;
-use Filament\Support\Concerns\HasExtraSidebarAttributes;
-use Filament\Support\Concerns\HasExtraTopbarAttributes;
 use Illuminate\Contracts\Support\Arrayable;
 
 class NavigationGroup extends Component
 {
-    use HasExtraSidebarAttributes;
-    use HasExtraTopbarAttributes;
-
     protected bool | Closure $isCollapsed = false;
 
     protected bool | Closure | null $isCollapsible = null;
@@ -68,6 +63,15 @@ class NavigationGroup extends Component
      */
     public function items(array | Arrayable $items): static
     {
+        foreach ($items as $item) {
+            if ($item instanceof NavigationItem) {
+                continue;
+            }
+
+            /** @phpstan-ignore-next-line */
+            throw new Exception("Navigation group [{$this->getLabel()}] has a nested group, which is not supported in the sidebar design at the moment.");
+        }
+
         $this->items = $items;
 
         return $this;
@@ -84,7 +88,7 @@ class NavigationGroup extends Component
     {
         $icon = $this->evaluate($this->icon);
 
-        if ($this->hasItemIcons() && filled($icon)) {
+        if (filled($icon) && $this->hasItemIcons()) {
             throw new Exception("Navigation group [{$this->getLabel()}] has an icon but one or more of its items also have icons. Either the group or its items can have icons, but not both. This is to ensure a proper user experience.");
         }
 

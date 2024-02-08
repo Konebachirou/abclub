@@ -5,36 +5,16 @@ namespace Filament\Actions\Concerns;
 trait HasArguments
 {
     /**
-     * @var array<string, mixed> | null
+     * @var array<string, mixed>
      */
-    protected ?array $arguments = null;
-
-    /**
-     * @param  array<string, mixed> | null  $arguments
-     */
-    public function arguments(?array $arguments): static
-    {
-        if ($arguments === null) {
-            $this->arguments = null;
-
-            return $this;
-        }
-
-        $this->arguments = [];
-        $this->mergeArguments($arguments);
-
-        return $this;
-    }
+    protected array $arguments = [];
 
     /**
      * @param  array<string, mixed>  $arguments
      */
-    public function mergeArguments(array $arguments): static
+    public function arguments(array $arguments): static
     {
-        $this->arguments = [
-            ...$this->arguments ?? [],
-            ...$arguments,
-        ];
+        $this->arguments = $arguments;
 
         return $this;
     }
@@ -44,18 +24,13 @@ trait HasArguments
      */
     public function getArguments(): array
     {
-        return $this->arguments ?? [];
+        return $this->arguments;
     }
 
     public function resetArguments(): static
     {
-        $this->arguments(null);
+        $this->arguments([]);
 
         return $this;
-    }
-
-    public function hasArguments(): bool
-    {
-        return $this->arguments !== null;
     }
 }

@@ -4,16 +4,16 @@ return [
 
     'label' => 'Paginação',
 
-    'overview' => '{1} A mostrar 1 resultado|[2,*] A mostrar :first a :last de :total resultados',
+    'overview' => 'A mostrar :first a :last de :total resultados',
 
     'fields' => [
 
         'records_per_page' => [
 
-            'label' => 'Por página',
+            'label' => 'por página',
 
             'options' => [
-                'all' => 'Todos',
+                'all' => 'Todas',
             ],
 
         ],
@@ -23,7 +23,7 @@ return [
     'actions' => [
 
         'go_to_page' => [
-            'label' => 'Ir para a página :page',
+            'label' => 'Ir para página :page',
         ],
 
         'next' => [

@@ -172,10 +172,14 @@ trait InteractsWithForms
         } catch (ValidationException $exception) {
             $this->onValidationError($exception);
 
-            $this->dispatch('form-validation-error', livewireId: $this->getId());
+            $this->dispatch('expand-concealing-component');
 
             throw $exception;
         }
+    }
+
+    protected function onValidationError(ValidationException $exception): void
+    {
     }
 
     /**
@@ -193,27 +197,10 @@ trait InteractsWithForms
         } catch (ValidationException $exception) {
             $this->onValidationError($exception);
 
-            $this->dispatch('form-validation-error', livewireId: $this->getId());
+            $this->dispatch('expand-concealing-component');
 
             throw $exception;
         }
-    }
-
-    protected function onValidationError(ValidationException $exception): void
-    {
-    }
-
-    /**
-     * @param  array<string, mixed>  $attributes
-     * @return array<string, mixed>
-     */
-    protected function prepareForValidation($attributes): array
-    {
-        foreach ($this->getCachedForms() as $form) {
-            $attributes = $form->mutateStateForValidation($attributes);
-        }
-
-        return $attributes;
     }
 
     /**
@@ -297,7 +284,7 @@ trait InteractsWithForms
                 if (! method_exists($this, $form)) {
                     $livewireClass = $this::class;
 
-                    throw new Exception("Form configuration method [{$form}()] is missing from Livewire component [{$livewireClass}].");
+                    throw new Exception("Form configuration method [{$formName}()] is missing from Livewire component [{$livewireClass}].");
                 }
 
                 return [$form => $this->{$form}($this->makeForm())];

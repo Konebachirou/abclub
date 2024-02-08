@@ -38,7 +38,7 @@ trait CanFormatState
             }, Arr::wrap($state));
 
             if (! $isArrayState) {
-                return Arr::first($state);
+                return $state[0];
             }
 
             return $state;
@@ -63,7 +63,7 @@ trait CanFormatState
             }, Arr::wrap($state));
 
             if (! $isArrayState) {
-                return Arr::first($state);
+                return $state[0];
             }
 
             return $state;

@@ -50,23 +50,23 @@ By default, the color of a dropdown item is "gray". You can change it to be `dan
 ```blade
 <x-filament::dropdown.list.item color="danger">
     Edit
-</x-filament::dropdown.list.item>
+</x-filament::button>
 
 <x-filament::dropdown.list.item color="info">
     Edit
-</x-filament::dropdown.list.item>
+</x-filament::button>
 
 <x-filament::dropdown.list.item color="primary">
     Edit
-</x-filament::dropdown.list.item>
+</x-filament::button>
 
 <x-filament::dropdown.list.item color="success">
     Edit
-</x-filament::dropdown.list.item>
+</x-filament::button>
 
 <x-filament::dropdown.list.item color="warning">
     Edit
-</x-filament::dropdown.list.item>
+</x-filament::button>
 ```
 
 ## Adding an icon to a dropdown item

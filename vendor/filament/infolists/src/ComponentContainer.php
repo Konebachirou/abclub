@@ -3,7 +3,6 @@
 namespace Filament\Infolists;
 
 use Filament\Support\Components\ViewComponent;
-use Filament\Support\Concerns\HasExtraAttributes;
 use Illuminate\Database\Eloquent\Model;
 use Livewire\Component;
 
@@ -18,7 +17,6 @@ class ComponentContainer extends ViewComponent
     use Concerns\HasEntryWrapper;
     use Concerns\HasInlineLabels;
     use Concerns\HasState;
-    use HasExtraAttributes;
 
     protected string $view = 'filament-infolists::component-container';
 

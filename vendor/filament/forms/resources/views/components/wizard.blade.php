@@ -9,6 +9,12 @@
     x-data="{
         step: null,
 
+        init: function () {
+            this.$watch('step', () => this.updateQueryString())
+
+            this.step = this.getSteps().at({{ $getStartStep() - 1 }})
+        },
+
         nextStep: function () {
             let nextStepIndex = this.getStepIndex(this.step) + 1
 
@@ -63,10 +69,8 @@
             return this.getStepIndex(this.step) + 1 >= this.getSteps().length
         },
 
-        isStepAccessible: function (stepId) {
-            return (
-                @js($isSkippable()) || this.getStepIndex(this.step) > this.getStepIndex(stepId)
-            )
+        isStepAccessible: function (step, index) {
+            return @js($isSkippable()) || this.getStepIndex(step) > index
         },
 
         updateQueryString: function () {
@@ -80,13 +84,6 @@
             history.pushState(null, document.title, url.toString())
         },
     }"
-    x-init="
-        $watch('step', () => updateQueryString())
-
-        step = getSteps().at({{ $getStartStep() - 1 }})
-
-        autofocusFields()
-    "
     x-on:next-wizard-step.window="if ($event.detail.statePath === '{{ $statePath }}') nextStep()"
     {{
         $attributes
@@ -125,20 +122,14 @@
         ])
     >
         @foreach ($getChildComponentContainer()->getComponents() as $step)
-            <li
-                class="fi-fo-wizard-header-step relative flex"
-                x-bind:class="{
-                    'fi-active': getStepIndex(step) === {{ $loop->index }},
-                    'fi-completed': getStepIndex(step) > {{ $loop->index }},
-                }"
-            >
+            <li class="fi-fo-wizard-header-step relative flex">
                 <button
                     type="button"
                     x-bind:aria-current="getStepIndex(step) === {{ $loop->index }} ? 'step' : null"
                     x-on:click="step = @js($step->getId())"
-                    x-bind:disabled="! isStepAccessible(@js($step->getId()))"
+                    x-bind:disabled="! isStepAccessible(step, {{ $loop->index }})"
                     role="step"
-                    class="fi-fo-wizard-header-step-button flex h-full w-full items-center gap-x-4 px-6 py-4"
+                    class="flex h-full w-full items-center gap-x-4 px-6 py-4"
                 >
                     <div
                         class="fi-fo-wizard-header-step-icon-ctn flex h-10 w-10 shrink-0 items-center justify-center rounded-full"
@@ -174,7 +165,7 @@
                         @else
                             <span
                                 x-show="getStepIndex(step) <= {{ $loop->index }}"
-                                class="fi-fo-wizard-header-step-indicator text-sm font-medium"
+                                class="text-sm font-medium"
                                 x-bind:class="{
                                     'text-gray-500 dark:text-gray-400':
                                         getStepIndex(step) !== {{ $loop->index }},
@@ -205,7 +196,7 @@
 
                         @if (filled($description = $step->getDescription()))
                             <span
-                                class="fi-fo-wizard-header-step-description text-start text-sm text-gray-500 dark:text-gray-400"
+                                class="fi-fo-wizard-header-step-description text-sm text-gray-500 dark:text-gray-400"
                             >
                                 {{ $description }}
                             </span>
@@ -216,13 +207,13 @@
                 @if (! $loop->last)
                     <div
                         aria-hidden="true"
-                        class="fi-fo-wizard-header-step-separator absolute end-0 hidden h-full w-5 md:block"
+                        class="absolute end-0 hidden w-5 md:block"
                     >
                         <svg
                             fill="none"
                             preserveAspectRatio="none"
                             viewBox="0 0 22 80"
-                            class="h-full w-full text-gray-200 dark:text-white/5 rtl:rotate-180"
+                            class="h-full w-full text-gray-200 rtl:rotate-180 dark:text-white/5"
                         >
                             <path
                                 d="M0 -2L20 40L0 82"

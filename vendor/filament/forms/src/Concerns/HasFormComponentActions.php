@@ -8,6 +8,7 @@ use Filament\Forms\Components\Component;
 use Filament\Forms\Form;
 use Filament\Support\Exceptions\Cancel;
 use Filament\Support\Exceptions\Halt;
+use Illuminate\Support\Arr;
 use Illuminate\Validation\ValidationException;
 
 use function Livewire\store;
@@ -52,7 +53,10 @@ trait HasFormComponentActions
             return null;
         }
 
-        $action->mergeArguments($arguments);
+        $action->arguments([
+            ...Arr::last($this->mountedFormComponentActionsArguments ?? []),
+            ...$arguments,
+        ]);
 
         $form = $this->getMountedFormComponentActionForm();
 
@@ -124,6 +128,8 @@ trait HasFormComponentActions
             return null;
         }
 
+        $action->arguments($arguments);
+
         $this->cacheMountedFormComponentActionForm();
 
         try {
@@ -175,10 +181,9 @@ trait HasFormComponentActions
             return false;
         }
 
-        return $action->hasCustomModalHeading() ||
-            $action->hasModalDescription() ||
-            $action->hasModalContent() ||
-            $action->hasModalContentFooter() ||
+        return $action->getModalDescription() ||
+            $action->getModalContent() ||
+            $action->getModalContentFooter() ||
             $action->getInfolist() ||
             $this->mountedFormComponentActionHasForm();
     }
@@ -197,9 +202,7 @@ trait HasFormComponentActions
             return null;
         }
 
-        return $this->getMountedFormComponentActionComponent($actionNestingIndex)
-            ?->getAction($actionName)
-            ?->arguments($this->mountedFormComponentActionsArguments[$actionNestingIndex] ?? []);
+        return $this->getMountedFormComponentActionComponent($actionNestingIndex)?->getAction($actionName);
     }
 
     protected function getMountedFormComponentActionForm(?int $actionNestingIndex = null): ?Form
