@@ -50,12 +50,12 @@
                                 <div class="rbt-counterup rbt-hover-03">
                                     <div class="inner">
                                         <div class="icon">
-                                            <img src="{{ asset('assets/images/icons/counter-01.png') }}" alt="Icons Images">
+                                            <img src="{{ asset('assets/images/icons/part.png') }}" alt="Icons Images">
                                         </div>
                                         <div class="content">
-                                            <h3 class="counter"><span class="odometer" data-count="500">00</span>
+                                            <h3 class="counter"><span class="odometer" data-count="200">00</span>
                                             </h3>
-                                            <span class="subtitle">Etudiant</span>
+                                            <span class="subtitle">Participant</span>
                                         </div>
                                     </div>
                                 </div>
@@ -67,12 +67,12 @@
                                 <div class="rbt-counterup rbt-hover-03">
                                     <div class="inner">
                                         <div class="icon">
-                                            <img src="{{ asset('assets/images/icons/counter-02.png') }}" alt="Icons Images">
+                                            <img src="{{ asset('assets/images/icons/billet.png') }}" alt="Icons Images">
                                         </div>
                                         <div class="content">
-                                            <h3 class="counter"><span class="odometer" data-count="800">00</span>
+                                            <h3 class="counter"><span class="odometer" data-count="500">00</span>
                                             </h3>
-                                            <span class="subtitle">Professionnels</span>
+                                            <span class="subtitle">billets vendus</span>
                                         </div>
                                     </div>
                                 </div>
@@ -85,12 +85,12 @@
                                     data-parallax='{"x": 0, "y": -60}'>
                                     <div class="inner">
                                         <div class="icon">
-                                            <img src="{{ asset('assets/images/icons/counter-03.png') }}" alt="Icons Images">
+                                            <img src="{{ asset('assets/images/icons/atelier.png') }}" alt="Icons Images">
                                         </div>
                                         <div class="content">
-                                            <h3 class="counter"><span class="odometer" data-count="1000">00</span>
+                                            <h3 class="counter"><span class="odometer" data-count="10">00</span>
                                             </h3>
-                                            <span class="subtitle">Participant</span>
+                                            <span class="subtitle">Ateliers ( coaching CV, pitch, coaching confiance en soi….)</span>
                                         </div>
                                     </div>
                                 </div>
@@ -102,12 +102,12 @@
                                 <div class="rbt-counterup rbt-hover-03 transform-sm-none" data-parallax='{"x": 0, "y": 60}'>
                                     <div class="inner">
                                         <div class="icon">
-                                            <img src="{{ asset('assets/images/icons/counter-04.png') }}" alt="Icons Images">
+                                            <img src="{{ asset('assets/images/icons/entreprise.png') }}" alt="Icons Images">
                                         </div>
                                         <div class="content">
-                                            <h3 class="counter"><span class="odometer" data-count="100">00</span>
+                                            <h3 class="counter"><span class="odometer" data-count="20">00</span>
                                             </h3>
-                                            <span class="subtitle">Entreprises</span>
+                                            <span class="subtitle">Entreprises présentes</span>
                                         </div>
                                     </div>
                                 </div>
@@ -129,7 +129,7 @@
 
                                 <div class="rbt-feature feature-style-1 align-items-center">
                                     <div class="icon bg-primary-opacity">
-                                        <i class="feather-heart"></i>
+                                        <i class="feather-map-pin"></i>
                                     </div>
                                     <div class="feature-content">
                                         <h6 class="feature-title">Identifier les aspirations des étudiants et jeunes cadres
@@ -138,7 +138,7 @@
                                 </div>
 
                                 <div class="rbt-feature feature-style-1 align-items-center">
-                                    <div class="icon bg-secondary-opacity">
+                                    <div class="icon bg-primary-opacity">
                                         <i class="feather-book"></i>
                                     </div>
                                     <div class="feature-content">
@@ -148,7 +148,7 @@
                                 </div>
 
                                 <div class="rbt-feature feature-style-1 align-items-center">
-                                    <div class="icon bg-pink-opacity">
+                                    <div class="icon bg-primary-opacity">
                                         <i class="feather-aperture"></i>
                                     </div>
                                     <div class="feature-content">

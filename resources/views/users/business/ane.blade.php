@@ -158,8 +158,162 @@
         </div>
     </div>
     <!-- End Service Area -->
+    <div class="rbt-counterup-area bg-color-white" style="margin-top: 5%;">
+        <div class="container">
+            <div class="row mb--60">
+                <div class="col-lg-12">
+                    <div class="section-title text-center">
+                        <h2 class="title">L’ANE en quelques chiffres :</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row g-5 hanger-line">
+                <!-- Start Single Counter  -->
+                <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                    <div class="rbt-counterup rbt-hover-03 border-bottom-gradient">
+                        <div class="top-circle-shape"></div>
+                        <div class="inner">
+                            <div class="rbt-round-icon">
+                                <img src="{{asset('assets/images/icons/projet.png')}}" alt="Icons Images">
+                            </div>
+                            <div class="content">
+                                <h3 class="counter"><span class="odometer" data-count="11">00</span>
+                                </h3>
+                                <span class="subtitle">projets dont 10 entreprises et 1 association</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Single Counter  -->
 
+                <!-- Start Single Counter  -->
+                <div class="col-lg-3 col-md-6 col-sm-6 col-12 mt--60 mt_md--30 mt_sm--30 mt_mobile--60">
+                    <div class="rbt-counterup rbt-hover-03 border-bottom-gradient">
+                        <div class="top-circle-shape"></div>
+                        <div class="inner">
+                            <div class="rbt-round-icon">
+                                <img src="{{asset('assets/images/icons/secteur.png')}}" alt="Icons Images">
+                            </div>
+                            <div class="content">
+                                <h3 class="counter"><span class="odometer" data-count="10">00</span>
+                                </h3>
+                                <span class="subtitle">secteurs d’activités représentés</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Single Counter  -->
+
+                <!-- Start Single Counter  -->
+                <div class="col-lg-3 col-md-6 col-sm-6 col-12 mt_md--60 mt_sm--60">
+                    <div class="rbt-counterup rbt-hover-03 border-bottom-gradient">
+                        <div class="top-circle-shape"></div>
+                        <div class="inner">
+                            <div class="rbt-round-icon">
+                                <img src="{{asset('assets/images/icons/country.png')}}" alt="Icons Images">
+                            </div>
+                            <div class="content">
+                                <h3 class="counter"><span class="odometer" data-count="10">00</span>
+                                </h3>
+                                <span class="subtitle">pays d’Afrique où Des projets sont présents</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Single Counter  -->
+
+                <!-- Start Single Counter  -->
+                <div class="col-lg-3 col-md-6 col-sm-6 col-12 mt--60 mt_md--30 mt_sm--30 mt_mobile--60">
+                    <div class="rbt-counterup rbt-hover-03 border-bottom-gradient">
+                        <div class="top-circle-shape"></div>
+                        <div class="inner">
+                            <div class="rbt-round-icon">
+                                <img src="{{asset('assets/images/icons/ca.png')}}" alt="Icons Images">
+                            </div>
+                            <div class="content">
+                                <h3 class="counter"><span class="odometer" data-count="15">00</span>
+                                </h3>
+                                <span class="subtitle">milles euros de CA en moyenne</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Single Counter  -->
+                
+            </div>
+        </div>
+    </div>
     <!-- End About Area  -->
+
+
+    <div class="rbt-advance-tab-area rbt-section-gap bg-color-extra2">
+        <div class="container">
+        <div class="row mb--10">
+                <div class="col-lg-12">
+                    <div class="section-title text-center">
+                        <h2 class="title">Le déroulé du concours</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row g-5">
+                <div class="col-lg-10 offset-lg-1">
+                    <div class="advance-tab-button">
+                        <ul class="nav nav-tabs tab-button-style-2" id="myTab-4" role="tablist">
+                            <li role="presentation">
+                                <a href="#" class="tab-button active" id="ligne-tab-4" data-bs-toggle="tab" data-bs-target="#ligne-4" role="tab" aria-controls="ligne" aria-selected="false">
+                                    <span class="title">La phase de candidature en ligne</span>
+                                </a>
+                            </li>
+                            <li role="presentation">
+                                <a href="#" class="tab-button " id="preselect-tab-4" data-bs-toggle="tab" data-bs-target="#preselect-4" role="tab" aria-controls="preselect-4" aria-selected="true">
+                                    <span class="title">La pré-sélection</span>
+                                </a>
+                            </li>
+                            <li role="presentation">
+                                <a href="#" class="tab-button" id="selesct-tab-4" data-bs-toggle="tab" data-bs-target="#selesct-4" role="tab" aria-controls="selesct-4" aria-selected="false">
+                                    <span class="title">La sélection</span>
+                                </a>
+                            </li>
+                            <li role="presentation">
+                                <a href="#" class="tab-button" id="jj-tab-4" data-bs-toggle="tab" data-bs-target="#jj-4" role="tab" aria-controls="jj-4" aria-selected="false">
+                                    <span class="title">Le jour J</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-10 offset-lg-1">
+                    <div class="tab-content advance-tab-content-style-2">
+                        <div class="tab-pane fade active show" id="ligne-4" role="tabpanel" aria-labelledby="ligne-tab-4">
+                            <div class="content">
+                                <p>En s&#39;enregistrant sur la plateforme, les porteurs de projets peuvent candidater au “African
+Next Entrepreneurs” et participer en répondant au questionnaire et en ajoutant les
+documents, photos (format PPT ou PDF), ou vidéos.</p>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade " id="preselect-4" role="tabpanel" aria-labelledby="preselect-tab-4">
+                            <div class="content">
+                                <p>10 dossiers sont présélectionnés en fonction de critères définis</p>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="selesct-4" role="tabpanel" aria-labelledby="selesct-tab-4">
+                            <div class="content">
+                                <p>Après les 3 semaines intensives et 1 semaine avant le jour du pitch une deuxième sélection à
+lieux. Sur le 10 porteur de projet 5 projets sont sélectionnés pour pitcher le jour j</p>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="jj-4" role="tabpanel" aria-labelledby="jj-tab-4">
+                            <div class="content">
+                                <p>Les candidats présélectionnés auront 5 minutes pour présenter leur projet devant un jury de
+professionnels.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Start Call To Action  -->
     <!-- <div class="rbt-callto-action-area">
         <div class="rbt-callto-action rbt-cta-default style-4 variation-2 bg-gradient-6 mt--75">

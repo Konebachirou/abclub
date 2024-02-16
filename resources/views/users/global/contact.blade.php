@@ -96,7 +96,7 @@
                             class="rainbow-dynamic max-width-auto">
                             @csrf
                             <div class="form-group">
-                                <input name="full_name" id="contact-name" type="text">
+                                <input name="full_name" id="contact-name" required type="text">
                                 <label>Nom et prénom</label>
                                 <span class="focus-border"></span>
                                 @if ($errors->has('full_name'))
@@ -104,7 +104,7 @@
                                 @endif
                             </div>
                             <div class="form-group">
-                                <input name="email" type="email">
+                                <input name="email" required type="email">
                                 <label>E-mail</label>
                                 <span class="focus-border"></span>
                                 @if ($errors->has('email'))
@@ -112,7 +112,7 @@
                                 @endif
                             </div>
                             <div class="form-group">
-                                <input type="text" id="subject" name="subject">
+                                <input type="text" id="subject" required name="subject">
                                 <label>Sujet</label>
                                 <span class="focus-border"></span>
                                 @if ($errors->has('subject'))
@@ -120,7 +120,7 @@
                                 @endif
                             </div>
                             <div class="form-group">
-                                <textarea name="message" id="contact-message"></textarea>
+                                <textarea name="message" required id="contact-message"></textarea>
                                 <label>Message</label>
                                 <span class="focus-border"></span>
                                 @if ($errors->has('message'))

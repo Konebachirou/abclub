@@ -160,7 +160,7 @@
                     <div class="rbt-counterup style-3">
                         <div class="inner">
                             <div class="content">
-                                <h2 class="counter"><span class="odometer" data-count="500">00</span>
+                                <h2 class="counter"><span class="odometer" data-count="20">00</span>
                                 </h2>
                                 <span class="subtitle">Entreprise</span>
                             </div>
@@ -174,7 +174,7 @@
                     <div class="rbt-counterup style-3">
                         <div class="inner">
                             <div class="content">
-                                <h2 class="counter"><span class="odometer" data-count="800">00</span>
+                                <h2 class="counter"><span class="odometer" data-count="200">00</span>
                                 </h2>
                                 <span class="subtitle">Etudiant & Professionnels</span>
                             </div>
@@ -188,7 +188,7 @@
                     <div class="rbt-counterup style-3">
                         <div class="inner">
                             <div class="content">
-                                <h2 class="counter"><span class="odometer" data-count="100">00</span>
+                                <h2 class="counter"><span class="odometer" data-count="10">00</span>
                                 </h2>
                                 <span class="subtitle">ONG et associations</span>
                             </div>
@@ -205,7 +205,7 @@
         <div class="row row--15 align-items-center mb--30">
             <div class="col-lg-12">
                 <div class="section-title text-center">
-                    <h2 class="title">Ils ont décider de nous accompagner</h2>
+                    <h2 class="title">Ils ont décidé de nous accompagner !</h2>
                 </div>
             </div>
         </div>
