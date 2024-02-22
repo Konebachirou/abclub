@@ -57,7 +57,7 @@
                         <div class="inner">
                             <div class="rbt-team-thumbnail">
                                 <div class="thumb">
-                                    <img src="{{asset('assets/images/team/team4.png')}}" alt="Testimonial Images">
+                                    <img src="{{asset('assets/images/team/team4.png')}}" alt="Images Membre Bureau">
                                 </div>
                             </div>
                             <div class="rbt-team-details">
@@ -264,6 +264,45 @@
                             </div>
                         </div>
                     </div>
+                    <div class="tab-pane fade" id="team-tab8" role="tabpanel" aria-labelledby="team-tab8-tab">
+                        <div class="inner">
+                            <div class="rbt-team-thumbnail">
+                                <div class="thumb">
+                                    <img src="{{asset('assets/images/team/max.png')}}" alt="Arnaud Lonzo">
+                                </div>
+                            </div>
+                            <div class="rbt-team-details">
+                                <div class="author-info">
+                                    <h4 class="title">ALLAKERE HORMO MAXIME</h4>
+                                    <span class="designation theme-gradient">Pôle Meet & Share</span>
+                                    <span class="team-form">
+                                        <i class="feather-map-pin"></i>
+                                        <span class="location">Paris, France</span>
+                                    </span>
+                                </div>
+                                <p>Data & Financial Analyst</p>
+                                <!-- <ul class="social-icon social-default mt--20 justify-content-start">
+                                    <li><a href="https://www.linkedin.com/">
+                                            <i class="feather-linkedin"></i>
+                                        </a>
+                                    </li>
+                                    <li><a href="https://www.twitter.com">
+                                            <i class="feather-twitter"></i>
+                                        </a>
+                                    </li>
+                                    <li><a href="https://www.instagram.com/">
+                                            <i class="feather-instagram"></i>
+                                        </a>
+                                    </li>
+                                </ul> -->
+                                <ul class="rbt-information-list mt--25">
+                                    <li>
+                                        <a href="mailto:allakere_hm@abclub-paris.com"><i class="feather-mail"></i>allakere_hm@abclub-paris.com</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
                     <div class="top-circle-shape"></div>
                 </div>
                 <!-- End Tab Content  -->
@@ -276,7 +315,7 @@
                         <a class="active" id="team-tab1-tab" data-bs-toggle="tab" data-bs-target="#team-tab1" role="tab" aria-controls="team-tab1" aria-selected="true">
                             <div class="testimonial-thumbnai">
                                 <div class="thumb">
-                                    <img src="{{asset('assets/images/team/team3.png')}}" alt="Testimonial Images">
+                                    <img src="{{asset('assets/images/team/team3.png')}}" alt="Images Membre Bureau">
                                 </div>
                             </div>
                         </a>
@@ -286,7 +325,7 @@
                         <a id="team-tab2-tab" data-bs-toggle="tab" data-bs-target="#team-tab2" role="tab" aria-controls="team-tab2" aria-selected="false">
                             <div class="testimonial-thumbnai">
                                 <div class="thumb">
-                                    <img src="{{asset('assets/images/team/team4.png')}}" alt="Testimonial Images">
+                                    <img src="{{asset('assets/images/team/team4.png')}}" alt="Images Membre Bureau">
                                 </div>
                             </div>
                         </a>
@@ -296,7 +335,7 @@
                         <a id="team-tab3-tab" data-bs-toggle="tab" data-bs-target="#team-tab3" role="tab" aria-controls="team-tab3" aria-selected="false">
                             <div class="testimonial-thumbnai">
                                 <div class="thumb">
-                                    <img src="{{asset('assets/images/team/team10.png')}}" alt="Testimonial Images">
+                                    <img src="{{asset('assets/images/team/team10.png')}}" alt="Images Membre Bureau">
                                 </div>
                             </div>
                         </a>
@@ -305,7 +344,7 @@
                         <a id="team-tab4-tab" data-bs-toggle="tab" data-bs-target="#team-tab4" role="tab" aria-controls="team-tab4" aria-selected="false">
                             <div class="testimonial-thumbnai">
                                 <div class="thumb">
-                                    <img src="{{asset('assets/images/team/team1.png')}}" alt="Testimonial Images">
+                                    <img src="{{asset('assets/images/team/team1.png')}}" alt="Images Membre Bureau">
                                 </div>
                             </div>
                         </a>
@@ -315,7 +354,7 @@
                         <a id="team-tab5-tab" data-bs-toggle="tab" data-bs-target="#team-tab5" role="tab" aria-controls="team-tab5" aria-selected="false">
                             <div class="testimonial-thumbnai">
                                 <div class="thumb">
-                                    <img src="{{asset('assets/images/team/team6.png')}}" alt="Testimonial Images">
+                                    <img src="{{asset('assets/images/team/team6.png')}}" alt="Images Membre Bureau">
                                 </div>
                             </div>
                         </a>
@@ -325,7 +364,7 @@
                         <a id="team-tab7-tab" data-bs-toggle="tab" data-bs-target="#team-tab7" role="tab" aria-controls="team-tab7" aria-selected="false">
                             <div class="testimonial-thumbnai">
                                 <div class="thumb">
-                                    <img src="{{asset('assets/images/team/team8.png')}}" alt="Testimonial Images">
+                                    <img src="{{asset('assets/images/team/team8.png')}}" alt="Images Membre Bureau">
                                 </div>
                             </div>
                         </a>
@@ -334,20 +373,20 @@
                         <a id="team-tab6-tab" data-bs-toggle="tab" data-bs-target="#team-tab6" role="tab" aria-controls="team-tab6" aria-selected="false">
                             <div class="testimonial-thumbnai">
                                 <div class="thumb">
-                                    <img src="{{asset('assets/images/team/Bachirou.png')}}" alt="Testimonial Images">
+                                    <img src="{{asset('assets/images/team/Bachirou.png')}}" alt="Images Membre Bureau">
                                 </div>
                             </div>
                         </a>
                     </li>
-                    <!-- <li>
+                    <li>
                         <a id="team-tab8-tab" data-bs-toggle="tab" data-bs-target="#team-tab8" role="tab" aria-controls="team-tab8" aria-selected="false">
                             <div class="testimonial-thumbnai">
                                 <div class="thumb">
-                                    <img src="{{asset('assets/images/team/team8.png')}}" alt="Testimonial Images">
+                                    <img src="{{asset('assets/images/team/max.png')}}" alt="Images Membre Bureau">
                                 </div>
                             </div>
                         </a>
-                    </li> -->
+                    </li>
                 </ul>
 
                 <!-- End Tab Content  -->

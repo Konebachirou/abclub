@@ -3,7 +3,7 @@
 @section('content')
 
     <!-- Start Banner Area -->
-    <div class="rbt-banner-area rbt-banner-4 bg_image bg_image--19 " data-gradient-overlay="4">
+    <div class="rbt-banner-area rbt-banner-4 bg_image bg_image--19 " data-gradient-overlay="5">
         <div class="wrapper">
             <div class="container">
                 <div class="row">
@@ -15,7 +15,7 @@
                                                                                                                         <div class="image"><img src="assets/images/testimonial/client-02.png')}}" alt="Education Images"></div> Learn with <strong>Fatima Asrafy</strong>
                                                                                                                     </a>
                                                                                                                 </div> -->
-                                <h1 class="title">AFRICA
+                                <h1 class="title color-white">AFRICAN
                                     MOBILITY AND <br />INNOVATION DAYS </h1>
                                 <p class="description color-white">Mettre en place un terreau fertile et une source <br>
                                     d’appui au developpement d’initative africaines</p>

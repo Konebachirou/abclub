@@ -13,7 +13,7 @@
                                 <span class="header-caption">
                                     <span class="cd-headline clip is-full-width">
                                         <span class="cd-words-wrapper">
-                                            <b class="is-visible ">AFRICAN NEXT POSITION</b>
+                                            <b class="is-visible color-white">AFRICAN NEXT POSITION</b>
                                             <b class="is-hidden theme-gradient">AFRICAN NEXT POSITION</b>
                                         </span>
                                     </span>

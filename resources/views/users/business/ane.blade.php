@@ -13,7 +13,7 @@
                                 <span class="header-caption">
                                     <span class="cd-headline clip is-full-width">
                                         <span class="cd-words-wrapper">
-                                            <b class="is-visible ">AFRICAN NEXT ENTREPRENEURS</b>
+                                            <b class="is-visible color-white">AFRICAN NEXT ENTREPRENEURS</b>
                                             <b class="is-hidden theme-gradient">AFRICAN NEXT ENTREPRENEURS</b>
                                             <!-- <b class="is-hidden theme-gradient"> ENTREPRENEURS</b> -->
                                         </span>
@@ -215,7 +215,7 @@
                             <div class="content">
                                 <h3 class="counter"><span class="odometer" data-count="10">00</span>
                                 </h3>
-                                <span class="subtitle">pays d’Afrique où Des projets sont présents</span>
+                                <span class="subtitle">pays d’Afriques où Des projets sont présents</span>
                             </div>
                         </div>
                     </div>
@@ -286,25 +286,22 @@
                     <div class="tab-content advance-tab-content-style-2">
                         <div class="tab-pane fade active show" id="ligne-4" role="tabpanel" aria-labelledby="ligne-tab-4">
                             <div class="content">
-                                <p>En s&#39;enregistrant sur la plateforme, les porteurs de projets peuvent candidater au “African
-Next Entrepreneurs” et participer en répondant au questionnaire et en ajoutant les
-documents, photos (format PPT ou PDF), ou vidéos.</p>
+                                <p>En s'enregistrant sur la plateforme, les porteurs de projets peuvent candidater au <b>“African Next Entrepreneurs”</b> en répondant au questionnaire (Vous pourrez ajouter des documents, photos, ou des vidéos).</p>
                             </div>
                         </div>
                         <div class="tab-pane fade " id="preselect-4" role="tabpanel" aria-labelledby="preselect-tab-4">
                             <div class="content">
-                                <p>10 dossiers sont présélectionnés en fonction de critères définis</p>
+                                <p>10 dossiers sont présélectionnés en fonction de critères définis ! </p>
                             </div>
                         </div>
                         <div class="tab-pane fade" id="selesct-4" role="tabpanel" aria-labelledby="selesct-tab-4">
                             <div class="content">
-                                <p>Après les 3 semaines intensives et 1 semaine avant le jour du pitch une deuxième sélection à
-lieux. Sur le 10 porteur de projet 5 projets sont sélectionnés pour pitcher le jour j</p>
+                                <p>Après les 3 semaines intensives  d'accompagnement,  une deuxième sélection à lieux. Sur les 10 porteurs de projet, <b>5 projets sont sélectionnés pour pitcher le jour j .</b></p>
                             </div>
                         </div>
                         <div class="tab-pane fade" id="jj-4" role="tabpanel" aria-labelledby="jj-tab-4">
                             <div class="content">
-                                <p>Les candidats présélectionnés auront 5 minutes pour présenter leur projet devant un jury de
+                                <p>Les candidats sélectionnés auront <b>5 minutes</b> pour présenter leur projet devant un jury de
 professionnels.</p>
                             </div>
                         </div>
