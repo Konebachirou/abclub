@@ -115,7 +115,9 @@ class JobResource extends Resource
             ->columns([
                 TextColumn::make('created_at')
                     ->label('Date de création')
-                    ->dateTime('d/m/Y'),
+                    ->dateTime('d/m/Y')
+                    ->sortable()
+                    ->searchable(),
                 ImageColumn::make('image')->label('Image'),
 
                 TextColumn::make('location')->label('Localisation')

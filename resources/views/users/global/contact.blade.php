@@ -130,6 +130,12 @@
                             <div class="form-group">
                                 {!! NoCaptcha::renderJs() !!}
                                 {!! NoCaptcha::display() !!}
+                                @if ($errors->has('g-recaptcha-response'))
+                                    <span class="main__table-text--red">{{ $errors->first('g-recaptcha-response') }}</span>
+                                @endif
+                                @error('g-recaptcha-response')
+                                    <span class="main__table-text--red">{{ $message }}</span>
+                                @enderror
                             </div>
                             <div class="form-submit-group">
                                 <button name="submit" type="submit" id="submit"
