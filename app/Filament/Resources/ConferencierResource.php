@@ -86,15 +86,23 @@ class ConferencierResource extends Resource
             ->columns([
                 TextColumn::make('created_at')
                     ->label('Date de création')
-                    ->dateTime('d/m/Y'),
+                    ->dateTime('d/m/Y')
+                    ->sortable()
+                    ->searchable(),
                 ImageColumn::make('events.illustration')->label('Evenement')
                     ->searchable(),
                 TextColumn::make('full_name')
-                    ->searchable()->label('Nom et Prenom'),
+                    ->searchable()
+                    ->sortable()
+                    ->label('Nom et Prenom'),
                 TextColumn::make('email')
-                    ->searchable(),
+                    ->searchable()
+                    ->label('Email'),
                 ImageColumn::make('photo'),
                 TextColumn::make('job')
+                    ->searchable()
+                    ->label('Profession')
+                    ->sortable()
                     ->searchable(),
                 ToggleColumn::make('status'),
             ])

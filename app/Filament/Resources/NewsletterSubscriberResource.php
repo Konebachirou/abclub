@@ -32,13 +32,15 @@ class NewsletterSubscriberResource extends Resource
             ->columns([
                 TextColumn::make('created_at')
                     ->label('Date de création')
-                    ->dateTime('d/m/Y'),
-                TextColumn::make('email')
+                    ->dateTime('d/m/Y')
+                    ->sortable()
                     ->searchable(),
-
+                TextColumn::make('email')
+                    ->searchable()
+                    ->label('Email')
+                    ->sortable(),
                 ToggleColumn::make('subscribed')
                     ->label('Actif'),
-
             ])
             ->filters([
                 //

@@ -64,6 +64,7 @@ trait CanGenerateForms
             }
 
             if (in_array($columnName, [
+                'id',
                 'sku',
                 'uuid',
             ])) {
@@ -154,6 +155,7 @@ trait CanGenerateForms
                         $parameterValue = match (true) {
                             /** @phpstan-ignore-next-line */
                             is_bool($parameterValue) => $parameterValue ? 'true' : 'false',
+                            /** @phpstan-ignore-next-line */
                             is_null($parameterValue) => 'null',
                             is_numeric($parameterValue) => $parameterValue,
                             default => "'{$parameterValue}'",

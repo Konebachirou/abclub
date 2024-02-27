@@ -82,12 +82,26 @@ class ReportResource extends Resource
                             ->schema([
                                 FileUpload::make('illustration')
                                     ->required()
+                                    ->uploadingMessage('Image en cours de telechargement...')
                                     ->image()->directory('report')->label("Image principal de la news ou de l'action"),
                                 FileUpload::make('album')
                                     ->multiple()
                                     ->image()
+                                    ->uploadingMessage('Images en cours de telechargement...')
                                     ->directory('album')->label("Image supplémentaire de la news ou de l'action"),
                             ])->columns(1),
+                        Section::make('Fichier supplémentaire')
+                            ->description('Ajouter s\'il existe des fichiers supplémentaires pour la news ou l\'action')
+                            ->schema([
+                                FileUpload::make('files')
+                                    ->preserveFilenames()
+                                    ->openable()
+                                    ->multiple()
+                                    ->downloadable()
+                                    ->uploadingMessage('Fichiers en cours de telechargement...')
+                                    ->directory('files')->label("Fichier supplémentaire de la news ou de l'action")
+                                    ->label("Fichier supplémentaire de la news ou de l'action"),
+                            ])
                     ])->columns(2),
             ]);
     }
@@ -98,20 +112,30 @@ class ReportResource extends Resource
             ->columns([
                 TextColumn::make('created_at')
                     ->label('Date de création')
-                    ->dateTime('d/m/Y'),
-                TextColumn::make('pole.name')->label('Pole'),
+                    ->dateTime('d/m/Y')
+                    ->sortable()
+                    ->searchable(),
+                TextColumn::make('pole.name')->label('Pole')
+                    ->sortable()
+                    ->searchable(),
                 ImageColumn::make('illustration')
                     ->label('Image'),
                 ToggleColumn::make('status')
-                    ->label('Status'),
+                    ->label('Status')
+                    ->sortable()
+                    ->searchable(),
                 ImageColumn::make('album')
                     ->circular()
                     ->stacked(),
 
                 ToggleColumn::make('is_report')
-                    ->label('News'),
+                    ->label('News')
+                    ->sortable()
+                    ->searchable(),
                 ToggleColumn::make('is_action')
-                    ->label('Action'),
+                    ->label('Action')
+                    ->sortable()
+                    ->searchable(),
             ])
             ->filters([
                 //

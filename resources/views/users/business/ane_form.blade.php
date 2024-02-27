@@ -349,7 +349,8 @@
                                 <div class="col-md-6 col-12 mb--30">
                                     <label>Vous pouvez vous présenter au travers d'une vidéo. N'hésitez pas à nous la
                                         partager !</label>
-                                    <input type="file" name="lien_video_presentation" placeholder="Telecharger!">
+                                    <input type="file" name="lien_video_presentation" placeholder="Telecharger!"
+                                        accept="image/*,video/*">
                                     @error('lien_video_presentation')
                                         <div class="alert alert-danger">{{ $message }}</div>
                                     @enderror

@@ -82,18 +82,24 @@ class EventResource extends Resource
                             ->schema([
                                 TextInput::make('lieu')
                             ])->columns(1),
-                        Section::make()
+
+                        Section::make('Statut de l\'evenement')
+                            ->description('Voulez vous publier l\'evenement ?')
                             ->schema([
                                 Toggle::make('is_active')
                                     ->label('Publier')
                                     ->required(),
-                                Toggle::make('is_free')
-                                    ->label('Bênevolat')
+                            ])->columns(2),
+
+                        Section::make('Type de l\'evenement')
+                            ->description('L\'evenement est-il payant ?')
+                            ->schema([
+                                Toggle::make('is_paid')
+                                    ->label('avec paiement')
                                     ->required(),
-                                Toggle::make('is_event')
-                                    ->label('Evenement')
-                                    ->required(),
-                            ])->columns(3),
+                            ])->columns(2),
+
+
                         Section::make('Image de l\'evenement')
                             ->schema([
                                 FileUpload::make('illustration')
@@ -116,28 +122,32 @@ class EventResource extends Resource
         return $table
             ->columns([
                 TextColumn::make('created_at')
-                    ->label('Date de création'),
+                    ->label('Date de création')
+                    ->dateTime('d/m/Y')
+                    ->sortable()
+                    ->searchable(),
                 ImageColumn::make('illustration'),
-
                 ToggleColumn::make('is_active')
                     ->label('Status'),
-                ToggleColumn::make('is_free')
-                    ->label('Bénévolat'),
-                ToggleColumn::make('is_event')
-                    ->label('Evenement'),
-
+                ToggleColumn::make('is_paid')
+                    ->label('Payant')
+                    ->sortable()
+                    ->searchable(),
                 TextColumn::make('Number_of_place')
                     ->numeric()
                     ->sortable()
+                    ->searchable()
                     ->label('Nombre de places'),
                 TextColumn::make('start_date')
                     ->date()
                     ->label('Date de debut')
-                    ->sortable(),
+                    ->sortable()
+                    ->searchable(),
                 TextColumn::make('end_date')
                     ->date()
                     ->label('Date de fin')
-                    ->sortable(),
+                    ->sortable()
+                    ->searchable(),
 
             ])
             ->filters([

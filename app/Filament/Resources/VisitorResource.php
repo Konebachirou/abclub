@@ -28,22 +28,26 @@ class VisitorResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('visitor')
+                Tables\Columns\TextColumn::make('created_at')
+                    ->label('Date de création')
+                    ->dateTime('d/m/Y')
+                    ->sortable()
                     ->searchable(),
+                Tables\Columns\TextColumn::make('visitor')
+                    ->searchable()
+                    ->label('Nom et Prenom')
+                    ->sortable(),
                 Tables\Columns\TextColumn::make('ip')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('country')
-                    ->searchable(),
+                    ->searchable()
+                    ->sortable()
+                    ->label('Pays'),
                 Tables\Columns\TextColumn::make('city')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('created_at')
-                    ->dateTime()
+                    ->searchable()
                     ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('updated_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
+                    ->label('Ville'),
+
             ])
             ->filters([
                 //

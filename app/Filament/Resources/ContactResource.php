@@ -48,15 +48,21 @@ class ContactResource extends Resource
             ->columns([
                 TextColumn::make('created_at')
                     ->label('Date de création')
-                    ->dateTime('d/m/Y'),
+                    ->dateTime('d/m/Y')
+                    ->sortable()
+                    ->searchable(),
                 TextColumn::make('full_name')
                     ->label('Nom et Prenoms')
-                    ->searchable(),
+                    ->searchable()
+                    ->sortable(),
                 TextColumn::make('email')
-                    ->searchable(),
+                    ->searchable()
+                    ->label('Email')
+                    ->sortable(),
                 TextColumn::make('subject')
                     ->label('Sujet')
-                    ->searchable(),
+                    ->searchable()
+                    ->sortable(),
             ])
             ->filters([
                 //

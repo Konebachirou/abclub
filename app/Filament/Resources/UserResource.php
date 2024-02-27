@@ -113,18 +113,28 @@ class UserResource extends Resource
             ->columns([
                 TextColumn::make('created_at')
                     ->label('Date de création')
-                    ->dateTime('d/m/Y'),
+                    ->dateTime('d/m/Y')
+                    ->sortable()
+                    ->searchable(),
                 TextColumn::make('name')
-                    ->label('Nom et Prenoms'),
+                    ->label('Nom et Prenoms')
+                    ->searchable()
+                    ->sortable(),
                 ImageColumn::make('image'),
-                TextColumn::make('email'),
+                TextColumn::make('email')
+                    ->label('Email')
+                    ->searchable()
+                    ->sortable(),
                 ToggleColumn::make('is_member')
-                    ->label('Membre'),
+                    ->label('Membre')
+                    ->sortable()
+                    ->searchable(),
                 ToggleColumn::make('status')
                     ->label('Status'),
                 TextColumn::make('roles.name')
                     ->label('Rôles')
-                    ->searchable(),
+                    ->searchable()
+                    ->sortable(),
             ])
             ->filters([
                 //

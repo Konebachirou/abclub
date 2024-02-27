@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Affichage des Informations</title>
+    <title>African Business Club</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -13,87 +13,39 @@
             background-color: #f7f7f7;
         }
 
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        header img {
+            max-width: 200px;
+            /* Adjust the max-width as needed */
+            max-height: 200px;
+            /* Adjust the max-height as needed */
+        }
+
         h1 {
             color: #333;
             border-bottom: 2px solid #333;
             padding-bottom: 10px;
         }
 
-        .section {
-            margin-bottom: 20px;
-        }
-
-        .section-title {
-            font-size: 1.2em;
-            font-weight: bold;
-            margin-bottom: 10px;
-            color: #333;
-        }
-
-        .form-section {
-            margin-bottom: 20px;
-        }
-
-        .form-section label {
-            display: block;
-            margin-bottom: 5px;
-            color: #666;
-        }
-
-        .form-section p {
-            margin: 0;
-            color: #333;
-        }
-
-        .form-section input,
-        .form-section select,
-        .form-section textarea {
+        table {
+            border-collapse: collapse;
             width: 100%;
-            padding: 10px;
-            box-sizing: border-box;
-            margin-bottom: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-
-        .form-section textarea {
-            resize: vertical;
-        }
-
-        .sub-section {
             margin-bottom: 20px;
-            display: flex;
-            justify-content: space-between;
         }
 
-        .sub-section>div {
-            width: calc(50% - 10px);
-        }
-
-        .sub-section label {
-            display: block;
-            margin-bottom: 5px;
-            color: #666;
-        }
-
-        .sub-section p {
-            margin: 0;
-            color: #333;
-        }
-
-        .sub-section input,
-        .sub-section select,
-        .sub-section textarea {
-            width: 100%;
-            padding: 10px;
-            box-sizing: border-box;
-            margin-bottom: 10px;
+        th,
+        td {
             border: 1px solid #ccc;
-            border-radius: 5px;
+            padding: 10px;
+            text-align: left;
         }
 
-        .sub-section textarea {
-            resize: vertical;
+        th {
+            background-color: #f2f2f2;
         }
 
         a {
@@ -121,285 +73,194 @@
 </head>
 
 <body>
+    <header>
+        <img src="{{ asset('assets/images/logo/logo1.png') }}" alt="Association Logo">
+        <h2>African Business Club</h2>
+        <p>L'African Mobility and Innovation Day, organisé par l'association African Business Club, est un événement
+            annuel depuis 2015 dédié à l'entrepreneuriat et au recrutement des jeunes diplômés en Afrique. Il offre des
+            conférences, des ateliers et des opportunités de réseautage pour promouvoir l'innovation, la mobilité et
+            encourager les jeunes talents à contribuer au développement économique du continent..</p>
+    </header>
     <div style="max-width: 800px; margin: 0 auto;">
+
+        <!-- Informations Personnelles -->
         <div class="section">
             <h1>Informations Personnelles</h1>
 
-            <div class="sub-section">
-                <div>
-                    <div class="form-section">
-                        <label for="nom_projet_entreprise">Nom du Projet/Entreprise:</label>
-                        <p>{{ $record->nom_projet_entreprise }}</p>
-                    </div>
-
-                    <div class="form-section">
-                        <label for="Choisissez_option_liste">Choisissez une option de la liste:</label>
-                        <p>{{ $record->Choisissez_option_liste }}</p>
-                    </div>
-
-                    <!-- Ajoutez les autres champs d'informations personnelles de votre formulaire -->
-                </div>
-
-                <div>
-                    <div class="form-section">
-                        <label for="nom_de_famille">Nom de Famille:</label>
-                        <p>{{ $record->nom_de_famille }}</p>
-                    </div>
-
-                    <div class="form-section">
-                        <label for="prenom">Prénom:</label>
-                        <p>{{ $record->prenom }}</p>
-                    </div>
-
-                    <!-- Ajoutez les autres champs d'informations personnelles de votre formulaire -->
-                </div>
-            </div>
+            <table>
+                <tr>
+                    <th>Nom du Projet/Entreprise</th>
+                    <td>{{ $record->nom_projet_entreprise }}</td>
+                </tr>
+                <tr>
+                    <th>Choisissez une option de la liste</th>
+                    <td>{{ $record->Choisissez_option_liste }}</td>
+                </tr>
+                <tr>
+                    <th>Nom de Famille</th>
+                    <td>{{ $record->nom_de_famille }}</td>
+                </tr>
+                <tr>
+                    <th>Prénom</th>
+                    <td>{{ $record->prenom }}</td>
+                </tr>
+                <tr>
+                    <th>Date de Naissance</th>
+                    <td>{{ $record->date_naissance }}</td>
+                </tr>
+                <tr>
+                    <th>Numéro de Téléphone</th>
+                    <td>{{ $record->numero_telephone }}</td>
+                </tr>
+                <tr>
+                    <th>Email</th>
+                    <td>{{ $record->email }}</td>
+                </tr>
+                <tr>
+                    <th>Parcours Professionnel</th>
+                    <td>{{ $record->parcours_professionnel }}</td>
+                </tr>
+                <tr>
+                    <th>Code Postal</th>
+                    <td>{{ $record->code_postal }}</td>
+                </tr>
+            </table>
         </div>
 
+        <!-- Informations de l'Entreprise -->
         <div class="section">
             <h1>Informations de l'Entreprise</h1>
 
-            <div class="sub-section">
-                <div>
-                    <div class="form-section">
-                        <label for="date_creation_entreprise">Date de création de l'entreprise:</label>
-                        <p>{{ $record->date_creation_entreprise }}</p>
-                    </div>
-
-                    <div class="form-section">
-                        <label for="numero_siren">Numéro SIREN:</label>
-                        <p>{{ $record->numero_siren }}</p>
-                    </div>
-
-                    <!-- Ajoutez les autres champs d'informations de l'entreprise de votre formulaire -->
-                </div>
-
-                <div>
-                    <div class="form-section">
-                        <label for="nom_depose_societe">Nom Déposé de la Société:</label>
-                        <p>{{ $record->nom_depose_societe }}</p>
-                    </div>
-
-                    <div class="form-section">
-                        <label for="etes_vous_associe">Êtes-vous Associé:</label>
-                        <p>{{ $record->etes_vous_associe }}</p>
-                    </div>
-
-                    <!-- Ajoutez les autres champs d'informations de l'entreprise de votre formulaire -->
-                </div>
-            </div>
+            <table>
+                <tr>
+                    <th>Date de création de l'entreprise</th>
+                    <td>{{ $record->date_creation_entreprise }}</td>
+                </tr>
+                <tr>
+                    <th>Numéro SIREN</th>
+                    <td>{{ $record->numero_siren }}</td>
+                </tr>
+                <tr>
+                    <th>Nom Déposé de la Société</th>
+                    <td>{{ $record->nom_depose_societe }}</td>
+                </tr>
+                <tr>
+                    <th>Êtes-vous Associé</th>
+                    <td>{{ $record->etes_vous_associe }}</td>
+                </tr>
+                <tr>
+                    <th>Activité</th>
+                    <td>{{ $record->activite }}</td>
+                </tr>
+                <tr>
+                    <th>Décrivez Votre Activité</th>
+                    <td>{{ $record->decrivez_votre_activite }}</td>
+                </tr>
+                <tr>
+                    <th>Segment Clients</th>
+                    <td>{{ $record->segment_clients }}</td>
+                </tr>
+                <tr>
+                    <th>Relation Client Envisagée</th>
+                    <td>{{ $record->relation_client_envisagee }}</td>
+                </tr>
+                <tr>
+                    <th>Canaux de Distribution</th>
+                    <td>{{ $record->canaux_distribution }}</td>
+                </tr>
+            </table>
         </div>
+
+        <!-- Autres Sections - Repeat the structure for other sections using tables -->
+
+        <!-- Section suivante ... -->
 
         <div class="section">
-            <div class="sub-section">
-                <div>
-                    <div class="form-section">
-                        <label for="activite">Activité:</label>
-                        <p>{{ $record->activite }}</p>
-                    </div>
+            <h1>Chiffre d'Affaires et Effectif</h1>
 
-                    <div class="form-section">
-                        <label for="decrivez_votre_activite">Décrivez Votre Activité:</label>
-                        <p>{{ $record->decrivez_votre_activite }}</p>
-                    </div>
-
-                    <!-- Ajoutez les autres champs d'informations de l'entreprise de votre formulaire -->
-                </div>
-
-                <div>
-                    <div class="form-section">
-                        <label for="segment_clients">Segment Clients:</label>
-                        <p>{{ $record->segment_clients }}</p>
-                    </div>
-
-                    <div class="form-section">
-                        <label for="relation_client_envisagee">Relation Client Envisagée:</label>
-                        <p>{{ $record->relation_client_envisagee }}</p>
-                    </div>
-
-                    <!-- Ajoutez les autres champs d'informations de l'entreprise de votre formulaire -->
-                </div>
-            </div>
+            <table>
+                <tr>
+                    <th>Chiffre d'Affaires N1</th>
+                    <td>{{ $record->ca_n1 }}</td>
+                </tr>
+                <tr>
+                    <th>Chiffre d'Affaires N2</th>
+                    <td>{{ $record->ca_n2 }}</td>
+                </tr>
+                <tr>
+                    <th>Chiffre d'Affaires N3</th>
+                    <td>{{ $record->ca_n3 }}</td>
+                </tr>
+                <tr>
+                    <th>Chiffre d'Affaires N4</th>
+                    <td>{{ $record->ca_n4 }}</td>
+                </tr>
+                <tr>
+                    <th>Effectif N1</th>
+                    <td>{{ $record->effectif_n1 }}</td>
+                </tr>
+                <tr>
+                    <th>Effectif N2</th>
+                    <td>{{ $record->effectif_n2 }}</td>
+                </tr>
+                <tr>
+                    <th>Effectif N3</th>
+                    <td>{{ $record->effectif_n3 }}</td>
+                </tr>
+                <tr>
+                    <th>Effectif N4</th>
+                    <td>{{ $record->effectif_n4 }}</td>
+                </tr>
+            </table>
         </div>
+
+        <!-- Section suivante ... -->
 
         <div class="section">
-            <div class="sub-section">
-                <div>
-                    <div class="form-section">
-                        <label for="canaux_distribution">Canaux de Distribution:</label>
-                        <p>{{ $record->canaux_distribution }}</p>
-                    </div>
+            <h1>Autres Informations</h1>
 
-                    <div class="form-section">
-                        <label for="proposition_valeur">Proposition de Valeur:</label>
-                        <p>{{ $record->proposition_valeur }}</p>
-                    </div>
-
-                    <!-- Ajoutez les autres champs d'informations de l'entreprise de votre formulaire -->
-                </div>
-
-                <div>
-                    <div class="form-section">
-                        <label for="activite_cle">Activité Clé:</label>
-                        <p>{{ $record->activite_cle }}</p>
-                    </div>
-
-                    <div class="form-section">
-                        <label for="ressources_cle">Ressources Clé:</label>
-                        <p>{{ $record->ressources_cle }}</p>
-                    </div>
-
-                    <!-- Ajoutez les autres champs d'informations de l'entreprise de votre formulaire -->
-                </div>
-            </div>
+            <table>
+                <tr>
+                    <th>Informations Financières</th>
+                    <td>{{ $record->info_fi }}</td>
+                </tr>
+                <tr>
+                    <th>Projet de Développement en Afrique</th>
+                    <td>{{ $record->projet_developpement_afrique }}</td>
+                </tr>
+                <tr>
+                    <th>Caractère Environnemental</th>
+                    <td>{{ $record->caractere_environnemental }}</td>
+                </tr>
+                <tr>
+                    <th>Caractère Innovant</th>
+                    <td>{{ $record->caractere_innovant }}</td>
+                </tr>
+                <tr>
+                    <th>Motivation pour le Concours</th>
+                    <td>{{ $record->motivation_concours }}</td>
+                </tr>
+            </table>
         </div>
+
+        <!-- Section suivante ... -->
 
         <div class="section">
-            <div class="sub-section">
-                <div>
-                    <div class="form-section">
-                        <label for="partenaires_cles">Partenaires Clés:</label>
-                        <p>{{ $record->partenaires_cles }}</p>
-                    </div>
+            <h1>Liens</h1>
 
-                    <div class="form-section">
-                        <label for="structure_couts">Structure de Coûts:</label>
-                        <p>{{ $record->structure_couts }}</p>
-                    </div>
-
-                    <!-- Ajoutez les autres champs d'informations de l'entreprise de votre formulaire -->
-                </div>
-
-                <div>
-                    <div class="form-section">
-                        <label for="structure_revenus">Structure de Revenus:</label>
-                        <p>{{ $record->structure_revenus }}</p>
-                    </div>
-
-                    <div class="form-section">
-                        <label for="ca_n1">Chiffre d'Affaires N1:</label>
-                        <p>{{ $record->ca_n1 }}</p>
-                    </div>
-
-                    <!-- Ajoutez les autres champs d'informations de l'entreprise de votre formulaire -->
-                </div>
-            </div>
+            <table>
+                <tr>
+                    <th>Site Internet</th>
+                    <td>{{ $record->site_internet }}</td>
+                </tr>
+                <tr>
+                    <th>Lien vers la vidéo de présentation</th>
+                    <td><a href="{{ $record->lien_video_presentation }}"
+                            target="_blank">{{ $record->lien_video_presentation }}</a></td>
+                </tr>
+            </table>
         </div>
 
-        <div class="section">
-            <div class="sub-section">
-                <div>
-                    <div class="form-section">
-                        <label for="ca_n2">Chiffre d'Affaires N2:</label>
-                        <p>{{ $record->ca_n2 }}</p>
-                    </div>
-
-                    <div class="form-section">
-                        <label for="ca_n3">Chiffre d'Affaires N3:</label>
-                        <p>{{ $record->ca_n3 }}</p>
-                    </div>
-
-                    <!-- Ajoutez les autres champs d'informations de l'entreprise de votre formulaire -->
-                </div>
-
-                <div>
-                    <div class="form-section">
-                        <label for="ca_n4">Chiffre d'Affaires N4:</label>
-                        <p>{{ $record->ca_n4 }}</p>
-                    </div>
-
-                    <div class="form-section">
-                        <label for="effectif_n1">Effectif N1:</label>
-                        <p>{{ $record->effectif_n1 }}</p>
-                    </div>
-
-                    <!-- Ajoutez les autres champs d'informations de l'entreprise de votre formulaire -->
-                </div>
-            </div>
-        </div>
-
-        <div class="section">
-            <div class="sub-section">
-                <div>
-                    <div class="form-section">
-                        <label for="effectif_n2">Effectif N2:</label>
-                        <p>{{ $record->effectif_n2 }}</p>
-                    </div>
-
-                    <div class="form-section">
-                        <label for="effectif_n3">Effectif N3:</label>
-                        <p>{{ $record->effectif_n3 }}</p>
-                    </div>
-
-                    <!-- Ajoutez les autres champs d'informations de l'entreprise de votre formulaire -->
-                </div>
-
-                <div>
-                    <div class="form-section">
-                        <label for="effectif_n4">Effectif N4:</label>
-                        <p>{{ $record->effectif_n4 }}</p>
-                    </div>
-
-                    <div class="form-section">
-                        <label for="info_fi">Informations Financières:</label>
-                        <p>{{ $record->info_fi }}</p>
-                    </div>
-
-                    <!-- Ajoutez les autres champs d'informations de l'entreprise de votre formulaire -->
-                </div>
-            </div>
-        </div>
-
-        <div class="section">
-            <div class="sub-section">
-                <div>
-                    <div class="form-section">
-                        <label for="projet_developpement_afrique">Projet de Développement en Afrique:</label>
-                        <p>{{ $record->projet_developpement_afrique }}</p>
-                    </div>
-
-                    <div class="form-section">
-                        <label for="caractere_environnemental">Caractère Environnemental:</label>
-                        <p>{{ $record->caractere_environnemental }}</p>
-                    </div>
-
-                    <!-- Ajoutez les autres champs d'informations de l'entreprise de votre formulaire -->
-                </div>
-
-                <div>
-                    <div class="form-section">
-                        <label for="caractere_innovant">Caractère Innovant:</label>
-                        <p>{{ $record->caractere_innovant }}</p>
-                    </div>
-
-                    <div class="form-section">
-                        <label for="motivation_concours">Motivation pour le Concours:</label>
-                        <p>{{ $record->motivation_concours }}</p>
-                    </div>
-
-                    <!-- Ajoutez les autres champs d'informations de l'entreprise de votre formulaire -->
-                </div>
-            </div>
-        </div>
-
-        <div class="section">
-            <div class="sub-section">
-                <div>
-                    <div class="form-section">
-                        <label for="site_internet">Site Internet:</label>
-                        <p>{{ $record->site_internet }}</p>
-                    </div>
-                </div>
-
-                <div>
-                    <div class="form-section">
-                        <label for="lien_video_presentation">Lien vers la vidéo de présentation:</label>
-                        <p><a href="{{ $record->lien_video_presentation }}"
-                                target="_blank">{{ $record->lien_video_presentation }}</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
 </body>
 

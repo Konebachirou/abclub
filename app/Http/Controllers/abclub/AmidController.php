@@ -11,6 +11,8 @@ use App\Models\AneWinner;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\abclub\AneRequest;
+use Barryvdh\DomPDF\Facade\Pdf;
+use Illuminate\Support\Facades\Blade;
 
 class AmidController extends Controller
 {
@@ -18,7 +20,7 @@ class AmidController extends Controller
     {
         $partners = Partner::withPoleName('Pôle AMID')->get();
         $ongletActif = 'amid';
-        return view('users.amid.about', [ 'partners' => $partners,'ongletActif' => $ongletActif]);
+        return view('users.amid.about', ['partners' => $partners, 'ongletActif' => $ongletActif]);
     }
 
     public function ane()
@@ -82,11 +84,27 @@ class AmidController extends Controller
     public function store(AneRequest $request)
     {
 
-        //dd($request->all());
-        $path =  $request->file('lien_video_presentation')->store('public/ane');
-        $request["image"] = $path;
-        Ane::create($request->all());
+        $ane = Ane::create($request->all());
 
-        return redirect('/amid/ane')->with('success', 'Votre candidature a bien été envoyée');
+        // Enregistrement du fichier (image ou vidéo)
+        if ($request->hasFile('lien_video_presentation')) {
+            $fichier = $request->file('lien_video_presentation');
+            $nomFichier = time() . '_' . $fichier->getClientOriginalName();
+            $fichier->storeAs('public/amid', $nomFichier); // Stocker dans le dossier "storage/app/public/fichiers"
+
+            // Mettez à jour le champ 'fichier' dans le modèle avec le nom du fichier
+            $ane->update(['lien_video_presentation' => $nomFichier]);
+        }
+        // Générez le PDF et retournez la réponse avec téléchargement
+        return $this->generatePdfAndDownload($ane);
+    }
+
+    protected function generatePdfAndDownload(Ane $ane)
+    {
+        return response()->streamDownload(function () use ($ane) {
+            echo Pdf::loadHtml(
+                Blade::render('pdf', ['record' => $ane])
+            )->stream();
+        }, 'candidature.pdf');
     }
 }

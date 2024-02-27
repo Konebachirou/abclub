@@ -30,9 +30,14 @@ class JobFactory extends Factory
             'job_link' => fake()->url(),
             'type' => fake()->randomElement(['FREELANCE', 'CDI', 'CDD', 'Alternance', 'Stage', 'Intérime']),
             'location' => fake()->city(),
-            'description' => fake()->sentence(3, true),
-            'content' => fake()->paragraphs(10, true),
+            'company_desc' => fake()->sentence(2, true),
+            'mission' => fake()->paragraphs(10, true),
             'pole_id' => Pole::all()->random()->id,
+            'diplomes' => fake()->sentence(1, true),
+            'experiences' => fake()->sentence(2, true),
+            'languages' => fake()->sentence(1, true),
+            'competences' => fake()->sentence(2, true),
+            'process' => fake()->sentence(2, true),
         ];
     }
 }

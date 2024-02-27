@@ -70,10 +70,13 @@ class PartnerResource extends Resource
             ->columns([
                 TextColumn::make('created_at')
                     ->label('Date de création')
-                    ->label('Date de création')
-                    ->dateTime('d/m/Y'),
-                TextColumn::make('name')
+                    ->dateTime('d/m/Y')
+                    ->sortable()
                     ->searchable(),
+                TextColumn::make('name')
+                    ->searchable()
+                    ->label('Nom')
+                    ->sortable(),
                 ImageColumn::make('logo'),
                 ToggleColumn::make('status')
                     ->label('Status'),

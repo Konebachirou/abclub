@@ -17,13 +17,12 @@ return new class extends Migration
             $table->string('illustration');
             $table->text('description');
             $table->boolean('is_active');
-            $table->boolean('is_free');
+            $table->boolean('is_paid')->default(false);
             $table->integer('Number_of_place');
             $table->date('start_date');
             $table->date('end_date');
             $table->time('start_times');
             $table->time('end_times');
-            $table->boolean('is_event');
             $table->string('payment_link')->nullable();
             $table->foreignId('pole_id')->nullable()->constrained();
             $table->string('lieu');

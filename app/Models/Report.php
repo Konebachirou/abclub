@@ -22,11 +22,13 @@ class Report extends Model
         'pole_id',
         'is_report',
         'is_action',
+        'files',
     ];
 
 
     protected $casts = [
-        'album' => 'array'
+        'album' => 'array',
+        'files' => 'array',
     ];
 
     public function pole()

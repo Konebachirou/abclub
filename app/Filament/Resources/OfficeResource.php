@@ -62,15 +62,21 @@ class OfficeResource extends Resource
             ->columns([
                 TextColumn::make('created_at')
                     ->label('Date de création')
-                    ->dateTime('d/m/Y'),
+                    ->dateTime('d/m/Y')
+                    ->sortable()
+                    ->searchable(),
                 TextColumn::make('name')
                     ->label('Nom du Bureau')
-                    ->searchable(),
+                    ->searchable()
+                    ->sortable(),
                 TextColumn::make('phone')
                     ->label('Telephone')
-                    ->searchable(),
+                    ->searchable()
+                    ->sortable(),
                 TextColumn::make('email')
-                    ->searchable(),
+                    ->searchable()
+                    ->label('Email')
+                    ->sortable(),
             ])
             ->filters([
                 //

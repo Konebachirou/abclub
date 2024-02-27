@@ -6,6 +6,7 @@ use Closure;
 use Filament\Infolists\Components\Contracts\HasAffixActions;
 use Filament\Infolists\Components\TextEntry\TextEntrySize;
 use Filament\Support\Concerns\CanBeCopied;
+use Filament\Support\Concerns\HasLineClamp;
 
 class TextEntry extends Entry implements HasAffixActions
 {
@@ -17,6 +18,7 @@ class TextEntry extends Entry implements HasAffixActions
     use Concerns\HasIcon;
     use Concerns\HasIconColor;
     use Concerns\HasWeight;
+    use HasLineClamp;
 
     /**
      * @var view-string
@@ -34,6 +36,8 @@ class TextEntry extends Entry implements HasAffixActions
     protected int | Closure | null $listLimit = null;
 
     protected TextEntrySize | string | Closure | null $size = null;
+
+    protected bool | Closure $isLimitedListExpandable = false;
 
     public function badge(bool | Closure $condition = true): static
     {
@@ -107,5 +111,17 @@ class TextEntry extends Entry implements HasAffixActions
     public function getListLimit(): ?int
     {
         return $this->evaluate($this->listLimit);
+    }
+
+    public function expandableLimitedList(bool | Closure $condition = true): static
+    {
+        $this->isLimitedListExpandable = $condition;
+
+        return $this;
+    }
+
+    public function isLimitedListExpandable(): bool
+    {
+        return (bool) $this->evaluate($this->isLimitedListExpandable);
     }
 }

@@ -85,19 +85,26 @@ class OfficeTeamResource extends Resource
             ->columns([
                 TextColumn::make('created_at')
                     ->label('Date de création')
-                    ->dateTime('d/m/Y'),
+                    ->dateTime('d/m/Y')
+                    ->sortable()
+                    ->searchable(),
                 TextColumn::make('fullName')
                     ->searchable()
+                    ->sortable()
                     ->label('Nom et prenoms'),
                 ImageColumn::make('image'),
                 TextColumn::make('office.name')->label('Bureau')
-                    ->sortable(),
+                    ->sortable()
+                    ->searchable(),
                 TextColumn::make('level')
                     ->label('Profession')
                     ->searchable()
+                    ->sortable()
                     ->label('Profession'),
                 TextColumn::make('email')
-                    ->searchable(),
+                    ->searchable()
+                    ->label('Email')
+                    ->sortable(),
             ])
             ->filters([
                 //

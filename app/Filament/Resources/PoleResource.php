@@ -56,9 +56,13 @@ class PoleResource extends Resource
             ->columns([
                 TextColumn::make('created_at')
                     ->label('Date de création')
-                    ->dateTime('d/m/Y'),
-                TextColumn::make('name')
+                    ->dateTime('d/m/Y')
+                    ->sortable()
                     ->searchable(),
+                TextColumn::make('name')
+                    ->searchable()
+                    ->sortable()
+                    ->label('Nom du pole'),
                 ImageColumn::make('icon'),
             ])
             ->filters([

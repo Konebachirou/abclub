@@ -65,22 +65,28 @@ class FormerPresidentResource extends Resource
             ->columns([
                 TextColumn::make('created_at')
                     ->label('Date de création')
-                    ->dateTime('d/m/Y'),
+                    ->dateTime('d/m/Y')
+                    ->sortable()
+                    ->searchable(),
                 TextColumn::make('first_name')
                     ->label('Nom')
-                    ->searchable(),
+                    ->searchable()
+                    ->sortable(),
                 TextColumn::make('last_name')
                     ->label('Prenoms')
-                    ->searchable(),
+                    ->searchable()
+                    ->sortable(),
                 ImageColumn::make('image'),
                 TextColumn::make('start_date')
                     ->date()
                     ->label('Date de debut de mandat')
-                    ->sortable(),
+                    ->sortable()
+                    ->searchable(),
                 TextColumn::make('end_date')
                     ->date()
                     ->label('Date de fin de mandat')
-                    ->sortable(),
+                    ->sortable()
+                    ->searchable(),
             ])
             ->filters([
                 //

@@ -96,30 +96,27 @@ class AneWinnerResource extends Resource
             ->columns([
                 TextColumn::make('created_at')
                     ->label('Date de création')
-                    ->dateTime('d/m/Y'),
+                    ->dateTime('d/m/Y')
+                    ->sortable()
+                    ->searchable(),
                 TextColumn::make('team_name')
                     ->searchable()
+                    ->sortable()
                     ->label('Equipe'),
                 ImageColumn::make('team_picture')
-                    ->searchable()
                     ->label('Image'),
                 TextColumn::make('year')
                     ->date()
+                    ->searchable()
                     ->sortable()
                     ->label('Année'),
                 TextColumn::make('rating')
                     ->numeric()
+                    ->searchable()
                     ->sortable()
                     ->label('rang'),
                 ToggleColumn::make('status'),
-                TextColumn::make('facebook')
-                    ->searchable(),
-                TextColumn::make('linkedin')
-                    ->searchable(),
-                TextColumn::make('twitter')
-                    ->searchable(),
-                TextColumn::make('instagram')
-                    ->searchable(),
+
             ])
             ->filters([
                 //

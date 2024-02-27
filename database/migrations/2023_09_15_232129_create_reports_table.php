@@ -20,7 +20,7 @@ return new class extends Migration
             $table->text('album')->nullable();
             $table->boolean('status')->default(true);
             $table->date('date');
-            $table->date('files')->nullable();;
+            $table->string('files')->nullable();;
             $table->unsignedBigInteger('pole_id');
             $table->foreign('pole_id')->references('id')->on('poles')->onDelete('cascade');
             $table->boolean('is_report');

@@ -11,14 +11,16 @@ use Filament\Pages\Concerns;
 use Filament\Pages\Page;
 use Filament\Panel;
 use Filament\Support\Exceptions\Halt;
+use Filament\Support\Facades\FilamentView;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Contracts\Support\Htmlable;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Arr;
-use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\DB;
 use Livewire\Attributes\Locked;
+use Throwable;
 
 use function Filament\authorize;
+use function Filament\Support\is_app_url;
 
 /**
  * @property Form $form
@@ -48,25 +50,21 @@ abstract class EditTenantProfile extends Page
 
     abstract public static function getLabel(): string;
 
-    public static function routes(Panel $panel): void
+    public static function getRelativeRouteName(): string
     {
-        $slug = static::getSlug();
-
-        Route::get("/{$slug}", static::class)
-            ->middleware(static::getRouteMiddleware($panel))
-            ->withoutMiddleware(static::getWithoutRouteMiddleware($panel))
-            ->name('profile');
+        return 'profile';
     }
 
-    /**
-     * @return string | array<string>
-     */
-    public static function getRouteMiddleware(Panel $panel): string | array
+    public static function getRouteName(?string $panel = null): string
     {
-        return [
-            ...(static::isEmailVerificationRequired($panel) ? [static::getEmailVerifiedMiddleware($panel)] : []),
-            ...Arr::wrap(static::$routeMiddleware),
-        ];
+        $panel = $panel ? Filament::getPanel($panel) : Filament::getCurrentPanel();
+
+        return $panel->generateRouteName('tenant.' . static::getRelativeRouteName());
+    }
+
+    public static function isTenantSubscriptionRequired(Panel $panel): bool
+    {
+        return false;
     }
 
     public function mount(): void
@@ -112,6 +110,8 @@ abstract class EditTenantProfile extends Page
     public function save(): void
     {
         try {
+            DB::beginTransaction();
+
             $this->callHook('beforeValidate');
 
             $data = $this->form->getState();
@@ -125,14 +125,24 @@ abstract class EditTenantProfile extends Page
             $this->handleRecordUpdate($this->tenant, $data);
 
             $this->callHook('afterSave');
+
+            DB::commit();
         } catch (Halt $exception) {
+            $exception->shouldRollbackDatabaseTransaction() ?
+                DB::rollBack() :
+                DB::commit();
+
             return;
+        } catch (Throwable $exception) {
+            DB::rollBack();
+
+            throw $exception;
         }
 
         $this->getSavedNotification()?->send();
 
         if ($redirectUrl = $this->getRedirectUrl()) {
-            $this->redirect($redirectUrl);
+            $this->redirect($redirectUrl, navigate: FilamentView::hasSpaMode() && is_app_url($redirectUrl));
         }
     }
 

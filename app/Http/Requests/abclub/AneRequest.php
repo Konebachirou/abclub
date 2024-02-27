@@ -60,7 +60,7 @@ class AneRequest extends FormRequest
             'caractere_innovant' => 'required|string',
             'motivation_concours' => 'required|string',
             'site_internet' => 'required|string',
-            'lien_video_presentation' => 'required|file|max:10240',
+            'lien_video_presentation' => 'required|file|mimes:jpeg,jpg,gif,svg,png,mp4|max:10240',
         ];
     }
 }
