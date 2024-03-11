@@ -39,7 +39,8 @@ Route::controller(AuthentificationController::class)->group(function () {
 // Route::get('/register',[AppController::class,'Register'])->name('register_link');
 
 Route::get('/',  [HomeController::class, 'Home'])->name('home_link');
-
+Route::get('/postuler', [AmidController::class,'postuler'])->name('postuler_link');
+Route::post('/postuler/store', [AmidController::class, 'store'])->name('postuler-store');
 
 Route::controller(NewsActionsController::class)->group(function () {
     Route::get('/news', 'indexNews')->name('news_link');
@@ -66,7 +67,6 @@ Route::controller(AmidController::class)->group(function () {
     Route::get('/amid/ane', 'ane')->name('ane_link');
     Route::get('/amid/anp', 'anp')->name('anp_link');
     Route::get('/amid/about', 'about')->name('about_amid_link');
-    Route::get('/postuler', 'postuler')->name('postuler_link');
 });
 
 Route::controller(ContactController::class)->group(function () {
@@ -100,7 +100,6 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/payer-Adhésion', [payementController::class, 'payer'])->name('payer_link');
     Route::get('/payerSucces', [payementController::class, 'payerSucces'])->name('payerSucces_link');
-    Route::post('/postuler/store', [AmidController::class, 'store'])->name('postuler-store');
     Route::get('/felicitation', [payementController::class, 'checkoutfinish'])->name('felicitation_link');
 
     Route::controller(JobController::class)->group(function () {

@@ -1,33 +1,30 @@
-@php
-    use Filament\Forms\Components\Actions\Action;
-
-    $containers = $getChildComponentContainers();
-    $blockPickerBlocks = $getBlockPickerBlocks();
-    $blockPickerColumns = $getBlockPickerColumns();
-    $blockPickerWidth = $getBlockPickerWidth();
-
-    $addAction = $getAction($getAddActionName());
-    $addBetweenAction = $getAction($getAddBetweenActionName());
-    $cloneAction = $getAction($getCloneActionName());
-    $collapseAllAction = $getAction($getCollapseAllActionName());
-    $expandAllAction = $getAction($getExpandAllActionName());
-    $deleteAction = $getAction($getDeleteActionName());
-    $moveDownAction = $getAction($getMoveDownActionName());
-    $moveUpAction = $getAction($getMoveUpActionName());
-    $reorderAction = $getAction($getReorderActionName());
-    $extraItemActions = $getExtraItemActions();
-
-    $isAddable = $isAddable();
-    $isCloneable = $isCloneable();
-    $isCollapsible = $isCollapsible();
-    $isDeletable = $isDeletable();
-    $isReorderableWithButtons = $isReorderableWithButtons();
-    $isReorderableWithDragAndDrop = $isReorderableWithDragAndDrop();
-
-    $statePath = $getStatePath();
-@endphp
-
 <x-dynamic-component :component="$getFieldWrapperView()" :field="$field">
+    @php
+        $containers = $getChildComponentContainers();
+        $blockPickerColumns = $getBlockPickerColumns();
+        $blockPickerWidth = $getBlockPickerWidth();
+        $blocks = $getBlocks();
+
+        $addAction = $getAction($getAddActionName());
+        $addBetweenAction = $getAction($getAddBetweenActionName());
+        $cloneAction = $getAction($getCloneActionName());
+        $collapseAllAction = $getAction($getCollapseAllActionName());
+        $expandAllAction = $getAction($getExpandAllActionName());
+        $deleteAction = $getAction($getDeleteActionName());
+        $moveDownAction = $getAction($getMoveDownActionName());
+        $moveUpAction = $getAction($getMoveUpActionName());
+        $reorderAction = $getAction($getReorderActionName());
+
+        $isAddable = $isAddable();
+        $isCloneable = $isCloneable();
+        $isCollapsible = $isCollapsible();
+        $isDeletable = $isDeletable();
+        $isReorderableWithButtons = $isReorderableWithButtons();
+        $isReorderableWithDragAndDrop = $isReorderableWithDragAndDrop();
+
+        $statePath = $getStatePath();
+    @endphp
+
     <div
         x-data="{}"
         {{
@@ -64,7 +61,6 @@
         @if (count($containers))
             <ul
                 x-sortable
-                data-sortable-animation-duration="{{ $getReorderAnimationDuration() }}"
                 wire:end.stop="{{ 'mountFormComponentAction(\'' . $statePath . '\', \'reorder\', { items: $event.target.sortable.toArray() })' }}"
                 class="space-y-4"
             >
@@ -74,13 +70,6 @@
                 @endphp
 
                 @foreach ($containers as $uuid => $item)
-                    @php
-                        $visibleExtraItemActions = array_filter(
-                            $extraItemActions,
-                            fn (Action $action): bool => $action(['item' => $uuid])->isVisible(),
-                        );
-                    @endphp
-
                     <li
                         wire:key="{{ $this->getId() }}.{{ $item->getStatePath() }}.{{ $field::class }}.item"
                         x-data="{
@@ -88,38 +77,53 @@
                         }"
                         x-on:builder-expand.window="$event.detail === '{{ $statePath }}' && (isCollapsed = false)"
                         x-on:builder-collapse.window="$event.detail === '{{ $statePath }}' && (isCollapsed = true)"
-                        x-on:expand="isCollapsed = false"
+                        x-on:expand-concealing-component.window="
+                            $nextTick(() => {
+                                error = $el.querySelector('[data-validation-error]')
+
+                                if (! error) {
+                                    return
+                                }
+
+                                isCollapsed = false
+
+                                if (document.body.querySelector('[data-validation-error]') !== error) {
+                                    return
+                                }
+
+                                setTimeout(
+                                    () =>
+                                        $el.scrollIntoView({
+                                            behavior: 'smooth',
+                                            block: 'start',
+                                            inline: 'start',
+                                        }),
+                                    200,
+                                )
+                            })
+                        "
                         x-sortable-item="{{ $uuid }}"
                         class="fi-fo-builder-item rounded-xl bg-white shadow-sm ring-1 ring-gray-950/5 dark:bg-white/5 dark:ring-white/10"
                         x-bind:class="{ 'fi-collapsed overflow-hidden': isCollapsed }"
                     >
-                        @if ($isReorderableWithDragAndDrop || $isReorderableWithButtons || $hasBlockLabels || $isCloneable || $isDeletable || $isCollapsible || count($visibleExtraItemActions))
+                        @if ($isReorderableWithDragAndDrop || $isReorderableWithButtons || $hasBlockLabels || $isCloneable || $isDeletable || $isCollapsible)
                             <div
-                                @if ($isCollapsible)
-                                    x-on:click.stop="isCollapsed = !isCollapsed"
-                                @endif
-                                @class([
-                                    'fi-fo-builder-item-header flex items-center gap-x-3 overflow-hidden px-4 py-3',
-                                    'cursor-pointer select-none' => $isCollapsible,
-                                ])
+                                class="fi-fo-builder-item-header flex items-center gap-x-3 overflow-hidden px-4 py-3"
                             >
                                 @if ($isReorderableWithDragAndDrop || $isReorderableWithButtons)
                                     <ul class="flex items-center gap-x-3">
                                         @if ($isReorderableWithDragAndDrop)
-                                            <li
-                                                x-sortable-handle
-                                                x-on:click.stop
-                                            >
+                                            <li x-sortable-handle>
                                                 {{ $reorderAction }}
                                             </li>
                                         @endif
 
                                         @if ($isReorderableWithButtons)
-                                            <li x-on:click.stop>
+                                            <li>
                                                 {{ $moveUpAction(['item' => $uuid])->disabled($loop->first) }}
                                             </li>
 
-                                            <li x-on:click.stop>
+                                            <li>
                                                 {{ $moveDownAction(['item' => $uuid])->disabled($loop->last) }}
                                             </li>
                                         @endif
@@ -128,9 +132,13 @@
 
                                 @if ($hasBlockLabels)
                                     <h4
+                                        @if ($isCollapsible)
+                                            x-on:click.stop="isCollapsed = !isCollapsed"
+                                        @endif
                                         @class([
                                             'text-sm font-medium text-gray-950 dark:text-white',
                                             'truncate' => $isBlockLabelTruncated(),
+                                            'cursor-pointer select-none' => $isCollapsible,
                                         ])
                                     >
                                         {{ $item->getParentComponent()->getLabel($item->getRawState(), $uuid) }}
@@ -141,24 +149,18 @@
                                     </h4>
                                 @endif
 
-                                @if ($isCloneable || $isDeletable || $isCollapsible || count($visibleExtraItemActions))
+                                @if ($isCloneable || $isDeletable || $isCollapsible)
                                     <ul
                                         class="ms-auto flex items-center gap-x-3"
                                     >
-                                        @foreach ($visibleExtraItemActions as $extraItemAction)
-                                            <li x-on:click.stop>
-                                                {{ $extraItemAction(['item' => $uuid]) }}
-                                            </li>
-                                        @endforeach
-
                                         @if ($isCloneable)
-                                            <li x-on:click.stop>
+                                            <li>
                                                 {{ $cloneAction(['item' => $uuid]) }}
                                             </li>
                                         @endif
 
                                         @if ($isDeletable)
-                                            <li x-on:click.stop>
+                                            <li>
                                                 {{ $deleteAction(['item' => $uuid]) }}
                                             </li>
                                         @endif
@@ -210,7 +212,7 @@
                                             :action="$addBetweenAction"
                                             :after-item="$uuid"
                                             :columns="$blockPickerColumns"
-                                            :blocks="$blockPickerBlocks"
+                                            :blocks="$blocks"
                                             :state-path="$statePath"
                                             :width="$blockPickerWidth"
                                         >
@@ -226,7 +228,7 @@
                                 class="relative border-t border-gray-200 dark:border-white/10"
                             >
                                 <span
-                                    class="absolute -top-3 left-3 px-1 text-sm font-medium"
+                                    class="absolute -top-3 left-3 bg-white px-1 text-sm font-medium dark:bg-gray-900"
                                 >
                                     {{ $labelBetweenItems }}
                                 </span>
@@ -240,7 +242,7 @@
         @if ($isAddable)
             <x-filament-forms::builder.block-picker
                 :action="$addAction"
-                :blocks="$blockPickerBlocks"
+                :blocks="$blocks"
                 :columns="$blockPickerColumns"
                 :state-path="$statePath"
                 :width="$blockPickerWidth"

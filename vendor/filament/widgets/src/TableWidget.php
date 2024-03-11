@@ -7,7 +7,6 @@ use Filament\Forms;
 use Filament\Infolists;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Illuminate\Contracts\Pagination\CursorPaginator;
 use Illuminate\Contracts\Pagination\Paginator;
 use Illuminate\Contracts\Support\Htmlable;
 use Illuminate\Database\Eloquent\Builder;
@@ -31,9 +30,9 @@ class TableWidget extends Widget implements Actions\Contracts\HasActions, Forms\
      */
     protected static ?string $heading = null;
 
-    protected function paginateTableQuery(Builder $query): Paginator | CursorPaginator
+    protected function paginateTableQuery(Builder $query): Paginator
     {
-        return $query->simplePaginate(($this->getTableRecordsPerPage() === 'all') ? $query->count() : $this->getTableRecordsPerPage());
+        return $query->simplePaginate($this->getTableRecordsPerPage() == 'all' ? $query->count() : $this->getTableRecordsPerPage());
     }
 
     /**

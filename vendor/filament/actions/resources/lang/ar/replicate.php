@@ -23,7 +23,7 @@ return [
         'notifications' => [
 
             'replicated' => [
-                'title' => 'تم النسخ',
+                'title' => 'تم نسخ السجل',
             ],
 
         ],

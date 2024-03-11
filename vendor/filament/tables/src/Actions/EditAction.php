@@ -49,8 +49,6 @@ class EditAction extends Action
             return $data;
         });
 
-        $this->databaseTransaction();
-
         $this->action(function (): void {
             $this->process(function (array $data, Model $record, Table $table) {
                 $relationship = $table->getRelationship();
@@ -58,17 +56,11 @@ class EditAction extends Action
                 $translatableContentDriver = $table->makeTranslatableContentDriver();
 
                 if ($relationship instanceof BelongsToMany) {
-                    $pivot = $record->{$relationship->getPivotAccessor()};
-
                     $pivotColumns = $relationship->getPivotColumns();
                     $pivotData = Arr::only($data, $pivotColumns);
 
                     if (count($pivotColumns)) {
-                        if ($translatableContentDriver) {
-                            $translatableContentDriver->updateRecord($pivot, $pivotData);
-                        } else {
-                            $pivot->update($pivotData);
-                        }
+                        $record->{$relationship->getPivotAccessor()}->update($pivotData);
                     }
 
                     $data = Arr::except($data, $pivotColumns);

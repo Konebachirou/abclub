@@ -3,13 +3,11 @@
 namespace Filament\Panel\Concerns;
 
 use Closure;
-use Filament\Clusters\Cluster;
 use Filament\Livewire\DatabaseNotifications;
 use Filament\Livewire\GlobalSearch;
 use Filament\Livewire\Notifications;
 use Filament\Pages\Auth\EditProfile;
 use Filament\Pages\Page;
-use Filament\Resources\Pages\Page as ResourcePage;
 use Filament\Resources\RelationManagers\RelationGroup;
 use Filament\Resources\RelationManagers\RelationManager;
 use Filament\Resources\RelationManagers\RelationManagerConfiguration;
@@ -48,26 +46,6 @@ trait HasComponents
     /**
      * @var array<class-string>
      */
-    protected array $clusters = [];
-
-    /**
-     * @var array<string>
-     */
-    protected array $clusterDirectories = [];
-
-    /**
-     * @var array<string>
-     */
-    protected array $clusterNamespaces = [];
-
-    /**
-     * @var array<class-string<Cluster>, array<class-string>>
-     */
-    protected array $clusteredComponents = [];
-
-    /**
-     * @var array<class-string>
-     */
     protected array $resources = [];
 
     /**
@@ -97,17 +75,11 @@ trait HasComponents
 
     protected bool | Closure $hasReadOnlyRelationManagersOnResourceViewPagesByDefault = true;
 
-    protected ?bool $hasCachedComponents = null;
-
     /**
      * @param  array<class-string>  $pages
      */
     public function pages(array $pages): static
     {
-        if ($this->hasCachedComponents()) {
-            return $this;
-        }
-
         $this->pages = [
             ...$this->pages,
             ...$pages,
@@ -115,7 +87,6 @@ trait HasComponents
 
         foreach ($pages as $page) {
             $this->queueLivewireComponentForRegistration($page);
-            $this->registerToCluster($page);
         }
 
         return $this;
@@ -126,18 +97,10 @@ trait HasComponents
      */
     public function resources(array $resources): static
     {
-        if ($this->hasCachedComponents()) {
-            return $this;
-        }
-
         $this->resources = [
             ...$this->resources,
             ...$resources,
         ];
-
-        foreach ($resources as $resource) {
-            $this->registerToCluster($resource);
-        }
 
         return $this;
     }
@@ -164,10 +127,6 @@ trait HasComponents
      */
     public function widgets(array $widgets): static
     {
-        if ($this->hasCachedComponents()) {
-            return $this;
-        }
-
         $this->widgets = [
             ...$this->widgets,
             ...$widgets,
@@ -195,10 +154,6 @@ trait HasComponents
 
     public function discoverPages(string $in, string $for): static
     {
-        if ($this->hasCachedComponents()) {
-            return $this;
-        }
-
         $this->pageDirectories[] = $in;
         $this->pageNamespaces[] = $for;
 
@@ -217,10 +172,7 @@ trait HasComponents
      */
     public function getPageDirectories(): array
     {
-        return [
-            ...array_map(fn (string $fileName): string => ((string) str($fileName)->beforeLast('.php')) . DIRECTORY_SEPARATOR . 'Pages', array_keys($this->clusters)),
-            ...$this->pageDirectories,
-        ];
+        return $this->pageDirectories;
     }
 
     /**
@@ -228,65 +180,11 @@ trait HasComponents
      */
     public function getPageNamespaces(): array
     {
-        return [
-            ...array_map(fn (string $namespace): string => "{$namespace}\Pages", array_values($this->clusters)),
-            ...$this->pageNamespaces,
-        ];
-    }
-
-    public function discoverClusters(string $in, string $for): static
-    {
-        if ($this->hasCachedComponents()) {
-            return $this;
-        }
-
-        $this->clusterDirectories[] = $in;
-        $this->clusterNamespaces[] = $for;
-
-        $this->discoverComponents(
-            Cluster::class,
-            $this->clusters,
-            directory: $in,
-            namespace: $for,
-        );
-        $this->discoverComponents(
-            Page::class,
-            $this->pages,
-            directory: $in,
-            namespace: $for,
-        );
-        $this->discoverComponents(
-            Resource::class,
-            $this->resources,
-            directory: $in,
-            namespace: $for,
-        );
-
-        return $this;
-    }
-
-    /**
-     * @return array<string>
-     */
-    public function getClusterDirectories(): array
-    {
-        return $this->clusterDirectories;
-    }
-
-    /**
-     * @return array<string>
-     */
-    public function getClusterNamespaces(): array
-    {
-        return $this->clusterNamespaces;
+        return $this->pageNamespaces;
     }
 
     public function discoverResources(string $in, string $for): static
     {
-        if ($this->hasCachedComponents()) {
-            return $this;
-        }
-
         $this->resourceDirectories[] = $in;
         $this->resourceNamespaces[] = $for;
 
@@ -305,10 +203,7 @@ trait HasComponents
      */
     public function getResourceDirectories(): array
     {
-        return [
-            ...array_map(fn (string $fileName): string => ((string) str($fileName)->beforeLast('.php')) . DIRECTORY_SEPARATOR . 'Resources', array_keys($this->clusters)),
-            ...$this->resourceDirectories,
-        ];
+        return $this->resourceDirectories;
     }
 
     /**
@@ -316,18 +211,11 @@ trait HasComponents
      */
     public function getResourceNamespaces(): array
     {
-        return [
-            ...array_map(fn (string $namespace): string => "{$namespace}\Resources", array_values($this->clusters)),
-            ...$this->resourceNamespaces,
-        ];
+        return $this->resourceNamespaces;
     }
 
     public function discoverWidgets(string $in, string $for): static
     {
-        if ($this->hasCachedComponents()) {
-            return $this;
-        }
-
         $this->widgetDirectories[] = $in;
         $this->widgetNamespaces[] = $for;
 
@@ -359,15 +247,11 @@ trait HasComponents
 
     public function discoverLivewireComponents(string $in, string $for): static
     {
-        if ($this->hasCachedComponents()) {
-            return $this;
-        }
-
-        $components = [];
+        $component = [];
 
         $this->discoverComponents(
             Component::class,
-            $components,
+            $component,
             directory: $in,
             namespace: $for,
         );
@@ -423,7 +307,9 @@ trait HasComponents
             $variableNamespace = $namespace->contains('*') ? str_ireplace(
                 ['\\' . $namespace->before('*'), $namespace->after('*')],
                 ['', ''],
-                str_replace([DIRECTORY_SEPARATOR], ['\\'], (string) str($file->getPath())->after(base_path())),
+                str($file->getPath())
+                    ->after(base_path())
+                    ->replace(['/'], ['\\']),
             ) : null;
 
             if (is_string($variableNamespace)) {
@@ -433,7 +319,7 @@ trait HasComponents
             $class = (string) $namespace
                 ->append('\\', $file->getRelativePathname())
                 ->replace('*', $variableNamespace ?? '')
-                ->replace([DIRECTORY_SEPARATOR, '.php'], ['\\', '']);
+                ->replace(['/', '.php'], ['\\', '']);
 
             if (! class_exists($class)) {
                 continue;
@@ -458,8 +344,7 @@ trait HasComponents
                 continue;
             }
 
-            $register[$file->getRealPath()] = $class;
-            $this->registerToCluster($class);
+            $register[] = $class;
         }
     }
 
@@ -468,10 +353,6 @@ trait HasComponents
      */
     public function livewireComponents(array $components): static
     {
-        if ($this->hasCachedComponents()) {
-            return $this;
-        }
-
         foreach ($components as $component) {
             $this->queueLivewireComponentForRegistration($component);
         }
@@ -481,60 +362,60 @@ trait HasComponents
 
     protected function registerLivewireComponents(): void
     {
-        if (! $this->hasCachedComponents()) {
-            $this->queueLivewireComponentForRegistration(DatabaseNotifications::class);
-            $this->queueLivewireComponentForRegistration(EditProfile::class);
-            $this->queueLivewireComponentForRegistration(GlobalSearch::class);
-            $this->queueLivewireComponentForRegistration(Notifications::class);
+        $this->queueLivewireComponentForRegistration(DatabaseNotifications::class);
+        $this->queueLivewireComponentForRegistration(EditProfile::class);
+        $this->queueLivewireComponentForRegistration(GlobalSearch::class);
+        $this->queueLivewireComponentForRegistration(Notifications::class);
 
-            if ($this->hasEmailVerification() && is_subclass_of($emailVerificationRouteAction = $this->getEmailVerificationPromptRouteAction(), Component::class)) {
-                $this->queueLivewireComponentForRegistration($emailVerificationRouteAction);
+        if ($this->hasEmailVerification() && is_subclass_of($emailVerificationRouteAction = $this->getEmailVerificationPromptRouteAction(), Component::class)) {
+            $this->queueLivewireComponentForRegistration($emailVerificationRouteAction);
+        }
+
+        if ($this->hasLogin() && is_subclass_of($loginRouteAction = $this->getLoginRouteAction(), Component::class)) {
+            $this->queueLivewireComponentForRegistration($loginRouteAction);
+        }
+
+        if ($this->hasPasswordReset()) {
+            if (is_subclass_of($requestPasswordResetRouteAction = $this->getRequestPasswordResetRouteAction(), Component::class)) {
+                $this->queueLivewireComponentForRegistration($requestPasswordResetRouteAction);
             }
 
-            if ($this->hasLogin() && is_subclass_of($loginRouteAction = $this->getLoginRouteAction(), Component::class)) {
-                $this->queueLivewireComponentForRegistration($loginRouteAction);
+            if (is_subclass_of($resetPasswordRouteAction = $this->getResetPasswordRouteAction(), Component::class)) {
+                $this->queueLivewireComponentForRegistration($resetPasswordRouteAction);
+            }
+        }
+
+        if ($this->hasRegistration() && is_subclass_of($registrationRouteAction = $this->getRegistrationRouteAction(), Component::class)) {
+            $this->queueLivewireComponentForRegistration($registrationRouteAction);
+        }
+
+        foreach ($this->getResources() as $resource) {
+            foreach ($resource::getPages() as $pageRegistration) {
+                $this->queueLivewireComponentForRegistration($pageRegistration->getPage());
             }
 
-            if ($this->hasPasswordReset()) {
-                if (is_subclass_of($requestPasswordResetRouteAction = $this->getRequestPasswordResetRouteAction(), Component::class)) {
-                    $this->queueLivewireComponentForRegistration($requestPasswordResetRouteAction);
-                }
-
-                if (is_subclass_of($resetPasswordRouteAction = $this->getResetPasswordRouteAction(), Component::class)) {
-                    $this->queueLivewireComponentForRegistration($resetPasswordRouteAction);
-                }
-            }
-
-            if ($this->hasRegistration() && is_subclass_of($registrationRouteAction = $this->getRegistrationRouteAction(), Component::class)) {
-                $this->queueLivewireComponentForRegistration($registrationRouteAction);
-            }
-
-            foreach ($this->getResources() as $resource) {
-                foreach ($resource::getPages() as $pageRegistration) {
-                    $this->queueLivewireComponentForRegistration($pageRegistration->getPage());
-                }
-
-                foreach ($resource::getRelations() as $relation) {
-                    if ($relation instanceof RelationGroup) {
-                        foreach ($relation->getManagers() as $groupedRelation) {
-                            $this->queueLivewireComponentForRegistration($this->normalizeRelationManagerClass($groupedRelation));
-                        }
-
-                        continue;
+            foreach ($resource::getRelations() as $relation) {
+                if ($relation instanceof RelationGroup) {
+                    foreach ($relation->getManagers() as $groupedRelation) {
+                        $this->queueLivewireComponentForRegistration($this->normalizeRelationManagerClass($groupedRelation));
                     }
 
-                    $this->queueLivewireComponentForRegistration($this->normalizeRelationManagerClass($relation));
+                    continue;
                 }
 
-                foreach ($resource::getWidgets() as $widget) {
-                    $this->queueLivewireComponentForRegistration($this->normalizeWidgetClass($widget));
-                }
+                $this->queueLivewireComponentForRegistration($this->normalizeRelationManagerClass($relation));
+            }
+
+            foreach ($resource::getWidgets() as $widget) {
+                $this->queueLivewireComponentForRegistration($this->normalizeWidgetClass($widget));
             }
         }
 
         foreach ($this->livewireComponents as $componentName => $componentClass) {
             Livewire::component($componentName, $componentClass);
         }
+
+        $this->livewireComponents = [];
     }
 
     /**
@@ -548,25 +429,6 @@ trait HasComponents
         }
 
         return $manager;
-    }
-
-    protected function registerToCluster(string $component): void
-    {
-        if (! method_exists($component, 'getCluster')) {
-            return;
-        }
-
-        if (is_subclass_of($component, ResourcePage::class)) {
-            return;
-        }
-
-        $cluster = $component::getCluster();
-
-        if (blank($cluster)) {
-            return;
-        }
-
-        $this->clusteredComponents[$cluster][] = $component;
     }
 
     protected function queueLivewireComponentForRegistration(string $component): void
@@ -586,91 +448,5 @@ trait HasComponents
     public function hasReadOnlyRelationManagersOnResourceViewPagesByDefault(): bool
     {
         return (bool) $this->evaluate($this->hasReadOnlyRelationManagersOnResourceViewPagesByDefault);
-    }
-
-    /**
-     * @return array<string | int, array<class-string> | class-string>
-     */
-    public function getClusteredComponents(?string $cluster = null): array
-    {
-        if (blank($cluster)) {
-            return $this->clusteredComponents;
-        }
-
-        return $this->clusteredComponents[$cluster] ?? [];
-    }
-
-    public function hasCachedComponents(): bool
-    {
-        return $this->hasCachedComponents ??= ((! app()->runningInConsole()) && app(Filesystem::class)->exists($this->getComponentCachePath()));
-    }
-
-    public function cacheComponents(): void
-    {
-        $this->hasCachedComponents = false;
-
-        $cachePath = $this->getComponentCachePath();
-
-        $filesystem = app(Filesystem::class);
-
-        $filesystem->ensureDirectoryExists((string) str($cachePath)->beforeLast(DIRECTORY_SEPARATOR));
-
-        $filesystem->put(
-            $cachePath,
-            '<?php return ' . var_export([
-                'livewireComponents' => $this->livewireComponents,
-                'clusters' => $this->clusters,
-                'clusteredComponents' => $this->clusteredComponents,
-                'clusterDirectories' => $this->clusterDirectories,
-                'clusterNamespaces' => $this->clusterNamespaces,
-                'pages' => $this->pages,
-                'pageDirectories' => $this->pageDirectories,
-                'pageNamespaces' => $this->pageNamespaces,
-                'resources' => $this->resources,
-                'resourceDirectories' => $this->resourceDirectories,
-                'resourceNamespaces' => $this->resourceNamespaces,
-                'widgets' => $this->widgets,
-                'widgetDirectories' => $this->widgetDirectories,
-                'widgetNamespaces' => $this->widgetNamespaces,
-            ], true) . ';',
-        );
-
-        $this->hasCachedComponents = true;
-    }
-
-    public function restoreCachedComponents(): void
-    {
-        if (! $this->hasCachedComponents()) {
-            return;
-        }
-
-        $cache = require $this->getComponentCachePath();
-
-        $this->livewireComponents = $cache['livewireComponents'] ?? [];
-        $this->clusters = $cache['clusters'] ?? [];
-        $this->clusteredComponents = $cache['clusteredComponents'] ?? [];
-        $this->clusterDirectories = $cache['clusterDirectories'] ?? [];
-        $this->clusterNamespaces = $cache['clusterNamespaces'] ?? [];
-        $this->pages = $cache['pages'] ?? [];
-        $this->pageDirectories = $cache['pageDirectories'] ?? [];
-        $this->pageNamespaces = $cache['pageNamespaces'] ?? [];
-        $this->resources = $cache['resources'] ?? [];
-        $this->resourceDirectories = $cache['resourceDirectories'] ?? [];
-        $this->resourceNamespaces = $cache['resourceNamespaces'] ?? [];
-        $this->widgets = $cache['widgets'] ?? [];
-        $this->widgetDirectories = $cache['widgetDirectories'] ?? [];
-        $this->widgetNamespaces = $cache['widgetNamespaces'] ?? [];
-    }
-
-    public function clearCachedComponents(): void
-    {
-        app(Filesystem::class)->delete($this->getComponentCachePath());
-
-        $this->hasCachedComponents = false;
-    }
-
-    public function getComponentCachePath(): string
-    {
-        return (config('filament.cache_path') ?? base_path('bootstrap/cache/filament')) . DIRECTORY_SEPARATOR . 'panels' . DIRECTORY_SEPARATOR . "{$this->getId()}.php";
     }
 }

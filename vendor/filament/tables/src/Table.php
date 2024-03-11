@@ -93,15 +93,4 @@ class Table extends ViewComponent
             ]);
         });
     }
-
-    /**
-     * @return array<mixed>
-     */
-    protected function resolveDefaultClosureDependencyForEvaluationByName(string $parameterName): array
-    {
-        return match ($parameterName) {
-            'livewire' => [$this->getLivewire()],
-            default => parent::resolveDefaultClosureDependencyForEvaluationByName($parameterName),
-        };
-    }
 }

@@ -8,7 +8,7 @@ return [
 
         'modal' => [
 
-            'heading' => ':label 削除',
+            'heading' => ':label削除',
 
             'actions' => [
 

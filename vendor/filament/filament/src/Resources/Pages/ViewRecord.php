@@ -14,7 +14,6 @@ use Filament\Pages\Concerns\InteractsWithFormActions;
 use Filament\Support\Facades\FilamentIcon;
 use Illuminate\Contracts\Support\Htmlable;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Arr;
 
 /**
  * @property Form $form
@@ -22,9 +21,7 @@ use Illuminate\Support\Arr;
 class ViewRecord extends Page
 {
     use Concerns\HasRelationManagers;
-    use Concerns\InteractsWithRecord {
-        configureAction as configureActionRecord;
-    }
+    use Concerns\InteractsWithRecord;
     use InteractsWithFormActions;
 
     /**
@@ -67,6 +64,8 @@ class ViewRecord extends Page
 
     protected function authorizeAccess(): void
     {
+        static::authorizeResourceAccess();
+
         abort_unless(static::getResource()::canView($this->getRecord()), 403);
     }
 
@@ -77,23 +76,22 @@ class ViewRecord extends Page
 
     protected function fillForm(): void
     {
+        $data = $this->getRecord()->attributesToArray();
+
         /** @internal Read the DocBlock above the following method. */
-        $this->fillFormWithDataAndCallHooks($this->getRecord());
+        $this->fillFormWithDataAndCallHooks($data);
     }
 
     /**
      * @internal Never override or call this method. If you completely override `fillForm()`, copy the contents of this method into your override.
      *
-     * @param  array<string, mixed>  $extraData
+     * @param  array<string, mixed>  $data
      */
-    protected function fillFormWithDataAndCallHooks(Model $record, array $extraData = []): void
+    protected function fillFormWithDataAndCallHooks(array $data): void
     {
         $this->callHook('beforeFill');
 
-        $data = $this->mutateFormDataBeforeFill([
-            ...$record->attributesToArray(),
-            ...$extraData,
-        ]);
+        $data = $this->mutateFormDataBeforeFill($data);
 
         $this->form->fill($data);
 
@@ -107,7 +105,7 @@ class ViewRecord extends Page
     {
         $this->data = [
             ...$this->data,
-            ...Arr::only($this->getRecord()->attributesToArray(), $attributes),
+            ...$this->getRecord()->only($attributes),
         ];
     }
 
@@ -122,7 +120,9 @@ class ViewRecord extends Page
 
     protected function configureAction(Action $action): void
     {
-        $this->configureActionRecord($action);
+        $action
+            ->record($this->getRecord())
+            ->recordTitle($this->getRecordTitle());
 
         match (true) {
             $action instanceof DeleteAction => $this->configureDeleteAction($action),
@@ -227,6 +227,36 @@ class ViewRecord extends Page
             ->record($this->getRecord())
             ->columns($this->hasInlineLabels() ? 1 : 2)
             ->inlineLabel($this->hasInlineLabels());
+    }
+
+    protected function getMountedActionFormModel(): Model
+    {
+        return $this->getRecord();
+    }
+
+    /**
+     * @return array<string, mixed>
+     */
+    public function getWidgetData(): array
+    {
+        return [
+            'record' => $this->getRecord(),
+        ];
+    }
+
+    /**
+     * @return array<string, mixed>
+     */
+    public function getSubNavigationParameters(): array
+    {
+        return [
+            'record' => $this->getRecord(),
+        ];
+    }
+
+    public function getSubNavigation(): array
+    {
+        return static::getResource()::getRecordSubNavigation($this);
     }
 
     public static function shouldRegisterNavigation(array $parameters = []): bool

@@ -250,15 +250,6 @@ return [
 
     ],
 
-    'radio' => [
-
-        'boolean' => [
-            'true' => 'Ja',
-            'false' => 'Nee',
-        ],
-
-    ],
-
     'repeater' => [
 
         'actions' => [
@@ -417,31 +408,6 @@ return [
 
     'tags_input' => [
         'placeholder' => 'Nieuwe tag',
-    ],
-
-    'text_input' => [
-
-        'actions' => [
-
-            'hide_password' => [
-                'label' => 'Wachtwoord verbergen',
-            ],
-
-            'show_password' => [
-                'label' => 'Wachtwoord tonen',
-            ],
-
-        ],
-
-    ],
-
-    'toggle_buttons' => [
-
-        'boolean' => [
-            'true' => 'Ja',
-            'false' => 'Nee',
-        ],
-
     ],
 
     'wizard' => [

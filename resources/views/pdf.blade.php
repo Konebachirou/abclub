@@ -94,7 +94,7 @@
                 </tr>
                 <tr>
                     <th>Choisissez une option de la liste</th>
-                    <td>{{ $record->Choisissez_option_liste }}</td>
+                    <td>{{ $record->activite }}</td>
                 </tr>
                 <tr>
                     <th>Nom de Famille</th>
@@ -147,10 +147,6 @@
                 <tr>
                     <th>Êtes-vous Associé</th>
                     <td>{{ $record->etes_vous_associe }}</td>
-                </tr>
-                <tr>
-                    <th>Activité</th>
-                    <td>{{ $record->activite }}</td>
                 </tr>
                 <tr>
                     <th>Décrivez Votre Activité</th>

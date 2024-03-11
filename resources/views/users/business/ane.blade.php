@@ -312,8 +312,8 @@ professionnels.</p>
     </div>
 
     <!-- Start Call To Action  -->
-    <!-- <div class="rbt-callto-action-area">
-        <div class="rbt-callto-action rbt-cta-default style-4 variation-2 bg-gradient-6 mt--75">
+    <div class="rbt-callto-action-area">
+        <div class="rbt-callto-action rbt-cta-default style-4 variation-2 bg-gradient-6 mt--40">
             @if (Session::has('success'))
                 <div class="rbt-btn btn-gradient">{{ Session::get('success') }}</div>
             @endif
@@ -352,7 +352,7 @@ professionnels.</p>
                 </div>
             </div>
         </div>
-    </div> -->
+    </div>
     @if(count($winners))
     <!-- End Call To Action  -->
     <div class="rbt-team-area bg-color-white" style="margin-top: 5%;">

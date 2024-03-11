@@ -53,11 +53,7 @@ class SelectFilter extends BaseFilter
                             $filter->getRelationship() instanceof \Znck\Eloquent\Relations\BelongsToThrough,
                             fn (Builder $query) => $query->distinct(),
                         )
-                        ->when(
-                            $this->getRelationshipKey(),
-                            fn (Builder $query) => $query->whereIn($this->getRelationshipKey(), $state['values']),
-                            fn (Builder $query) => $query->whereKey($state['values'])
-                        )
+                        ->whereKey($state['values'])
                         ->pluck($relationshipQuery->qualifyColumn($filter->getRelationshipTitleAttribute()))
                         ->all();
                 } else {
@@ -85,11 +81,7 @@ class SelectFilter extends BaseFilter
 
             if ($filter->queriesRelationships()) {
                 $label = $filter->getRelationshipQuery()
-                    ->when(
-                        $this->getRelationshipKey(),
-                        fn (Builder $query) => $query->where($this->getRelationshipKey(), $state['value']),
-                        fn (Builder $query) => $query->whereKey($state['value'])
-                    )
+                    ->whereKey($state['value'])
                     ->first()
                     ?->getAttributeValue($filter->getRelationshipTitleAttribute());
             } else {
@@ -112,13 +104,6 @@ class SelectFilter extends BaseFilter
         $this->resetState(['value' => null]);
     }
 
-    public function getActiveCount(): int
-    {
-        $state = $this->getState();
-
-        return filled($this->isMultiple() ? ($state['values'] ?? []) : ($state['value'] ?? null)) ? 1 : 0;
-    }
-
     /**
      * @param  array<string, mixed>  $data
      */
@@ -138,7 +123,7 @@ class SelectFilter extends BaseFilter
             $data['values'] ?? null :
             $data['value'] ?? null;
 
-        if (blank(Arr::first(
+        if (! count(array_filter(
             Arr::wrap($values),
             fn ($value) => filled($value),
         ))) {
@@ -154,18 +139,11 @@ class SelectFilter extends BaseFilter
 
         return $query->whereHas(
             $this->getRelationshipName(),
-            function (Builder $query) use ($isMultiple, $values) {
+            function (Builder $query) use ($values) {
                 if ($this->modifyRelationshipQueryUsing) {
                     $query = $this->evaluate($this->modifyRelationshipQueryUsing, [
                         'query' => $query,
                     ]) ?? $query;
-                }
-
-                if ($relationshipKey = $this->getRelationshipKey()) {
-                    return $query->{$isMultiple ? 'whereIn' : 'where'}(
-                        $relationshipKey,
-                        $values,
-                    );
                 }
 
                 return $query->whereKey($values);

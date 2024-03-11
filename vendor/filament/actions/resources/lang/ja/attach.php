@@ -4,11 +4,11 @@ return [
 
     'single' => [
 
-        'label' => '紐付ける',
+        'label' => '追加',
 
         'modal' => [
 
-            'heading' => ':labelを紐付ける',
+            'heading' => ':labelの追加',
 
             'fields' => [
 
@@ -21,11 +21,11 @@ return [
             'actions' => [
 
                 'attach' => [
-                    'label' => '紐付ける',
+                    'label' => '追加',
                 ],
 
                 'attach_another' => [
-                    'label' => '紐付けして、続けて紐付ける',
+                    'label' => '追加して、続けて追加',
                 ],
 
             ],
@@ -35,7 +35,7 @@ return [
         'notifications' => [
 
             'attached' => [
-                'title' => '紐付けしました',
+                'title' => '追加しました',
             ],
 
         ],

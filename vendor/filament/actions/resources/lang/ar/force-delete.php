@@ -23,7 +23,7 @@ return [
         'notifications' => [
 
             'deleted' => [
-                'title' => 'تم الحذف',
+                'title' => 'تم حذف السجل',
             ],
 
         ],
@@ -51,7 +51,7 @@ return [
         'notifications' => [
 
             'deleted' => [
-                'title' => 'تم الحذف',
+                'title' => 'تم حذف السجلات',
             ],
 
         ],

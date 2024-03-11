@@ -17,8 +17,6 @@
     x-init="$nextTick(() => open())"
     x-on:click.away="close()"
     x-on:keydown.escape.window="close()"
-    x-on:keydown.up.prevent="$focus.wrap().previous()"
-    x-on:keydown.down.prevent="$focus.wrap().next()"
     x-on:open-global-search-results.window="$nextTick(() => open())"
     x-show="isOpen"
     x-transition:enter-start="opacity-0"

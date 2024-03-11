@@ -40,7 +40,6 @@ export default function fileUploadFormComponent({
     imageResizeUpscale,
     isAvatar,
     hasImageEditor,
-    hasCircleCropper,
     canEditSvgs,
     isSvgEditingConfirmed,
     confirmSvgEditingMessage,
@@ -50,10 +49,8 @@ export default function fileUploadFormComponent({
     isOpenable,
     isPreviewable,
     isReorderable,
-    itemPanelAspectRatio,
     loadingIndicatorPosition,
     locale,
-    maxFiles,
     maxSize,
     minSize,
     panelAspectRatio,
@@ -67,7 +64,6 @@ export default function fileUploadFormComponent({
     shouldTransformImage,
     state,
     uploadButtonPosition,
-    uploadingMessage,
     uploadProgressIndicatorPosition,
     uploadUsing,
 }) {
@@ -115,12 +111,10 @@ export default function fileUploadFormComponent({
                 imageResizeUpscale,
                 itemInsertLocation: shouldAppendFiles ? 'after' : 'before',
                 ...(placeholder && { labelIdle: placeholder }),
-                maxFiles,
                 maxFileSize: maxSize,
                 minFileSize: minSize,
                 styleButtonProcessItemPosition: uploadButtonPosition,
                 styleButtonRemoveItemPosition: removeUploadedFileButtonPosition,
-                styleItemPanelAspectRatio: itemPanelAspectRatio,
                 styleLoadIndicatorPosition: loadingIndicatorPosition,
                 stylePanelAspectRatio: panelAspectRatio,
                 stylePanelLayout: panelLayout,
@@ -205,10 +199,6 @@ export default function fileUploadFormComponent({
                     return
                 }
 
-                if (this.state === undefined) {
-                    return
-                }
-
                 // We don't want to overwrite the files that are already in the input, if they haven't been saved yet.
                 if (
                     this.state !== null &&
@@ -276,9 +266,7 @@ export default function fileUploadFormComponent({
                     return
                 }
 
-                this.dispatchFormEvent('form-processing-started', {
-                    message: uploadingMessage,
-                })
+                this.dispatchFormEvent('file-upload-started')
             })
 
             const handleFileProcessing = async () => {
@@ -296,7 +284,7 @@ export default function fileUploadFormComponent({
                     return
                 }
 
-                this.dispatchFormEvent('form-processing-finished')
+                this.dispatchFormEvent('file-upload-finished')
             }
 
             this.pond.on('processfile', handleFileProcessing)
@@ -313,12 +301,11 @@ export default function fileUploadFormComponent({
             this.pond = null
         },
 
-        dispatchFormEvent: function (name, detail = {}) {
+        dispatchFormEvent: function (name) {
             this.$el.closest('form')?.dispatchEvent(
                 new CustomEvent(name, {
                     composed: true,
                     cancelable: true,
-                    detail,
                 }),
             )
         },
@@ -352,10 +339,7 @@ export default function fileUploadFormComponent({
                     options: {
                         type: 'local',
                         ...(!uploadedFile.type ||
-                        (isPreviewable &&
-                            (/^audio/.test(uploadedFile.type) ||
-                                /^image/.test(uploadedFile.type) ||
-                                /^video/.test(uploadedFile.type)))
+                        /^image/.test(uploadedFile.type)
                             ? {}
                             : {
                                   file: {
@@ -584,33 +568,6 @@ export default function fileUploadFormComponent({
             })
         },
 
-        getRoundedCanvas: function (sourceCanvas) {
-            let width = sourceCanvas.width
-            let height = sourceCanvas.height
-
-            let canvas = document.createElement('canvas')
-            canvas.width = width
-            canvas.height = height
-
-            let context = canvas.getContext('2d')
-            context.imageSmoothingEnabled = true
-            context.drawImage(sourceCanvas, 0, 0, width, height)
-            context.globalCompositeOperation = 'destination-in'
-            context.beginPath()
-            context.ellipse(
-                width / 2,
-                height / 2,
-                width / 2,
-                height / 2,
-                0,
-                0,
-                2 * Math.PI,
-            )
-            context.fill()
-
-            return canvas
-        },
-
         saveEditor: function () {
             if (isDisabled) {
                 return
@@ -620,20 +577,15 @@ export default function fileUploadFormComponent({
                 return
             }
 
-            let croppedCanvas = this.editor.getCroppedCanvas({
-                fillColor: imageEditorEmptyFillColor ?? 'transparent',
-                height: imageResizeTargetHeight,
-                imageSmoothingEnabled: true,
-                imageSmoothingQuality: 'high',
-                width: imageResizeTargetWidth,
-            })
-
-            if (hasCircleCropper) {
-                croppedCanvas = this.getRoundedCanvas(croppedCanvas)
-            }
-
-            croppedCanvas.toBlob(
-                (croppedImage) => {
+            this.editor
+                .getCroppedCanvas({
+                    fillColor: imageEditorEmptyFillColor ?? 'transparent',
+                    height: imageResizeTargetHeight,
+                    imageSmoothingEnabled: true,
+                    imageSmoothingQuality: 'high',
+                    width: imageResizeTargetWidth,
+                })
+                .toBlob((croppedImage) => {
                     if (isMultiple) {
                         this.pond.removeFile(
                             this.pond
@@ -685,8 +637,7 @@ export default function fileUploadFormComponent({
                                     {
                                         type:
                                             this.editingFile.type ===
-                                                'image/svg+xml' ||
-                                            hasCircleCropper
+                                            'image/svg+xml'
                                                 ? 'image/png'
                                                 : this.editingFile.type,
                                         lastModified: new Date().getTime(),
@@ -700,9 +651,7 @@ export default function fileUploadFormComponent({
                                 this.closeEditor()
                             })
                     })
-                },
-                hasCircleCropper ? 'image/png' : this.editingFile.type,
-            )
+                }, this.editingFile.type)
         },
 
         destroyEditor: function () {

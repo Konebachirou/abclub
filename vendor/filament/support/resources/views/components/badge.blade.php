@@ -17,7 +17,7 @@
     'keyBindings' => null,
     'loadingIndicator' => true,
     'size' => ActionSize::Medium,
-    'tag' => 'span',
+    'tag' => 'div',
     'target' => null,
     'tooltip' => null,
     'type' => 'button',
@@ -25,15 +25,15 @@
 
 @php
     if (! $iconPosition instanceof IconPosition) {
-        $iconPosition = filled($iconPosition) ? (IconPosition::tryFrom($iconPosition) ?? $iconPosition) : null;
+        $iconPosition = $iconPosition ? IconPosition::tryFrom($iconPosition) : null;
     }
 
     if (! $size instanceof ActionSize) {
-        $size = filled($size) ? (ActionSize::tryFrom($size) ?? $size) : null;
+        $size = ActionSize::tryFrom($size) ?? $size;
     }
 
     if (! $iconSize instanceof IconSize) {
-        $iconSize = filled($iconSize) ? (IconSize::tryFrom($iconSize) ?? $iconSize) : null;
+        $iconSize = IconSize::tryFrom($iconSize) ?? $iconSize;
     }
 
     $isDeletable = count($deleteButton?->attributes->getAttributes() ?? []) > 0;
@@ -90,7 +90,7 @@
     {{
         $attributes
             ->merge([
-                'disabled' => $disabled,
+                'disabled' => $tag === 'button' ? $disabled : null,
                 'type' => $tag === 'button' ? $type : null,
                 'wire:loading.attr' => $tag === 'button' ? 'disabled' : null,
                 'wire:target' => ($hasLoadingIndicator && $loadingIndicatorTarget) ? $loadingIndicatorTarget : null,
@@ -170,7 +170,7 @@
                     ->attributes
                     ->except(['label'])
                     ->class([
-                        'fi-badge-delete-button -my-1 -me-2 -ms-1 flex items-center justify-center p-1 outline-none transition duration-75',
+                        '-my-1 -me-2 -ms-1 flex items-center justify-center p-1 outline-none transition duration-75',
                         match ($color) {
                             'gray' => 'text-gray-700/50 hover:text-gray-700/75 focus-visible:text-gray-700/75 dark:text-gray-300/50 dark:hover:text-gray-300/75 dark:focus-visible:text-gray-300/75',
                             default => 'text-custom-700/50 hover:text-custom-700/75 focus-visible:text-custom-700/75 dark:text-custom-300/50 dark:hover:text-custom-300/75 dark:focus-visible:text-custom-300/75',

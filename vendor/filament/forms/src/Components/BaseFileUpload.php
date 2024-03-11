@@ -18,8 +18,6 @@ use Throwable;
 
 class BaseFileUpload extends Field
 {
-    use Concerns\HasUploadingMessage;
-
     /**
      * @var array<string> | Arrayable | Closure | null
      */
@@ -190,11 +188,11 @@ class BaseFileUpload extends Field
 
             if (
                 $component->shouldMoveFiles() &&
-                ($component->getDiskName() == (fn (): string => $this->disk)->call($file))
+                ($component->getDiskName() == invade($file)->disk) /** @phpstan-ignore-line */
             ) {
                 $newPath = trim($component->getDirectory() . '/' . $component->getUploadedFileNameForStorage($file), '/');
 
-                $component->getDisk()->move((fn (): string => $this->path)->call($file), $newPath);
+                $component->getDisk()->move($file->path(), $newPath);
 
                 return $newPath;
             }
@@ -209,14 +207,18 @@ class BaseFileUpload extends Field
         });
     }
 
-    protected function callAfterStateUpdatedHook(Closure $hook): void
+    public function callAfterStateUpdated(): static
     {
-        $state = $this->getState();
+        if ($callback = $this->afterStateUpdated) {
+            $state = $this->getState();
 
-        $this->evaluate($hook, [
-            'state' => $this->isMultiple() ? $state : Arr::first($state ?? []),
-            'old' => $this->isMultiple() ? $this->getOldState() : Arr::first($this->getOldState() ?? []),
-        ]);
+            $this->evaluate($callback, [
+                'state' => $this->isMultiple() ? $state : Arr::first($state ?? []),
+                'old' => $this->isMultiple() ? $this->getOldState() : Arr::first($this->getOldState() ?? []),
+            ]);
+        }
+
+        return $this;
     }
 
     /**

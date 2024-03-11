@@ -3,7 +3,7 @@
 return [
 
     'trigger' => [
-        'label' => 'Acções',
+        'label' => 'Ações',
     ],
 
 ];

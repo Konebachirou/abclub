@@ -1,11 +1,13 @@
 @php
     use Filament\Support\Facades\FilamentView;
-
-    $id = $getId();
-    $statePath = $getStatePath();
 @endphp
 
 <x-dynamic-component :component="$getFieldWrapperView()" :field="$field">
+    @php
+        $id = $getId();
+        $statePath = $getStatePath();
+    @endphp
+
     @if ($isDisabled())
         <div
             x-data="{
@@ -15,12 +17,16 @@
             class="fi-fo-rich-editor fi-disabled prose block w-full max-w-none rounded-lg bg-gray-50 px-3 py-3 text-gray-500 shadow-sm ring-1 ring-gray-950/10 dark:prose-invert dark:bg-transparent dark:text-gray-400 dark:ring-white/10 sm:text-sm"
         ></div>
     @else
-        <x-filament::input.wrapper
-            :valid="! $errors->has($statePath)"
-            :attributes="
-                \Filament\Support\prepare_inherited_attributes($getExtraAttributeBag())
-                    ->class(['fi-fo-rich-editor max-w-full overflow-x-auto'])
-            "
+        <div
+            {{
+                $attributes
+                    ->merge($getExtraAttributes(), escape: false)
+                    ->class([
+                        'fi-fo-rich-editor max-w-full overflow-x-auto rounded-lg bg-white shadow-sm ring-1 transition duration-75 focus-within:ring-2 dark:bg-white/5',
+                        'ring-gray-950/10 focus-within:ring-primary-600 dark:ring-white/20 dark:focus-within:ring-primary-500' => ! $errors->has($statePath),
+                        'ring-danger-600 focus-within:ring-danger-600 dark:ring-danger-500 dark:focus-within:ring-danger-500' => $errors->has($statePath),
+                    ])
+            }}
         >
             <div
                 @if (FilamentView::hasSpaMode())
@@ -484,6 +490,6 @@
                     }}
                 ></trix-editor>
             </div>
-        </x-filament::input.wrapper>
+        </div>
     @endif
 </x-dynamic-component>

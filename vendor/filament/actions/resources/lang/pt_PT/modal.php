@@ -2,7 +2,7 @@
 
 return [
 
-    'confirmation' => 'Tem a certeza que deseja prosseguir?',
+    'confirmation' => 'Tem a certeza que deseja eliminar este item?',
 
     'actions' => [
 
@@ -15,7 +15,7 @@ return [
         ],
 
         'submit' => [
-            'label' => 'Submeter',
+            'label' => 'Enviar',
         ],
 
     ],

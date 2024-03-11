@@ -14,11 +14,7 @@
     $statePath = $getStatePath();
 @endphp
 
-<x-dynamic-component
-    :component="$getFieldWrapperView()"
-    :field="$field"
-    :inline-label-vertical-alignment="\Filament\Support\Enums\VerticalAlignment::Center"
->
+<x-dynamic-component :component="$getFieldWrapperView()" :field="$field">
     <x-filament::input.wrapper
         :disabled="$isDisabled"
         :inline-prefix="$isPrefixInline"
@@ -32,10 +28,8 @@
         :suffix-icon="$suffixIcon"
         :suffix-icon-color="$getSuffixIconColor()"
         :valid="! $errors->has($statePath)"
-        :attributes="
-            \Filament\Support\prepare_inherited_attributes($getExtraAttributeBag())
-                ->class(['fi-fo-select'])
-        "
+        class="fi-fo-select"
+        :attributes="\Filament\Support\prepare_inherited_attributes($getExtraAttributeBag())"
     >
         @if ((! ($isSearchable() || $isMultiple()) && $isNative()))
             <x-filament::input.select
@@ -143,6 +137,7 @@
                 x-on:keydown.esc="select.dropdown.isActive && $event.stopPropagation()"
                 {{
                     $attributes
+                        ->merge($getExtraAttributes(), escape: false)
                         ->merge($getExtraAlpineAttributes(), escape: false)
                         ->class([
                             '[&_.choices\_\_inner]:ps-0' => $isPrefixInline && (count($prefixActions) || $prefixIcon || filled($prefixLabel)),

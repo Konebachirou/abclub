@@ -250,15 +250,6 @@ return [
 
     ],
 
-    'radio' => [
-
-        'boolean' => [
-            'true' => 'Yes',
-            'false' => 'No',
-        ],
-
-    ],
-
     'repeater' => [
 
         'actions' => [
@@ -419,31 +410,6 @@ return [
         'placeholder' => 'New tag',
     ],
 
-    'text_input' => [
-
-        'actions' => [
-
-            'hide_password' => [
-                'label' => 'Hide password',
-            ],
-
-            'show_password' => [
-                'label' => 'Show password',
-            ],
-
-        ],
-
-    ],
-
-    'toggle_buttons' => [
-
-        'boolean' => [
-            'true' => 'Yes',
-            'false' => 'No',
-        ],
-
-    ],
-
     'wizard' => [
 
         'actions' => [
@@ -458,6 +424,11 @@ return [
 
         ],
 
+    ],
+    
+    'radio' => [
+        'true' => 'Yes',
+        'false' => 'No',
     ],
 
 ];
