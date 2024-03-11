@@ -2,7 +2,7 @@
 
 return [
 
-    'title' => 'Iniciar sessão',
+    'title' => 'Login',
 
     'heading' => 'Iniciar sessão',
 
@@ -14,7 +14,7 @@ return [
         ],
 
         'request_password_reset' => [
-            'label' => 'Esqueceu-se da palavra-passe?',
+            'label' => 'Recuperar password',
         ],
 
     ],
@@ -22,11 +22,11 @@ return [
     'form' => [
 
         'email' => [
-            'label' => 'Endereço de e-mail',
+            'label' => 'E-mail',
         ],
 
         'password' => [
-            'label' => 'Palavra-passe',
+            'label' => 'Senha',
         ],
 
         'remember' => [
@@ -36,7 +36,7 @@ return [
         'actions' => [
 
             'authenticate' => [
-                'label' => 'Iniciar sessão',
+                'label' => 'Login',
             ],
 
         ],
@@ -52,8 +52,8 @@ return [
     'notifications' => [
 
         'throttled' => [
-            'title' => 'Muitas tentativas de início de sessão.',
-            'body' => 'Por favor, tente novamente em :seconds segundos.',
+            'title' => 'Muitas tentativas de login.',
+            'body' => 'Por favor, aguarde :seconds segundos para tentar novamente.',
         ],
 
     ],

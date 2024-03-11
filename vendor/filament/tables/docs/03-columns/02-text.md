@@ -17,7 +17,7 @@ TextColumn::make('title')
 
 ## Displaying as a "badge"
 
-By default, the text is quite plain and has no background color. You can make it appear as a "badge" instead using the `badge()` method. A great use case for this is with statuses, where may want to display a badge with a [color](#customizing-the-color) that matches the status:
+By default, text is quite plain and has no background color. You can make it appear as a "badge" instead using the `badge()` method. A great use case for this is with statuses, where may want to display a badge with a [color](#customizing-the-color) that matches the status:
 
 ```php
 use Filament\Tables\Columns\TextColumn;
@@ -84,39 +84,17 @@ TextColumn::make('created_at')
 
 ## Number formatting
 
-The `numeric()` method allows you to format an entry as a number:
+The `numeric()` method allows you to format a column as a number, using PHP's `number_format()`:
 
 ```php
 use Filament\Tables\Columns\TextColumn;
 
 TextColumn::make('stock')
-    ->numeric()
-```
-
-If you would like to customize the number of decimal places used to format the number with, you can use the `decimalPlaces` argument:
-
-```php
-use Filament\Tables\Columns\TextColumn;
-
-TextColumn::make('stock')
-    ->numeric(decimalPlaces: 0)
-```
-
-By default, your app's locale will be used to format the number suitably. If you would like to customize the locale used, you can pass it to the `locale` argument:
-
-```php
-use Filament\Tables\Columns\TextColumn;
-
-TextColumn::make('stock')
-    ->numeric(locale: 'nl')
-```
-
-Alternatively, you can set the default locale used across your app using the `Number::useLocale()` method in the `boot()` method of a service provider:
-
-```php
-use Illuminate\Support\Number;
-
-Number::useLocale('nl');
+    ->numeric(
+        decimalPlaces: 0,
+        decimalSeparator: '.',
+        thousandsSeparator: ',',
+    )
 ```
 
 ## Currency formatting
@@ -128,32 +106,6 @@ use Filament\Tables\Columns\TextColumn;
 
 TextColumn::make('price')
     ->money('EUR')
-```
-
-There is also a `divideBy` argument for `money()` that allows you to divide the original value by a number before formatting it. This could be useful if your database stores the price in cents, for example:
-
-```php
-use Filament\Tables\Columns\TextColumn;
-
-TextColumn::make('price')
-    ->money('EUR', divideBy: 100)
-```
-
-By default, your app's locale will be used to format the money suitably. If you would like to customize the locale used, you can pass it to the `locale` argument:
-
-```php
-use Filament\Tables\Columns\TextColumn;
-
-TextColumn::make('price')
-    ->money('EUR', locale: 'nl')
-```
-
-Alternatively, you can set the default locale used across your app using the `Number::useLocale()` method in the `boot()` method of a service provider:
-
-```php
-use Illuminate\Support\Number;
-
-Number::useLocale('nl');
 ```
 
 ## Limiting text length
@@ -195,29 +147,6 @@ use Filament\Tables\Columns\TextColumn;
 
 TextColumn::make('description')
     ->words(10)
-```
-
-## Limiting text to a specific number of lines
-
-You may want to limit text to a specific number of lines instead of limiting it to a fixed length. Clamping text to a number of lines is useful in responsive interfaces where you want to ensure a consistent experience across all screen sizes. This can be achieved using the `lineClamp()` method:
-
-```php
-use Filament\Tables\Columns\TextColumn;
-
-TextColumn::make('description')
-    ->lineClamp(2)
-```
-
-## Adding a prefix or suffix
-
-You may add a prefix or suffix to the cell's value:
-
-```php
-use Filament\Tables\Columns\TextColumn;
-
-TextColumn::make('domain')
-    ->prefix('https://')
-    ->suffix('.com')
 ```
 
 ## Wrapping content
@@ -266,21 +195,6 @@ TextColumn::make('authors.name')
     ->limitList(3)
 ```
 
-#### Expanding the limited list
-
-You can allow the limited items to be expanded and collapsed, using the `expandableLimitedList()` method:
-
-```php
-use Filament\Tables\Columns\TextColumn;
-
-TextColumn::make('authors.name')
-    ->listWithLineBreaks()
-    ->limitList(3)
-    ->expandableLimitedList()
-```
-
-Please note that this is only a feature for `listWithLineBreaks()` or `bulleted()`, where each item is on its own line.
-
 ### Using a list separator
 
 If you want to "explode" a text string from your model into multiple list items, you can do so with the `separator()` method. This is useful for displaying comma-separated tags [as badges](#displaying-as-a-badge), for example:
@@ -302,29 +216,6 @@ use Filament\Tables\Columns\TextColumn;
 
 TextColumn::make('description')
     ->html()
-```
-
-If you use this method, then the HTML will be sanitized to remove any potentially unsafe content before it is rendered. If you'd like to opt out of this behavior, you can wrap the HTML in an `HtmlString` object by formatting it:
-
-```php
-use Filament\Tables\Columns\TextColumn;
-use Illuminate\Support\HtmlString;
-
-TextColumn::make('description')
-    ->formatStateUsing(fn (string $state): HtmlString => new HtmlString($state))
-```
-
-Or, you can return a `view()` object from the `formatStateUsing()` method, which will also not be sanitized:
-
-```php
-use Filament\Tables\Columns\TextColumn;
-use Illuminate\Contracts\View\View;
-
-TextColumn::make('description')
-    ->formatStateUsing(fn (string $state): View => view(
-        'filament.tables.columns.description-entry-content',
-        ['state' => $state],
-    ))
 ```
 
 ### Rendering Markdown as HTML

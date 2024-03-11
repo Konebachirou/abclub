@@ -86,8 +86,6 @@ export default function markdownEditorFormComponent({
     isLiveDebounced,
     isLiveOnBlur,
     liveDebounce,
-    maxHeight,
-    minHeight,
     placeholder,
     state,
     translations,
@@ -113,8 +111,7 @@ export default function markdownEditorFormComponent({
                 imageAccept: 'image/png, image/jpeg, image/gif, image/avif',
                 imageUploadFunction: uploadFileAttachmentUsing,
                 initialValue: this.state ?? '',
-                maxHeight,
-                minHeight,
+                minHeight: '11.25rem',
                 placeholder,
                 previewImagesInEditor: true,
                 spellChecker: false,
@@ -207,7 +204,11 @@ export default function markdownEditorFormComponent({
                     return
                 }
 
-                Alpine.raw(this.editor).value(this.state ?? '')
+                this.editor.value(this.state ?? '')
+
+                // There is an issue with the editor not rendering the content
+                // until after it is focused. All solutions online have been
+                // attempted and none have worked so far.
             })
         },
 

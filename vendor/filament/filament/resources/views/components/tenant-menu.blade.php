@@ -26,7 +26,7 @@
     $items = \Illuminate\Support\Arr::except($items, ['billing', 'profile', 'register']);
 @endphp
 
-{{ \Filament\Support\Facades\FilamentView::renderHook(\Filament\View\PanelsRenderHook::TENANT_MENU_BEFORE) }}
+{{ \Filament\Support\Facades\FilamentView::renderHook('panels::tenant-menu.before') }}
 
 <x-filament::dropdown
     placement="bottom-start"
@@ -116,18 +116,12 @@
     @if (count($items))
         <x-filament::dropdown.list>
             @foreach ($items as $item)
-                @php
-                    $itemPostAction = $item->getPostAction();
-                @endphp
-
                 <x-filament::dropdown.list.item
-                    :action="$itemPostAction"
                     :color="$item->getColor()"
                     :href="$item->getUrl()"
-                    :icon="$item->getIcon()"
-                    :method="filled($itemPostAction) ? 'post' : null"
-                    :tag="filled($itemPostAction) ? 'form' : 'a'"
                     :target="$item->shouldOpenUrlInNewTab() ? '_blank' : null"
+                    :icon="$item->getIcon()"
+                    tag="a"
                 >
                     {{ $item->getLabel() }}
                 </x-filament::dropdown.list.item>
@@ -164,4 +158,4 @@
     @endif
 </x-filament::dropdown>
 
-{{ \Filament\Support\Facades\FilamentView::renderHook(\Filament\View\PanelsRenderHook::TENANT_MENU_AFTER) }}
+{{ \Filament\Support\Facades\FilamentView::renderHook('panels::tenant-menu.after') }}

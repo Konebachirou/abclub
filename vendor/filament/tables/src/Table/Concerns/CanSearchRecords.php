@@ -15,10 +15,6 @@ trait CanSearchRecords
 
     protected string | Closure | null $searchPlaceholder = null;
 
-    protected ?string $searchDebounce = null;
-
-    protected bool | Closure $isSearchOnBlur = false;
-
     public function persistSearchInSession(bool | Closure $condition = true): static
     {
         $this->persistsSearchInSession = $condition;
@@ -36,13 +32,6 @@ trait CanSearchRecords
     public function searchable(?bool $condition = true): static
     {
         $this->isSearchable = $condition;
-
-        return $this;
-    }
-
-    public function searchDebounce(?string $debounce): static
-    {
-        $this->searchDebounce = $debounce;
 
         return $this;
     }
@@ -115,22 +104,5 @@ trait CanSearchRecords
     public function getColumnSearchIndicators(): array
     {
         return $this->getLivewire()->getTableColumnSearchIndicators();
-    }
-
-    public function getSearchDebounce(): string
-    {
-        return $this->searchDebounce ?? '500ms';
-    }
-
-    public function searchOnBlur(bool | Closure $condition = true): static
-    {
-        $this->isSearchOnBlur = $condition;
-
-        return $this;
-    }
-
-    public function isSearchOnBlur(): bool
-    {
-        return (bool) $this->evaluate($this->isSearchOnBlur);
     }
 }

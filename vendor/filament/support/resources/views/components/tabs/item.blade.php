@@ -7,12 +7,10 @@
     'alpineActive' => null,
     'badge' => null,
     'badgeColor' => null,
-    'badgeTooltip' => null,
     'href' => null,
     'icon' => null,
     'iconColor' => 'gray',
     'iconPosition' => IconPosition::Before,
-    'spaMode' => null,
     'tag' => 'button',
     'target' => null,
     'type' => 'button',
@@ -20,7 +18,7 @@
 
 @php
     if (! $iconPosition instanceof IconPosition) {
-        $iconPosition = filled($iconPosition) ? (IconPosition::tryFrom($iconPosition) ?? $iconPosition) : null;
+        $iconPosition = $iconPosition ? IconPosition::tryFrom($iconPosition) : null;
     }
 
     $hasAlpineActiveClasses = filled($alpineActive);
@@ -45,7 +43,7 @@
     @if ($tag === 'button')
         type="{{ $type }}"
     @elseif ($tag === 'a')
-        {{ \Filament\Support\generate_href_html($href, $target === '_blank', $spaMode) }}
+        {{ \Filament\Support\generate_href_html($href, $target === '_blank') }}
     @endif
     @if ($hasAlpineActiveClasses)
         x-bind:class="{
@@ -107,12 +105,7 @@
     @endif
 
     @if (filled($badge))
-        <x-filament::badge
-            :color="$badgeColor"
-            size="sm"
-            :tooltip="$badgeTooltip"
-            class="w-max"
-        >
+        <x-filament::badge :color="$badgeColor" size="sm" class="w-max">
             {{ $badge }}
         </x-filament::badge>
     @endif

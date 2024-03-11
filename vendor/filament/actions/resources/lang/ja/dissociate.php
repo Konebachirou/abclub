@@ -4,16 +4,16 @@ return [
 
     'single' => [
 
-        'label' => '関連付け解除',
+        'label' => '解除',
 
         'modal' => [
 
-            'heading' => ':labelの関連付け解除',
+            'heading' => ':labelの解除',
 
             'actions' => [
 
                 'dissociate' => [
-                    'label' => '関連付け解除',
+                    'label' => '解除',
                 ],
 
             ],
@@ -23,7 +23,7 @@ return [
         'notifications' => [
 
             'dissociated' => [
-                'title' => '関連付け解除しました',
+                'title' => '解除しました',
             ],
 
         ],
@@ -32,16 +32,16 @@ return [
 
     'multiple' => [
 
-        'label' => '選択中を関連付け解除',
+        'label' => '選択中を解除',
 
         'modal' => [
 
-            'heading' => '選択中の:labelを関連付け解除',
+            'heading' => '選択中の:labelを解除',
 
             'actions' => [
 
                 'dissociate' => [
-                    'label' => '関連付け解除',
+                    'label' => '解除',
                 ],
 
             ],
@@ -51,7 +51,7 @@ return [
         'notifications' => [
 
             'dissociated' => [
-                'title' => '関連付け解除しました',
+                'title' => '解除しました',
             ],
 
         ],

@@ -15,7 +15,6 @@ return [
             'options' => [
                 'all' => 'Összes',
             ],
-
         ],
 
     ],

@@ -2,29 +2,29 @@
 
 return [
 
-    'title' => 'Redefinir a sua palavra-passe',
+    'title' => 'Redefinir a sua senha',
 
-    'heading' => 'Redefinir a sua palavra-passe',
+    'heading' => 'Redefinir a sua senha',
 
     'form' => [
 
         'email' => [
-            'label' => 'Endereço de e-mail',
+            'label' => 'E-mail',
         ],
 
         'password' => [
-            'label' => 'Palavra-passe',
-            'validation_attribute' => 'palavra-passe',
+            'label' => 'Senha',
+            'validation_attribute' => 'senha',
         ],
 
         'password_confirmation' => [
-            'label' => 'Confirmar palavra-passe',
+            'label' => 'Confirmar senha',
         ],
 
         'actions' => [
 
             'reset' => [
-                'label' => 'Redefinir palavra-passe',
+                'label' => 'Redefinir senha',
             ],
 
         ],

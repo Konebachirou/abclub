@@ -72,10 +72,9 @@
                     @class([
                         'fi-wi-stats-overview-stat-description text-sm',
                         match ($descriptionColor) {
-                            'gray' => 'text-gray-500 dark:text-gray-400',
+                            'gray' => 'fi-color-gray text-gray-500 dark:text-gray-400',
                             default => 'fi-color-custom text-custom-600 dark:text-custom-400',
                         },
-                        is_string($descriptionColor) ? "fi-color-{$descriptionColor}" : null,
                     ])
                     @style([
                         \Filament\Support\get_color_css_variables(
@@ -117,10 +116,9 @@
                 @class([
                     'fi-wi-stats-overview-stat-chart absolute inset-x-0 bottom-0 overflow-hidden rounded-b-xl',
                     match ($chartColor) {
-                        'gray' => null,
+                        'gray' => 'fi-color-gray',
                         default => 'fi-color-custom',
                     },
-                    is_string($chartColor) ? "fi-color-{$chartColor}" : null,
                 ])
                 @style([
                     \Filament\Support\get_color_css_variables(

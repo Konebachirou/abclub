@@ -3,7 +3,7 @@
 ])
 
 @php
-    $openSidebarClasses = 'fi-sidebar-open w-[--sidebar-width] translate-x-0 shadow-xl ring-1 ring-gray-950/5 dark:ring-white/10 rtl:-translate-x-0';
+    $openSidebarClasses = 'fi-sidebar-open w-[--sidebar-width] translate-x-0 shadow-xl ring-1 ring-gray-950/5 rtl:-translate-x-0 dark:ring-white/10';
     $isRtl = __('filament-panels::layout.direction') === 'rtl';
 @endphp
 
@@ -33,13 +33,11 @@
             "
         @endif
     @endif
-    {{
-        $attributes->class([
-            'fi-sidebar fixed inset-y-0 start-0 z-30 flex flex-col h-screen content-start bg-white transition-all dark:bg-gray-900 lg:z-0 lg:bg-transparent lg:shadow-none lg:ring-0 lg:transition-none dark:lg:bg-transparent',
-            'lg:translate-x-0 rtl:lg:-translate-x-0' => ! (filament()->isSidebarCollapsibleOnDesktop() || filament()->isSidebarFullyCollapsibleOnDesktop() || filament()->hasTopNavigation()),
-            'lg:-translate-x-full rtl:lg:translate-x-full' => filament()->hasTopNavigation(),
-        ])
-    }}
+    @class([
+        'fi-sidebar fixed inset-y-0 start-0 z-30 grid h-screen content-start bg-white transition-all dark:bg-gray-900 lg:z-0 lg:bg-transparent lg:shadow-none lg:ring-0 lg:transition-none dark:lg:bg-transparent',
+        'lg:translate-x-0 rtl:lg:-translate-x-0' => ! (filament()->isSidebarCollapsibleOnDesktop() || filament()->isSidebarFullyCollapsibleOnDesktop() || filament()->hasTopNavigation()),
+        'lg:-translate-x-full rtl:lg:translate-x-full' => filament()->hasTopNavigation(),
+    ])
 >
     <div class="overflow-x-clip">
         <header
@@ -61,7 +59,7 @@
                     <x-filament-panels::logo />
                 @endif
             </div>
-
+    
             @if (filament()->isSidebarCollapsibleOnDesktop())
                 <x-filament::icon-button
                     color="gray"
@@ -74,10 +72,9 @@
                     x-data="{}"
                     x-on:click="$store.sidebar.open()"
                     x-show="! $store.sidebar.isOpen"
-                    class="mx-auto"
                 />
             @endif
-
+    
             @if (filament()->isSidebarCollapsibleOnDesktop() || filament()->isSidebarFullyCollapsibleOnDesktop())
                 <x-filament::icon-button
                     color="gray"
@@ -97,15 +94,14 @@
     </div>
 
     <nav
-        class="fi-sidebar-nav flex-grow flex flex-col gap-y-7 overflow-y-auto overflow-x-hidden px-6 py-8"
+        class="fi-sidebar-nav flex flex-col gap-y-7 overflow-y-auto overflow-x-hidden px-6 py-8"
         style="scrollbar-gutter: stable"
     >
-        {{ \Filament\Support\Facades\FilamentView::renderHook(\Filament\View\PanelsRenderHook::SIDEBAR_NAV_START) }}
+        {{ \Filament\Support\Facades\FilamentView::renderHook('panels::sidebar.nav.start') }}
 
-        @if (filament()->hasTenancy() && filament()->hasTenantMenu())
+        @if (filament()->hasTenancy())
             <div
                 @class([
-                    'fi-sidebar-nav-tenant-menu-ctn',
                     '-mx-2' => ! filament()->isSidebarCollapsibleOnDesktop(),
                 ])
                 @if (filament()->isSidebarCollapsibleOnDesktop())
@@ -116,63 +112,63 @@
             </div>
         @endif
 
-        <ul class="fi-sidebar-nav-groups -mx-2 flex flex-col gap-y-7">
-            @foreach ($navigation as $group)
-                <x-filament-panels::sidebar.group
-                    :active="$group->isActive()"
-                    :collapsible="$group->isCollapsible()"
-                    :icon="$group->getIcon()"
-                    :items="$group->getItems()"
-                    :label="$group->getLabel()"
-                    :attributes="\Filament\Support\prepare_inherited_attributes($group->getExtraSidebarAttributeBag())"
-                />
-            @endforeach
-        </ul>
+        @if (filament()->hasNavigation())
+            <ul class="-mx-2 flex flex-col gap-y-7">
+                @foreach ($navigation as $group)
+                    <x-filament-panels::sidebar.group
+                        :collapsible="$group->isCollapsible()"
+                        :icon="$group->getIcon()"
+                        :items="$group->getItems()"
+                        :label="$group->getLabel()"
+                    />
+                @endforeach
+            </ul>
 
-        <script>
-            var collapsedGroups = JSON.parse(
-                localStorage.getItem('collapsedGroups'),
-            )
-
-            if (collapsedGroups === null || collapsedGroups === 'null') {
-                localStorage.setItem(
-                    'collapsedGroups',
-                    JSON.stringify(@js(
-                        collect($navigation)
-                            ->filter(fn (\Filament\Navigation\NavigationGroup $group): bool => $group->isCollapsed())
-                            ->map(fn (\Filament\Navigation\NavigationGroup $group): string => $group->getLabel())
-                            ->values()
-                    )),
+            <script>
+                var collapsedGroups = JSON.parse(
+                    localStorage.getItem('collapsedGroups'),
                 )
-            }
 
-            collapsedGroups = JSON.parse(
-                localStorage.getItem('collapsedGroups'),
-            )
+                if (collapsedGroups === null || collapsedGroups === 'null') {
+                    localStorage.setItem(
+                        'collapsedGroups',
+                        JSON.stringify(@js(
+                            collect($navigation)
+                                ->filter(fn (\Filament\Navigation\NavigationGroup $group): bool => $group->isCollapsed())
+                                ->map(fn (\Filament\Navigation\NavigationGroup $group): string => $group->getLabel())
+                                ->values()
+                        )),
+                    )
+                }
 
-            document
-                .querySelectorAll('.fi-sidebar-group')
-                .forEach((group) => {
-                    if (
-                        !collapsedGroups.includes(group.dataset.groupLabel)
-                    ) {
-                        return
-                    }
+                collapsedGroups = JSON.parse(
+                    localStorage.getItem('collapsedGroups'),
+                )
 
-                    // Alpine.js loads too slow, so attempt to hide a
-                    // collapsed sidebar group earlier.
-                    group.querySelector(
-                        '.fi-sidebar-group-items',
-                    ).style.display = 'none'
-                    group
-                        .querySelector('.fi-sidebar-group-collapse-button')
-                        .classList.add('rotate-180')
-                })
-        </script>
+                document
+                    .querySelectorAll('.fi-sidebar-group')
+                    .forEach((group) => {
+                        if (
+                            !collapsedGroups.includes(group.dataset.groupLabel)
+                        ) {
+                            return
+                        }
 
-        {{ \Filament\Support\Facades\FilamentView::renderHook(\Filament\View\PanelsRenderHook::SIDEBAR_NAV_END) }}
+                        // Alpine.js loads too slow, so attempt to hide a
+                        // collapsed sidebar group earlier.
+                        group.querySelector(
+                            '.fi-sidebar-group-items',
+                        ).style.display = 'none'
+                        group
+                            .querySelector('.fi-sidebar-group-collapse-button')
+                            .classList.add('rotate-180')
+                    })
+            </script>
+        @endif
+
+        {{ \Filament\Support\Facades\FilamentView::renderHook('panels::sidebar.nav.end') }}
     </nav>
 
-    {{ \Filament\Support\Facades\FilamentView::renderHook(\Filament\View\PanelsRenderHook::SIDEBAR_FOOTER) }}
+    {{ \Filament\Support\Facades\FilamentView::renderHook('panels::sidebar.footer') }}
 </aside>
 {{-- format-ignore-end --}}

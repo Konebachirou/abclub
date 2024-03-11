@@ -17,7 +17,6 @@
     'label' => null,
     'loadingIndicator' => true,
     'size' => ActionSize::Medium,
-    'spaMode' => null,
     'tag' => 'button',
     'target' => null,
     'tooltip' => null,
@@ -26,7 +25,7 @@
 
 @php
     if (! $size instanceof ActionSize) {
-        $size = filled($size) ? (ActionSize::tryFrom($size) ?? $size) : null;
+        $size = ActionSize::tryFrom($size) ?? $size;
     }
 
     $iconSize ??= match ($size) {
@@ -37,7 +36,7 @@
     };
 
     if (! $iconSize instanceof IconSize) {
-        $iconSize = filled($iconSize) ? (IconSize::tryFrom($iconSize) ?? $iconSize) : null;
+        $iconSize = IconSize::tryFrom($iconSize) ?? $iconSize;
     }
 
     $buttonClasses = \Illuminate\Support\Arr::toCssClasses([
@@ -85,10 +84,9 @@
             ],
         },
         match ($color) {
-            'gray' => 'text-gray-400 hover:text-gray-500 focus-visible:ring-primary-600 dark:text-gray-500 dark:hover:text-gray-400 dark:focus-visible:ring-primary-500',
+            'gray' => 'fi-color-gray text-gray-400 hover:text-gray-500 focus-visible:ring-primary-600 dark:text-gray-500 dark:hover:text-gray-400 dark:focus-visible:ring-primary-500',
             default => 'fi-color-custom text-custom-500 hover:text-custom-600 focus-visible:ring-custom-600 dark:text-custom-400 dark:hover:text-custom-300 dark:focus-visible:ring-custom-500',
         },
-        is_string($color) ? "fi-color-{$color}" : null,
     ]);
 
     $buttonStyles = \Filament\Support\get_color_css_variables(
@@ -107,7 +105,7 @@
         },
     ]);
 
-    $badgeContainerClasses = 'fi-icon-btn-badge-ctn absolute start-full top-0 z-[1] -ms-1 w-max -translate-x-1/2 rounded-md bg-white dark:bg-gray-900 rtl:translate-x-1/2';
+    $badgeContainerClasses = 'fi-icon-btn-badge-ctn absolute start-full top-0 z-[1] -ms-1 w-max -translate-x-1/2 rounded-md bg-white rtl:translate-x-1/2 dark:bg-gray-900';
 
     $wireTarget = $loadingIndicator ? $attributes->whereStartsWith(['wire:target', 'wire:click'])->filter(fn ($value): bool => filled($value))->first() : null;
 
@@ -189,7 +187,7 @@
     </button>
 @elseif ($tag === 'a')
     <a
-        {{ \Filament\Support\generate_href_html($href, $target === '_blank', $spaMode) }}
+        {{ \Filament\Support\generate_href_html($href, $target === '_blank') }}
         @if ($keyBindings || $hasTooltip)
             x-data="{}"
         @endif

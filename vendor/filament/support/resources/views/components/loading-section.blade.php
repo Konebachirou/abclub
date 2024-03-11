@@ -25,7 +25,6 @@
     :lgStart="$columnStart['lg'] ?? null"
     :xlStart="$columnStart['xl'] ?? null"
     :twoXlStart="$columnStart['2xl'] ?? null"
-    class="fi-loading-section"
 >
     <x-filament::section class="h-32 animate-pulse" />
 </x-filament::grid.column>

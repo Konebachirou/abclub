@@ -2,49 +2,43 @@
 
 namespace Filament\Support\Enums;
 
-enum MaxWidth: string
+enum MaxWidth
 {
-    case ExtraSmall = 'xs';
+    case ExtraSmall;
 
-    case Small = 'sm';
+    case Small;
 
-    case Medium = 'md';
+    case Medium;
 
-    case Large = 'lg';
+    case Large;
 
-    case ExtraLarge = 'xl';
+    case ExtraLarge;
 
-    case TwoExtraLarge = '2xl';
+    case TwoExtraLarge;
 
-    case ThreeExtraLarge = '3xl';
+    case ThreeExtraLarge;
 
-    case FourExtraLarge = '4xl';
+    case FourExtraLarge;
 
-    case FiveExtraLarge = '5xl';
+    case FiveExtraLarge;
 
-    case SixExtraLarge = '6xl';
+    case SixExtraLarge;
 
-    case SevenExtraLarge = '7xl';
+    case SevenExtraLarge;
 
-    case Full = 'full';
+    case Prose;
 
-    case MinContent = 'min';
+    case Screen;
 
-    case MaxContent = 'max';
+    case ScreenSmall;
 
-    case FitContent = 'fit';
+    case ScreenMedium;
 
-    case Prose = 'prose';
+    case ScreenLarge;
 
-    case ScreenSmall = 'screen-sm';
+    case ScreenExtraLarge;
 
-    case ScreenMedium = 'screen-md';
+    case ScreenTwoExtraLarge;
 
-    case ScreenLarge = 'screen-lg';
-
-    case ScreenExtraLarge = 'screen-xl';
-
-    case ScreenTwoExtraLarge = 'screen-2xl';
-
-    case Screen = 'screen';
+    case Full;
 }

@@ -1,5 +1,5 @@
 @props([
-    'livewire' => null,
+    'livewire',
 ])
 
 <!DOCTYPE html>
@@ -12,7 +12,7 @@
     ])
 >
     <head>
-        {{ \Filament\Support\Facades\FilamentView::renderHook(\Filament\View\PanelsRenderHook::HEAD_START, scopes: $livewire->getRenderHookScopes()) }}
+        {{ \Filament\Support\Facades\FilamentView::renderHook('panels::head.start') }}
 
         <meta charset="utf-8" />
         <meta name="csrf-token" content="{{ csrf_token() }}" />
@@ -23,11 +23,11 @@
         @endif
 
         <title>
-            {{ filled($title = strip_tags(($livewire ?? null)?->getTitle() ?? '')) ? "{$title} - " : null }}
-            {{ strip_tags(filament()->getBrandName()) }}
+            {{ filled($title = strip_tags($livewire->getTitle())) ? "{$title} - " : null }}
+            {{ filament()->getBrandName() }}
         </title>
 
-        {{ \Filament\Support\Facades\FilamentView::renderHook(\Filament\View\PanelsRenderHook::STYLES_BEFORE, scopes: $livewire->getRenderHookScopes()) }}
+        {{ \Filament\Support\Facades\FilamentView::renderHook('panels::styles.before') }}
 
         <style>
             [x-cloak=''],
@@ -56,16 +56,15 @@
 
         <style>
             :root {
-                --font-family: '{!! filament()->getFontFamily() !!}';
+                --font-family: {!! filament()->getFontFamily() !!};
                 --sidebar-width: {{ filament()->getSidebarWidth() }};
                 --collapsed-sidebar-width: {{ filament()->getCollapsedSidebarWidth() }};
-                --default-theme-mode: {{ filament()->getDefaultThemeMode()->value }};
             }
         </style>
 
         @stack('styles')
 
-        {{ \Filament\Support\Facades\FilamentView::renderHook(\Filament\View\PanelsRenderHook::STYLES_AFTER, scopes: $livewire->getRenderHookScopes()) }}
+        {{ \Filament\Support\Facades\FilamentView::renderHook('panels::styles.after') }}
 
         @if (! filament()->hasDarkMode())
             <script>
@@ -77,7 +76,7 @@
             </script>
         @else
             <script>
-                const theme = localStorage.getItem('theme') ?? @js(filament()->getDefaultThemeMode()->value)
+                const theme = localStorage.getItem('theme') ?? 'system'
 
                 if (
                     theme === 'dark' ||
@@ -90,25 +89,19 @@
             </script>
         @endif
 
-        {{ \Filament\Support\Facades\FilamentView::renderHook(\Filament\View\PanelsRenderHook::HEAD_END, scopes: $livewire->getRenderHookScopes()) }}
+        {{ \Filament\Support\Facades\FilamentView::renderHook('panels::head.end') }}
     </head>
 
     <body
-        {{ $attributes
-                ->merge(($livewire ?? null)?->getExtraBodyAttributes() ?? [], escape: false)
-                ->class([
-                    'fi-body',
-                    'fi-panel-' . filament()->getId(),
-                    'min-h-screen bg-gray-50 font-normal text-gray-950 antialiased dark:bg-gray-950 dark:text-white',
-                ]) }}
+        class="fi-body min-h-screen bg-gray-50 font-normal text-gray-950 antialiased dark:bg-gray-950 dark:text-white"
     >
-        {{ \Filament\Support\Facades\FilamentView::renderHook(\Filament\View\PanelsRenderHook::BODY_START, scopes: $livewire->getRenderHookScopes()) }}
+        {{ \Filament\Support\Facades\FilamentView::renderHook('panels::body.start') }}
 
         {{ $slot }}
 
         @livewire(Filament\Livewire\Notifications::class)
 
-        {{ \Filament\Support\Facades\FilamentView::renderHook(\Filament\View\PanelsRenderHook::SCRIPTS_BEFORE, scopes: $livewire->getRenderHookScopes()) }}
+        {{ \Filament\Support\Facades\FilamentView::renderHook('panels::scripts.before') }}
 
         @filamentScripts(withCore: true)
 
@@ -122,8 +115,8 @@
 
         @stack('scripts')
 
-        {{ \Filament\Support\Facades\FilamentView::renderHook(\Filament\View\PanelsRenderHook::SCRIPTS_AFTER, scopes: $livewire->getRenderHookScopes()) }}
+        {{ \Filament\Support\Facades\FilamentView::renderHook('panels::scripts.after') }}
 
-        {{ \Filament\Support\Facades\FilamentView::renderHook(\Filament\View\PanelsRenderHook::BODY_END, scopes: $livewire->getRenderHookScopes()) }}
+        {{ \Filament\Support\Facades\FilamentView::renderHook('panels::body.end') }}
     </body>
 </html>

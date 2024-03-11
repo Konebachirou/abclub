@@ -1,5 +1,4 @@
 @php
-    $isDisabled = $isDisabled();
     $state = $getState();
 @endphp
 
@@ -27,71 +26,50 @@
             $onColor = $getOnColor() ?? 'primary';
         @endphp
 
-        <div
+        <button
             role="switch"
             aria-checked="false"
             x-bind:aria-checked="state.toString()"
-            @if (! $isDisabled)
-                x-on:click.stop="
-                    if (isLoading) {
-                        return
-                    }
+            x-on:click="
+                if (isLoading) {
+                    return
+                }
 
-                    const updatedState = ! state
+                state = ! state
 
-                    // Only update the state if the toggle is being turned off,
-                    // otherwise it will flicker on twice when Livewire replaces
-                    // the element.
-                    if (state) {
-                        state = false
-                    }
+                isLoading = true
 
-                    isLoading = true
+                const response = await $wire.updateTableColumnState(@js($getName()), @js($recordKey), state)
 
-                    const response = await $wire.updateTableColumnState(
-                        @js($getName()),
-                        @js($recordKey),
-                        updatedState,
-                    )
+                error = response?.error ?? undefined
 
-                    error = response?.error ?? undefined
+                if (error) {
+                    state = ! state
+                }
 
-                    // The state is only updated on the frontend if the toggle is
-                    // being turned off, so we only need to reset it then.
-                    if (! state && error) {
-                        state = ! state
-                    }
-
-                    isLoading = false
-                "
-                x-tooltip="
-                    error === undefined
-                        ? false
-                        : {
-                              content: error,
-                              theme: $store.theme,
-                          }
-                "
-            @endif
+                isLoading = false
+            "
+            x-tooltip="
+                error === undefined
+                    ? false
+                    : {
+                          content: error,
+                          theme: $store.theme,
+                      }
+            "
             x-bind:class="
                 (state
                     ? '{{
-                        \Illuminate\Support\Arr::toCssClasses([
-                            match ($onColor) {
-                                'gray' => 'bg-gray-200 dark:bg-gray-700',
-                                default => 'fi-color-custom bg-custom-600',
-                            },
-                            is_string($onColor) ? "fi-color-{$onColor}" : null,
-                        ])
+                        match ($onColor) {
+                            'gray' => 'fi-color-gray bg-gray-200 dark:bg-gray-700',
+                            default => 'fi-color-custom bg-custom-600',
+                        }
                     }}'
                     : '{{
-                        \Illuminate\Support\Arr::toCssClasses([
-                            match ($offColor) {
-                                'gray' => 'bg-gray-200 dark:bg-gray-700',
-                                default => 'fi-color-custom bg-custom-600',
-                            },
-                            is_string($offColor) ? "fi-color-{$offColor}" : null,
-                        ])
+                        match ($offColor) {
+                            'gray' => 'fi-color-gray bg-gray-200 dark:bg-gray-700',
+                            default => 'fi-color-custom bg-custom-600',
+                        }
                     }}') +
                     (isLoading ? ' opacity-70 pointer-events-none' : '')
             "
@@ -112,10 +90,9 @@
                         )
                     }}'
             "
-            @class([
-                'relative inline-flex h-6 w-11 shrink-0 cursor-pointer rounded-full border-2 border-transparent outline-none transition-colors duration-200 ease-in-out',
-                'pointer-events-none opacity-70' => $isDisabled,
-            ])
+            @disabled($isDisabled())
+            type="button"
+            class="relative inline-flex h-6 w-11 shrink-0 cursor-pointer rounded-full border-2 border-transparent outline-none transition-colors duration-200 ease-in-out disabled:pointer-events-none disabled:opacity-70"
         >
             <span
                 class="pointer-events-none relative inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out"
@@ -169,6 +146,6 @@
                     @endif
                 </span>
             </span>
-        </div>
+        </button>
     </div>
 </div>
