@@ -2,7 +2,6 @@
 
 namespace Database\Factories;
 
-use App\Models\Event;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -23,7 +22,6 @@ class ConferencierFactory extends Factory
             'photo' => fake()->imageUrl(),
             'job' => fake()->jobTitle(),
             'description' => fake()->paragraph(),
-            'event_id' => Event::all()->random()->id
         ];
     }
 }

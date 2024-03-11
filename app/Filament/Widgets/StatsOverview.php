@@ -44,12 +44,12 @@ class StatsOverview extends BaseWidget
                 ->descriptionIcon('heroicon-m-arrow-trending-up')
                 ->color('primary')
                 ->chart([10, 8, 9, 10, 11, 12, 10, 8, 9, 10, 11, 12, 10, 8, 9, 10, 11, 12, 10, 8, 9, 10, 11, 12]),
-            Stat::make('Total Evenements', Event::where('is_event', true)->count())
+            Stat::make('Total Evenement', Event::all()->count())
                 ->description('Evenement')
                 ->descriptionIcon('heroicon-m-arrow-trending-up')
                 ->color('fuchsia')
                 ->chart([7, 3, 4, 5, 6, 3, 5, 4, 6, 7, 8, 9, 10, 11, 12, 9, 8, 7, 10, 11, 8, 6, 6, 4]),
-            Stat::make('Total Conferences et Ateliers', Event::where('is_event', false)->count())
+            Stat::make('Total Conferences et Ateliers', Event::where('pole_id', 2)->count())
                 ->description('Conferences et Ateliers')
                 ->descriptionIcon('heroicon-m-arrow-trending-up')
                 ->color('secondary')

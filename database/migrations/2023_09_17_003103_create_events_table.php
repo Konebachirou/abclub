@@ -26,6 +26,8 @@ return new class extends Migration
             $table->string('payment_link')->nullable();
             $table->foreignId('pole_id')->nullable()->constrained();
             $table->string('lieu');
+            $table->unsignedBigInteger('conferencier_id');
+            $table->foreign('conferencier_id')->references('id')->on('conferenciers')->onDelete('cascade');
 
 
             $table->timestamps();

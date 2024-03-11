@@ -11,7 +11,6 @@ class Ane extends Model
 
     protected $fillable = [
         'nom_projet_entreprise',
-        'Choisissez_option_liste',
         'nom_de_famille',
         'prenom',
         'date_naissance',

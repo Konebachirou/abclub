@@ -36,7 +36,7 @@ class EventChart extends ChartWidget
     {
         $eventsPerMonth = [];
         $months = collect(range(1, 12))->map(function ($month) use (&$eventsPerMonth) {
-            $count = Event::where('is_event', true)->whereRaw("MONTH(created_at) = ?", [$month])->count();
+            $count = Event::where('pole_id', '!=', 2)->whereRaw("MONTH(created_at) = ?", [$month])->count();
             $eventsPerMonth[] = $count;
             return Carbon::now()->month($month)->format('M');
         })->toArray();

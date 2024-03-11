@@ -98,7 +98,15 @@ class EventResource extends Resource
                                     ->label('avec paiement')
                                     ->required(),
                             ])->columns(2),
-
+                        Section::make('Selectionner un conferencier')
+                            ->description('Selectionner un conferencier. S\'il n\'y en a pas, veuillez en ajouter d\'abord')
+                            ->schema([
+                                Select::make('conferencier_id')
+                                    ->label('Conferencier')
+                                    ->placeholder('Choisir un conferencier')
+                                    ->required()
+                                    ->options(\App\Models\Conferencier::pluck('full_name', 'id')),
+                            ])->columns(1),
 
                         Section::make('Image de l\'evenement')
                             ->schema([
@@ -138,17 +146,15 @@ class EventResource extends Resource
                     ->sortable()
                     ->searchable()
                     ->label('Nombre de places'),
-                TextColumn::make('start_date')
-                    ->date()
-                    ->label('Date de debut')
-                    ->sortable()
-                    ->searchable(),
-                TextColumn::make('end_date')
-                    ->date()
-                    ->label('Date de fin')
-                    ->sortable()
-                    ->searchable(),
 
+                TextColumn::make('start_date')
+                    ->label('Periode')
+                    ->formatStateUsing(function (Event $record) {
+                        return $record->start_date  . $record->end_date;
+                    })
+                    ->searchable()
+                    ->sortable()
+                    ->dateTime('d/m/Y - d/m/Y'),
             ])
             ->filters([
                 //

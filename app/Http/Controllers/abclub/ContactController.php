@@ -36,8 +36,13 @@ class ContactController extends Controller
                 'g-recaptcha-response.captcha' => 'Echec lors de la validation du captcha',
             ]
         );
-        $contact_exept = $request->except('g-recaptcha-response');
-        $contact = Contact::create($contact_exept);
+        $contact = new Contact();
+        $contact->full_name = $request->input('full_name');
+        $contact->email = $request->input('email');
+        $contact->subject = $request->input('subject');
+        $contact->message = $request->input('message');
+        $contact->save();
+
         Mail::to($request->email)->send(new ContactNotification($contact));
         Mail::to('contact.site@abclub-paris.com')->send(new AdminContactNotification($contact));
         return redirect()->back()->with('success', 'Votre message a bien été envoyé');

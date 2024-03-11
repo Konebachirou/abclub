@@ -16,16 +16,17 @@ class Event extends Model
         'illustration',
         'description',
         'is_active',
-        'is_free',
+        'is_paid',
+        'is_event',
         'Number_of_place',
         'start_date',
-        'payment_link',
         'end_date',
-        'is_event',
         'start_times',
         'end_times',
+        'payment_link',
         'pole_id',
         'lieu',
+        'conferencier_id'
     ];
 
     public function pole()

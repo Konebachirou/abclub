@@ -35,7 +35,7 @@ class ConferenceChart extends ChartWidget
     {
         $conferencesPerMonth = [];
         $months = collect(range(1, 12))->map(function ($month) use (&$conferencesPerMonth) {
-            $count = Event::where('is_event', false)->whereRaw("MONTH(created_at) = ?", [$month])->count();
+            $count = Event::where('pole_id', 2)->whereRaw("MONTH(created_at) = ?", [$month])->count();
             $conferencesPerMonth[] = $count;
             return Carbon::now()->month($month)->format('M');
         })->toArray();

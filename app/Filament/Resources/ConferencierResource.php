@@ -48,11 +48,6 @@ class ConferencierResource extends Resource
                 Section::make("Conferencier")
                     ->description("Creation de la conferencier")
                     ->schema([
-                        Select::make('event_id')
-                            ->label('Evenement')
-                            ->placeholder('Choisir un evenement')
-                            ->required()
-                            ->options(\App\Models\Event::pluck('title', 'id')),
                         TextInput::make('full_name')
                             ->label('Nom et Prenom')
                             ->required(),
@@ -88,8 +83,6 @@ class ConferencierResource extends Resource
                     ->label('Date de création')
                     ->dateTime('d/m/Y')
                     ->sortable()
-                    ->searchable(),
-                ImageColumn::make('events.illustration')->label('Evenement')
                     ->searchable(),
                 TextColumn::make('full_name')
                     ->searchable()

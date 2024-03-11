@@ -69,6 +69,50 @@
         button:hover {
             background-color: #45a049;
         }
+
+        .section {
+            text-align: center;
+            margin: 20px;
+            background-color: #f4f4f4;
+            /* Add a background color */
+            padding: 20px;
+            /* Add padding for better spacing */
+            border-radius: 10px;
+            /* Add rounded corners */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            /* Add a subtle box shadow */
+        }
+
+
+
+        h3 {
+            font-size: 20px;
+            /* Set font size for subheadings */
+            color: #555;
+            /* Set subheading text color */
+            margin-bottom: 15px;
+        }
+
+        p {
+            font-size: 16px;
+            /* Set font size for paragraphs */
+            color: #777;
+            /* Set paragraph text color */
+            margin-bottom: 10px;
+        }
+
+        .section-center {
+            text-align: center;
+            margin: 20px;
+            background-color: #f4f4f4;
+            /* Add a background color */
+            padding: 20px;
+            /* Add padding for better spacing */
+            border-radius: 10px;
+            /* Add rounded corners */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            /* Add a subtle box shadow */
+        }
     </style>
 </head>
 
@@ -149,10 +193,6 @@
                     <td>{{ $record->etes_vous_associe }}</td>
                 </tr>
                 <tr>
-                    <th>Décrivez Votre Activité</th>
-                    <td>{{ $record->decrivez_votre_activite }}</td>
-                </tr>
-                <tr>
                     <th>Segment Clients</th>
                     <td>{{ $record->segment_clients }}</td>
                 </tr>
@@ -165,6 +205,9 @@
                     <td>{{ $record->canaux_distribution }}</td>
                 </tr>
             </table>
+            <br>
+            <h1>Décrivez Votre Activité</h1>
+            <p>{{ $record->decrivez_votre_activite }}</p>
         </div>
 
         <!-- Autres Sections - Repeat the structure for other sections using tables -->
@@ -212,31 +255,18 @@
 
         <!-- Section suivante ... -->
 
-        <div class="section">
+        <div class="section-center">
             <h1>Autres Informations</h1>
 
-            <table>
-                <tr>
-                    <th>Informations Financières</th>
-                    <td>{{ $record->info_fi }}</td>
-                </tr>
-                <tr>
-                    <th>Projet de Développement en Afrique</th>
-                    <td>{{ $record->projet_developpement_afrique }}</td>
-                </tr>
-                <tr>
-                    <th>Caractère Environnemental</th>
-                    <td>{{ $record->caractere_environnemental }}</td>
-                </tr>
-                <tr>
-                    <th>Caractère Innovant</th>
-                    <td>{{ $record->caractere_innovant }}</td>
-                </tr>
-                <tr>
-                    <th>Motivation pour le Concours</th>
-                    <td>{{ $record->motivation_concours }}</td>
-                </tr>
-            </table>
+
+            <h2>Informations Financières</h1>
+                <p>{{ $record->info_fi }}</p>
+                <h2>Projet de Développement en Afrique</h1>
+                    <p>{{ $record->projet_developpement_afrique }}</p>
+                    <h2>Caractère Environnemental</h1>
+                        <p>{{ $record->caractere_environnemental }}</p>
+                        <h2>Motivation pour le Concours</h1>
+                            <p>{{ $record->motivation_concours }}</p>
         </div>
 
         <!-- Section suivante ... -->
@@ -248,11 +278,6 @@
                 <tr>
                     <th>Site Internet</th>
                     <td>{{ $record->site_internet }}</td>
-                </tr>
-                <tr>
-                    <th>Lien vers la vidéo de présentation</th>
-                    <td><a href="{{ $record->lien_video_presentation }}"
-                            target="_blank">{{ $record->lien_video_presentation }}</a></td>
                 </tr>
             </table>
         </div>

@@ -13,16 +13,16 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // \App\Models\User::factory()->create([
-        //     'firstName' => 'Admin',
-        //     'lastName' => 'ABC',
-        //     'tel' => '0612345678',
-        //     'domaine' => 'Informatique',
-        //     'is_member' => true,
-        //     'is_admin' => true,
-        //     'email' => 'admin@abc.com',
-        //     'password' => bcrypt('password'),
-        // ]);
+        \App\Models\User::factory()->create([
+            'firstName' => 'Admin',
+            'lastName' => 'ABC',
+            'tel' => '0612345678',
+            'domaine' => 'Informatique',
+            'is_member' => true,
+            'is_admin' => true,
+            'email' => 'admin@abc.com',
+            'password' => bcrypt('password'),
+        ]);
         \App\Models\User::factory(15)->create();
         $this->call(FormerPresidentSeeder::class);
         $this->call(PoleSeeder::class);

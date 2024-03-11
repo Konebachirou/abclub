@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\Pole;
+use App\Models\Conferencier;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -18,20 +19,19 @@ class EventFactory extends Factory
     public function definition(): array
     {
         return [
-            'title' => fake()->word(),
-            'illustration' => fake()->imageUrl(),
+            'title' => fake()->sentence(),
             'description' => fake()->paragraph(),
-            'is_active' => fake()->boolean(),
-            'is_free' => fake()->boolean(),
-            'payment_link' => fake()->url(),
-            //'pole_id' => Pole::all()->random()->id,
-            'lieu' => fake()->city(),
+            'is_active' => true,
+            'is_paid' => false,
+            'Number_of_place' => fake()->numberBetween(100, 1000),
             'start_date' => fake()->date(),
             'end_date' => fake()->date(),
             'start_times' => fake()->time(),
             'end_times' => fake()->time(),
-            'is_event' => fake()->boolean(),
-            'Number_of_place' => fake()->numberBetween(1, 100),
+            'payment_link' => fake()->url(),
+            'lieu' => fake()->city(),
+            'conferencier_id' => Conferencier::all()->random()->id,
+            'pole_id' => Pole::all()->random()->id
         ];
     }
 }

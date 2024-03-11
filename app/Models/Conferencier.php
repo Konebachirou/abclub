@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Conferencier extends Model
 {
     use HasFactory;
-    protected $fillable = ['full_name', 'email', 'photo', 'job', 'description', 'event_id'];
+    protected $fillable = ['full_name', 'email', 'photo', 'job', 'description'];
 
     public function events(): BelongsTo
     {

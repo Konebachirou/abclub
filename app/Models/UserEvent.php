@@ -17,14 +17,14 @@ class UserEvent extends Model
     public function scopeNotEvents($query)
     {
         return $query->whereHas('event', function ($q) {
-            $q->where('is_event', false);
+            $q->where('pole_id', 2);
         });
     }
 
     public function scopeWithEvents($query)
     {
         return $query->whereHas('event', function ($q) {
-            $q->where('is_event', true);
+            $q->where('pole_id', '!=', 2);
         });
     }
 }

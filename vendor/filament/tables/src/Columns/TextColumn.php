@@ -3,6 +3,7 @@
 namespace Filament\Tables\Columns;
 
 use Closure;
+use Filament\Support\Concerns\HasLineClamp;
 use Filament\Tables\Columns\TextColumn\TextColumnSize;
 use Filament\Tables\Contracts\HasTable;
 use stdClass;
@@ -17,6 +18,7 @@ class TextColumn extends Column
     use Concerns\HasIcon;
     use Concerns\HasIconColor;
     use Concerns\HasWeight;
+    use HasLineClamp;
 
     /**
      * @var view-string
@@ -34,6 +36,8 @@ class TextColumn extends Column
     protected int | Closure | null $listLimit = null;
 
     protected TextColumnSize | string | Closure | null $size = null;
+
+    protected bool | Closure $isLimitedListExpandable = false;
 
     public function badge(bool | Closure $condition = true): static
     {
@@ -124,5 +128,17 @@ class TextColumn extends Column
     public function getListLimit(): ?int
     {
         return $this->evaluate($this->listLimit);
+    }
+
+    public function expandableLimitedList(bool | Closure $condition = true): static
+    {
+        $this->isLimitedListExpandable = $condition;
+
+        return $this;
+    }
+
+    public function isLimitedListExpandable(): bool
+    {
+        return (bool) $this->evaluate($this->isLimitedListExpandable);
     }
 }
