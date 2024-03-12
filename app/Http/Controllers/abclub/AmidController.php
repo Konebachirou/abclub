@@ -84,6 +84,7 @@ class AmidController extends Controller
     public function store(AneRequest $request)
     {
 
+        $ongletActif = 'amid';
         $ane = Ane::create($request->all());
 
         // Enregistrement du fichier (image ou vidéo)
@@ -96,7 +97,7 @@ class AmidController extends Controller
             $ane->update(['lien_video_presentation' => $nomFichier]);
         }
         // Générez le PDF et retournez la réponse avec téléchargement
-        return $this->generatePdfAndDownload($ane);
+        return view('users.business.form_sucess', ['ane' => $ane, 'ongletActif' => $ongletActif]);
     }
 
     protected function generatePdfAndDownload(Ane $ane)
@@ -106,5 +107,10 @@ class AmidController extends Controller
                 Blade::render('pdf', ['record' => $ane])
             )->stream();
         }, 'candidature.pdf');
+    }
+
+    public function ane_form_sucess(Ane $ane)
+    {
+        return $this->generatePdfAndDownload($ane);
     }
 }

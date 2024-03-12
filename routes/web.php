@@ -41,6 +41,7 @@ Route::controller(AuthentificationController::class)->group(function () {
 Route::get('/',  [HomeController::class, 'Home'])->name('home_link');
 Route::get('/postuler', [AmidController::class, 'postuler'])->name('postuler_link');
 Route::post('/postuler/store', [AmidController::class, 'store'])->name('postuler-store');
+Route::get('/candidature/{ane} ', [AmidController::class, 'ane_form_sucess'])->name('valide-candidature');
 
 Route::controller(NewsActionsController::class)->group(function () {
     Route::get('/news', 'indexNews')->name('news_link');
