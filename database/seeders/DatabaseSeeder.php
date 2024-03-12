@@ -21,7 +21,7 @@ class DatabaseSeeder extends Seeder
             'is_member' => true,
             'is_admin' => true,
             'email' => 'admin@abc.com',
-            'password' => bcrypt('password'),
+            'password' => bcrypt('ramadan2024@'),
         ]);
         \App\Models\User::factory(15)->create();
         $this->call(FormerPresidentSeeder::class);

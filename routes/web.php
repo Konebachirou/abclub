@@ -39,7 +39,7 @@ Route::controller(AuthentificationController::class)->group(function () {
 // Route::get('/register',[AppController::class,'Register'])->name('register_link');
 
 Route::get('/',  [HomeController::class, 'Home'])->name('home_link');
-Route::get('/postuler', [AmidController::class,'postuler'])->name('postuler_link');
+Route::get('/postuler', [AmidController::class, 'postuler'])->name('postuler_link');
 Route::post('/postuler/store', [AmidController::class, 'store'])->name('postuler-store');
 
 Route::controller(NewsActionsController::class)->group(function () {

@@ -349,3 +349,17 @@
         </div>
     </div>
 @stop
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Your form ID
+        const form = document.getElementById('billing-form');
+
+        // Add a submit event listener to the form
+        form.addEventListener('submit', function() {
+            // Reset the form fields after a short delay (adjust as needed)
+            setTimeout(function() {
+                form.reset();
+            }, 500);
+        });
+    });
+</script>

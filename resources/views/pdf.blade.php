@@ -119,7 +119,7 @@
 <body>
     <header>
         <img src="{{ asset('assets/images/logo/logo1.png') }}" alt="Association Logo">
-        <h2>African Business Club</h2>
+        <h3>African Business Club</h3>
         <p>L'African Mobility and Innovation Day, organisé par l'association African Business Club, est un événement
             annuel depuis 2015 dédié à l'entrepreneuriat et au recrutement des jeunes diplômés en Afrique. Il offre des
             conférences, des ateliers et des opportunités de réseautage pour promouvoir l'innovation, la mobilité et
@@ -259,13 +259,13 @@
             <h1>Autres Informations</h1>
 
 
-            <h2>Informations Financières</h1>
+            <h3>Informations Financières</h1>
                 <p>{{ $record->info_fi }}</p>
-                <h2>Projet de Développement en Afrique</h1>
+                <h3>Projet de Développement en Afrique</h1>
                     <p>{{ $record->projet_developpement_afrique }}</p>
-                    <h2>Caractère Environnemental</h1>
+                    <h3>Caractère Environnemental</h1>
                         <p>{{ $record->caractere_environnemental }}</p>
-                        <h2>Motivation pour le Concours</h1>
+                        <h3>Motivation pour le Concours</h1>
                             <p>{{ $record->motivation_concours }}</p>
         </div>
 
