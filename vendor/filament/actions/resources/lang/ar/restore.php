@@ -23,7 +23,7 @@ return [
         'notifications' => [
 
             'restored' => [
-                'title' => 'تمت الاستعادة',
+                'title' => 'تم استعادة السجل',
             ],
 
         ],
@@ -51,7 +51,7 @@ return [
         'notifications' => [
 
             'restored' => [
-                'title' => 'تمت الاستعادة',
+                'title' => 'تم استعادة السجلات',
             ],
 
         ],

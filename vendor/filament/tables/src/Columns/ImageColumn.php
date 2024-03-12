@@ -12,8 +12,6 @@ use Throwable;
 
 class ImageColumn extends Column
 {
-    use Concerns\CanWrap;
-
     /**
      * @var view-string
      */
@@ -277,7 +275,7 @@ class ImageColumn extends Column
         return $this->evaluate($this->overlap);
     }
 
-    public function ring(int | Closure | null $ring): static
+    public function ring(string | Closure | null $ring): static
     {
         $this->ring = $ring;
 

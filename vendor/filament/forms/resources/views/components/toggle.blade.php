@@ -1,14 +1,10 @@
-@php
-    $offColor = $getOffColor() ?? 'gray';
-    $onColor = $getOnColor() ?? 'primary';
-    $statePath = $getStatePath();
-@endphp
+<x-dynamic-component :component="$getFieldWrapperView()" :field="$field">
+    @php
+        $offColor = $getOffColor() ?? 'gray';
+        $onColor = $getOnColor() ?? 'primary';
+        $statePath = $getStatePath();
+    @endphp
 
-<x-dynamic-component
-    :component="$getFieldWrapperView()"
-    :field="$field"
-    :inline-label-vertical-alignment="\Filament\Support\Enums\VerticalAlignment::Center"
->
     @capture($content)
         <button
             x-data="{
@@ -19,22 +15,16 @@
             x-bind:class="
                 state
                     ? '{{
-                        \Illuminate\Support\Arr::toCssClasses([
-                            match ($onColor) {
-                                'gray' => 'bg-gray-200 dark:bg-gray-700',
-                                default => 'fi-color-custom bg-custom-600',
-                            },
-                            is_string($onColor) ? "fi-color-{$onColor}" : null,
-                        ])
+                        match ($onColor) {
+                            'gray' => 'fi-color-gray bg-gray-200 dark:bg-gray-700',
+                            default => 'fi-color-custom bg-custom-600',
+                        }
                     }}'
                     : '{{
-                        \Illuminate\Support\Arr::toCssClasses([
-                            match ($offColor) {
-                                'gray' => 'bg-gray-200 dark:bg-gray-700',
-                                default => 'fi-color-custom bg-custom-600',
-                            },
-                            is_string($offColor) ? "fi-color-{$offColor}" : null,
-                        ])
+                        match ($offColor) {
+                            'gray' => 'fi-color-gray bg-gray-200 dark:bg-gray-700',
+                            default => 'fi-color-custom bg-custom-600',
+                        }
                     }}'
             "
             x-bind:style="

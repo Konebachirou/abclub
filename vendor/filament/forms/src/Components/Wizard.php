@@ -7,7 +7,6 @@ use Filament\Forms\Components\Actions\Action;
 use Filament\Forms\Components\Wizard\Step;
 use Filament\Support\Concerns;
 use Filament\Support\Enums\IconPosition;
-use Filament\Support\Exceptions\Halt;
 use Illuminate\Contracts\Support\Htmlable;
 use Livewire\Component as LivewireComponent;
 
@@ -78,13 +77,9 @@ class Wizard extends Component
                                 ->getComponents()
                         )[$currentStepIndex];
 
-                        try {
-                            $currentStep->callBeforeValidation();
-                            $currentStep->getChildComponentContainer()->validate();
-                            $currentStep->callAfterValidation();
-                        } catch (Halt $exception) {
-                            return;
-                        }
+                        $currentStep->callBeforeValidation();
+                        $currentStep->getChildComponentContainer()->validate();
+                        $currentStep->callAfterValidation();
                     }
 
                     /** @var LivewireComponent $livewire */
@@ -101,7 +96,6 @@ class Wizard extends Component
             ->label(__('filament-forms::components.wizard.actions.next_step.label'))
             ->iconPosition(IconPosition::After)
             ->livewireClickHandlerEnabled(false)
-            ->livewireTarget('dispatchFormEvent')
             ->button();
 
         if ($this->modifyNextActionUsing) {

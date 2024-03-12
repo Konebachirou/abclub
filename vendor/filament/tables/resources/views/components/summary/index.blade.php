@@ -51,7 +51,7 @@
                     $alignment = $column->getAlignment() ?? Alignment::Start;
 
                     if (! $alignment instanceof Alignment) {
-                        $alignment = filled($alignment) ? (Alignment::tryFrom($alignment) ?? $alignment) : null;
+                        $alignment = Alignment::tryFrom($alignment) ?? $alignment;
                     }
 
                     $hasColumnHeaderLabel = (! $placeholderColumns) || $column->hasSummary();
@@ -69,7 +69,7 @@
                                     Alignment::End => 'text-end',
                                     Alignment::Left => 'text-left',
                                     Alignment::Right => 'text-right',
-                                    Alignment::Justify, Alignment::Between => 'text-justify',
+                                    Alignment::Justify => 'text-justify',
                                     default => $alignment,
                                 } => (! ($loop->first && (! $extraHeadingColumn))) && $hasColumnHeaderLabel,
                             ])

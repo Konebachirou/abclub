@@ -4,11 +4,11 @@ return [
 
     'single' => [
 
-        'label' => '作成',
+        'label' => '新規:label',
 
         'modal' => [
 
-            'heading' => ':label 作成',
+            'heading' => ':label作成',
 
             'actions' => [
 

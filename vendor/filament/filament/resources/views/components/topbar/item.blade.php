@@ -3,7 +3,6 @@
     'activeIcon' => null,
     'badge' => null,
     'badgeColor' => null,
-    'badgeTooltip' => null,
     'icon' => null,
     'shouldOpenUrlInNewTab' => false,
     'url' => null,
@@ -15,9 +14,8 @@
 
 <li
     @class([
-        'fi-topbar-item',
-        // @deprecated `fi-topbar-item-active` has been replaced by `fi-active`.
-        'fi-active fi-topbar-item-active' => $active,
+        'fi-topbar-item overflow-hidden',
+        'fi-topbar-item-active' => $active,
     ])
 >
     <{{ $tag }}
@@ -27,8 +25,9 @@
             type="button"
         @endif
         @class([
-            'fi-topbar-item-button flex items-center justify-center gap-x-2 rounded-lg px-3 py-2 outline-none transition duration-75 hover:bg-gray-50 focus-visible:bg-gray-50 dark:hover:bg-white/5 dark:focus-visible:bg-white/5',
-            'bg-gray-50 dark:bg-white/5' => $active,
+            'flex items-center justify-center gap-x-2 rounded-lg px-3 py-2 text-sm font-semibold outline-none transition duration-75 hover:bg-gray-50 focus-visible:bg-gray-50 dark:hover:bg-white/5 dark:focus-visible:bg-white/5',
+            'text-gray-700 dark:text-gray-200' => ! $active,
+            'bg-gray-50 text-primary-600 dark:bg-white/5 dark:text-primary-400' => $active,
         ])
     >
         @if ($icon || $activeIcon)
@@ -37,27 +36,17 @@
                 @class([
                     'fi-topbar-item-icon h-5 w-5',
                     'text-gray-400 dark:text-gray-500' => ! $active,
-                    'text-primary-600 dark:text-primary-400' => $active,
+                    'text-primary-500' => $active,
                 ])
             />
         @endif
 
-        <span
-            @class([
-                'fi-topbar-item-label text-sm font-medium',
-                'text-gray-700 dark:text-gray-200' => ! $active,
-                'text-primary-600 dark:text-primary-400' => $active,
-            ])
-        >
+        <span>
             {{ $slot }}
         </span>
 
         @if (filled($badge))
-            <x-filament::badge
-                :color="$badgeColor"
-                size="sm"
-                :tooltip="$badgeTooltip"
-            >
+            <x-filament::badge :color="$badgeColor" size="sm">
                 {{ $badge }}
             </x-filament::badge>
         @endif
@@ -69,7 +58,7 @@
                 @class([
                     'fi-topbar-group-toggle-icon h-5 w-5',
                     'text-gray-400 dark:text-gray-500' => ! $active,
-                    'text-primary-600 dark:text-primary-400' => $active,
+                    'text-primary-500' => $active,
                 ])
             />
         @endif

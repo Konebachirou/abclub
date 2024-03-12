@@ -11,13 +11,11 @@ use Filament\Support\Concerns\HasIconColor;
 use Illuminate\Contracts\Support\Htmlable;
 use Illuminate\Support\Str;
 
-class Section extends Component implements Contracts\HasFooterActions, Contracts\HasHeaderActions
+class Section extends Component
 {
     use Concerns\CanBeCollapsed;
     use Concerns\CanBeCompacted;
     use Concerns\EntanglesStateWithSingularRelationship;
-    use Concerns\HasFooterActions;
-    use Concerns\HasHeaderActions;
     use HasDescription;
     use HasExtraAlpineAttributes;
     use HasHeading;
@@ -89,11 +87,6 @@ class Section extends Component implements Contracts\HasFooterActions, Contracts
         }
 
         return $id;
-    }
-
-    public function getKey(): ?string
-    {
-        return parent::getKey() ?? ($this->getActions() ? $this->getId() : null);
     }
 
     public function isAside(): bool

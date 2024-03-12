@@ -15,7 +15,6 @@ abstract class MountableAction extends StaticAction implements HasLivewire
     use Concerns\CanOpenModal;
     use Concerns\CanRedirect;
     use Concerns\CanRequireConfirmation;
-    use Concerns\CanUseDatabaseTransactions;
     use Concerns\HasForm;
     use Concerns\HasInfolist;
     use Concerns\HasLifecycleHooks;
@@ -40,14 +39,14 @@ abstract class MountableAction extends StaticAction implements HasLivewire
         return $this->evaluate($this->getActionFunction(), $parameters);
     }
 
-    public function cancel(bool $shouldRollBackDatabaseTransaction = false): void
+    public function cancel(): void
     {
-        throw (new Cancel())->rollBackDatabaseTransaction($shouldRollBackDatabaseTransaction);
+        throw new Cancel();
     }
 
-    public function halt(bool $shouldRollBackDatabaseTransaction = false): void
+    public function halt(): void
     {
-        throw (new Halt())->rollBackDatabaseTransaction($shouldRollBackDatabaseTransaction);
+        throw new Halt();
     }
 
     /**

@@ -8,7 +8,7 @@ return [
 
         'modal' => [
 
-            'heading' => ':label 復旧',
+            'heading' => ':label復旧',
 
             'actions' => [
 

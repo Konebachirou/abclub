@@ -2,12 +2,8 @@
     use Filament\Support\Facades\FilamentView;
 
     $isDisabled = $isDisabled();
-    $isLive = $isLive();
-    $isLiveOnBlur = $isLiveOnBlur();
-    $isLiveDebounced = $isLiveDebounced();
     $isPrefixInline = $isPrefixInline();
     $isSuffixInline = $isSuffixInline();
-    $liveDebounce = $getLiveDebounce();
     $prefixActions = $getPrefixActions();
     $prefixIcon = $getPrefixIcon();
     $prefixLabel = $getPrefixLabel();
@@ -17,11 +13,7 @@
     $statePath = $getStatePath();
 @endphp
 
-<x-dynamic-component
-    :component="$getFieldWrapperView()"
-    :field="$field"
-    :inline-label-vertical-alignment="\Filament\Support\Enums\VerticalAlignment::Center"
->
+<x-dynamic-component :component="$getFieldWrapperView()" :field="$field">
     <x-filament::input.wrapper
         :disabled="$isDisabled"
         :inline-prefix="$isPrefixInline"
@@ -51,17 +43,14 @@
             x-data="colorPickerFormComponent({
                         isAutofocused: @js($isAutofocused()),
                         isDisabled: @js($isDisabled),
-                        isLive: @js($isLive),
-                        isLiveDebounced: @js($isLiveDebounced),
-                        isLiveOnBlur: @js($isLiveOnBlur),
-                        liveDebounce: @js($liveDebounce),
-                        state: $wire.$entangle('{{ $statePath }}'),
+                        isLiveOnPickerClose: @js($isLiveOnBlur() || $isLiveDebounced()),
+                        state: $wire.{{ $applyStateBindingModifiers("\$entangle('{$statePath}')") }},
                     })"
             x-on:keydown.esc="isOpen() && $event.stopPropagation()"
             {{ $getExtraAlpineAttributeBag()->class(['flex']) }}
         >
             <x-filament::input
-                x-on:focus="$refs.panel.open($refs.input)"
+                x-on:focus="togglePanelVisibility()"
                 x-on:keydown.enter.stop.prevent="togglePanelVisibility()"
                 x-ref="input"
                 :attributes="
@@ -75,22 +64,22 @@
                             'placeholder' => $getPlaceholder(),
                             'required' => $isRequired() && (! $isConcealed()),
                             'type' => 'text',
-                            'x-model' . ($isLiveDebounced ? '.debounce.' . $liveDebounce : null) => 'state',
-                            'x-on:blur' => $isLiveOnBlur ? 'isOpen() ? null : commitState()' : null,
+                            'x-model' . ($isLiveDebounced() ? '.debounce.' . $getLiveDebounce() : null) => 'state',
+                            'x-on:blur' => $isLiveOnBlur() ? '$wire.call(\'$refresh\')' : null,
                         ], escape: false)
                 "
             />
 
             <div
                 class="flex min-h-full items-center pe-3"
-                x-on:click="togglePanelVisibility()"
+                x-on:click="$refs.input.focus()"
             >
                 <div
-                    class="h-5 w-5 select-none rounded-full"
+                    x-bind:style="{ 'background-color': state }"
                     x-bind:class="{
                         'ring-1 ring-inset ring-gray-200 dark:ring-white/10': ! state,
                     }"
-                    x-bind:style="{ 'background-color': state }"
+                    class="h-5 w-5 rounded-full"
                 ></div>
             </div>
 

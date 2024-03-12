@@ -3,17 +3,12 @@
 namespace Filament\Tables\Table\Concerns;
 
 use Closure;
-use Filament\Support\Concerns\HasReorderAnimationDuration;
 use Filament\Support\Facades\FilamentIcon;
 use Filament\Tables\Actions\Action;
 
 trait CanReorderRecords
 {
-    use HasReorderAnimationDuration;
-
     protected bool | Closure $isReorderable = true;
-
-    protected bool | Closure $isReorderAuthorized = true;
 
     protected string | Closure | null $reorderColumn = null;
 
@@ -33,13 +28,6 @@ trait CanReorderRecords
         if ($condition !== null) {
             $this->isReorderable = $condition;
         }
-
-        return $this;
-    }
-
-    public function authorizeReorder(bool | Closure $condition = true): static
-    {
-        $this->isReorderAuthorized = $condition;
 
         return $this;
     }
@@ -71,16 +59,11 @@ trait CanReorderRecords
 
     public function isReorderable(): bool
     {
-        return filled($this->getReorderColumn()) && $this->evaluate($this->isReorderable) && $this->isReorderAuthorized();
+        return filled($this->getReorderColumn()) && $this->evaluate($this->isReorderable);
     }
 
     public function isReordering(): bool
     {
         return $this->getLivewire()->isTableReordering();
-    }
-
-    public function isReorderAuthorized(): bool
-    {
-        return (bool) $this->evaluate($this->isReorderAuthorized);
     }
 }

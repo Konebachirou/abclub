@@ -31,7 +31,7 @@ trait CanPaginateRecords
 
         /** @var LengthAwarePaginator $records */
         $records = $query->paginate(
-            $perPage === 'all' ? $query->toBase()->getCountForPagination() : $perPage,
+            $perPage === 'all' ? $query->count() : $perPage,
             ['*'],
             $this->getTablePaginationPageName(),
         );

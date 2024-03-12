@@ -20,36 +20,19 @@ trait HasRoutes
      */
     protected static string | array $withoutRouteMiddleware = [];
 
-    public static function registerRoutes(Panel $panel): void
-    {
-        static::routes($panel);
-    }
-
     public static function routes(Panel $panel): void
     {
-        Route::get(static::getRoutePath(), static::class)
+        $slug = static::getSlug();
+
+        Route::get("/{$slug}", static::class)
             ->middleware(static::getRouteMiddleware($panel))
             ->withoutMiddleware(static::getWithoutRouteMiddleware($panel))
-            ->name(static::getRelativeRouteName());
-    }
-
-    public static function getRoutePath(): string
-    {
-        return '/' . static::getSlug();
-    }
-
-    public static function getRelativeRouteName(): string
-    {
-        return (string) str(static::getSlug())->replace('/', '.');
+            ->name((string) str($slug)->replace('/', '.'));
     }
 
     public static function getSlug(): string
     {
-        if (filled(static::$slug)) {
-            return static::$slug;
-        }
-
-        return (string) str(class_basename(static::class))
+        return static::$slug ?? (string) str(class_basename(static::class))
             ->kebab()
             ->slug();
     }

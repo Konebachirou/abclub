@@ -26,11 +26,6 @@ export default function table() {
             })
         },
 
-        mountAction: function (name, record = null) {
-            this.$wire.set('selectedTableRecords', this.selectedRecords, false)
-            this.$wire.mountTableAction(name, record)
-        },
-
         mountBulkAction: function (name) {
             this.$wire.set('selectedTableRecords', this.selectedRecords, false)
             this.$wire.mountTableBulkAction(name)
@@ -69,9 +64,9 @@ export default function table() {
         getRecordsInGroupOnPage: function (group) {
             const keys = []
 
-            for (let checkbox of this.$root?.getElementsByClassName(
+            for (let checkbox of this.$root.getElementsByClassName(
                 'fi-ta-record-checkbox',
-            ) ?? []) {
+            )) {
                 if (checkbox.dataset.group !== group) {
                     continue
                 }
@@ -85,9 +80,9 @@ export default function table() {
         getRecordsOnPage: function () {
             const keys = []
 
-            for (let checkbox of this.$root?.getElementsByClassName(
+            for (let checkbox of this.$root.getElementsByClassName(
                 'fi-ta-record-checkbox',
-            ) ?? []) {
+            )) {
                 keys.push(checkbox.value)
             }
 

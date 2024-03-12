@@ -7,16 +7,13 @@ use Filament\Actions\ActionGroup;
 use Filament\Facades\Filament;
 use Filament\Forms\Form;
 use Filament\Notifications\Notification;
-use Filament\Pages\Concerns\CanUseDatabaseTransactions;
-use Filament\Pages\Concerns\HasUnsavedDataChangesAlert;
 use Filament\Pages\Concerns\InteractsWithFormActions;
 use Filament\Support\Exceptions\Halt;
 use Filament\Support\Facades\FilamentView;
 use Illuminate\Contracts\Support\Htmlable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasManyThrough;
-use Illuminate\Support\Js;
-use Throwable;
+use Illuminate\Support\Str;
 
 use function Filament\Support\is_app_url;
 
@@ -25,8 +22,6 @@ use function Filament\Support\is_app_url;
  */
 class CreateRecord extends Page
 {
-    use CanUseDatabaseTransactions;
-    use HasUnsavedDataChangesAlert;
     use InteractsWithFormActions;
 
     /**
@@ -61,10 +56,21 @@ class CreateRecord extends Page
 
     protected function authorizeAccess(): void
     {
+        static::authorizeResourceAccess();
+
         abort_unless(static::getResource()::canCreate(), 403);
     }
 
     protected function fillForm(): void
+    {
+        /** @internal Read the DocBlock above the following method. */
+        $this->fillFormWithDefaultsAndCallHooks();
+    }
+
+    /**
+     * @internal Never override or call this method. If you completely override `fillForm()`, copy the contents of this method into your override.
+     */
+    protected function fillFormWithDefaultsAndCallHooks(): void
     {
         $this->callHook('beforeFill');
 
@@ -78,8 +84,6 @@ class CreateRecord extends Page
         $this->authorizeAccess();
 
         try {
-            $this->beginDatabaseTransaction();
-
             $this->callHook('beforeValidate');
 
             $data = $this->form->getState();
@@ -88,32 +92,40 @@ class CreateRecord extends Page
 
             $data = $this->mutateFormDataBeforeCreate($data);
 
-            $this->callHook('beforeCreate');
-
-            $this->record = $this->handleRecordCreation($data);
-
-            $this->form->model($this->getRecord())->saveRelationships();
-
-            $this->callHook('afterCreate');
-
-            $this->commitDatabaseTransaction();
+            /** @internal Read the DocBlock above the following method. */
+            $this->createRecordAndCallHooks($data);
         } catch (Halt $exception) {
-            $exception->shouldRollbackDatabaseTransaction() ?
-                $this->rollBackDatabaseTransaction() :
-                $this->commitDatabaseTransaction();
-
             return;
-        } catch (Throwable $exception) {
-            $this->rollBackDatabaseTransaction();
-
-            throw $exception;
         }
 
-        $this->rememberData();
+        /** @internal Read the DocBlock above the following method. */
+        $this->sendCreatedNotificationAndRedirect(shouldCreateAnotherInsteadOfRedirecting: $another);
+    }
 
+    /**
+     * @internal Never override or call this method. If you completely override `create()`, copy the contents of this method into your override.
+     *
+     * @param  array<string, mixed>  $data
+     */
+    protected function createRecordAndCallHooks(array $data): void
+    {
+        $this->callHook('beforeCreate');
+
+        $this->record = $this->handleRecordCreation($data);
+
+        $this->form->model($this->getRecord())->saveRelationships();
+
+        $this->callHook('afterCreate');
+    }
+
+    /**
+     * @internal Never override or call this method. If you completely override `create()`, copy the contents of this method into your override.
+     */
+    protected function sendCreatedNotificationAndRedirect(bool $shouldCreateAnotherInsteadOfRedirecting = true): void
+    {
         $this->getCreatedNotification()?->send();
 
-        if ($another) {
+        if ($shouldCreateAnotherInsteadOfRedirecting) {
             // Ensure that the form record is anonymized so that relationships aren't loaded.
             $this->form->model($this->getRecord()::class);
             $this->record = null;
@@ -125,7 +137,11 @@ class CreateRecord extends Page
 
         $redirectUrl = $this->getRedirectUrl();
 
-        $this->redirect($redirectUrl, navigate: FilamentView::hasSpaMode() && is_app_url($redirectUrl));
+        if (FilamentView::hasSpaMode()) {
+            $this->redirect($redirectUrl, navigate: is_app_url($redirectUrl));
+        } else {
+            $this->redirect($redirectUrl);
+        }
     }
 
     protected function getCreatedNotification(): ?Notification
@@ -238,7 +254,7 @@ class CreateRecord extends Page
     {
         return Action::make('cancel')
             ->label(__('filament-panels::resources/pages/create-record.form.actions.cancel.label'))
-            ->alpineClickHandler('document.referrer ? window.history.back() : (window.location.href = ' . Js::from($this->previousUrl ?? static::getResource()::getUrl()) . ')')
+            ->url($this->previousUrl ?? static::getResource()::getUrl())
             ->color('gray');
     }
 
@@ -249,7 +265,7 @@ class CreateRecord extends Page
         }
 
         return __('filament-panels::resources/pages/create-record.title', [
-            'label' => static::getResource()::getTitleCaseModelLabel(),
+            'label' => Str::headline(static::getResource()::getModelLabel()),
         ]);
     }
 
@@ -298,7 +314,7 @@ class CreateRecord extends Page
         return [];
     }
 
-    protected function getMountedActionFormModel(): Model | string | null
+    protected function getMountedActionFormModel(): string
     {
         return $this->getModel();
     }

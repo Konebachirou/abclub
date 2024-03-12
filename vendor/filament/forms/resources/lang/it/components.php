@@ -181,16 +181,6 @@ return [
 
                 'no_fixed' => [
                     'label' => 'Libero',
-
-                ],
-
-            ],
-
-            'svg' => [
-
-                'messages' => [
-                    'confirmation' => 'La modifica dei file SVG non è consigliata in quanto può comportare una perdita di qualità durante il ridimensionamento.\n Sei sicuro di voler continuare?',
-                    'disabled' => 'La modifica dei file SVG è disabilitata in quanto può comportare una perdita di qualità durante il ridimensionamento.',
                 ],
 
             ],
@@ -251,25 +241,12 @@ return [
 
     ],
 
-    'radio' => [
-
-        'boolean' => [
-            'true' => 'Si',
-            'false' => 'No',
-        ],
-
-    ],
-
     'repeater' => [
 
         'actions' => [
 
             'add' => [
                 'label' => 'Aggiungi a :label',
-            ],
-
-            'add_between' => [
-                'label' => 'Inserisci tra',
             ],
 
             'delete' => [

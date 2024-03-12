@@ -176,7 +176,7 @@ class AssociateAction extends Action
     {
         $table = $this->getTable();
 
-        $getOptions = function (int $optionsLimit, ?string $search = null, ?array $searchColumns = []) use ($table): array {
+        $getOptions = function (?string $search = null, ?array $searchColumns = []) use ($table): array {
             /** @var HasMany | MorphMany $relationship */
             $relationship = Relation::noConstraints(fn () => $table->getRelationship());
 
@@ -186,10 +186,6 @@ class AssociateAction extends Action
                 $relationshipQuery = $this->evaluate($this->modifyRecordSelectOptionsQueryUsing, [
                     'query' => $relationshipQuery,
                 ]) ?? $relationshipQuery;
-            }
-
-            if (! isset($relationshipQuery->getQuery()->limit)) {
-                $relationshipQuery->limit($optionsLimit);
             }
 
             $titleAttribute = $this->getRecordTitleAttribute();
@@ -223,13 +219,8 @@ class AssociateAction extends Action
                 });
             }
 
-            $relationCountHash = $relationship->getRelationCountHash(incrementJoinCount: false);
-
             $relationshipQuery
-                ->whereDoesntHave($table->getInverseRelationship(), function (Builder $query) use (
-                    $relationCountHash,
-                    $relationship
-                ): Builder {
+                ->whereDoesntHave($table->getInverseRelationship(), function (Builder $query) use ($relationship): Builder {
                     if ($relationship instanceof MorphMany) {
                         return $query
                             ->where(
@@ -243,10 +234,7 @@ class AssociateAction extends Action
                     }
 
                     return $query->where(
-                        // https://github.com/filamentphp/filament/issues/8067
-                        $relationship->getParent()->getTable() === $relationship->getRelated()->getTable() ?
-                            "{$relationCountHash}.{$relationship->getParent()->getKeyName()}" :
-                            $relationship->getParent()->getQualifiedKeyName(),
+                        $relationship->getParent()->getQualifiedKeyName(),
                         $relationship->getParent()->getKey(),
                     );
                 });
@@ -275,20 +263,9 @@ class AssociateAction extends Action
             ->label(__('filament-actions::associate.single.modal.fields.record_id.label'))
             ->required()
             ->searchable($this->getRecordSelectSearchColumns() ?? true)
-            ->getSearchResultsUsing(static fn (Select $component, string $search): array => $getOptions(optionsLimit: $component->getOptionsLimit(), search: $search, searchColumns: $component->getSearchColumns()))
-            ->getOptionLabelUsing(function ($value) use ($table): string {
-                $relationship = Relation::noConstraints(fn () => $table->getRelationship());
-
-                return $this->getRecordTitle($relationship->getQuery()->find($value));
-            })
-            ->getOptionLabelsUsing(function (array $values) use ($table): array {
-                $relationship = Relation::noConstraints(fn () => $table->getRelationship());
-
-                return $relationship->getQuery()->find($values)
-                    ->mapWithKeys(fn (Model $record): array => [$record->getKey() => $this->getRecordTitle($record)])
-                    ->all();
-            })
-            ->options(fn (Select $component): array => $this->isRecordSelectPreloaded() ? $getOptions(optionsLimit: $component->getOptionsLimit()) : [])
+            ->getSearchResultsUsing(static fn (Select $component, string $search): array => $getOptions(search: $search, searchColumns: $component->getSearchColumns()))
+            ->getOptionLabelUsing(fn ($value): string => $this->getRecordTitle(Relation::noConstraints(fn () => $table->getRelationship())->getQuery()->find($value)))
+            ->options(fn (): array => $this->isRecordSelectPreloaded() ? $getOptions() : [])
             ->hiddenLabel();
 
         if ($this->modifyRecordSelectUsing) {
